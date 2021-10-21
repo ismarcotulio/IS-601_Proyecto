@@ -59,9 +59,21 @@
     <Folder Include="Test\" />
     <Folder Include="Test\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="LOGISTIC\" />
+    <Folder Include="LOGISTIC\Tables\" />
+    <Folder Include="HUMAN_R\" />
+    <Folder Include="HUMAN_R\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Test\Tables\TB_Test.sql" />
-    <Build Include="Security\Test.sql" />
+    <Build Include="LOGISTIC\Tables\MOVEMENT.sql" />
+    <Build Include="LOGISTIC\Tables\VEHICLE.sql" />
+    <Build Include="LOGISTIC\Tables\MODEL.sql" />
+    <Build Include="LOGISTIC\Tables\MANUFACTER.sql" />
+    <Build Include="LOGISTIC\Tables\TYPE_MOVEMENT.sql" />
+    <Build Include="LOGISTIC\Tables\BRAND.sql" />
+    <Build Include="LOGISTIC\Tables\COLOR.sql" />
+    <Build Include="HUMAN_R\Tables\BRANCH_OFFICES.sql" />
+    <Build Include="Security\LOGISTIC.sql" />
+    <Build Include="Security\HUMAN_R.sql" />
   </ItemGroup>
 </Project>
