@@ -75,5 +75,20 @@
     <Build Include="HUMAN_R\Tables\BRANCH_OFFICES.sql" />
     <Build Include="Security\LOGISTIC.sql" />
     <Build Include="Security\HUMAN_R.sql" />
+    <Build Include="HUMAN_R\Tables\TYPE_HOURS.sql" />
+    <Build Include="HUMAN_R\Tables\TELEPHONES.sql" />
+    <Build Include="HUMAN_R\Tables\SUBURN.sql" />
+    <Build Include="HUMAN_R\Tables\SALARY.sql" />
+    <Build Include="HUMAN_R\Tables\POSITION.sql" />
+    <Build Include="HUMAN_R\Tables\PERSON.sql" />
+    <Build Include="HUMAN_R\Tables\PAYMENT_MOVEMENT.sql" />
+    <Build Include="HUMAN_R\Tables\MOVEMENT.sql" />
+    <Build Include="HUMAN_R\Tables\LIST_ADDRESS.sql" />
+    <Build Include="HUMAN_R\Tables\EXTRA_HOURS.sql" />
+    <Build Include="HUMAN_R\Tables\EMPLOYEES.sql" />
+    <Build Include="HUMAN_R\Tables\DEPARTAMENT.sql" />
+    <Build Include="HUMAN_R\Tables\COUNTRY.sql" />
+    <Build Include="HUMAN_R\Tables\CONTRACTS.sql" />
+    <Build Include="HUMAN_R\Tables\CITIES.sql" />
   </ItemGroup>
 </Project>

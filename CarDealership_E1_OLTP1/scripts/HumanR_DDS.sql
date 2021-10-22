@@ -1,0 +1,126 @@
+CREATE DATABASE CarDealership;
+
+USE CarDealership;
+
+CREATE SCHEMA HUMAN_R;
+GO
+
+CREATE TABLE HUMAN_R.POSITION(
+  tin_position_id_PK TINYINT PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  mon_salary MONEY NOT NULL,
+);
+
+CREATE TABLE HUMAN_R.TYPE_HOURS(
+  tin_hourType_id_PK TINYINT PRIMARY KEY,
+  flo_porcent float NOT NULL,
+  var_name VARCHAR(60) NOT NULL,
+  CHECK (flo_porcent > 0)
+);
+
+CREATE TABLE HUMAN_R.MOVEMENT(
+  int_movement_id_PK INTEGER PRIMARY KEY,
+  tex_description TEXT NOT NULL,
+  tin_factor  TINYINT NOT NULL,
+  flo_porcent FLOAT NOT NULL,
+  CHECK (flo_porcent > 0),
+  CHECK (tin_factor=-1 OR tin_factor=1)
+);
+
+CREATE TABLE HUMAN_R.COUNTRY(
+  int_country_id_PK INTEGER PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  var_code VARCHAR(6) NOT NULL,
+);
+
+CREATE TABLE HUMAN_R.DEPARTAMENT(
+  big_departament_id_PK BIGINT PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
+);
+
+CREATE TABLE HUMAN_R.CITIES(
+  big_city_id_PK BIGINT PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  big_departament_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.DEPARTAMENT(big_departament_id_PK),
+);
+
+CREATE TABLE HUMAN_R.SUBURN(
+  big_suburn_id_PK BIGINT PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
+);
+
+CREATE TABLE HUMAN_R.LIST_ADDRESS(
+  big_address_id_PK BIGINT PRIMARY KEY,
+  tex_reference TEXT NOT NULL,
+  int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
+  big_departament_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.DEPARTAMENT(big_departament_id_PK),
+  big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
+  big_suburn_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.SUBURN(big_suburn_id_PK),
+);
+
+CREATE TABLE HUMAN_R.PERSON(
+  big_person_id_PK BIGINT PRIMARY KEY,
+  var_firstName VARCHAR(60) NOT NULL,
+  var_secondName VARCHAR(60) NOT NULL,
+  var_firstSurname VARCHAR(60) NOT NULL,
+  var_secondSurname VARCHAR(60) NOT NULL,
+  var_DNI VARCHAR(13) NOT NULL,
+  var_RTN_Personal VARCHAR(14) NOT NULL,
+  dat_dateOfBirth DATE,
+  big_address_id_FK BIGINT REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK),
+);
+
+CREATE TABLE HUMAN_R.SALARY(
+  int_salary_id_PK INTEGER PRIMARY KEY,
+  mon_netSalary MONEY NOT NULL,
+  mon_hourSalary MONEY NOT NULL,
+  tin_position_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.POSITION(tin_position_id_PK),
+  CHECK (mon_netSalary > 0)
+);
+
+CREATE TABLE HUMAN_R.PAYMENT_MOVEMENT(
+  bit_motionFactor BIT NOT NULL,
+  int_movement_id_PK_FK INTEGER NOT NULL REFERENCES HUMAN_R.MOVEMENT(int_movement_id_PK),
+  int_salary_id_PK_FK INTEGER NOT NULL REFERENCES HUMAN_R.SALARY(int_salary_id_PK),
+  PRIMARY KEY (int_movement_id_PK_FK,int_salary_id_PK_FK)
+);
+
+CREATE TABLE HUMAN_R.EXTRA_HOURS(
+  big_extra_id_PK BIGINT PRIMARY KEY,
+  dat_date DATE NOT NULL,
+  tin_amount TINYINT NOT NULL,
+  tin_hourType_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.TYPE_HOURS(tin_hourType_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
+  int_salary_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.SALARY(int_salary_id_PK),
+  CHECK (tin_amount > 0)
+);
+
+CREATE TABLE HUMAN_R.CONTRACTS(
+  int_contract_id_PK INTEGER PRIMARY KEY,
+  dat_hiringDate DATE NOT NULL,
+  bit_active BIT NOT NULL,
+  tin_position_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.POSITION(tin_position_id_PK),
+);
+
+CREATE TABLE HUMAN_R.BRANCH_OFFICES(
+  tin_id_branch_PK TINYINT PRIMARY KEY,
+  var_name VARCHAR(50) NOT NULL,
+  big_id_address_FK BIGINT NOT NULL REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK),
+);
+
+CREATE TABLE HUMAN_R.EMPLOYEES(
+  int_employee_id_PK INTEGER PRIMARY KEY,
+  ver_code VARCHAR(10) NOT NULL,
+  tin_branch_id_FK TINYINT REFERENCES HUMAN_R.BRANCH_OFFICES(tin_id_branch_PK),
+  big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
+  int_contract_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.CONTRACTS(int_contract_id_PK),
+  int_salary_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.SALARY(int_salary_id_PK),
+);
+
+CREATE TABLE HUMAN_R.TELEPHONES(
+	big_telephon_id_PK BIGINT PRIMARY KEY,
+	var_nomber VARCHAR(12) NOT NULL,
+	big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK),
+	int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
+);
