@@ -69,7 +69,6 @@
     <Build Include="LOGISTIC\Tables\MOVEMENT.sql" />
     <Build Include="LOGISTIC\Tables\VEHICLE.sql" />
     <Build Include="LOGISTIC\Tables\MODEL.sql" />
-    <Build Include="LOGISTIC\Tables\MANUFACTER.sql" />
     <Build Include="LOGISTIC\Tables\TYPE_MOVEMENT.sql" />
     <Build Include="LOGISTIC\Tables\BRAND.sql" />
     <Build Include="LOGISTIC\Tables\COLOR.sql" />
@@ -92,6 +91,7 @@
     <Build Include="HUMAN_R\Tables\CONTRACTS.sql" />
     <Build Include="HUMAN_R\Tables\CITIES.sql" />
     <Build Include="HUMAN_R\Tables\AREA.sql" />
+    <Build Include="LOGISTIC\Tables\MANUFACTURER_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\CarDealership_OLTP1.dacpac" />
