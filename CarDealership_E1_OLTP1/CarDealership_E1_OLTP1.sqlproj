@@ -91,6 +91,7 @@
     <Build Include="HUMAN_R\Tables\COUNTRY.sql" />
     <Build Include="HUMAN_R\Tables\CONTRACTS.sql" />
     <Build Include="HUMAN_R\Tables\CITIES.sql" />
+    <Build Include="HUMAN_R\Tables\AREA.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\CarDealership_OLTP1.dacpac" />
