@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [HUMAN_R].[EMPLOYEES] (
-    [int_employee_id_PK] INT          NOT NULL,
+    [int_employee_id_PK] INT          IDENTITY (1, 1) NOT NULL,
     [ver_code]           VARCHAR (10) NOT NULL,
     [tin_branch_id_FK]   TINYINT      NULL,
     [big_person_id_FK]   BIGINT       NOT NULL,
@@ -11,4 +11,6 @@
     FOREIGN KEY ([int_salary_id_FK]) REFERENCES [HUMAN_R].[SALARY] ([int_salary_id_PK]),
     FOREIGN KEY ([tin_branch_id_FK]) REFERENCES [HUMAN_R].[BRANCH_OFFICES] ([tin_id_branch_PK])
 );
+
+
 
