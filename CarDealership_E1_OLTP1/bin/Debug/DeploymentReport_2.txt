@@ -1,0 +1,86 @@
+﻿** Aspectos destacados
+     Tablas que se volverán a compilar
+       Ninguno
+     Índices clúster que se van a quitar
+       Ninguno
+     Índices clúster que se van a crear
+       Ninguno
+     Posibles incidencias de datos
+       Ninguno
+
+** Acciones del usuario
+     Crear
+       [HUMAN_R] (Esquema)
+       [LOGISTIC] (Esquema)
+       [HUMAN_R].[DEPARTAMENT] (Tabla)
+       [HUMAN_R].[EMPLOYEES] (Tabla)
+       [HUMAN_R].[EXTRA_HOURS] (Tabla)
+       [HUMAN_R].[LIST_ADDRESS] (Tabla)
+       [HUMAN_R].[MOVEMENT] (Tabla)
+       [HUMAN_R].[PAYMENT_MOVEMENT] (Tabla)
+       [HUMAN_R].[PERSON] (Tabla)
+       [HUMAN_R].[POSITION] (Tabla)
+       [HUMAN_R].[SALARY] (Tabla)
+       [HUMAN_R].[SUBURN] (Tabla)
+       [HUMAN_R].[TELEPHONES] (Tabla)
+       [HUMAN_R].[TYPE_HOURS] (Tabla)
+       [HUMAN_R].[BRANCH_OFFICES] (Tabla)
+       [HUMAN_R].[CITIES] (Tabla)
+       [HUMAN_R].[CONTRACTS] (Tabla)
+       [HUMAN_R].[COUNTRY] (Tabla)
+       [LOGISTIC].[COLOR] (Tabla)
+       [LOGISTIC].[BRAND] (Tabla)
+       [LOGISTIC].[TYPE_MOVEMENT] (Tabla)
+       [LOGISTIC].[MANUFACTER] (Tabla)
+       [LOGISTIC].[MODEL] (Tabla)
+       [LOGISTIC].[VEHICLE] (Tabla)
+       [LOGISTIC].[MOVEMENT] (Tabla)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[BRAND] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[TYPE_MOVEMENT] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[MANUFACTER] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[MANUFACTER] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[MANUFACTER] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[MODEL] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[VEHICLE] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[VEHICLE] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[VEHICLE] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[VEHICLE] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[VEHICLE] (Restricción DEFAULT)
+       Restricción DEFAULT: restricción sin nombre en [LOGISTIC].[VEHICLE] (Restricción DEFAULT)
+       Clave externa: restricción sin nombre en [HUMAN_R].[DEPARTAMENT] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[EMPLOYEES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[EMPLOYEES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[EMPLOYEES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[EMPLOYEES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[EXTRA_HOURS] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[EXTRA_HOURS] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[LIST_ADDRESS] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[LIST_ADDRESS] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[LIST_ADDRESS] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[LIST_ADDRESS] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[PAYMENT_MOVEMENT] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[PAYMENT_MOVEMENT] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[PERSON] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[SALARY] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[SUBURN] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[TELEPHONES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[TELEPHONES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[CITIES] (Clave externa)
+       Clave externa: restricción sin nombre en [HUMAN_R].[CONTRACTS] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[MANUFACTER] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[MODEL] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[VEHICLE] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[VEHICLE] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[MOVEMENT] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[MOVEMENT] (Clave externa)
+       Clave externa: restricción sin nombre en [LOGISTIC].[MOVEMENT] (Clave externa)
+       Restricción CHECK: restricción sin nombre en [HUMAN_R].[EXTRA_HOURS] (Restricción CHECK)
+       Restricción CHECK: restricción sin nombre en [HUMAN_R].[MOVEMENT] (Restricción CHECK)
+       Restricción CHECK: restricción sin nombre en [HUMAN_R].[MOVEMENT] (Restricción CHECK)
+       Restricción CHECK: restricción sin nombre en [HUMAN_R].[SALARY] (Restricción CHECK)
+       Restricción CHECK: restricción sin nombre en [HUMAN_R].[TYPE_HOURS] (Restricción CHECK)
+
+** Acciones de compatibilidad
+
+Las bases de datos del proyecto y de destino tienen una configuración de intercalación diferente. Se pueden producir errores de implementación.
+

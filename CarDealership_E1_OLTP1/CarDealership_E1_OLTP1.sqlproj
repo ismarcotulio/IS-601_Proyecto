@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{3e38df13-ad03-42a3-adbd-f54d71979911}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -63,6 +63,7 @@
     <Folder Include="LOGISTIC\Tables\" />
     <Folder Include="HUMAN_R\" />
     <Folder Include="HUMAN_R\Tables\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="LOGISTIC\Tables\MOVEMENT.sql" />
@@ -90,5 +91,8 @@
     <Build Include="HUMAN_R\Tables\COUNTRY.sql" />
     <Build Include="HUMAN_R\Tables\CONTRACTS.sql" />
     <Build Include="HUMAN_R\Tables\CITIES.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\CarDealership_OLTP1.dacpac" />
   </ItemGroup>
 </Project>
