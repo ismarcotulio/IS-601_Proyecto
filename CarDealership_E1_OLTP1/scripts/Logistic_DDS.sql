@@ -37,12 +37,21 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 	);
 
 
+IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'BODY_STYLE')
+	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[BODY_STYLE](
+		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 var_name VARCHAR(50) NOT NULL,
+		 tex_description TEXT DEFAULT ''
+ );
+
+
 IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'MODEL')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[MODEL](
 		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL,
 		 tex_description TEXT DEFAULT '',
 		 big_brand_FK BIGINT NOT NULL, FOREIGN KEY (big_brand_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[BRAND](big_id_PK),
+		 int_body_style_FK INT NOT NULL, FOREIGN KEY (int_body_style_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[BODY_STYLE](int_id_PK)
  );
 
 
