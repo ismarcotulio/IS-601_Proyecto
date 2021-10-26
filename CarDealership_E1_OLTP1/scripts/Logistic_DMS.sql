@@ -18,7 +18,8 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (var_name, var_commo
 	('Ferrari S.p.A', 'Ferrari', 1),
 	('Fiat Chrysler Automobiles', 'Fiat Chrysler Automobiles', 1),
 	('General Motors Company', 'GM', 1),
-	('Ford Motor Company', 'Ford', 1)
+	('Ford Motor Company', 'Ford', 1),
+	('TOYOTA MOTOR MANUFACTURING, TEXAS, INC.', 'Toyota', 1)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (var_name, tex_description, int_manufacturer_FK) VALUES 
@@ -41,10 +42,12 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (var_name, tex_description,
 	('jeep', 'Jeep is an automobile marque originating in the United States, now owned by European conglomerate Stellantis.', 7), 
 	('cadillac', 'The Cadillac Motor Car Division /ˈkædɪlæk/ is a division of the American automobile manufacturer General Motors Company (GM) that designs and builds luxury vehicles. Its major markets are the United States, Canada, and China.', 8),
 	('ford', 'Ford Motor Company is an automobile company that designs, manufactures, markets, and services a full line of Ford trucks, utility vehicles, cars as well as Lincoln luxury vehicles. The Company operates in three segments: Automotive, Mobility and Ford Credit.', 9),  
-	('dodge', 'Dodge is an American brand of automobiles and a division of Stellantis, based in Auburn Hills, Michigan.', 7)
+	('dodge', 'Dodge is an American brand of automobiles and a division of Stellantis, based in Auburn Hills, Michigan.', 7),
+	('gmc', 'GMC is a division of the American automobile manufacturer General Motors (GM) that primarily focuses on trucks and utility vehicles.', 8),
+	('toyota', 'Toyota is the world s leader in sales of hybrid electric vehicles, one of the largest companies to encourage the mass-market adoption of hybrid vehicles across the globe, and the first to commercially mass-produce and sell such vehicles, with the introduction of the Toyota Prius in 1997.', 10)
 ;
 
-INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_STYLE] (var_name, tex_description) VALUES 
+INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS] (var_name, tex_description) VALUES 
 	('Sedan', 'A sedan has four doors and a traditional trunk. Like vehicles in many categories, they are available in a range of sizes from small (subcompact vehicles like Nissan Versa and Kia Rio) to compacts (Honda Civic, Toyota Corolla) to mid-size (Honda Accord, Nissan Altima), and full-size (Toyota Avalon, Dodge Charger).'),
 	('Coupe', 'A coupe has historically been considered a two-door car with a trunk and a solid roof. This would include cars like a Ford Mustang or Audi A5—or even two-seat sports cars like the Chevrolet Corvette and Porsche Boxster.'),
 	('Sport Car', 'These are the sportiest, hottest, coolest-looking coupes and convertibles—low to the ground, sleek, and often expensive. They generally are two-seaters, but sometimes have small rear seats as well.'),
@@ -53,12 +56,23 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_STYLE] (var_name, tex_descrip
 	('Convertible', 'Does the roof retract into the body leaving the passenger cabin open to the elements? If so, it is a convertible. Most convertibles have a fully powered fabric roof that folds down, but a few have to be lowered by hand. '),
 	('SUV', 'SUVs—often also referred to as crossovers—tend to be taller and boxier than sedans, offer an elevated seating position, and have more ground clearance than a car. They include a station wagon-like cargo area that is accessed through a flip-up rear hatch door, and many offer all-wheel drive.'),
 	('Minivan', 'Minivans are the workhorses of the family-car world, the best at carrying people and cargo in an efficient package. They are called minivans but they are far from mini. That is because they are tall boxes-on-wheels with sliding side doors for easy access and a rear hatch that opens to a large cargo area.'),
-	('Pickup Truck', 'A pickup truck has a passenger cab and an open cargo bed in the rear. Virtually all pickups offer some form of all-wheel drive or part-time four-wheel drive—the latter for off-road use only.'),
+	('Pickup', 'A pickup truck has a passenger cab and an open cargo bed in the rear. Virtually all pickups offer some form of all-wheel drive or part-time four-wheel drive—the latter for off-road use only.'),
 	('Supermini car', 'Subcompact car is an American classification for cars which is broadly equivalent to the B-segment (Europe) or supermini (Great Britain) classifications, and smaller than a compact car.'),
 	('Electric', 'An electric car or battery electric car is an automobile that is propelled by one or more electric motors, using energy stored in batteries. Compared to internal combustion engine (ICE) vehicles, electric cars are quieter, have no exhaust emissions, and lower emissions overall.')
 ;
 
-INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (var_name, tex_description, big_brand_FK, int_body_style_FK) VALUES 
+INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[FUEL_TYPE] (var_name, tex_description) VALUES 
+	('Gasoline', 'Gasoline (/ˈɡæsəliːn/) or petrol (/ˈpɛtrəl/) is a transparent, petroleum-derived flammable liquid that is used primarily as a fuel in most spark-ignited internal combustion engines.'),
+	('Flexible Fuel Vehicle (FFV)', 'Flexible fuel vehicles (FFVs) have an internal combustion engine and are capable of operating on gasoline and any blend of gasoline and ethanol up to 83%.')
+;
+
+INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE_TYPE] (var_name, tex_description) VALUES 
+	('Truck', 'A truck or lorry is a motor vehicle designed to transport cargo, carry specialized payloads, or perform other utilitarian work.'),
+	('Passenger Car', 'A passenger car is a road motor vehicle, other than a motor cycle, intended for the carriage of passengers and designed to seat no more than nine persons (including the driver).'),
+	('Multipurpose Passenger Vehicle', 'Multipurpose passenger vehicle means a motor vehicle with motive power, except a low-speed vehicle or trailer, designed to carry 10 persons or less')
+;
+
+INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (var_name, tex_description, big_brand_FK, int_body_class_FK) VALUES 
 	('Arteon', 'The Arteon is eye-catching from any angle, with its elongated contours and low, aerodynamic silhouette. The wrap-around bonnet and frameless side windows exude quality and elegance, reflecting the style of a classic fastback saloon, beautifully complemented by the striking rear design.', 1, 5),
 	('Beetle', 'The original Beetle was launched in 1938 and was known simply as ‘the Volkswagen’, quickly acquiring a raft of nicknames from across the world. Whatever the name, its popularity has never been in question.', 1, 6),
 	('Beetle Cabriolet', 'The Beetle Cabriolet is the latest chapter in a unique automotive story that started with the original Beetle Convertible in 1949.', 1, 6),
@@ -158,15 +172,54 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (var_name, tex_description,
 	('Challenger', 'The Dodge Challenger R/T features a 5.7-liter Hemi V8 engine, a performance exhaust, and an upgraded rear axle. The Hemi is rated at 375 horsepower with a standard six-speed manual transmission, and it s 372 horsepower with an optional eight-speed automatic', 20, 3),
 	('Durango', 'The high-performance model will deliver 710 horsepower and 645 pound-feet of torque when it goes into production next yea', 20, 7),
 	('Neon', 'The Dodge Neon SXT is a GREAT car for the money. It runs very well, has a comfortable interior with plenty of leg room and has a radio that works well. I LOVE this car', 20, 1),
-	('Attitude', 'The Dodge Attitude is a badge-engineered subcompact sedan sold by Stellantis North America (previously Fiat Chrysler Automobiles, Chrysler Group LLC, and Dodge', 20, 1)
+	('Attitude', 'The Dodge Attitude is a badge-engineered subcompact sedan sold by Stellantis North America (previously Fiat Chrysler Automobiles, Chrysler Group LLC, and Dodge', 20, 1),
+	('Sierra', 'The full-size Sierra 1500 pickup truck is available in light-duty and heavy-duty forms and is GMC s bread and butter', 21, 9),	
+	('Tundra', 'The Toyota Tundra features a 5.7-liter V8 engine that produces 381 horsepower and 401 pound-feet of torque. The Tundra has brisk acceleration and good power, but some rivals have more impressive engines, and most have a wider array of options to choose from.', 22, 9),
+	('Colorado', 'The Chevrolet Colorado, and its counterpart, the GMC Canyon, are series of compact and later mid-sized pickup trucks marketed by American automaker General Motors. They were introduced in 2004 to replace the Chevrolet S-10 and GMC S-15/Sonoma compact pickups. It is named for the U.S. state of Colorado.', 16, 9),
+	('Corvette', 'The Chevrolet Corvette, colloquially known as the Vette, is a two-door, two-passenger sports car manufactured and marketed by Chevrolet across more than 60 years of production and eight design generations. From 1953 to 2019, it was front-engined, and since 2020, it is mid-engined.', 16, 6)
 ;
 
 
+INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
+		var_brake_system,
+		dec_displacement_cc,
+		tin_doors,
+		tin_number_cylinders,
+		var_engine,
+		tin_fuel_type_FK,
+		var_gvwr,
+		int_model_FK,
+		int_year,
+		var_series,
+		var_vin,
+		int_vehicle_type_FK,
+		bit_use_state,
+		tex_description,  
+		int_color_FK	  
+) VALUES 
+	('Hydraulic', 5300.0, 4, 8, 'L83 - VVT, AFM (Active Fuel Management), Aluminum', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 101, 2014, '1500 SLT', '3GTP1VEC4EG551563', 1, 1, '', 1),
+	('Hydraulic', 5300.0, 4, 8, 'LMG', 2, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2010, '1/2 Ton', '1GCSCSE06AZ123805', 1, 1, '', 2),
+	('Hydraulic', 5300.0, 4, 8, 'L84 - DI, DFM, ALUM, GEN 5, VAR 2', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2020, '1500 LT', '3GCPWCED5LG130317', 1, 1, '', 3),
+	('Hydraulic', 4600.0, 4, 8, '1UR-FE', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 102, 2017, 'UPK51L/USK51L/USK52L/UPK56L/USK56L/USK57L', '5TFRM5F17HX120972', 1, 1, '', 4),
+	('Hydraulic', 6000, 2, 8, 'L96', 1, 'Class 2H: 9,001 - 10,000 lb (4,082 - 4,536 kg)', 101, 2012, '2500', '1GT220CG8CZ231238', 1, 1, '', 4),
+	('Hydraulic', 4300.0, 4, 6, 'LV3 - SIDI, VVT, Aluminum, E85 Max.', 1, 'Class 2F: 7,001 - 8,000 lb (3,175 - 3,629 kg)', 80, 2016, '1500 LT', '1GCVKREH6GZ228691', 1, 1, '', 1),
+	('Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'LT', '1GCHTCE37G1186784', 1, 1, '', 2),
+	('Hydraulic', 6200.0, 2, 8, 'LS3', 1, '', 104, 2011, 'Grand Sport 2LT', '1G1YR3DW3B5102190', 2, 1, '', 5),
+	('Hydraulic', 4300.0, 2, 6, 'LV3 - GEN 5, SIDI, VVT: Variable Valve Timing, E85 MAX, ALUM', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2017, '1500', '1GCNCNEH7HZ118773', 1, 1, '', 1),
+	('Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'Z71', '1GCGTDE32G1341288', 1, 1, '', 2)
+;
+
+INSERT INTO [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES] (var_name) VALUES 
+	('FM_Branch'), ('LMP_Branch'), ('ATL_Branch'), ('COM_Branch'), ('CRZ_Branch'), ('YOR_Branch'), ('OLA_Branch'), ('VAL_Branch'), ('OCT_Branch'),
+	 ('PAZ_Branch'), ('CHL_Branch'), ('GRA_Branch'), ('PAR_Branch'), ('COP_Branch'), ('COL_Branch'), ('INT_Branch'), ('ISL_Branch'), ('SAN_Branch')
+;
+
+/*
 SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[COLOR];
 SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER];
 SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[BRAND];
 SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[TYPE_MOVEMENT];
-SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[BODY_STYLE];
+SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS];
 SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[MODEL];
-
+*/
 
