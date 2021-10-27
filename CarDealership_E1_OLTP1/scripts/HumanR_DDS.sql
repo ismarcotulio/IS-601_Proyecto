@@ -25,9 +25,9 @@ CREATE TABLE HUMAN_R.TYPE_HOURS(
 CREATE TABLE HUMAN_R.MOVEMENT(
   int_movement_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
   tex_description TEXT NOT NULL,
-  tin_factor  TINYINT NOT NULL,
+  int_factor  INTEGER NOT NULL,
   mon_amount MONEY NOT NULL,
-  CHECK (tin_factor=-1 OR tin_factor=1)
+  CHECK (int_factor=-1 OR int_factor=1)
 );
 
 CREATE TABLE HUMAN_R.COUNTRY(
@@ -40,18 +40,21 @@ CREATE TABLE HUMAN_R.DEPARTAMENT(
   big_departament_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
   var_name VARCHAR(60) NOT NULL,
   int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
+  CONSTRAINT [DEPARTAMENT_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_departament_id_PK] ASC)
 );
 
 CREATE TABLE HUMAN_R.CITIES(
   big_city_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
   var_name VARCHAR(60) NOT NULL,
   big_departament_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.DEPARTAMENT(big_departament_id_PK),
+  CONSTRAINT [cities_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_PK] ASC)
 );
 
 CREATE TABLE HUMAN_R.SUBURN(
   big_suburn_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
   var_name VARCHAR(60) NOT NULL,
   big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
+  CONSTRAINT [SUBURN_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_FK] ASC)
 );
 
 CREATE TABLE HUMAN_R.LIST_ADDRESS(
