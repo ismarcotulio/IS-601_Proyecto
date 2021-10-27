@@ -56,7 +56,7 @@ CREATE TABLE HUMAN_R.SUBURN(
   big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
   CONSTRAINT [SUBURN_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_FK] ASC)
 );
-
+--DROP TABLE HUMAN_R.LIST_ADDRESS
 CREATE TABLE HUMAN_R.LIST_ADDRESS(
   big_address_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
   tex_reference TEXT NOT NULL,
@@ -76,8 +76,11 @@ CREATE TABLE HUMAN_R.PERSON(
   var_RTN_Personal VARCHAR(14) NOT NULL,
   dat_dateOfBirth DATE,
   big_address_id_FK BIGINT REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK),
+  cha_gender CHAR NOT NULL,
+  CHECK((cha_gender='M' OR cha_gender='m') or (cha_gender='F' OR cha_gender='f'))
 );
-
+go
+--INSERT INTO HUMAN_R.PERSON(cha_gender) VALUES ();
 CREATE TABLE HUMAN_R.CONTRACTS(
   int_contract_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
   dat_hiringDate DATE NOT NULL,
@@ -117,6 +120,7 @@ CREATE TABLE HUMAN_R.BRANCH_OFFICES(
   tin_id_branch_PK TINYINT PRIMARY KEY,
   var_name VARCHAR(50) NOT NULL,
   big_id_address_FK BIGINT NOT NULL REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK),
+  FOREIGN KEY(big_id_address_FK) REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK)
 );
 
 CREATE TABLE HUMAN_R.EMPLOYEES(
