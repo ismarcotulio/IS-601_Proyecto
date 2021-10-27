@@ -235,9 +235,6 @@ INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Robleda',51)
 
 SELECT * FROM HUMAN_R.SUBURN
 
-DBCC CHECKIDENT ('HUMAN_R.SUBURN', RESEED, 0)
-SELECT * FROM HUMAN_R.SUBURN
-DELETE FROM HUMAN_R.SUBURN
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Villanueva',1)
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Colonia Nueva Suyapa',1)
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Coolonia Florencia Sur',1)
@@ -482,9 +479,16 @@ INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament
 --Santa Ana  36/9 hasta el 74
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Frente al Empalame el Crusero',10,44,82,110);--Sucursal 110
 --Managua 44/10 hasta el 110
-
+USE CarDealership_E1_OLTP1
 SELECT * FROM HUMAN_R.LIST_ADDRESS
+DELETE FROM HUMAN_R.BRANCH_OFFICES
 
+DBCC CHECKIDENT ('HUMAN_R.LIST_ADDRESS', RESEED, 0)
+SELECT * FROM  HUMAN_R.LIST_ADDRESS
+DELETE FROM  HUMAN_R.LIST_ADDRESS
+
+ALTER TABLE HUMAN_R.BRANCH_OFFICES ADD big_id_address_FK BIGINT NOT NULL
+ALTER TABLE HUMAN_R.BRANCH_OFFICES ADD CONSTRAINT FK_ofice FOREIGN KEY(big_id_address_FK) REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK)
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (1,'Sucursal de Tegucigalpa',5);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (2,'Sucursal de Comayagua',51);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (3,'Sursal de Cortes',71);
@@ -493,7 +497,186 @@ INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (5,'Sursal de Villa Clara, Cuba',101);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (6,'Sursal de Limon, Costa Rica',105);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (7,'Sursal de Cordoba, Colombia',106);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (8,'Sursal de Santa Ana, El Salvador',109);
-INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (9,'Sursal de Cortes',110);
+INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (9,'Sursal de Managua, Nicaragua',110);
+USE CarDealership_E1_OLTP1
+ALTER TABLE HUMAN_R.PERSON ADD CONSTRAINT PERSON_check CHECK((cha_gender='M' OR cha_gender='m') or (cha_gender='F' OR cha_gender='f'));
+
+GO
+CREATE VIEW seeder
+AS
+    SELECT RAND(CONVERT(VARBINARY, NEWID())) seed
+GO
+
+CREATE FUNCTION [dbo].[getRandomDate]
+(
+	@lower DATE,
+	@upper DATE
+)
+RETURNS DATE
+AS
+BEGIN
+	DECLARE @random DATE
+	SELECT @random = DATEADD(day, DATEDIFF(DAY, @lower, @upper) * seed, @lower) FROM dbo.seeder
+	RETURN @random
+END
+GO
+
+CREATE VIEW vwRandom
+AS
+SELECT RAND() as Rnd
+GO 
+
+CREATE FUNCTION fnCustomPass 
+(    
+    @size AS INT, --Tamaño de la cadena aleatoria
+    @op AS VARCHAR(2) --Opción para letras(ABC..), numeros(123...) o ambos.
+)
+RETURNS VARCHAR(62)
+AS
+BEGIN    
+
+    DECLARE @chars AS VARCHAR(52),
+            @numbers AS VARCHAR(10),
+            @strChars AS VARCHAR(62),        
+            @strPass AS VARCHAR(62),
+            @index AS INT,
+            @cont AS INT
+
+    SET @strPass = ''
+    SET @strChars = ''    
+    SET @chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    SET @numbers = '0123456789'
+
+    SET @strChars = CASE @op WHEN 'C' THEN @chars --Letras
+                        WHEN 'N' THEN @numbers --Números
+                        WHEN 'CN' THEN @chars + @numbers --Ambos (Letras y Números)
+                        ELSE '------'
+                    END
+
+    SET @cont = 0
+    WHILE @cont < @size
+    BEGIN
+        SET @index = ceiling( ( SELECT rnd FROM vwRandom ) * (len(@strChars)))--Uso de la vista para el Rand() y no generar error.
+        SET @strPass = @strPass + substring(@strChars, @index, 1)
+        SET @cont = @cont + 1
+    END    
+        
+    RETURN @strPass
+
+END
+GO
+SELECT * FROM HUMAN_R.PERSON
+
+INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES
+	 ('Luis','Ernesto','Castillo','Escamilla','0801200004393','93839830930393', dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',1);
+INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES
+	 ('Oscar','Andres','Castillo','Escamilla',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',1);
+INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES
+	 ('Omar','Antonio','Castillo','Escamilla',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',2),
+	 ('Jorge','Ernesto','Mesa','Artigas',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',3),
+	 ('Maria','Adoración','Predrin','Lozano',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',4), 
+	 ('Alma','Marcela','Prieto','Soran',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',6),
+	 ('Carlos','Ruben','de Burgos','Artigas',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',7),
+	 ('Isaías','Leon','de De Velen','Roda',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',8),
+	 ('Sonia','Pacifica','Pedrero','Pineda',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',9),
+	 ('German','Sanjuan','Sedano','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',10),
+	 ('David','Albero','Palmer','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',11),
+	 ('Alonso','Amancio','Gonzalez','Galván',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',12),
+	 ('Emilio','Sedano','Blázquez','Nuñez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',13),
+	 ('Rasa','Maria','Escamilla','Hernandez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',14),
+	 ('Eladio','','Buendía','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',15),
+	 ('Sofia','Margarita','del Bueno','Velasquez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',16),
+	 ('Elisa','Noriega','Quintanilla','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',17),
+	 ('Nereiga','Pons','Barba','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',18),
+	 ('Rodrigo','Galan','del Valle','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',19),
+	 ('Kenia','Sofia','Beltran','Nuñez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',20),
+	 ('Aurora','Feliciana','Montero','Revilla',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',21),
+	 ('Angelina','Noemí','Cámara','Llorente',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',22),
+	 ('Gala','','García','Trillo',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',23),
+	 ('Benita','Herrera','Castro','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',24),
+	 ('Flavio','Sandalio','Ricart','Mesa',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',25),
+	 ('Anabel','','Jáuregui','Barón',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',26),
+	 ('Oswaldo','','de Tejedor','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',27),
+	 ('Javi','Oller','Roldan','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',28),
+	 ('Jose','Antonio','Hoyos','Tur',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',29),
+	 ('Apolonia','Manzano','Merino','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',30),
+	 ('Gerardo','Echeverría','Dominguez','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',31),
+	 ('Cándida','Encarna','Mariño','Taboada',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',32),
+	 ('Ileana','Nicole','Perez','Nuñez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',33),
+	 ('Enrique','Nando','Acedo','Peinado',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',34),
+	 ('Natividad','Pujuras','Quintero','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',35),
+	 ('Julio','Federico','Canales','Molins',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',36),
+	 ('Javi','','Pol','Barrera',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',37),
+	 ('Teodoro','','Mora','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',38),
+	 ('José','Nicolas','Mora','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',39),
+	 ('Amando','','Mariño','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',40),
+	 ('Marcela','Múñiz','Vicens','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',41),
+	 ('Angelino','Diéguez','Llamas','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',42),
+	 ('Victor','','Moreno','Rivera',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',43),
+	 ('Omar','Ariel','Benito','Suarez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',44),
+	 ('Fernando','Aguilar','Barbero','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',45),
+	 ('Odalis','','Tomas','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',46),
+	 ('Adrián','Palacio','Becerra','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',47),
+	 ('Abel','','Guerra','Vilaplana',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',48),
+	 ('Nicolas','Quirino','Lluch','Rosa',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',49),
+	 ('Lupita','Pacheco','Manzano','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',50),
+	 ('Esmeralda Criado Cabrera','','Lluch','Rosa',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',52),--grupo
+	 ('Javiera','','Viña','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',53),
+	 ('Jacobo','Medina','Tapia','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',54),
+	 ('Rosalía','','Alcolea','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',55),
+	 ('Ruth','Azahara','Priego','Caballero',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',56),
+	 ('Haroldo','Ramón','Salvá','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',57),
+	 ('Eustaquio','','Carballo','Quirós',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',58),
+	 ('Albino','Reynaldo','Robles','Azcona',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',59),
+	 ('Vilma','','Carreras','Llano',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',60),
+	 ('Irene','','Corral','Tejeda',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',61),
+	 ('Josue','Antúnez','Peralta','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',62),
+	 ('Pablo','','de Carrasco','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',63),
+	 ('Rosario','Bou','Espejo','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',64),
+	 ('Hilario','Quirino','Quesada','Uriarte',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',65),
+	 ('Renata','Barranco','Cuadrado','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',66),
+	 ('Francisco','José','Hernando','Pla Sanz',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',67),
+	 ('Anabel','Alemany','Guitart','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',68),
+	 ('Florencio','','Cuenca','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',69),
+	 ('Heliodoro','Villalba','Carranza','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',70),
+	 ('Evelia','Serna','Cases','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',72),--GRUPO
+	 ('Reyes','Somoza','Alcatraz','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',73),
+	 ('Roberto','','Cabañas','Arribas',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',74),
+	 ('Felix','Manuel','Córdoba','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',75),
+	 ('Andrés','Zurita','Duque','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',76),
+	 ('Cecilia','','Elías','Mariño',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',77),
+	 ('Maximiliano','','Terrón','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',78),
+	 ('Sancho','','Acuña','Corominas',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',80),
+	 ('Martirio','','Riera','Lloret',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',81),
+	 ('Adrian','','Del Caballero','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',82),
+	 ('Milagros','Cabezas','Noriega','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',83),
+	 ('Caridad','','Rios','Lerma',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',84),
+	 ('Melisa','','Mulet','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',85),
+	 ('Cristian','Folch','Azorin','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',86),
+	 ('Gastón','Buenaventura','Palacio','Zamora',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',87),
+	 ('José','Angel','Del Barba','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',88),
+	 ('Martín','','de Figueras','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',89),
+	 ('Buenavenura','','del Pino','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',90),
+	 ('Édgar','Latra','Silva','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',91),
+	 ('Mateo','Trujillo','Morcillo','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',92),
+	 ('Nacho','','Valbuena','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',93),
+	 ('Alondra','Uría','Gascón','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',94),
+	 ('José','Manuel','Chamorro','Sotelo',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',95),
+	 ('Kimberly','','Shaffer','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',96),--GRUPO
+	 ('Bianca','Janet','Richards','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',97),
+	 ('Joseph','Manuel','Chen','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',98),
+	 ('Evelyn','','Olson','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',99),
+	 ('Antony','','West','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',100),
+	 ('Oscar','Andrés','Castillo','Velasquez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'M',102),
+	 ('Laurent','Marin','Du Morel','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',103),
+	 ('Cristina','Michelle','Herdandez','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',104),
+	 ('Nathalie','Alfaro','Costa','Moreno',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',107),
+	 ('Alice','Rude','Lucas','Leroy',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',108)
+	 
+	 
+
+
+ALTER TABLE HUMAN_R.PERSON ADD var_RTN_Personal VARCHAR(14), cha_gender CHAR NOT NULL;
 
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,bit_pay,tin_area_id_FK) VALUES (0,0,5);
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,1);
@@ -522,3 +705,4 @@ INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
+
