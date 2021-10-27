@@ -1,4 +1,4 @@
-﻿CREATE TABLE [LOGISTIC].[BODY_STYLE] (
+﻿CREATE TABLE [LOGISTIC].[BODY_CLASS] (
     [int_id_PK]       INT          IDENTITY (1, 1) NOT NULL,
     [var_name]        VARCHAR (50) NOT NULL,
     [tex_description] TEXT         DEFAULT ('') NULL,

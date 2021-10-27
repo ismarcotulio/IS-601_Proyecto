@@ -92,7 +92,9 @@
     <Build Include="HUMAN_R\Tables\CITIES.sql" />
     <Build Include="HUMAN_R\Tables\AREA.sql" />
     <Build Include="LOGISTIC\Tables\MANUFACTURER_1.sql" />
-    <Build Include="LOGISTIC\Tables\BODY_STYLE.sql" />
+    <Build Include="LOGISTIC\Tables\VEHICLE_TYPE.sql" />
+    <Build Include="LOGISTIC\Tables\FUEL_TYPE.sql" />
+    <Build Include="LOGISTIC\Tables\BODY_CLASS.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\CarDealership_OLTP1.dacpac" />
