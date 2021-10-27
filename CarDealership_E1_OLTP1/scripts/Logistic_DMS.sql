@@ -206,7 +206,17 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
 	('Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'LT', '1GCHTCE37G1186784', 1, 1, '', 2),
 	('Hydraulic', 6200.0, 2, 8, 'LS3', 1, '', 104, 2011, 'Grand Sport 2LT', '1G1YR3DW3B5102190', 2, 1, '', 5),
 	('Hydraulic', 4300.0, 2, 6, 'LV3 - GEN 5, SIDI, VVT: Variable Valve Timing, E85 MAX, ALUM', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2017, '1500', '1GCNCNEH7HZ118773', 1, 1, '', 1),
-	('Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'Z71', '1GCGTDE32G1341288', 1, 1, '', 2)
+	('Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'Z71', '1GCGTDE32G1341288', 1, 1, '', 2), 
+    ('Hidraulic ',2700.0, 4 , 8, '5VZFE ', 1, 'Clase 1:6000 lb o menos (2722 kg o menos)', 2223, 2014, 'TRN225L / GRN225L', '5TFTX4CN3EX042751', 3,1 , '',1 ),
+    ('Hidraulic ',6200.0, 2 , 8, '6.2L (376 ci) V8 DI (455 hp [339.3 kW] a 6000 rpm, 455 l ', 1, '', 1829, 2016, '1SS', '1G1FF1R79G0140582', 2, 1, '', 4),
+    ('Hidraulic ',5700.0, 4 , 6, ' V8 de 5.7L y 32 V MPFI DOHC ', 1, 'Clase 2: 6,001 - 10,000 lb (2722 -4,536 kg)', 2467,2014 , 'UPK51L/ GSK51L / USK51L', '5TFEY5F15EX169621',1 ,2 , '', 5),
+    ('Hidraulic ',2300.0, 4 , 6, ' 2.3L I4 16V GDI DOHC Turbo ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)',1803 ,2019 , 'Mazda Serie B', '1FTER4EH3KLA31326',3 , 2, '', 1),
+    ('Estandar ', 4000, 4 ,6 , 'V6 de 4.0L 24V MPFI DOHC  ',1 , 'Clase 1D: 5,001 -6,000 lb (2,268 -2722 kg)',1919 ,2018 , 'PRO 4X 4x4 4dr Crew Cab SWB ', '1N6AD0EV5JN745213', 3, 1, '', 6),
+    ('Hidraulic ',3300.0, 4 , 6, ' Combustible flexible de 3.3L V6 24V PDI DOHC ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3,175 kg)', 1801,2018 , '', '1FTEX1CBXJKD41626', 1, 2, '', 1),
+    ('Hidraulic ',3500.0,  4, 6, ' PDI DOHC V6 de 3,5 L y 24 V ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 -2,722 kg)',2223 ,2016 , 'GRN325L', '3TMAZ5CN7GM019182', 2, 1, '', 3),
+    ('Estandar ',2000, 2 , 6, ' 2,0 litros ', 1, 'Clase 1C: 4,001 - 5000 lb (1,814 - 2268 kg)',1943 ,2020 , 'Deporte', '1C4GJXAN4LW180633',2 , 1, '',5 ),
+    ('Hidraulic ',2700.0, 4,6 , ' V6 2.7L 24V PDI DOHC Twin Turbo ',1 , 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)', 1801,2020 , '', '1FTEW1CP4LFB84170',2 , 3, '', 6),
+    ('Estandar ',5700.0, 4 ,8 , ' 5.7L V8 16V MPFI OHV ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 13620,2017 , 'DS (Ruedas traseras simples)', '3C6JR6DT3HG557601', 1, 2, '', 3)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES] (var_name) VALUES 
