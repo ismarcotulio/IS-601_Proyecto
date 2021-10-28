@@ -1,7 +1,3 @@
-CREATE DATABASE CarDealership_OLTP1;
-
-USE CarDealership_OLTP1;
-
 CREATE SCHEMA HUMAN_R;
 GO
 
@@ -56,7 +52,7 @@ CREATE TABLE HUMAN_R.SUBURN(
   big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
   CONSTRAINT [SUBURN_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_FK] ASC)
 );
---DROP TABLE HUMAN_R.LIST_ADDRESS
+
 CREATE TABLE HUMAN_R.LIST_ADDRESS(
   big_address_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
   tex_reference TEXT NOT NULL,
@@ -80,7 +76,7 @@ CREATE TABLE HUMAN_R.PERSON(
   CHECK((cha_gender='M' OR cha_gender='m') or (cha_gender='F' OR cha_gender='f'))
 );
 go
---INSERT INTO HUMAN_R.PERSON(cha_gender) VALUES ();
+
 CREATE TABLE HUMAN_R.CONTRACTS(
   int_contract_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
   dat_hiringDate DATE NOT NULL,

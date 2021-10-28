@@ -1,27 +1,30 @@
-USE CarDealership_E1_OLTP1;
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (130,'Dia de semana/Mañana');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (150,'Dia de semana/Tarde');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (180,'Dia de semana/Noche');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (170,'Fin de semana/Sabado/Mañana');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (180,'Fin de semana/Sabado/Tarde');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (190,'Fin de semana/Sabado/Noche');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (190,'Fin de semana/Domingo/Mañana');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (195,'Fin de semana/Domingo/Tarde');
-INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES (200,'Fin de semana/Domingo/Noche');
 
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Costo de vida',1,5000);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Aumento de salario minimo',1,2000);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Comision por ventas',1,1000);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Aumento por los Plus',1,4500);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Bono de transporte cada 6',1,3000);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Bono de vacaciones',1,1300);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Licencia por maternidad',1,1500);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('CITRAMOVIL',-1,3400);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Seguro social IHHSS',-1,1200);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Indemnizaciones por traslados',-1,1000);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Indemnizaciones por suspensiones',-1,1300);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Indemnizaciones por despido',-1,2500);
-INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Pagos a cooperativas de ahorro',-1,900);
+INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES 
+	(130,'Dia de semana/Mañana'),
+	(150,'Dia de semana/Tarde'),
+	(180,'Dia de semana/Noche'),
+	(170,'Fin de semana/Sabado/Mañana'),
+	(180,'Fin de semana/Sabado/Tarde'),
+	(190,'Fin de semana/Sabado/Noche'),
+	(190,'Fin de semana/Domingo/Mañana'),
+	(195,'Fin de semana/Domingo/Tarde'),
+	(200,'Fin de semana/Domingo/Noche')
+
+INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES 
+	('Costo de vida',1,5000),
+	('Aumento de salario minimo',1,2000),
+	('Comision por ventas',1,1000),
+	('Aumento por los Plus',1,4500),
+	('Bono de transporte cada 6',1,3000),
+	('Bono de vacaciones',1,1300),
+	('Licencia por maternidad',1,1500),
+	('CITRAMOVIL',-1,3400),
+	('Seguro social IHHSS',-1,1200),
+	('Indemnizaciones por traslados',-1,1000),
+	('Indemnizaciones por suspensiones',-1,1300),
+	('Indemnizaciones por despido',-1,2500),
+	('Pagos a cooperativas de ahorro',-1,900)
+GO
 
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Gerente de Venta');
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Supervisor de Venta');--2
@@ -35,8 +38,7 @@ INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Ingeniero en sistemas');
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Operario');--10
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Mecanico');--11
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Secretaria');
-USE CarDealership_E1_OLTP1
-SELECT * FROM HUMAN_R.CONTRACTS
+
 INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES ('2012/12/12',1,5,24000);
 INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES ('2012/12/12',1,1,15000);
 INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES ('2013/11/15',1,2,14000);
@@ -236,8 +238,6 @@ INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Sant Andreu'
 INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Robleda',51);
 go
 
-SELECT * FROM HUMAN_R.SUBURN
-
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Villanueva',1)
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Colonia Nueva Suyapa',1)
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Coolonia Florencia Sur',1)
@@ -349,150 +349,169 @@ INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Salamanca',89);
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Socorro',74);
 INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Las Conchitas',82)
 
-SELECT * FROM HUMAN_R.SUBURN ORDER BY big_suburn_id_PK
-ALTER TABLE HUMAN_R.SUBURN ADD CONSTRAINT SUBURN_Unique UNIQUE(var_name,big_city_id_FK);
-
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,1); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,2); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,3); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('A una cuadra del Hospital San Jorge',1,1,1,4); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Boulevard CentroAmerica, Contigo a Equipos Industriales',1,1,1,5); --5 Sucursal Tegucigalpa
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Cuarta etapa, Covespul',1,1,1,6); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,7); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,8); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,9); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,10); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,11); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('A la par de la iglecia Hossana',1,1,1,12); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,13); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,14); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,15); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,16); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,17); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,18); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,19); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,20); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,1,21);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('A tres casas de la escuela Paraguay',1,1,1,22);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,1,1,1),
+    ('Sin datos',1,1,1,2), 
+    ('Sin datos',1,1,1,3), 
+    ('A una cuadra del Hospital San Jorge',1,1,1,4), 
+    ('Boulevard CentroAmerica, Contigo a Equipos Industriales',1,1,1,5), --5 Sucursal Tegucigalpa
+    ('Cuarta etapa, Covespul',1,1,1,6), 
+    ('Sin datos',1,1,1,7), 
+    ('Sin datos',1,1,1,8), 
+    ('Sin datos',1,1,1,9), 
+    ('Sin datos',1,1,1,10), 
+    ('Sin datos',1,1,1,11), 
+    ('A la par de la iglecia Hossana',1,1,1,12), 
+    ('Sin datos',1,1,1,13), 
+    ('Sin datos',1,1,1,14), 
+    ('Sin datos',1,1,1,15), 
+    ('Sin datos',1,1,1,16), 
+    ('Sin datos',1,1,1,17), 
+    ('Sin datos',1,1,1,18), 
+    ('Sin datos',1,1,1,19), 
+    ('Sin datos',1,1,1,20), 
+    ('Sin datos',1,1,1,21)
+    ('A tres casas de la escuela Paraguay',1,1,1,22);
+GO
 --tegucigalpa 1/1 nos da hasta el 1
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,2,23); 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,2,24);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,1,2,23),|
+    ('Sin datos',1,1,2,24)
+GO
 --Cedros 1/1 nos da hasta el 2
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,3,25);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,3,26);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,1,3,25),
+    ('Sin datos',1,1,3,26)
+GO
 --Talanga 1/1 nos da hasta el 3
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,6,27);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,6,28);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,6,29);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,1,6,27),
+    ('Sin datos',1,1,6,28),
+    ('Sin datos',1,1,6,29)
+GO
 --Ojojona 1/1 nos da hasta el 6
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,1,7,30);
+GO
 --El porvenir 1/1 nos da hasta el 7
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,8,31);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,8,32);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,8,33);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,8,34);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,8,35);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,8,36);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,9,37);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,9,38);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,11,39);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,11,40);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,11,41);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,11,42);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,43);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,44);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,45);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,46);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,47);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,48);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,49);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,50);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Al par de Hotel America',1,2,12,51);--sucursal 51 Comayagua
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,52);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,53);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,2,12,54);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,2,8,31),
+    ('Sin datos',1,2,8,32),
+    ('Sin datos',1,2,8,33),
+    ('Sin datos',1,2,8,34),
+    ('Sin datos',1,2,8,35),
+    ('Sin datos',1,2,8,36),
+    ('Sin datos',1,2,9,37),
+    ('Sin datos',1,2,9,38),
+    ('Sin datos',1,2,11,39),
+    ('Sin datos',1,2,11,40),
+    ('Sin datos',1,2,11,41),
+    ('Sin datos',1,2,11,42),
+    ('Sin datos',1,2,12,43),
+    ('Sin datos',1,2,12,44),
+    ('Sin datos',1,2,12,45),
+    ('Sin datos',1,2,12,46),
+    ('Sin datos',1,2,12,47),
+    ('Sin datos',1,2,12,48),
+    ('Sin datos',1,2,12,49),
+    ('Sin datos',1,2,12,50),
+    ('Al par de Hotel America',1,2,12,51),--sucursal 51 Comayagua
+    ('Sin datos',1,2,12,52),
+    ('Sin datos',1,2,12,53),
+    ('Sin datos',1,2,12,54)
+GO
 --Comayagua 2 nos da hasta 12
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,55);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,56);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,57);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,58);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,59);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,60);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,61);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,62);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,63);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,64);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,65);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,13,66);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,17,67);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,17,68);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,17,69);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,17,70);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Frente a la iglesia Catolica de San Isidro',1,3,17,71);--sucursal 71 Cortes
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,3,19,72);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,3,13,55),
+    ('Sin datos',1,3,13,56),
+    ('Sin datos',1,3,13,57),
+    ('Sin datos',1,3,13,58),
+    ('Sin datos',1,3,13,59),
+    ('Sin datos',1,3,13,60),
+    ('Sin datos',1,3,13,61),
+    ('Sin datos',1,3,13,62),
+    ('Sin datos',1,3,13,63),
+    ('Sin datos',1,3,13,64),
+    ('Sin datos',1,3,13,65),
+    ('Sin datos',1,3,13,66),
+    ('Sin datos',1,3,17,67),
+    ('Sin datos',1,3,17,68),
+    ('Sin datos',1,3,17,69),
+    ('Sin datos',1,3,17,70),
+    ('Frente a la iglesia Catolica de San Isidro',1,3,17,71),--sucursal 71 Cortes
+    ('Sin datos',1,3,19,72)
+GO
 --Cortes 3 nos da hasta 
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,73);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,74);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,75);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,76);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,77);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,78);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('En frente de la Iglesia Catolica San Juan Pablo II',1,4,22,79);--Sucursal 79 Choluteca
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,80);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,81);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,4,22,82);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,4,22,73),
+    ('Sin datos',1,4,22,74),
+    ('Sin datos',1,4,22,75),
+    ('Sin datos',1,4,22,76),
+    ('Sin datos',1,4,22,77),
+    ('Sin datos',1,4,22,78),
+    ('En frente de la Iglesia Catolica San Juan Pablo II',1,4,22,79),--Sucursal 79 Choluteca
+    ('Sin datos',1,4,22,80),
+    ('Sin datos',1,4,22,81),
+    ('Sin datos',1,4,22,82)
+GO
 --Choluteca 4 nos hasta 22
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,5,25,83);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,5,25,84);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,5,25,83),
+    ('Sin datos',1,5,25,84)
+GO
 --Copan 5 nos hasta 25
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,6,29,85);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,6,29,86);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,6,29,87);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,6,29,88);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,6,29,85),
+    ('Sin datos',1,6,29,86),
+    ('Sin datos',1,6,29,87),
+    ('Sin datos',1,6,29,88)
+GO
 --Intibuca 6 nos hasta 29
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,7,33,89);
+GO
 --Ocotepeque 7 nos hasta 33
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,90);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,91);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,92);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,93);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,94);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,95);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',1,8,37,96);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',1,8,37,90),
+    ('Sin datos',1,8,37,91),
+    ('Sin datos',1,8,37,92),
+    ('Sin datos',1,8,37,93),
+    ('Sin datos',1,8,37,94),
+    ('Sin datos',1,8,37,95),
+    ('Sin datos',1,8,37,96)
+GO
 --Olancho 8 nos hasta 37
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',2,11,42,97);
+GO
 --Nord 11/ 2 nos hasta 42
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',4,15,45,98);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',4,15,45,99);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',4,15,45,100);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('A tres casas del Hospital Venecia 103',4,15,45,101);--sucursal 101
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',4,15,45,98),
+    ('Sin datos',4,15,45,99),
+    ('Sin datos',4,15,45,100),
+    ('A tres casas del Hospital Venecia 103',4,15,45,101)--sucursal 101
+GO
 --Villa clara 15/ 4 hasta 45
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',4,17,51,102);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',4,17,51,103);
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',4,17,51,102),
+    ('Sin datos',4,17,51,103)
+GO
 --Santiago de Cuba 17/ 4  hasta el 51
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',5,17,53,104);
-INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('A la par de pizzeria Victoria, calle 249',5,17,53,105);--Sucursal 105 limon Costa rica
+INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
+    ('Sin datos',5,17,53,104),
+    ('A la par de pizzeria Victoria, calle 249',5,17,53,105)--Sucursal 105 limon Costa rica
+GO
 --Pococi 19/ 5   hasta el 53
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Entre el parque José María Cordoba, al par de la tienda de Isa',7,29,66,106);--sucursal 106  Cordoba, Colombia
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',7,29,66,107);
 --Valencia 29/ 7  hasta el 66
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Sin datos',11,46,89,108);
+GO
 --Madrid 46/ 11 hasta el 89
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Iglesia la Palabra que Cambia',9,36,74,109); --Sucursal 109 Santa Ana el Salvador
+GO
 --Santa Ana  36/9 hasta el 74
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('Frente al Empalame el Crusero',10,44,82,110);--Sucursal 110
 --Managua 44/10 hasta el 110
-USE CarDealership_E1_OLTP1
-SELECT * FROM HUMAN_R.LIST_ADDRESS
-DELETE FROM HUMAN_R.BRANCH_OFFICES
 GO
 
-DBCC CHECKIDENT ('HUMAN_R.LIST_ADDRESS', RESEED, 0)
-SELECT * FROM  HUMAN_R.LIST_ADDRESS
-DELETE FROM  HUMAN_R.LIST_ADDRESS
-
-ALTER TABLE HUMAN_R.BRANCH_OFFICES ADD big_id_address_FK BIGINT NOT NULL
-ALTER TABLE HUMAN_R.BRANCH_OFFICES ADD CONSTRAINT FK_ofice FOREIGN KEY(big_id_address_FK) REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK)
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (1,'Sucursal de Tegucigalpa',5);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (2,'Sucursal de Comayagua',51);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (3,'Sursal de Cortes',71);
@@ -502,10 +521,9 @@ INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (6,'Sursal de Limon, Costa Rica',105);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (7,'Sursal de Cordoba, Colombia',106);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (8,'Sursal de Santa Ana, El Salvador',109);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (9,'Sursal de Managua, Nicaragua',110);
-USE CarDealership_E1_OLTP1
-ALTER TABLE HUMAN_R.PERSON ADD CONSTRAINT PERSON_check CHECK((cha_gender='M' OR cha_gender='m') or (cha_gender='F' OR cha_gender='f'));
-
 GO
+
+--FUNCIONS
 CREATE VIEW seeder
 AS
     SELECT RAND(CONVERT(VARBINARY, NEWID())) seed
@@ -569,7 +587,7 @@ BEGIN
 
 END
 GO
-SELECT * FROM HUMAN_R.PERSON
+--END FUNCIONS
 
 INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES
 	 ('Luis','Ernesto','Castillo','Escamilla','0801200004393','93839830930393', dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',1);
@@ -677,15 +695,6 @@ INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_se
 	 ('Nathalie','Alfaro','Costa','Moreno',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',107),
 	 ('Alice','Rude','Lucas','Leroy',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'),dbo.getRandomDate('1969-01-01', '1998-12-30'),'F',108)
 	 
-	 
-
-
-ALTER TABLE HUMAN_R.PERSON ADD var_RTN_Personal VARCHAR(14), cha_gender CHAR NOT NULL;
-GO
-
-DBCC CHECKIDENT ('HUMAN_R.SALARY', RESEED, 0)
-SELECT * FROM  HUMAN_R.LIST_ADDRESS
-DELETE FROM  HUMAN_R.LIST_ADDRESS
 
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
@@ -717,8 +726,6 @@ INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK)
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
 GO
 
-ALTER TABLE HUMAN_R.EMPLOYEES ADD CONSTRAINT EMPLOYEES_CODE_unique UNIQUE(var_code)
-ALTER TABLE HUMAN_R.EMPLOYEES ADD CONSTRAINT EMPLOYEES_PERSON_unique UNIQUE(big_person_id_FK)
 INSERT INTO HUMAN_R.EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,int_contract_id_FK,big_person_id_FK) VALUES
 	(dbo.fnCustomPass(10,'CN'),1,6,1,10),
 	(dbo.fnCustomPass(10,'CN'),1,1,2,14),
@@ -781,21 +788,41 @@ INSERT INTO HUMAN_R.SALARY_EMP(bit_pay,int_salary_id_FK,int_employee_id_FK) valu
 	(1,28,28)
 GO
 
-INSERT INTO HUMAN_R.TELEPHONES(var_number,big_person_id_FK,int_country_id_FK) VALUES
+BEGIN TRY  
+    INSERT INTO HUMAN_R.TELEPHONES(var_number,big_person_id_FK,int_country_id_FK) VALUES
 	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
 	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
 	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
-	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
-	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
-	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
-	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
-	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1)
-USE CarDealership_E1_OLTP1
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),2),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),2),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),2),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),3),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),3)  
+END TRY  
+BEGIN CATCH  
+    
+END CATCH; 
+go
 
-SELECT * FROM HUMAN_R.MOVEMENT
-INSERT INTO HUMAN_R.PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES
-	(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),12)
+BEGIN TRY  
+	INSERT INTO HUMAN_R.PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),7)
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),8)
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),9)
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),10)
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),11)
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),12)
+END TRY  
+BEGIN CATCH  
+    
+END CATCH; 
+go
 
-SELECT * FROM HUMAN_R.TYPE_HOURS
+BEGIN TRY 
 INSERT INTO HUMAN_R.EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES
 	(dbo.getRandomDate('2020-12-01', '2020-12-31'),2,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(27-1)+1)));
+END TRY  
+BEGIN CATCH  
+    
+END CATCH; 
+go
