@@ -19,7 +19,9 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (int_id_PK, var_name
 	(7, 'Fiat Chrysler Automobiles', 'Fiat Chrysler Automobiles', 1),
 	(8, 'General Motors Company', 'GM', 1),
 	(9, 'Ford Motor Company', 'Ford', 1),
-	(10, 'TOYOTA MOTOR MANUFACTURING, TEXAS, INC.', 'Toyota', 1)
+	(10, 'TOYOTA MOTOR MANUFACTURING, TEXAS, INC.', 'Toyota', 1),
+	(11, 'MAZDA MOTOR CORPORATION', 'Mazda', 1),
+	(12, 'FCA US LLC', 'FCA', 1)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_description, int_manufacturer_FK) VALUES 
@@ -44,7 +46,9 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_d
 	(19, 'ford', 'Ford Motor Company is an automobile company that designs, manufactures, markets, and services a full line of Ford trucks, utility vehicles, cars as well as Lincoln luxury vehicles. The Company operates in three segments: Automotive, Mobility and Ford Credit.', 9),  
 	(20, 'dodge', 'Dodge is an American brand of automobiles and a division of Stellantis, based in Auburn Hills, Michigan.', 7),
 	(21, 'gmc', 'GMC is a division of the American automobile manufacturer General Motors (GM) that primarily focuses on trucks and utility vehicles.', 8),
-	(22, 'toyota', 'Toyota is the world s leader in sales of hybrid electric vehicles, one of the largest companies to encourage the mass-market adoption of hybrid vehicles across the globe, and the first to commercially mass-produce and sell such vehicles, with the introduction of the Toyota Prius in 1997.', 10)
+	(22, 'toyota', 'Toyota is the world s leader in sales of hybrid electric vehicles, one of the largest companies to encourage the mass-market adoption of hybrid vehicles across the globe, and the first to commercially mass-produce and sell such vehicles, with the introduction of the Toyota Prius in 1997.', 10),
+	(23, 'mazda', 'The Mazda Motor Company is well-known for crafting a “fun-to-drive” personality into its vehicles, whether it be a sports car, sedan, or SUV. It constructs its vehicles using lightweight materials and economical engine technology to bolster fuel economy.', 11),
+	(24, 'ram', 'Ram Trucks, stylized as RAM and formally known as the Ram Truck Division (of Chrysler), is an American brand of light to mid-weight commercial vehicles, and a division of Stellantis (previously Fiat Chrysler Automobiles)', 12)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS] (int_id_PK, var_name, tex_description) VALUES 
@@ -178,12 +182,18 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (big_id_PK, var_name, tex_d
 	(103, 'Colorado', 'The Chevrolet Colorado, and its counterpart, the GMC Canyon, are series of compact and later mid-sized pickup trucks marketed by American automaker General Motors. They were introduced in 2004 to replace the Chevrolet S-10 and GMC S-15/Sonoma compact pickups. It is named for the U.S. state of Colorado.', 16, 9),
 	(104, 'Corvette', 'The Chevrolet Corvette, colloquially known as the Vette, is a two-door, two-passenger sports car manufactured and marketed by Chevrolet across more than 60 years of production and eight design generations. From 1953 to 2019, it was front-engined, and since 2020, it is mid-engined.', 16, 6),
 	(105, 'Tacoma', 'The Toyota Tacoma is a midsize pickup truck offered in six trim levels: SR, SR5, TRD Sport, TRD Off-Road, Limited and TRD Pro. The SR and SR5 come standard with a 2.7-liter four-cylinder engine producing 159 horsepower and 180 lb-ft of torque.', 22, 9),
-	(106, 'Ranger', 'The 2021 Ford Ranger is a midsize pickup truck that is offered as either an extended cab (SuperCab) with a 6-foot bed or a crew cab (SuperCrew) with a 5-foot bed. It is available in three trim levels: XL, XLT and Lariat.', 19, 9)
+	(106, 'Ranger', 'The 2021 Ford Ranger is a midsize pickup truck that is offered as either an extended cab (SuperCab) with a 6-foot bed or a crew cab (SuperCrew) with a 5-foot bed. It is available in three trim levels: XL, XLT and Lariat.', 19, 9),
+	(107, 'MX-5', 'The Mazda MX-5 is a lightweight two-passenger roadster sports car manufactured and marketed by Mazda with a front mid-engine, rear-wheel-drive layout. ... As the best-selling two-seat convertible sports car in history, the MX-5 has been marketed globally, with production exceeding one million, as of early 2016..', 22, 6),
+	(108, 'XT4', 'The XT4 (short for "Crossover Touring 4") is Cadillac s second crossover SUV, slotting below the mid-size Cadillac XT5, serving as the luxury equivalent to the Chevrolet Equinox and GMC Terrain', 18, 7),
+	(109, 'Renegade', 'The Jeep Renegade is a subcompact SUV with seating for up to five passengers. It comes in four trim levels: Sport, Latitude, Limited and Trailhawk. A turbocharged 1.3-liter four-cylinder engine (177 horsepower, 190 lb-ft of torque) and nine-speed transmission are standard on all trims.', 17, 7),
+	(110,'F-150', 'Yes, the Ford F-150 is an excellent full-size pickup truck. It has a diverse lineup of potent powertrains, including V6, V8, and diesel engine options, as well as a brand-new hybrid. The F-150 has poised handling and a smooth ride, and none of its classmates can tow or haul as much.', 19, 9),
+	(111,'1500', 'The Ram 1500 can tow up to 12,750 pounds and carry a payload of up to 2320 pounds. Its maximum towing capacity exceeds all but the Ford F-150, which currently exceeds 13,000 pounds', 24, 9)
 ;
 
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
 		big_id_PK,
+		dec_base_price,
 		var_brake_system,
 		dec_displacement_cc,
 		tin_doors,
@@ -200,31 +210,36 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
 		tex_description,  
 		tin_color_FK	  
 ) VALUES 
-	(1, 'Hydraulic', 5300.0, 4, 8, 'L83 - VVT, AFM (Active Fuel Management), Aluminum', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 101, 2014, '1500 SLT', '3GTP1VEC4EG551563', 1, 1, '', 1),
-	(2, 'Hydraulic', 5300.0, 4, 8, 'LMG', 2, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2010, '1/2 Ton', '1GCSCSE06AZ123805', 1, 1, '', 2),
-	(3, 'Hydraulic', 5300.0, 4, 8, 'L84 - DI, DFM, ALUM, GEN 5, VAR 2', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2020, '1500 LT', '3GCPWCED5LG130317', 1, 1, '', 3),
-	(4, 'Hydraulic', 4600.0, 4, 8, '1UR-FE', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 102, 2017, 'UPK51L/USK51L/USK52L/UPK56L/USK56L/USK57L', '5TFRM5F17HX120972', 1, 1, '', 4),
-	(5, 'Hydraulic', 6000, 2, 8, 'L96', 1, 'Class 2H: 9,001 - 10,000 lb (4,082 - 4,536 kg)', 101, 2012, '2500', '1GT220CG8CZ231238', 1, 1, '', 4),
-	(6, 'Hydraulic', 4300.0, 4, 6, 'LV3 - SIDI, VVT, Aluminum, E85 Max.', 1, 'Class 2F: 7,001 - 8,000 lb (3,175 - 3,629 kg)', 80, 2016, '1500 LT', '1GCVKREH6GZ228691', 1, 1, '', 1),
-	(7, 'Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'LT', '1GCHTCE37G1186784', 1, 1, '', 2),
-	(8, 'Hydraulic', 6200.0, 2, 8, 'LS3', 1, '', 104, 2011, 'Grand Sport 2LT', '1G1YR3DW3B5102190', 2, 1, '', 5),
-	(9, 'Hydraulic', 4300.0, 2, 6, 'LV3 - GEN 5, SIDI, VVT: Variable Valve Timing, E85 MAX, ALUM', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2017, '1500', '1GCNCNEH7HZ118773', 1, 1, '', 1),
-	(10, 'Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'Z71', '1GCGTDE32G1341288', 1, 1, '', 2), 
-    (11, 'Hydraulic ',2700.0, 4 , 8, '5VZFE ', 1, 'Clase 1:6000 lb o menos (2722 kg o menos)', 105, 2014, 'TRN225L / GRN225L', '5TFTX4CN3EX042751', 1,1 , '',1 ),
-    (12, 'Hydraulic ',6200.0, 2 , 8, '6.2L (376 ci) V8 DI (455 hp [339.3 kW] a 6000 rpm, 455 l ', 1, '', 78, 2016, '1SS', '1G1FF1R79G0140582', 2, 1, '', 4),
-    (13, 'Hydraulic ',5700.0, 4 , 6, ' V8 de 5.7L y 32 V MPFI DOHC ', 1, 'Clase 2: 6,001 - 10,000 lb (2722 -4,536 kg)', 102,2014 , 'UPK51L/ GSK51L / USK51L', '5TFEY5F15EX169621',1 ,1 , '', 5),
-    (14, 'Hydraulic ',2300.0, 4 , 6, '', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)',106 ,2019 , '', '1FTER4EH3KLA31326',3 , 2, '', 1)
+	(1, 30000, 'Hydraulic', 5300.0, 4, 8, 'L83 - VVT, AFM (Active Fuel Management), Aluminum', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 101, 2014, '1500 SLT', '3GTP1VEC4EG551563', 1, 1, '', 1),
+	(2, 30000, 'Hydraulic', 5300.0, 4, 8, 'LMG', 2, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2010, '1/2 Ton', '1GCSCSE06AZ123805', 1, 1, '', 2),
+	(3, 30000, 'Hydraulic', 5300.0, 4, 8, 'L84 - DI, DFM, ALUM, GEN 5, VAR 2', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2020, '1500 LT', '3GCPWCED5LG130317', 1, 1, '', 3),
+	(4, 31930.00,'Hydraulic', 4600.0, 4, 8, '1UR-FE', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 102, 2017, 'UPK51L/USK51L/USK52L/UPK56L/USK56L/USK57L', '5TFRM5F17HX120972', 1, 1, '', 4),
+	(5, 30000, 'Hydraulic', 6000, 2, 8, 'L96', 1, 'Class 2H: 9,001 - 10,000 lb (4,082 - 4,536 kg)', 101, 2012, '2500', '1GT220CG8CZ231238', 1, 1, '', 4),
+	(6, 30000,'Hydraulic', 4300.0, 4, 6, 'LV3 - SIDI, VVT, Aluminum, E85 Max.', 1, 'Class 2F: 7,001 - 8,000 lb (3,175 - 3,629 kg)', 80, 2016, '1500 LT', '1GCVKREH6GZ228691', 1, 1, '', 1),
+	(7, 25000,'Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'LT', '1GCHTCE37G1186784', 1, 1, '', 2),
+	(8, 25000,'Hydraulic', 6200.0, 2, 8, 'LS3', 1, '', 104, 2011, 'Grand Sport 2LT', '1G1YR3DW3B5102190', 2, 1, '', 5),
+	(9, 27785.00,'Hydraulic', 4300.0, 2, 6, 'LV3 - GEN 5, SIDI, VVT: Variable Valve Timing, E85 MAX, ALUM', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2017, '1500', '1GCNCNEH7HZ118773', 1, 1, '', 1),
+	(10, 26543, 'Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'Z71', '1GCGTDE32G1341288', 1, 1, '', 2), 
+    (11, 65432, 'Hydraulic',2700.0, 4 , 8, '5VZFE ', 1, 'Clase 1:6000 lb o menos (2722 kg o menos)', 105, 2014, 'TRN225L / GRN225L', '5TFTX4CN3EX042751', 1,1 , '',1 ),
+    (12, 74432,'Hydraulic',6200.0, 2 , 8, '6.2L (376 ci) V8 DI (455 hp [339.3 kW] a 6000 rpm, 455 l ', 1, '', 78, 2016, '1SS', '1G1FF1R79G0140582', 2, 1, '', 4),
+    (13, 85421, 'Hydraulic',5700.0, 4 , 6, ' V8 de 5.7L y 32 V MPFI DOHC ', 1, 'Clase 2: 6,001 - 10,000 lb (2722 -4,536 kg)', 102,2014 , 'UPK51L/ GSK51L / USK51L', '5TFEY5F15EX169621',1 ,1 , '', 5),
+    (14, 23654, 'Hydraulic',2300.0, 4 , 6, '', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)',106 ,2019 , '', '1FTER4EH3KLA31326',3 , 1, '', 1),
+	(15, 31835.00,'Hydraulic', 2000.0, 2 , 4, '', 1, '',107 ,2020 , '', 'JM1NDAC74L0413665',2 , 1, '', 4),
+	(16, 31835.00,'Hydraulic', 2300.0, 2 , 4, '', 1, '',106 ,2020 , '', '1FTER1EH1LLA36301',1 , 1, '', 6),
+	(17, 39795,'Hydraulic', 2000, 4 , 4, 'LSY - SIDI, VVT, ALUM, VAR 3', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',108 ,2019 , 'Sport FWD', '1GYFZER40KF121673',3 , 1, '', 3),
+	(18, 39995,'Hydraulic', 1400.0, 4 , 4, '', 1, 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)',109 ,2016 , '', 'ZACCJBAW9GPC62449',3 , 1, '', 7),
+	(19, 39995,'Hydraulic', 2700.0, 4 , 6, '', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',110 ,2016 , '', '1FTMF1CP3GKD62143',1 , 1, '', 7),
+	(20, 39435,'Hydraulic', 4300.0, 2 , 6, 'LV3 - VVT, Aluminum, E85 Max', 1, '',101 ,2015 , '', '1GTN1TEH9FZ243281',1 , 1, '', 7),
+	(21, 39435,'Hydraulic', 3600.0, 2 , 6, '', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',111 ,2018 , 'ST', '1C6RR6FG0JS259587',1 , 1, '', 1),
+	(22, 39435,'Hydraulic', 5300.0, 2 , 6, 'LMG - Flex Fuel (Gas/ALC), Cylinder Deactivation Iron', 2, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',101 ,2013 , '1500', '1GTR1WE07DZ143724',1 , 1, '', 1),
+	(23, 39535,'Hydraulic', 5700.0, 2 , 8, '', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',111 ,2019 , '1500', '3C6JR6DT3KG560649',1 , 1, '', 1),
+	(24, 44690,'Hydraulic', 5000.0, 2 , 8, '5.0L 4V Premium Fuel', 1, '',93 ,2018 , 'GT Convertible', '1FATP8FF5J5115190',2 , 1, '', 4)
     --('Estandar ', 4000, 4 ,6 , 'V6 de 4.0L 24V MPFI DOHC  ',1 , 'Clase 1D: 5,001 -6,000 lb (2,268 -2722 kg)',1919 ,2018 , 'PRO 4X 4x4 4dr Crew Cab SWB ', '1N6AD0EV5JN745213', 3, 1, '', 6),
     --('Hydraulic ',3300.0, 4 , 6, ' Combustible flexible de 3.3L V6 24V PDI DOHC ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3,175 kg)', 1801,2018 , '', '1FTEX1CBXJKD41626', 1, 2, '', 1),
     --('Hydraulic ',3500.0,  4, 6, ' PDI DOHC V6 de 3,5 L y 24 V ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 -2,722 kg)',2223 ,2016 , 'GRN325L', '3TMAZ5CN7GM019182', 2, 1, '', 3),
     --('Estandar ',2000, 2 , 6, ' 2,0 litros ', 1, 'Clase 1C: 4,001 - 5000 lb (1,814 - 2268 kg)',1943 ,2020 , 'Deporte', '1C4GJXAN4LW180633',2 , 1, '',5 ),
     --('Hydraulic ',2700.0, 4,6 , ' V6 2.7L 24V PDI DOHC Twin Turbo ',1 , 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)', 1801,2020 , '', '1FTEW1CP4LFB84170',2 , 3, '', 6),
     --('Estandar ',5700.0, 4 ,8 , ' 5.7L V8 16V MPFI OHV ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 13620,2017 , 'DS (Ruedas traseras simples)', '3C6JR6DT3HG557601', 1, 2, '', 3)
-;
-
-INSERT INTO [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES] (var_name) VALUES 
-	('FM_Branch'), ('LMP_Branch'), ('ATL_Branch'), ('COM_Branch'), ('CRZ_Branch'), ('YOR_Branch'), ('OLA_Branch'), ('VAL_Branch'), ('OCT_Branch'),
-	 ('PAZ_Branch'), ('CHL_Branch'), ('GRA_Branch'), ('PAR_Branch'), ('COP_Branch'), ('COL_Branch'), ('INT_Branch'), ('ISL_Branch'), ('SAN_Branch')
 ;
 
 /*

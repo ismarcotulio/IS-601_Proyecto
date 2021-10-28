@@ -85,6 +85,7 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
  IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'VEHICLE')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[VEHICLE](
 		  big_id_PK BIGINT PRIMARY KEY NOT NULL,
+		  dec_base_price DECIMAL(10,3) DEFAULT 0,
 		  var_vin VARCHAR(45) NOT NULL UNIQUE,
 		  var_engine VARCHAR(100) DEFAULT '',
 		  var_brake_system VARCHAR(50) DEFAULT '',
@@ -105,13 +106,6 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 		  CONSTRAINT big_model_FK1 FOREIGN KEY (big_model_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[MODEL](big_id_PK),
 		  CONSTRAINT tin_fuel_type_FK1 FOREIGN KEY (tin_fuel_type_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[FUEL_TYPE](tin_id_PK)
 	  );
-
-   IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'HUMAN_R' and t.name = 'BRANCH_OFFICES')
-	   CREATE TABLE [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES](
-		  tin_id_branch_PK TINYINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-		  var_name VARCHAR(50) NOT NULL,
-		  int_id_address_FK INT DEFAULT 0
-	  );
    
    
    IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'MOVEMENT')
@@ -122,7 +116,7 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 		  tin_branch_FK TINYINT,
 		  big_vehicle_FK BIGINT,
 		  CONSTRAINT tin_type_movement_FK1 FOREIGN KEY(tin_type_movement_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[TYPE_MOVEMENT](tin_id_PK),
-		  CONSTRAINT tin_branch_FK1 FOREIGN KEY (tin_branch_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES](tin_id_branch_PK),
+		  --CONSTRAINT tin_branch_FK1 FOREIGN KEY (tin_branch_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES](tin_id_branch_PK),
 		  CONSTRAINT big_vehicle_FK1 FOREIGN KEY(big_vehicle_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[VEHICLE](big_id_PK)
 	  );
 
