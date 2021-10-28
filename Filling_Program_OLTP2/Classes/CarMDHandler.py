@@ -9,10 +9,15 @@ from carmd import CarMD
 
 class CarMDHandler:
 
-    def __init__(self, authorization,  partnerToken):
-        self.account = CarMD(authorization, partnerToken)
+    def __init__(self):
+        self.account = None
+        self.countRequests = 0
 
     def getCredits(self):
         return self.account.acct_credits()['data']['credits']
+
+    def getAccount(self, authorization, partnerToken):
+        self.account = CarMD(authorization, partnerToken)
+        return self.account
 
     

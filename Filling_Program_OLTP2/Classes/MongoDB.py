@@ -21,3 +21,11 @@ class MongoDB:
 
     def getCollection(self, name):
         return self.mydb[name]
+
+    def verifyCarInDB(self, text):
+        if(self.mydb.vehicles.find(
+            {'vin': text}
+        ).count()>0):
+            return True
+        else:
+            return False

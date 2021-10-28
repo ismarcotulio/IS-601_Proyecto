@@ -12,13 +12,19 @@ from Classes.CarMDHandler import CarMDHandler
 def main():    
     
     mongo = MongoDB()
-    vehicles = mongo.getCollection("vehicles")
-
+    carMD = CarMDHandler()
+    jsonHandler = JSONHandler(mongo, carMD)
     
 
-    carMD = CarMDHandler("Basic YTMxOTM1YzYtMzNkNC00Y2IzLWE1ZGUtZjJlYzlhMTUyOThh","a20d667e373e484d93ee848d79e8688b")
-    print(carMD.getCredits())
+    post = jsonHandler.getLastValidPost()
+    account = jsonHandler.getLastValidAccount().acct_credits()['data']['credits']
     
+    #print(carMD.getCredits())
+    
+    
+   
+
+
 
 
 if __name__ == "__main__":
