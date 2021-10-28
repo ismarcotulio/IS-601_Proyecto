@@ -24,18 +24,19 @@ INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Ind
 INSERT INTO HUMAN_R.MOVEMENT(tex_description,int_factor,mon_amount) VALUES ('Pagos a cooperativas de ahorro',-1,900);
 
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Gerente de Venta');
-INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Supervisor de Venta');
+INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Supervisor de Venta');--2
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Servicio al Cliente');
-INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director de Operaciones');
+INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director de Operaciones');--4
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director Ejecutivo');
-INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director de Marketing');
+INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director de Marketing');--6
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director Comercial');
-INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director de Recursos Humanos');
+INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Director de Recursos Humanos');--8
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Ingeniero en sistemas');
-INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Operario');
-INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Mecanico');
+INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Operario');--10
+INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Mecanico');--11
 INSERT INTO HUMAN_R.POSITION(var_name) VALUES ('Secretaria');
-
+USE CarDealership_E1_OLTP1
+SELECT * FROM HUMAN_R.CONTRACTS
 INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES ('2012/12/12',1,5,24000);
 INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES ('2012/12/12',1,1,15000);
 INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES ('2013/11/15',1,2,14000);
@@ -69,10 +70,11 @@ INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Ventas');
 INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Finanzas');
 INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Recursos Humanos');
 INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Logistica');
-INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Finanzas');
+INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Finanzas');--editar
 INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Administracion');
 INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Marketing');
 INSERT INTO HUMAN_R.AREA(var_name) VALUES ('Area General de Compras');
+go
 
 INSERT INTO HUMAN_R.COUNTRY (var_name,var_code) VALUES ('Honduras','504');
 INSERT INTO HUMAN_R.COUNTRY (var_name,var_code) VALUES ('Haití','509');
@@ -232,6 +234,7 @@ INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Les Cors',50
 INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Gracia',50);
 INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Sant Andreu',50);
 INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('Robleda',51);
+go
 
 SELECT * FROM HUMAN_R.SUBURN
 
@@ -482,6 +485,7 @@ INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament
 USE CarDealership_E1_OLTP1
 SELECT * FROM HUMAN_R.LIST_ADDRESS
 DELETE FROM HUMAN_R.BRANCH_OFFICES
+GO
 
 DBCC CHECKIDENT ('HUMAN_R.LIST_ADDRESS', RESEED, 0)
 SELECT * FROM  HUMAN_R.LIST_ADDRESS
@@ -677,32 +681,121 @@ INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_se
 
 
 ALTER TABLE HUMAN_R.PERSON ADD var_RTN_Personal VARCHAR(14), cha_gender CHAR NOT NULL;
+GO
 
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,bit_pay,tin_area_id_FK) VALUES (0,0,5);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,1);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,2);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,9);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,3);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,3);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,3);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,3);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,3);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,3);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,4);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,11);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,11);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,11);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,11);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,10);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,10);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,10);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,6);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,7);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,8);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
-INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary) VALUES (0,0,12);
+DBCC CHECKIDENT ('HUMAN_R.SALARY', RESEED, 0)
+SELECT * FROM  HUMAN_R.LIST_ADDRESS
+DELETE FROM  HUMAN_R.LIST_ADDRESS
 
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),7);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),3);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),7);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),3);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),2);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),2);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
+GO
+
+ALTER TABLE HUMAN_R.EMPLOYEES ADD CONSTRAINT EMPLOYEES_CODE_unique UNIQUE(var_code)
+ALTER TABLE HUMAN_R.EMPLOYEES ADD CONSTRAINT EMPLOYEES_PERSON_unique UNIQUE(big_person_id_FK)
+INSERT INTO HUMAN_R.EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,int_contract_id_FK,big_person_id_FK) VALUES
+	(dbo.fnCustomPass(10,'CN'),1,6,1,10),
+	(dbo.fnCustomPass(10,'CN'),1,1,2,14),
+	(dbo.fnCustomPass(10,'CN'),2,6,3,20),
+	(dbo.fnCustomPass(10,'CN'),2,6,4,40),
+	(dbo.fnCustomPass(10,'CN'),1,1,5,25),
+	(dbo.fnCustomPass(10,'CN'),2,1,6,13),
+	(dbo.fnCustomPass(10,'CN'),3,1,7,39),
+	(dbo.fnCustomPass(10,'CN'),4,1,8,99),
+	(dbo.fnCustomPass(10,'CN'),5,1,9,103),
+	(dbo.fnCustomPass(10,'CN'),6,1,10,87),
+	(dbo.fnCustomPass(10,'CN'),3,4,11,65),
+	(dbo.fnCustomPass(10,'CN'),1,1,12,43),
+	(dbo.fnCustomPass(10,'CN'),2,1,13,76),
+	(dbo.fnCustomPass(10,'CN'),3,4,14,70),
+	(dbo.fnCustomPass(10,'CN'),4,4,15,47),
+	(dbo.fnCustomPass(10,'CN'),9,4,16,21),
+	(dbo.fnCustomPass(10,'CN'),8,1,17,67),
+	(dbo.fnCustomPass(10,'CN'),7,1,18,92),
+	(dbo.fnCustomPass(10,'CN'),6,7,19,95),
+	(dbo.fnCustomPass(10,'CN'),5,1,20,100),
+	(dbo.fnCustomPass(10,'CN'),6,3,21,35),
+	(dbo.fnCustomPass(10,'CN'),7,7,22,50),
+	(dbo.fnCustomPass(10,'CN'),2,3,23,59),
+	(dbo.fnCustomPass(10,'CN'),4,2,24,55),
+	(dbo.fnCustomPass(10,'CN'),8,2,25,9),
+	(dbo.fnCustomPass(10,'CN'),9,6,26,5),
+	(dbo.fnCustomPass(10,'CN'),5,6,27,81),
+	(dbo.fnCustomPass(10,'CN'),4,1,28,85)
+GO
+
+INSERT INTO HUMAN_R.SALARY_EMP(bit_pay,int_salary_id_FK,int_employee_id_FK) values
+	(1,1,1),
+	(1,2,2),
+	(1,3,3),
+	(1,4,4),
+	(1,5,5),
+	(1,6,6),
+	(1,7,7),
+	(1,8,8),
+	(1,9,9),
+	(1,10,10),
+	(1,11,11),
+	(1,12,12),
+	(1,13,13),
+	(1,14,14),
+	(1,15,15),
+	(1,16,16),
+	(1,17,17),
+	(1,18,18),
+	(1,19,19),
+	(1,20,20),
+	(1,21,21),
+	(1,22,22),
+	(1,23,23),
+	(1,24,24),
+	(1,25,25),
+	(1,26,26),
+	(1,27,27),
+	(1,28,28)
+GO
+
+INSERT INTO HUMAN_R.TELEPHONES(var_number,big_person_id_FK,int_country_id_FK) VALUES
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1),
+	(dbo.fnCustomPass(8,'N'),FLOOR(( SELECT rnd FROM vwRandom ) *(105-4)+1),1)
+USE CarDealership_E1_OLTP1
+
+SELECT * FROM HUMAN_R.MOVEMENT
+INSERT INTO HUMAN_R.PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES
+	(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),12)
+
+SELECT * FROM HUMAN_R.TYPE_HOURS
+INSERT INTO HUMAN_R.EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES
+	(dbo.getRandomDate('2020-12-01', '2020-12-31'),2,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(27-1)+1)));

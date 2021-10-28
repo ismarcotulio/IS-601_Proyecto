@@ -95,6 +95,7 @@
     <Build Include="LOGISTIC\Tables\VEHICLE_TYPE.sql" />
     <Build Include="LOGISTIC\Tables\FUEL_TYPE.sql" />
     <Build Include="LOGISTIC\Tables\BODY_CLASS.sql" />
+    <Build Include="HUMAN_R\Tables\SALARY_EMP.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Snapshots\CarDealership_OLTP1.dacpac" />

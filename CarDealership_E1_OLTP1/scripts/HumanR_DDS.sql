@@ -94,7 +94,6 @@ CREATE TABLE HUMAN_R.SALARY(
   mon_netSalary MONEY NOT NULL,
   mon_hourSalary MONEY NOT NULL,
   dat_date DATE NOT NULL,
-  bit_pay BIT NOT NULL,
   tin_area_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.AREA(tin_area_id_PK),
   CHECK (mon_netSalary > 0)
 );
@@ -129,13 +128,21 @@ CREATE TABLE HUMAN_R.EMPLOYEES(
   tin_branch_id_FK TINYINT REFERENCES HUMAN_R.BRANCH_OFFICES(tin_id_branch_PK),
   big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
   int_contract_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.CONTRACTS(int_contract_id_PK),
-  int_salary_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.SALARY(int_salary_id_PK),
   tin_area_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.AREA(tin_area_id_PK),
+  CONSTRAINT EMPLOYEES_CODE_unique UNIQUE(var_code),
+  CONSTRAINT EMPLOYEES_PERSON_unique UNIQUE(big_person_id_FK),
+);
+
+CREATE TABLE HUMAN_R.SALARY_EMP(
+	bit_pay BIT NOT NULL,
+	int_salary_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.SALARY(int_salary_id_PK),
+	int_employee_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.EMPLOYEES(int_employee_id_PK),
+	PRIMARY KEY(int_salary_id_FK,int_employee_id_FK),
 );
 
 CREATE TABLE HUMAN_R.TELEPHONES(
 	big_telephon_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
-	var_nomber VARCHAR(12) NOT NULL,
+	var_number VARCHAR(12) NOT NULL,
 	big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK),
 	int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
 );
