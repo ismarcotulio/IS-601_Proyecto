@@ -29,7 +29,7 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[RANK](
   big_final_range BIGINT,
   bit_active BIT,
   tin_document_type_FK TINYINT NOT NULL, 
-	FOREIGN KEY (tin_document_type_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](int_id_PK),
+	FOREIGN KEY (tin_document_type_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](tin_id_PK),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[INVOICE_NUMBER](
