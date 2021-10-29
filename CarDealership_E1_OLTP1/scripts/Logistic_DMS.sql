@@ -21,7 +21,8 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (int_id_PK, var_name
 	(9, 'Ford Motor Company', 'Ford', 1),
 	(10, 'TOYOTA MOTOR MANUFACTURING, TEXAS, INC.', 'Toyota', 1),
 	(11, 'MAZDA MOTOR CORPORATION', 'Mazda', 1),
-	(12, 'FCA US LLC', 'FCA', 1)
+	(12, 'FCA US LLC', 'FCA', 1),
+	(13,'Honda Motor Company', 'Honda', 1)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_description, int_manufacturer_FK) VALUES 
@@ -48,7 +49,8 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_d
 	(21, 'gmc', 'GMC is a division of the American automobile manufacturer General Motors (GM) that primarily focuses on trucks and utility vehicles.', 8),
 	(22, 'toyota', 'Toyota is the world s leader in sales of hybrid electric vehicles, one of the largest companies to encourage the mass-market adoption of hybrid vehicles across the globe, and the first to commercially mass-produce and sell such vehicles, with the introduction of the Toyota Prius in 1997.', 10),
 	(23, 'mazda', 'The Mazda Motor Company is well-known for crafting a “fun-to-drive” personality into its vehicles, whether it be a sports car, sedan, or SUV. It constructs its vehicles using lightweight materials and economical engine technology to bolster fuel economy.', 11),
-	(24, 'ram', 'Ram Trucks, stylized as RAM and formally known as the Ram Truck Division (of Chrysler), is an American brand of light to mid-weight commercial vehicles, and a division of Stellantis (previously Fiat Chrysler Automobiles)', 12)
+	(24, 'ram', 'Ram Trucks, stylized as RAM and formally known as the Ram Truck Division (of Chrysler), is an American brand of light to mid-weight commercial vehicles, and a division of Stellantis (previously Fiat Chrysler Automobiles)', 12),
+	(25, 'honda','Honda has been the worlds largest motorcycle manufacturer since 1959 reaching a production of 400 million by the end of 2019 as well as the world largest manufacturer of internal combustion engines measured by volume',13)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS] (int_id_PK, var_name, tex_description) VALUES 
@@ -187,7 +189,8 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (big_id_PK, var_name, tex_d
 	(108, 'XT4', 'The XT4 (short for "Crossover Touring 4") is Cadillac s second crossover SUV, slotting below the mid-size Cadillac XT5, serving as the luxury equivalent to the Chevrolet Equinox and GMC Terrain', 18, 7),
 	(109, 'Renegade', 'The Jeep Renegade is a subcompact SUV with seating for up to five passengers. It comes in four trim levels: Sport, Latitude, Limited and Trailhawk. A turbocharged 1.3-liter four-cylinder engine (177 horsepower, 190 lb-ft of torque) and nine-speed transmission are standard on all trims.', 17, 7),
 	(110,'F-150', 'Yes, the Ford F-150 is an excellent full-size pickup truck. It has a diverse lineup of potent powertrains, including V6, V8, and diesel engine options, as well as a brand-new hybrid. The F-150 has poised handling and a smooth ride, and none of its classmates can tow or haul as much.', 19, 9),
-	(111,'1500', 'The Ram 1500 can tow up to 12,750 pounds and carry a payload of up to 2320 pounds. Its maximum towing capacity exceeds all but the Ford F-150, which currently exceeds 13,000 pounds', 24, 9)
+	(111,'1500', 'The Ram 1500 can tow up to 12,750 pounds and carry a payload of up to 2320 pounds. Its maximum towing capacity exceeds all but the Ford F-150, which currently exceeds 13,000 pounds', 24, 9),
+	(112, 'Civic', 'the 2020 Honda Civic offers a wide array of engine and powertrain combinations, all driving the front wheels.The base engine is a 2.0-liter I-4 making 158 hp and 138 lb-ft, found in the LX and Sport versions of the Civic Coupe and Sedan.',25,3)
 ;
 
 
@@ -233,13 +236,28 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
 	(21, 39435,'Hydraulic', 3600.0, 2 , 6, '', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',111 ,2018 , 'ST', '1C6RR6FG0JS259587',1 , 1, '', 1),
 	(22, 39435,'Hydraulic', 5300.0, 2 , 6, 'LMG - Flex Fuel (Gas/ALC), Cylinder Deactivation Iron', 2, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',101 ,2013 , '1500', '1GTR1WE07DZ143724',1 , 1, '', 1),
 	(23, 39535,'Hydraulic', 5700.0, 2 , 8, '', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',111 ,2019 , '1500', '3C6JR6DT3KG560649',1 , 1, '', 1),
-	(24, 44690,'Hydraulic', 5000.0, 2 , 8, '5.0L 4V Premium Fuel', 1, '',93 ,2018 , 'GT Convertible', '1FATP8FF5J5115190',2 , 1, '', 4)
-    --('Estandar ', 4000, 4 ,6 , 'V6 de 4.0L 24V MPFI DOHC  ',1 , 'Clase 1D: 5,001 -6,000 lb (2,268 -2722 kg)',1919 ,2018 , 'PRO 4X 4x4 4dr Crew Cab SWB ', '1N6AD0EV5JN745213', 3, 1, '', 6),
-    --('Hydraulic ',3300.0, 4 , 6, ' Combustible flexible de 3.3L V6 24V PDI DOHC ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3,175 kg)', 1801,2018 , '', '1FTEX1CBXJKD41626', 1, 2, '', 1),
-    --('Hydraulic ',3500.0,  4, 6, ' PDI DOHC V6 de 3,5 L y 24 V ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 -2,722 kg)',2223 ,2016 , 'GRN325L', '3TMAZ5CN7GM019182', 2, 1, '', 3),
-    --('Estandar ',2000, 2 , 6, ' 2,0 litros ', 1, 'Clase 1C: 4,001 - 5000 lb (1,814 - 2268 kg)',1943 ,2020 , 'Deporte', '1C4GJXAN4LW180633',2 , 1, '',5 ),
-    --('Hydraulic ',2700.0, 4,6 , ' V6 2.7L 24V PDI DOHC Twin Turbo ',1 , 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)', 1801,2020 , '', '1FTEW1CP4LFB84170',2 , 3, '', 6),
-    --('Estandar ',5700.0, 4 ,8 , ' 5.7L V8 16V MPFI OHV ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 13620,2017 , 'DS (Ruedas traseras simples)', '3C6JR6DT3HG557601', 1, 2, '', 3)
+	(24, 44690,'Hydraulic', 5000.0, 2 , 8, '5.0L 4V Premium Fuel', 1, '',93 ,2018 , 'GT Convertible', '1FATP8FF5J5115190',2 , 1, '', 4),
+    (25, 45678,'Estandar', 4000, 4 ,6 , 'V6 de 4.0L 24V MPFI DOHC  ',1 , 'Clase 1D: 5,001 -6,000 lb (2,268 -2722 kg)',106 ,2018 , '  ', '1N6AD0EV5JN745213', 3, 1, '', 6),
+    (26, 55000 ,'Hydraulic ',3300.0, 4 , 6, ' Combustible flexible de 3.3L V6 24V PDI DOHC ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3,175 kg)',110 ,2018 , '', '1FTEX1CBXJKD41626', 1, 1, '', 1),
+    (27, 452100,'Hydraulic ',3500.0,  4, 6, ' PDI DOHC V6 de 3,5 L y 24 V ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 -2,722 kg)',105 ,2016 , 'GRN325L', '3TMAZ5CN7GM019182', 2, 1, '', 3),
+    (28, 28295, 'Estandar ',2000, 2 , 6, ' 2,0 litros ', 1, 'Clase 1C: 4,001 - 5000 lb (1,814 - 2268 kg)',83 ,2020 , 'Deporte', '1C4GJXAN4LW180633',2 , 1, '',5 ),
+    (29, 55000.00 ,'Hydraulic ',2700.0, 4,6 , ' V6 2.7L 24V PDI DOHC Twin Turbo ',1 , 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)', 110 ,2020 , '', '1FTEW1CP4LFB84170',2 , 1, '', 6),
+    (30, 26495.00 ,'Estandar ',5700.0, 4 ,8 , ' 5.7L V8 16V MPFI OHV ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 111,2017 , 'DS (Ruedas traseras simples)', '3C6JR6DT3HG557601', 1, 1, '', 3),
+	(31, 26775.00,'Estandar ',2500.0, 4 , 4 , ' 2.5L I4 16V GDI DOHC ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',103 , 2017, 'LT', '1GCHSCEA7H1203280',3 , 1, '',3 ),
+    (32, 48718.00,'Hidraulic ',5300.0, 4,6 , 'V8 de 5.3L 16V GDI OHV  ', 1, 'Clase 2F: 7,001 -8,000 lb(3,175 - 3,629 kg) ', 80, 2019 , '1500 Work Truck / LS/ Fleet/ Base', '2GCVKNEC8K1187169',1 , 1, '',1 ),
+    (33, 34000.00,'Hidraulic ',5700.00, 4 ,8 , ' DOHC SMPI de 5.7 L y 8 cilindros ', 1, 'Clase 2: 6,001 - 10,000 lb (2,722 - 4,536 kg)', 102, 2013, 'GSK50/ UPK50L', '5TFUY5F19DX303623', 1, 1, '', 4),
+    (34, 48000.00,'Hidraulic ',5300.0, 2, 8 , ' 5,3 litros ',1 , 'Clase 2F: 7,001 - 8,000 lb (3,175 - 3,629 kg)',80 ,2014 , '1500 LT', '1GCVKREC7EZ196951',1 , 1, '', 5),
+    (35, 54456.00,'Hidraulic ',4300.0, 2 , 4, '  ', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2016, '1500 Work Truck', '1GCNCNEH4GZ259783', 1, 1, '', 10),
+    (36, 45346.00,'Hidraulic ',2700.0, 2 , 4, ' DOHC MPFI de 2.7L I4 de 16 V ', 1, 'Clase 1: 6000 lb o menos (2722 kg o menos)',105 , 2012, 'TRN220L/ TRN225L', '5TFTX4CN6CX015282',1 , 1, '',8 ),
+    (37, 61245.00,'Hidraulic ',4300.0,4 , 6, ' 4.3L V6 12V GDI OHV Combustible flexible ',2 , 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',80 ,2014 , '1500 LT', '3GCPCREH5EG437908', 1, 1, '',10 ),
+    (38, 34245.00,'Hidraulic ',3600.0, 4 , 6, ' V6 de 3.6L 24V MPFI DOHC ',1 , 'Clase 1D:5,001 - 6,000 lb (2,268 - 2,722 kg)',83 ,2017 , 'JK', '1C4HJWEG5HL696454',3 ,1 , '',9 ),
+    (39, 10567.00 ,'Estandar ',1500.0, 2 ,4 , ' 1.5L I4 16V GDI DOHC Turbo ',1 , 'Clase 1B: 3001 -4000 lb (1360 - 1814 kg)',112 ,2020 , 'Si/ Si HTP', '2HGFC3A51LH751302', 2, 1, '',3 ),
+    (40, 18940.00 ,'Hidraulic ',1995, 4 , 4, '2.0L I4 16V MPFI DOHC ',1 , 'Clase 1B:3001 - 4000 lb (1360 - 1814 kg)',112 , 2018, 'LX', '19XFC2F59JE206832', 2, 1, '', 11),
+	(41, 47125.00 ,'Hidraulic ',3500.0, 4,6, ' V6 de 3.5L 24V GDI DOHC Twin Turbo ', 1, 'Clase 2F: 7,001 - 8,000 lb (3,175 - 3,629 kg)',110 ,2017 , 'XLT / King Ranch', '1FMJU1JT1HEA52352', 3,1 , '', 7),
+    (42, 21340.00,'Hidraulic ',1995, 4 ,6 , 'V6 de 3.5  ',1 , 'Clase 1B:3001 - 4000 lb (1360 - 1814 kg)',112 ,2018 , 'EX', '2HGFC2F74JH589649', 3,1 , '',9 ),
+    (43, 44321.00,'Hidraulic ',3700.00,4  ,6 , '  V6 de 3.7L 24V MPFI DOHC', 1, 'Clase 2E: 6,001 - 7,000 lb (2722 -3175 kg)', 110, 2013, '', '1FTEX1CMXDFB16329',1 ,1 , '', 6),
+    (44, 28295.00,'Hidraulic ',3600.00, 2 ,6 , ' V6 de 3.6L 24V MPFI DOHC ',1 , 'Clase 1C: 4,001 .5,000 lb (1,814 -2,268 kg)', 83, 2020, 'Deporte', '1C4GJXAG9LW193038', 3,1 , '',8 ),
+    (45, 34567.00,'Hidraulic ',4000.0, 2 ,4 , ' V6 de 4.0L 24V MPFI DOHC ', 1, 'Clase 1: 6000 lb o menos (2722 kg o menos)', , 2012, 'TRN240L', '3TMLU4EN4CM085701',1 , 1, '', 10)
 ;
 
 /*
