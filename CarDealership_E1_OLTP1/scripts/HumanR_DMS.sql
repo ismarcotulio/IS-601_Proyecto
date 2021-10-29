@@ -1,4 +1,4 @@
-
+USE OLPT_E1
 INSERT INTO HUMAN_R.TYPE_HOURS(flo_porcent,var_name) VALUES 
 	(130,'Dia de semana/Mañana'),
 	(150,'Dia de semana/Tarde'),
@@ -370,12 +370,12 @@ INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament
     ('Sin datos',1,1,1,18), 
     ('Sin datos',1,1,1,19), 
     ('Sin datos',1,1,1,20), 
-    ('Sin datos',1,1,1,21)
-    ('A tres casas de la escuela Paraguay',1,1,1,22);
+    ('Sin datos',1,1,1,21),
+    ('A tres casas de la escuela Paraguay',1,1,1,22)
 GO
 --tegucigalpa 1/1 nos da hasta el 1
 INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES 
-    ('Sin datos',1,1,2,23),|
+    ('Sin datos',1,1,2,23),
     ('Sin datos',1,1,2,24)
 GO
 --Cedros 1/1 nos da hasta el 2
@@ -725,7 +725,7 @@ INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK)
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),6);
 INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1);
 GO
-
+--DELETE HUMAN_R.EMPLOYEES
 INSERT INTO HUMAN_R.EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,int_contract_id_FK,big_person_id_FK) VALUES
 	(dbo.fnCustomPass(10,'CN'),1,6,1,10),
 	(dbo.fnCustomPass(10,'CN'),1,1,2,14),
@@ -735,7 +735,7 @@ INSERT INTO HUMAN_R.EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,int_contr
 	(dbo.fnCustomPass(10,'CN'),2,1,6,13),
 	(dbo.fnCustomPass(10,'CN'),3,1,7,39),
 	(dbo.fnCustomPass(10,'CN'),4,1,8,99),
-	(dbo.fnCustomPass(10,'CN'),5,1,9,103),
+	(dbo.fnCustomPass(10,'CN'),5,1,9,98),
 	(dbo.fnCustomPass(10,'CN'),6,1,10,87),
 	(dbo.fnCustomPass(10,'CN'),3,4,11,65),
 	(dbo.fnCustomPass(10,'CN'),1,1,12,43),
@@ -784,8 +784,7 @@ INSERT INTO HUMAN_R.SALARY_EMP(bit_pay,int_salary_id_FK,int_employee_id_FK) valu
 	(1,24,24),
 	(1,25,25),
 	(1,26,26),
-	(1,27,27),
-	(1,28,28)
+	(1,27,27)
 GO
 
 BEGIN TRY  
@@ -806,11 +805,11 @@ go
 
 BEGIN TRY  
 	INSERT INTO HUMAN_R.PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),7)
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),8)
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),9)
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),10)
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),11)
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),7),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),8),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),9),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),10),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),11),
 		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),12)
 END TRY  
 BEGIN CATCH  
