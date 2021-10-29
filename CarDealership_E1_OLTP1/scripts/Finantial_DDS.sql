@@ -1,6 +1,7 @@
 CREATE DATABASE CarDealership_OLTP1;
 
 USE CarDealership_OLTP1;
+GO
 
 CREATE SCHEMA FINANTIAL;
 GO
@@ -53,7 +54,7 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE](
   mon_ISV_18 MONEY NOT NULL,
   mon_total_to_pay MONEY NOT NULL,
   int_employees_FK INT NOT NULL, 
-	FOREIGN KEY (int_employees_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[EMPLOYEES](int_id_PK),
+	FOREIGN KEY (int_employees_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[EMPLOYEES](int_employee_id_PK),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE_DETAIL](
@@ -61,9 +62,9 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE_DETAIL](
   mon_price MONEY NOT NULL,
   mon_exempt_value MONEY NOT NULL,
   mon_total MONEY NOT NULL,
-  int_vehicle_FK INT NOT NULL,
+  big_vehicle_FK BIGINT NOT NULL,
   big_sale_FK BIGINT NOT NULL,
-  FOREIGN KEY (int_vehicle_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[VEHICLE](int_id_PK),
+  FOREIGN KEY (big_vehicle_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[VEHICLE](big_id_PK),
 	FOREIGN KEY (big_sale_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[SALE](big_id_PK),
 );
 
@@ -77,8 +78,8 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[INVOICE](
   big_person_FK BIGINT NOT NULL,
   FOREIGN KEY (big_invoice_number_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[INVOICE_NUMBER](big_id_PK),
 	FOREIGN KEY (big_sale_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[SALE](big_id_PK),
-  FOREIGN KEY (tin_branch_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES](tin_id_PK),
-	FOREIGN KEY (big_person_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[PERSON](big_id_PK),
+  FOREIGN KEY (tin_branch_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[BRANCH_OFFICES](tin_id_branch_PK),
+	FOREIGN KEY (big_person_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[PERSON](big_person_id_PK),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[PAYMENT_METHOD](
