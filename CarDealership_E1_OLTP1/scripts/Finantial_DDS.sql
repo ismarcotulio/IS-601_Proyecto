@@ -34,7 +34,7 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[RANK](
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[INVOICE_NUMBER](
   big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
-  var_emission_point VARCHAR(60),,
+  var_emission_point VARCHAR(60),
   int_correlative_number INT,
   int_printing_FK INT NOT NULL,
   tin_document_type_FK TINYINT NOT NULL, 
@@ -49,8 +49,8 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE](
   tin_discount TINYINT,
   mon_reduction MONEY,
   big_final_range BIGINT,
-  mon_ISV_15% MONEY NOT NULL,
-  mon_ISV_18% MONEY NOT NULL,
+  mon_ISV_15 MONEY NOT NULL,
+  mon_ISV_18 MONEY NOT NULL,
   mon_total_to_pay MONEY NOT NULL,
   int_employees_FK INT NOT NULL, 
 	FOREIGN KEY (int_employees_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[EMPLOYEES](int_id_PK),
