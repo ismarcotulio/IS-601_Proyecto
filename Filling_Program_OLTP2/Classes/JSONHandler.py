@@ -23,11 +23,14 @@ class JSONHandler:
         f = open("Collections/carmd_accounts.json")
         return json.load(f)
     
-    def VerifyVIN(self, vin):
+    def getVehicleInfo(self, vin):
         api = "https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/{}?format=json".format(vin)
         response = requests.get(api)
-        j = response.json()
-        if j['Results'][0]['ErrorCode'] == '0':
+        return response.json()['Results'][0]
+    
+    def VerifyVIN(self, vin):
+        vehicleInfo = self.getVehicleInfo(vin)
+        if vehicleInfo['ErrorCode'] == '0':
             return True
         else:
             return False
@@ -66,3 +69,29 @@ class JSONHandler:
             count = count + 1
 
         return account 
+
+    def buildVehicleData(self, post, account):
+        vehicleInfo = self.getVehicleInfo(post['vin'])
+        vehicleDict = {}
+        vehicleDict.setdefault("due_date","")
+        vehicleDict.setdefault("posting_date",post['posting_date'])
+        vehicleDict.setdefault("vin",vehicleInfo["VIN"])
+        vehicleDict.setdefault("manufacter",vehicleInfo["Manufacturer"])
+        vehicleDict.setdefault("brand",vehicleInfo["Make"])
+        vehicleDict.setdefault("model",vehicleInfo["Model"])
+        vehicleDict.setdefault("series",vehicleInfo["Series"])
+        vehicleDict.setdefault("year",vehicleInfo["ModelYear"])
+        vehicleDict.setdefault("fuel_type",vehicleInfo["FuelTypePrimary"])
+        vehicleDict.setdefault("vehicle_type",vehicleInfo["VehicleType"])
+        vehicleDict.setdefault("body_class",vehicleInfo["BodyClass"])
+        vehicleDict.setdefault("base_price",vehicleInfo["BasePrice"])
+        vehicleDict.setdefault("engine",vehicleInfo["EngineModel"])
+        vehicleDict.setdefault("brake_system",vehicleInfo["BrakeSystemType"])
+        vehicleDict.setdefault("number_cylinders",vehicleInfo["EngineCylinders"])
+        vehicleDict.setdefault("displacement_cc",vehicleInfo["DisplacementCC"])
+        vehicleDict.setdefault("doors",vehicleInfo["Doors"])
+
+        my_vehicle = account.vin(post['vin'])
+        vehicleDict.setdefault("maintenances",my_vehicle.maintenance(50000)['data'])
+        return vehicleDict
+        

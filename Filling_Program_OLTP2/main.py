@@ -14,12 +14,20 @@ def main():
     mongo = MongoDB()
     carMD = CarMDHandler()
     jsonHandler = JSONHandler(mongo, carMD)
-    
+    limit = 3
+    count = 0
 
-    post = jsonHandler.getLastValidPost()
-    account = jsonHandler.getLastValidAccount().acct_credits()['data']['credits']
-    
-    #print(carMD.getCredits())
+
+    while count < limit:
+        vehicleData = jsonHandler.buildVehicleData(
+            jsonHandler.getLastValidPost(),
+            jsonHandler.getLastValidAccount()
+        )
+
+        mongo.insertToCollection(vehicleData)
+
+        count = count + 1
+
     
     
    

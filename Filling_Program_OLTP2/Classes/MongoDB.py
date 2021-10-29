@@ -29,3 +29,7 @@ class MongoDB:
             return True
         else:
             return False
+
+    def insertToCollection(self, dict):
+        collection = self.getCollection("vehicles")
+        x = collection.insert_one(dict)
