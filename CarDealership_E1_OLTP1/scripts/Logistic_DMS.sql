@@ -22,7 +22,10 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (int_id_PK, var_name
 	(10, 'TOYOTA MOTOR MANUFACTURING, TEXAS, INC.', 'Toyota', 1),
 	(11, 'MAZDA MOTOR CORPORATION', 'Mazda', 1),
 	(12, 'FCA US LLC', 'FCA', 1),
-	(13,'Honda Motor Company', 'Honda', 1)
+	(13, 'Honda Motor Company', 'Honda', 1),
+	(14, 'Jaguar Cars', 'Jaguar',1),
+	(15, 'Volvo Cars Group',1),
+	(16, 'Infinity(Nissan)', 1)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_description, int_manufacturer_FK) VALUES 
@@ -50,7 +53,13 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_d
 	(22, 'toyota', 'Toyota is the world s leader in sales of hybrid electric vehicles, one of the largest companies to encourage the mass-market adoption of hybrid vehicles across the globe, and the first to commercially mass-produce and sell such vehicles, with the introduction of the Toyota Prius in 1997.', 10),
 	(23, 'mazda', 'The Mazda Motor Company is well-known for crafting a “fun-to-drive” personality into its vehicles, whether it be a sports car, sedan, or SUV. It constructs its vehicles using lightweight materials and economical engine technology to bolster fuel economy.', 11),
 	(24, 'ram', 'Ram Trucks, stylized as RAM and formally known as the Ram Truck Division (of Chrysler), is an American brand of light to mid-weight commercial vehicles, and a division of Stellantis (previously Fiat Chrysler Automobiles)', 12),
-	(25, 'honda','Honda has been the worlds largest motorcycle manufacturer since 1959 reaching a production of 400 million by the end of 2019 as well as the world largest manufacturer of internal combustion engines measured by volume',13)
+	(25, 'honda','Honda has been the worlds largest motorcycle manufacturer since 1959 reaching a production of 400 million by the end of 2019 as well as the world largest manufacturer of internal combustion engines measured by volume',13),
+	(26, 'Lexus', 'The NX 300h is powered by a 2.5-liter 16-valve Atkinson cycle gasoline engine. The combined maximum power resulting from the gasoline engine and the electric motor is 197 hp and the maximum torque is 210 Nm at 4,400 rpm.',10),
+	(27. 'Jaguar', 'Jaguar Cars is an English luxury car brand that is part of Jaguar Land Rover, an automobile manufacturer based in Whitley, Coventry',14)
+	(28, 'Buick Encore','The Encore is a subcompact SUV that seats five. Its powered by a standard 138-horsepower, turbocharged 1.4-liter four-cylinder engine paired with a six-speed automatic transmission. '8),
+	(29, 'Volvo','is a Swedish car brand based in Gothenburg, Sweden, a subsidiary of the Chinese car company Geely.',15),
+	(30, 'Infinity','Currently, all INFINITI sedans available in the US are produced in Japan, Nissan home country. These models include the INFINITI Q50, Q60, and Q70 lines. The most popular INFINITI sedan is the Q50, whose performance and interior luxury put it in direct competition with more expensive European sport sedans.',16),
+	(31, 'Acura' , 'Acura is the luxury vehicle division of Japanese automaker Honda. The brand was launched in the United States and Canada on 27 March 1986, marketing luxury, performance, and high-performance automobiles. ... Acura is the first Japanese automotive luxury brand.',13)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS] (int_id_PK, var_name, tex_description) VALUES 
@@ -188,9 +197,15 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (big_id_PK, var_name, tex_d
 	(107, 'MX-5', 'The Mazda MX-5 is a lightweight two-passenger roadster sports car manufactured and marketed by Mazda with a front mid-engine, rear-wheel-drive layout. ... As the best-selling two-seat convertible sports car in history, the MX-5 has been marketed globally, with production exceeding one million, as of early 2016..', 22, 6),
 	(108, 'XT4', 'The XT4 (short for "Crossover Touring 4") is Cadillac s second crossover SUV, slotting below the mid-size Cadillac XT5, serving as the luxury equivalent to the Chevrolet Equinox and GMC Terrain', 18, 7),
 	(109, 'Renegade', 'The Jeep Renegade is a subcompact SUV with seating for up to five passengers. It comes in four trim levels: Sport, Latitude, Limited and Trailhawk. A turbocharged 1.3-liter four-cylinder engine (177 horsepower, 190 lb-ft of torque) and nine-speed transmission are standard on all trims.', 17, 7),
-	(110,'F-150', 'Yes, the Ford F-150 is an excellent full-size pickup truck. It has a diverse lineup of potent powertrains, including V6, V8, and diesel engine options, as well as a brand-new hybrid. The F-150 has poised handling and a smooth ride, and none of its classmates can tow or haul as much.', 19, 9),
-	(111,'1500', 'The Ram 1500 can tow up to 12,750 pounds and carry a payload of up to 2320 pounds. Its maximum towing capacity exceeds all but the Ford F-150, which currently exceeds 13,000 pounds', 24, 9),
-	(112, 'Civic', 'the 2020 Honda Civic offers a wide array of engine and powertrain combinations, all driving the front wheels.The base engine is a 2.0-liter I-4 making 158 hp and 138 lb-ft, found in the LX and Sport versions of the Civic Coupe and Sedan.',25,3)
+	(110, 'F-150', 'Yes, the Ford F-150 is an excellent full-size pickup truck. It has a diverse lineup of potent powertrains, including V6, V8, and diesel engine options, as well as a brand-new hybrid. The F-150 has poised handling and a smooth ride, and none of its classmates can tow or haul as much.', 19, 9),
+	(111, '1500', 'The Ram 1500 can tow up to 12,750 pounds and carry a payload of up to 2320 pounds. Its maximum towing capacity exceeds all but the Ford F-150, which currently exceeds 13,000 pounds', 24, 9),
+	(112, 'Civic', 'the 2020 Honda Civic offers a wide array of engine and powertrain combinations, all driving the front wheels.The base engine is a 2.0-liter I-4 making 158 hp and 138 lb-ft, found in the LX and Sport versions of the Civic Coupe and Sedan.',25,3),
+	(113, 'Lexus Nx 300H'.' The NX 300h is powered by a 2.5-liter 16-valve Atkinson cycle gasoline engine. The combined maximum power resulting from the gasoline engine and the electric motor is 197 hp and the maximum torque is 210 Nm at 4,400 rpm.',26,4 ),
+	(114, 'Jaguar E-Pace','The Jaguar F-PACE is a premium compact SUV, segment D, manufactured by Jaguar since 2016, (more on Jaguar F-PACE 2016). It is the first SUV of the British manufacturer.'27,4),
+	(115, 'buick encore','The 2020 Buick Encore is the smallest in Buicks SUV lineup and does a respectable job of emulating the pseudo-luxury feel of its bigger siblings.',28,4),
+	(116, 'Volvo s60','The Volvo S60 is a mid-size Swedish saloon designed to compete directly in the German-dominated premium saloon segment.',29,1),
+	(117,'INFINITI QX60','As Infiniti best-selling model, there is no question that the QX60 is very important to the brand. But sales of the three-row midsize SUV peaked in 2018, at 47,370 units, and the newer competitors have come a long way in terms of mechanical technology and interior execution.'30,1),
+	(118, 'Acura Md','The Acura MDX is a three-row mid-size luxury crossover SUV produced by the Japanese automaker Honda under its Acura luxury nameplate since 2000. The alphanumeric moniker stands for "Multi-Dimensional luxury". It has ranked as the second-best selling mid-size luxury SUV after the Lexus RX.',31,3)
 ;
 
 
@@ -257,7 +272,22 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
     (42, 21340.00,'Hidraulic ',1995, 4 ,6 , 'V6 de 3.5  ',1 , 'Clase 1B:3001 - 4000 lb (1360 - 1814 kg)',112 ,2018 , 'EX', '2HGFC2F74JH589649', 3,1 , '',9 ),
     (43, 44321.00,'Hidraulic ',3700.00,4  ,6 , '  V6 de 3.7L 24V MPFI DOHC', 1, 'Clase 2E: 6,001 - 7,000 lb (2722 -3175 kg)', 110, 2013, '', '1FTEX1CMXDFB16329',1 ,1 , '', 6),
     (44, 28295.00,'Hidraulic ',3600.00, 2 ,6 , ' V6 de 3.6L 24V MPFI DOHC ',1 , 'Clase 1C: 4,001 .5,000 lb (1,814 -2,268 kg)', 83, 2020, 'Deporte', '1C4GJXAG9LW193038', 3,1 , '',8 ),
-    (45, 34567.00,'Hidraulic ',4000.0, 2 ,4 , ' V6 de 4.0L 24V MPFI DOHC ', 1, 'Clase 1: 6000 lb o menos (2722 kg o menos)', , 2012, 'TRN240L', '3TMLU4EN4CM085701',1 , 1, '', 10)
+    (45, 34567.00,'Hidraulic ',4000.0, 2 ,4 , ' V6 de 4.0L 24V MPFI DOHC ', 1, 'Clase 1: 6000 lb o menos (2722 kg o menos)', 105 , 2012, 'TRN240L', '3TMLU4EN4CM085701',1 , 1, '', 10),
+	(46, 34567.00,'Hidraulic ',2700.0,  4,6 , '2,7 litros', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',110 , 2019, '', '1FTEW1CP2KKC65268',1 , 1, '', 10),
+    (47, 37890.00,'Hidraulic ',2500.0, 5, 6, ' 2.5L I4 16V MPFI DOHC Híbrido',1 , 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',113 , 2015, 'AGZ10L / AGZ15L', 'JTJBJRBZ8F2020836', 3,1 , '', 3),
+    (48, 41500.00,'Hidraulic ',2000, 5 , 6, ' 2.0L I4 16V GDI DOHC Turbo ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2722 kg)', 114,2018 , '', 'SADFJ2FX1J1Z13468', 3,1 , '',6 ),
+    (49, 35678.00,'Hidraulic ',1300.0, 4 ,6 , '  ', 1 , 'Clase 1C:4,001 - 5,000 lb (1,814 - 2,268 kg)', 115, 2020, 'Esencia AWD', 'KL4MMGSL4LB128069',3,1 , '',9 ),
+    (50, 36870.00,'Hidraulic ',2000.0,5, 4, ' 2.0L 4 cilindros ', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 113,2020 , 'AGZ10L - AWTLTA', 'JTJAARBZ1L2159357', 3,1 , '',11 ),
+    (51, 37890.00,'Hidraulic ',2500.0, 4 ,6 , 'Turbo de 2.5L I5 20V MPFI DOHC ', 1, 'Clase 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)',116 ,2016 , '', 'YV4612UMXG2000759', 3, 1, '',15 ),
+    (52, 24567.00,'Hidraulic ',2000.0, 4,6 , '  ',1 , '', 116, 2019, '', '7JRA22TL6KG004114',2 ,1 , '', 6),
+    (53, 45678.00,'Hidraulic ',2000.0, 4,4 , '2.0L I4 16V GDI DOHC Turbo ',1 , '', 116, 2020, 'FWD/eAWD(T8)', '7JR102FK7LG060315', 2, 1, '', 14),
+    (54, 43213.00,'Hidraulic ',2000.0, 4,6 , '2.0L I4 16V GDI DOHC Turbo  ', 1, '', 116, 2019, 'FWD/ eAWD(T8)', '7JR102FK4KG010003', 2, 1, '', 12),
+    (55, 41500.00,'Hidraulic ',2000.0, 4 ,6 , '2.0L I4 16V GDI DOHC Turbo', 1, 'Clase 1D: 5,001 - 6,000 lb(2,268 - 2,722 kg)',13 , 2018, 'Q5 quattro Premium', 'WA1ANAFY7J2102310',3 ,1 , '',5 ),
+    (56, 53980.00,'Hidraulic ',3500.0, 4, 6, ' V6 de 3,5 L 24 V MPFI DOHC', 1, 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',117 ,2015 , 'Estilo de carroceria de vagon', '5N1AL0MM5FC519184', 3,1 , '',4 ),
+    (57, 47675.00,'Hidraulic ',2700.0,4 ,6 ,' V6 GTDI de 2.7L',1 , '', 21, 2017, '', '1LN6L9TP6H5634048',2 , 1, '',7 ),
+    (58, 44195.00,'Hidraulic ',2000.0,4 ,4 , ' 2.0L I4 16V GDI SOHC Turbo ',1 , 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 17, 2018, 'TI Q4', 'ZASFAKBN3J7B64774',3 , 1, '',6 ),
+    (59, 54321.00,'Hidraulic ',1798.0,5,6 , '1.8L I4 16V MPFI DOHC', 1, '',31 ,2016 , 'ZRE186L', 'JTNKARJEXGJ517925', 2, 1, '', 9),
+    (60, 45672.00,'Hidraulic ',3670.70, 5 , 6, ' V6 de 3,7 L y 24 V MPFI SOHC ',1 , 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',117 , 2013, 'Tecnologia', '2HNYD2H30DH510846',3 ,1 , '',8 )
 ;
 
 /*
