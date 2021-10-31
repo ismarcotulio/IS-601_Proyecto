@@ -14,7 +14,7 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (int_id_PK, var_name
 	(2, 'Daimler Motor Company', 'Daimler AG', 1),
 	(3, 'Bayerische Motoren', 'BMW Group', 1),
 	(4, 'Stellantis N.V', 'Stellantis.', 1),
-	(5, 'Groupe Renault', 'Renault S.A', 1),
+	(5, 'Groupe Renault', 'Renault S.A',1),
 	(6, 'Ferrari S.p.A', 'Ferrari', 1),
 	(7, 'Fiat Chrysler Automobiles', 'Fiat Chrysler Automobiles', 1),
 	(8, 'General Motors Company', 'GM', 1),
@@ -24,8 +24,11 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (int_id_PK, var_name
 	(12, 'FCA US LLC', 'FCA', 1),
 	(13, 'Honda Motor Company', 'Honda', 1),
 	(14, 'Jaguar Cars', 'Jaguar',1),
-	(15, 'Volvo Cars Group',1),
-	(16, 'Infinity(Nissan)', 1)
+	(15, 'Volvo Cars Group','Volvo'1),
+	(16, 'Infinity(Nissan)','Infinity', 1),
+	(17, 'Hiundai','Hiundai', 1),
+	(18, 'chevrolet','Hiundai', 1),
+	(19, 'Audi', 'automaker Audi', 1)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_description, int_manufacturer_FK) VALUES 
@@ -59,7 +62,10 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_d
 	(28, 'Buick Encore','The Encore is a subcompact SUV that seats five. Its powered by a standard 138-horsepower, turbocharged 1.4-liter four-cylinder engine paired with a six-speed automatic transmission. '8),
 	(29, 'Volvo','is a Swedish car brand based in Gothenburg, Sweden, a subsidiary of the Chinese car company Geely.',15),
 	(30, 'Infinity','Currently, all INFINITI sedans available in the US are produced in Japan, Nissan home country. These models include the INFINITI Q50, Q60, and Q70 lines. The most popular INFINITI sedan is the Q50, whose performance and interior luxury put it in direct competition with more expensive European sport sedans.',16),
-	(31, 'Acura' , 'Acura is the luxury vehicle division of Japanese automaker Honda. The brand was launched in the United States and Canada on 27 March 1986, marketing luxury, performance, and high-performance automobiles. ... Acura is the first Japanese automotive luxury brand.',13)
+	(31, 'Acura' , 'Acura is the luxury vehicle division of Japanese automaker Honda. The brand was launched in the United States and Canada on 27 March 1986, marketing luxury, performance, and high-performance automobiles. ... Acura is the first Japanese automotive luxury brand.',13),
+	(32, 'HYUNDAI', 'Hyundai Motor Co. (HMC), established in 1967, is the auto sales leader in the Korean domestic market and exports vehicles to 190 countries worldwide. Hyundai Motor Co. operates the worlds largest integrated automobile manufacturing facility in Ulsan, located on Koreas southeast coast',17)
+	(33, 'Serie A', 'All generations of the A have offered either front-wheel-drive or Torsen-based four-wheel-drive, marketed by Audi as their quattro system.',19)
+
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS] (int_id_PK, var_name, tex_description) VALUES 
@@ -73,7 +79,10 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS] (int_id_PK, var_name, 
 	(8, 'Minivan', 'Minivans are the workhorses of the family-car world, the best at carrying people and cargo in an efficient package. They are called minivans but they are far from mini. That is because they are tall boxes-on-wheels with sliding side doors for easy access and a rear hatch that opens to a large cargo area.'),
 	(9, 'Pickup', 'A pickup truck has a passenger cab and an open cargo bed in the rear. Virtually all pickups offer some form of all-wheel drive or part-time four-wheel drive—the latter for off-road use only.'),
 	(10, 'Supermini car', 'Subcompact car is an American classification for cars which is broadly equivalent to the B-segment (Europe) or supermini (Great Britain) classifications, and smaller than a compact car.'),
-	(11, 'Electric', 'An electric car or battery electric car is an automobile that is propelled by one or more electric motors, using energy stored in batteries. Compared to internal combustion engine (ICE) vehicles, electric cars are quieter, have no exhaust emissions, and lower emissions overall.')
+	(11, 'Electric', 'An electric car or battery electric car is an automobile that is propelled by one or more electric motors, using energy stored in batteries. Compared to internal combustion engine (ICE) vehicles, electric cars are quieter, have no exhaust emissions, and lower emissions overall.'),
+	(12, 'Super Duty', 'Impressive Super Duty gas and diesel power ratings combine with rugged frame and chassis engineering to achieve strong numbers in every category of hauling and towing, including best-in-class horsepower, best-in-class GCWR, best-in-class payload and the best 5th-wheel and conventional towing in its class'),
+	(13, 'Acadia', 'The Acadia represents GMCs entry-level truck-like CUV and is the first unibody vehicle from the marque. It is also GMCs first front-wheel drive passenger vehicle, and also the first such vehicle of any kind since the 1973-78 GMC Motorhome. The Acadia has seating for eight and either front or all-wheel drive')
+
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[FUEL_TYPE] (var_name, tex_description) VALUES 
@@ -205,7 +214,18 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (big_id_PK, var_name, tex_d
 	(115, 'buick encore','The 2020 Buick Encore is the smallest in Buicks SUV lineup and does a respectable job of emulating the pseudo-luxury feel of its bigger siblings.',28,4),
 	(116, 'Volvo s60','The Volvo S60 is a mid-size Swedish saloon designed to compete directly in the German-dominated premium saloon segment.',29,1),
 	(117,'INFINITI QX60','As Infiniti best-selling model, there is no question that the QX60 is very important to the brand. But sales of the three-row midsize SUV peaked in 2018, at 47,370 units, and the newer competitors have come a long way in terms of mechanical technology and interior execution.'30,1),
-	(118, 'Acura Md','The Acura MDX is a three-row mid-size luxury crossover SUV produced by the Japanese automaker Honda under its Acura luxury nameplate since 2000. The alphanumeric moniker stands for "Multi-Dimensional luxury". It has ranked as the second-best selling mid-size luxury SUV after the Lexus RX.',31,3)
+	(118, 'Acura Md','The Acura MDX is a three-row mid-size luxury crossover SUV produced by the Japanese automaker Honda under its Acura luxury nameplate since 2000. The alphanumeric moniker stands for "Multi-Dimensional luxury". It has ranked as the second-best selling mid-size luxury SUV after the Lexus RX.',31,3),
+	(119, 'HYUNDAI SONATA', 'It comes with a 191-horsepower 2.5-liter four-cylinder engine, an eight-speed automatic transmission, and front-wheel drive. Standard features include cloth upholstery, an 8-inch touch screen, a six-speaker stereo, HD Radio, Android Auto, Apple CarPlay, a USB port, and Bluetooth.', 32,1),
+	(120, 'Super Duty', 'Super Duty® never stops moving forward. That’s why Ford Super Duty features the available 7.3L OHV gas V8 and the available Power Stroke® V8 Turbo Diesel, and offers the latest technology with an available new 12-inch screen featuring the all-new SYNC® 4', 19,12),
+	(121, 'Acadia', 'The GMC Acadia is a crossover SUV manufactured by General Motors for GMC marque. The first-generation GMC Acadia shared the GM Lambda platform with the Saturn Outlook, the Chevrolet Traverse, and the Buick Enclave. The Acadia went on sale in 2006 as a 2007 model in the United States, Canada and Mexico.', 21,13),
+	(122, 'Lincoln', 'The Lincoln MKZ, is a four-door, five-passenger mid-size luxury sedan manufactured by Ford and marketed as the Zephyr (MY 2006) and as the MKZ (MY 2007–2020) by Ford Lincoln brand – across two generations in both gasoline and hybrid gas/electric models', 19,1),
+	(123, 'Lexus Nx 200t'.' The Lexus NX 200t is powered by a 2.0-liter turbocharged four-cylinder engine that produces 235 horsepower and 258 pound-feet of torque. A six-speed automatic transmission and front-wheel drive are standard, and all-wheel drive is an option',26,7 ),
+	(124, 'Express', 'The model line is sold in three major versions, including a passenger van, cargo van, and a cutaway van chassis; the latter vehicle is a chassis cab variant developed for commercial-grade applications, including ambulances, buses, and small trucks', 16, 8),
+	(125, 'QX60', 'Highs Elegant cabin design, smart storage solutions, smooth-shifting nine-speed automatic. Lows Stiff ride on optional 20-inch wheels, V-6 sounds unrefined at high revs, no wireless Android Auto', 30, 5),
+	(126, 'A6', 'The A6 has also been used as the basis for the company Allroad models since 1999', 36, 1),
+	(127, 'IM', 'The iM is powered by a 1.8-liter I-4 also found in the Toyota Corolla Eco, rated here at 137 hp and 126 lb-ft of torque', 22, 5),
+	(128, 'Camry', 'The Toyota Camry continues to be the best-selling passenger car in the U.S. One reason for the Camry’s appeal could be its great reliability. iSeeCars.com found that the Camry is among the top ten longest-lasting passenger cars', 22, 1)
+
 ;
 
 
@@ -238,10 +258,10 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
 	(8, 25000,'Hydraulic', 6200.0, 2, 8, 'LS3', 1, '', 104, 2011, 'Grand Sport 2LT', '1G1YR3DW3B5102190', 2, 1, '', 5),
 	(9, 27785.00,'Hydraulic', 4300.0, 2, 6, 'LV3 - GEN 5, SIDI, VVT: Variable Valve Timing, E85 MAX, ALUM', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 80, 2017, '1500', '1GCNCNEH7HZ118773', 1, 1, '', 1),
 	(10, 26543, 'Hydraulic', 3600.0, 4, 6, 'LFX - SIDI, VVT, E85 MAX, Aluminum', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 103, 2016, 'Z71', '1GCGTDE32G1341288', 1, 1, '', 2), 
-    (11, 65432, 'Hydraulic',2700.0, 4 , 8, '5VZFE ', 1, 'Clase 1:6000 lb o menos (2722 kg o menos)', 105, 2014, 'TRN225L / GRN225L', '5TFTX4CN3EX042751', 1,1 , '',1 ),
-    (12, 74432,'Hydraulic',6200.0, 2 , 8, '6.2L (376 ci) V8 DI (455 hp [339.3 kW] a 6000 rpm, 455 l ', 1, '', 78, 2016, '1SS', '1G1FF1R79G0140582', 2, 1, '', 4),
-    (13, 85421, 'Hydraulic',5700.0, 4 , 6, ' V8 de 5.7L y 32 V MPFI DOHC ', 1, 'Clase 2: 6,001 - 10,000 lb (2722 -4,536 kg)', 102,2014 , 'UPK51L/ GSK51L / USK51L', '5TFEY5F15EX169621',1 ,1 , '', 5),
-    (14, 23654, 'Hydraulic',2300.0, 4 , 6, '', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)',106 ,2019 , '', '1FTER4EH3KLA31326',3 , 1, '', 1),
+    (11, 65432, 'Hydraulic',2700.0, 2 , 4, '2400 CC ', 1, 'Clase 1:6000 lb o menos (2722 kg o menos)', 105, 2014, 'TRN225L / GRN225L', '5TFTX4CN3EX042751', 1,1 , '',1 ),
+    (12, 74432,'Hydraulic',6200.0, 2 , 8, '6.2L (376 ci) V8 DI (455 hp [339.3 kW] a 6000 rpm, 455 l ', 1, '', 78, 2016, '1SS', '1G1FF1R79G0140582 ', 2, 1, '', 4),
+    (13, 85421, 'Hydraulic',5700.0, 4 , 8, ' V8 de 5.7L y 32 V MPFI DOHC ', 1, 'Clase 2: 6,001 - 10,000 lb (2722 -4,536 kg)', 102,2014 , 'UPK51L/ GSK51L / USK51L', '5TFEY5F15EX169621',1 ,1 , '', 5),
+    (14, 23654, 'Hydraulic',2300.0, 4 , 6, '', 1, 'Clase 2E: 6,001 - 7,000 lb (2,722 -3175 kg)',106 ,2019 , '', '1FTER4EH3KLA31326',1 , 1, '', 1),
 	(15, 31835.00,'Hydraulic', 2000.0, 2 , 4, '', 1, '',107 ,2020 , '', 'JM1NDAC74L0413665',2 , 1, '', 4),
 	(16, 31835.00,'Hydraulic', 2300.0, 2 , 4, '', 1, '',106 ,2020 , '', '1FTER1EH1LLA36301',1 , 1, '', 6),
 	(17, 39795,'Hydraulic', 2000, 4 , 4, 'LSY - SIDI, VVT, ALUM, VAR 3', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',108 ,2019 , 'Sport FWD', '1GYFZER40KF121673',3 , 1, '', 3),
@@ -287,7 +307,44 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
     (57, 47675.00,'Hidraulic ',2700.0,4 ,6 ,' V6 GTDI de 2.7L',1 , '', 21, 2017, '', '1LN6L9TP6H5634048',2 , 1, '',7 ),
     (58, 44195.00,'Hidraulic ',2000.0,4 ,4 , ' 2.0L I4 16V GDI SOHC Turbo ',1 , 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 17, 2018, 'TI Q4', 'ZASFAKBN3J7B64774',3 , 1, '',6 ),
     (59, 54321.00,'Hidraulic ',1798.0,5,6 , '1.8L I4 16V MPFI DOHC', 1, '',31 ,2016 , 'ZRE186L', 'JTNKARJEXGJ517925', 2, 1, '', 9),
-    (60, 45672.00,'Hidraulic ',3670.70, 5 , 6, ' V6 de 3,7 L y 24 V MPFI SOHC ',1 , 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',117 , 2013, 'Tecnologia', '2HNYD2H30DH510846',3 ,1 , '',8 )
+    (60, 45672.00,'Hidraulic ',3670.70, 5 , 6, ' V6 de 3,7 L y 24 V MPFI SOHC ',1 , 'Clase 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',117 , 2013, 'Tecnologia', '2HNYD2H30DH510846',3 ,1 , '',8 ),
+	(61, 43561.00,'Hidraulic ',3670.70, 5, 6 , 'V6 de 3,7 L y 24 V MPFI SOHC ', 1, 'Clase 1D: 5,001 -6,001 lb (2,268 - 2,722 kg)',118,2013 , 'Tecnologia', '2HNYD2H30DH510846',3,1 , '',7 ),
+    (62, 49700.00,'Hidraulic ',2000.0, 4,4 , ' Motor de cuatro cilindros TFSI de 2.0 litros y 2.0 litros ', 1, '', 13 ,2018 , 'A6 2.0 T Sport', 'WAUC8AFC6JN041814',2 ,1 , '', 5),
+	(63, 35780.00,'Hidraulic ',2400.0, 4 ,6, ' 2.4L I4 16V GDI DOHC ',1, '',119 ,2015 , 'Sport \/ Limited \/ Sport 2.0', '5NPE34AF8FH021634',2 , 1, '', 5),
+    (64, 40521.00,'Hidraulic ',2400.0, 4 ,6, '5.7L V8 16V MPFI OHV',1 , '',111 , 2015, 'Sport \/ Limited \/ Sport 2.0', '3C6RR7KT7HG794054',2 ,1 , '', 6),
+    (65, 35100.00,'Hidraulic ',5300.0, 4, 6, ' 5.3L V8 16V GDI OHV ',1 , 'Class 2F: 7,001 - 8,000 lb (3,175 - 3,629 kg)', 21, 2019 , '1500 Fleet\/Base 4WD', '3C6RR7KT7HG794054',1 ,1 , '', 8),
+    (66, 30400.00,'Hidraulic ',5300.0, 2 , 4, ' 5.3L V8 16V MPFI OHV Flexible Fuel',2 , 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',101 ,2013 , '1500', '1GTR1WE01DZ407455',1 ,1 , '', 10),
+    (67, 46140.00,'Hidraulic ',6200.00, 4 ,8 , ' 6.2L V8 16V MPFI SOHC Flexible Fuel ',1 , 'Class 2H: 9,001 - 10,000 lb (4,082 - 4,536 kg)',120 , 2019, 'Super Duty - Single Rear Wheel', '1FTBF2B65KEC91136',1 ,1 , '',3),
+    (68, 27895.00,'Hidraulic ',3600.0, 4 ,6 , ' 3.6L V6 24V MPFI DOHC ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',83 ,2018 , 'Unlimited Sport', '1C4BJWDG2JL806552',3 ,1 , '', 11),
+    (69, 30145.00,'Hidraulic ',2000, 4 , 4, ' 2.0L I4 16V GDI DOHC Turbo ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',83 ,2019 , 'Unlimited Sahara', '1C4HJXEN4KW505794',3 ,1 , '', 6),
+    (70, 37445.00,'Hidraulic ',3600.0, 4 , 6, ' 3.6L V6 24V MPFI DOHC ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2017, 'JK', '1C4BJWFG3HL547853',3 ,1 , '', 1),
+    (71,38295.00 ,'Hidraulic ',3600.0, 4 , 6 , ' 	3.6L V6 24V MPFI DOHC ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',83 ,2018 , 'Unlimited Sahara', '1C4HJXEGXJW175675',3 ,1 , '', 6),
+    (72, 35200.00,'Hidraulic ', 3600.0, 4 , 6, ' 3.6L V6 24V GDI DOHC ',1 , 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 121, 2018, 'SLE 2 FWD', '1GKKNLLS2JZ178034',3 ,1 , '', 6),
+    (73, 37000.00,'Hidraulic ',2000.0, 4 ,4 , ' 2.0 L ',1 , '',122 ,2013 , 'FWD', '3LN6L2G99DR819673', 2 ,1 , '', 6),
+    (74, 38350.00,'Hidraulic ',3600.0 ,4  ,6 , ' 3.6L V6 24V GDI DOHC ',1 , 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',121 ,2017 , 'SLT 1', '1GKKNMLS2HZ305977',3 ,1 , '', 6),
+    (75, 35170.00,'Hidraulic ',2000, 4 , 4, ' 2.0L I4 16V GDI DOHC Turbo ', 1, '',122 , 2017, 'SLT 1', '3LN6L5A97HR666209',3 ,1 , '', 6),
+    (76, 40700.00,'Hidraulic ', 2000.0, 5 , 4, ' 2.0L I4 16V PDI DOHC Turbo ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 123, 2015, 'AGZ10L\/AGZ15L\/AYZ10L\/AYZ15L', 'JTJYARBZ9F2013419',3 ,1 , '', 1),
+    (77, 42370.00,'Hidraulic ', 2000.0, 5 , 4, ' 2.0L I4 16V PDI DOHC Turbo ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 123, 2016, 'AGZ10L\/AGZ15L\/AYZ10L\/AYZ15L', 'JTJYARBZ5G2041512',3 ,1 , '', 12),
+    (78, 24200.00,'Hidraulic ',1300.0, 5 ,3 , ' 1.3L I3 12V MPFI DOHC Turbo ',1 , 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)', 115, 2020, 'Select FWD', 'KL4MMDSL8LB104338',3 ,1 , '', 6),
+    (79, 44300.00,'Hidraulic ', 2000, 5 , 4, ' 2.0L I4 16V GDI DOHC Turbo ', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 114, 2018, 'D150 FWD', 'SADFP2FX0J1Z05358',3 ,1 , '', 6),
+    (80, 45000.00,'Hidraulic ',1948, 4 , 4, ' 2.0L I4 16V GDI DOHC Turbo ', 1, '',116 , 2018, 'Inscription AWD', 'LYV402TK9JB177497',3 ,1 , '', 4),
+    (81, 37000.00,'Hidraulic ',2000.0, 4 , 4, ' 2.0L I4 16V GDI DOHC ', 1, '',116 ,2019 , 'Inscription AWD', '7JRA22TM2KG013336', 2,1 , '', 6),
+    (82, 42500.00,'Hidraulic ',2000.0, 4 , 4, ' 2.0L I4 16V GDI DOHC ', 1, '', 116, 2019, 'Inscription AWD', '7JRA22TM4KG006873', 2,1 , '', 8),
+    (83, 38500.00,'Hidraulic ',2000.0, 4 , 4, ' 2.0L I4 16V GDI DOHC ', 1, '', 116, 2019, 'Inscription AWD', '7JRA22TM4KG006873', 2,1 , '', 5),
+    (84, 31295.00,'Hidraulic ',4300.0, 5 , 6, ' 4.3 L ', 1, 'Class 2G: 8,001 - 9,000 lb (3,629 - 4,082 kg)', 124, 2018, '2500', '1GCWGAFP8J1309579',1 ,1 , '', 15),
+    (85, 36000.00 ,'Hidraulic', 4300.0, 5 , 6, ' 4.3 L ',1 , 'Class 2G: 8,001 - 9,000 lb (3,629 - 4,082 kg)', 124, 2019, '2500 cargo', '1GCWGAFP4K1214373', 1,1 , '', 6),
+    (86, 36500.00,'Hidraulic ', 4300.0, 5 , 6, ' 4.3 L ', 1, 'Class 2G: 8,001 - 9,000 lb (3,629 - 4,082 kg)', 124, 2018, '2500', '1GCWGAFPXJ1337903',1 ,1 , '', 5),
+    (87, 44350.00,'Hidraulic ', 3500.0, 4 ,6 , ' 3.5L V6 24V GDI DOHC ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 125, 2020, 'Crossover', '5N1DL0MN9LC508268',3 ,1 , '', 14),
+    (88, 46695.00, 'Hidraulic ',2000, 4 , 4, ' 2.0L I4 16V GDI SOHC Turbo ', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 71, 2018, 'Ti SPORT Q4', 'ZASFAKNN6J7B70368',3 ,1 , '', 7),
+    (89, 47675.00,'Hidraulic ',3700.0, 4 , 6, ' 3.7L V6 24V MPFI DOHC ',1 , '', 122, 2017, 'select', '1LN6L9TK4H5636420', 2,1 , '', 6),
+    (90, 41500.00,'Hidraulic ',2000.0, 4 , 4, ' 2.0L I4 16V GDI DOHC Turbo ', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 13, 2018, 'Q5 quattro Premium', 'WA1ANAFY2J2198475', 3,1 , '', 6),
+    (91, 22500.00,'Hidraulic ',2400.0, 4 , 4, ' 2.4L I4 16V GDI DOHC ', 1, '', 119, 2018, 'SEL, SEL w\/ Tech, Limited, Limited w\/ Ultimate, Sport ,Sport 2.0T, Limited 2.0T', '5NPE34AF7JH658815',2 ,1 , '', 13),
+    (92, 72850.00,'Hidraulic ',2000, 4 , 4, ' 2.0L I4 16V GDI DOHC Turbo ', 1, '', 126, 2018, 'A6 2.0T quattro premium plus', 'WAUG8AFC8JN040987',2 ,1 , '', 15),
+    (93, 19000.00,'Hidraulic ',1798, 5 , 4, ' 1.8L I4 16V MPFI DOHC ', 1, '', 127, 2016, 'ZRE186L', 'JTNKARJE4GJ508198',2 ,1 , '', 11),
+    (94, 44400.00,'Hidraulic ',3500.0, 5 ,6 , ' 3.5L V6 24V GDI SOHC ', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 118, 2020, 'luxury crossover SUV[', '5J8YD4H39LL041518', 3,1 , '', 9),
+    (95, 29540.00,'Hidraulic ',3600.0, 2 ,6 , ' 3.6L V6 24V MPFI DOHC', 1, 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)', 83, 2019, 'Sport', '1C4GJXAGXKW566358', 3,1 , '', 5),
+    (96, 27970.00,'Hidraulic ',3600.0, 4 ,6 , ' 3.6L V6 24V MPFI DOHC',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2012, 'JK', '1C4BJWDG5CL258372', 3,1 , '', 13),
+    (97, 23070.00 ,'Hidraulic ',2500.0, 4 , 4, ' 2.5L I4 16V MPFI DOHC ', 1, '', 128, 2017, 'ASV50L\/GSV50L\/AVV50L', '4T1BF1FK4HU421581',2 ,1 , '', 10)
 ;
 
 /*
