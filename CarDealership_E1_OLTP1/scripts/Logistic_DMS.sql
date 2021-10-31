@@ -24,11 +24,13 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER] (int_id_PK, var_name
 	(12, 'FCA US LLC', 'FCA', 1),
 	(13, 'Honda Motor Company', 'Honda', 1),
 	(14, 'Jaguar Cars', 'Jaguar',1),
-	(15, 'Volvo Cars Group','Volvo'1),
+	(15, 'Volvo Cars Group','Volvo', 1),
 	(16, 'Infinity(Nissan)','Infinity', 1),
 	(17, 'Hiundai','Hiundai', 1),
 	(18, 'chevrolet','Hiundai', 1),
-	(19, 'Audi', 'automaker Audi', 1)
+	(19, 'Audi', 'automaker Audi', 1),
+	(20, 'MITSUBISHI MOTORS CORPORATION', 'MMC', 1),
+	(21, 'Nissan Motor Corporation', 'Nissan', 1)
 ;
 
 INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_description, int_manufacturer_FK) VALUES 
@@ -58,13 +60,16 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_d
 	(24, 'ram', 'Ram Trucks, stylized as RAM and formally known as the Ram Truck Division (of Chrysler), is an American brand of light to mid-weight commercial vehicles, and a division of Stellantis (previously Fiat Chrysler Automobiles)', 12),
 	(25, 'honda','Honda has been the worlds largest motorcycle manufacturer since 1959 reaching a production of 400 million by the end of 2019 as well as the world largest manufacturer of internal combustion engines measured by volume',13),
 	(26, 'Lexus', 'The NX 300h is powered by a 2.5-liter 16-valve Atkinson cycle gasoline engine. The combined maximum power resulting from the gasoline engine and the electric motor is 197 hp and the maximum torque is 210 Nm at 4,400 rpm.',10),
-	(27. 'Jaguar', 'Jaguar Cars is an English luxury car brand that is part of Jaguar Land Rover, an automobile manufacturer based in Whitley, Coventry',14)
-	(28, 'Buick Encore','The Encore is a subcompact SUV that seats five. Its powered by a standard 138-horsepower, turbocharged 1.4-liter four-cylinder engine paired with a six-speed automatic transmission. '8),
+	(27, 'Jaguar', 'Jaguar Cars is an English luxury car brand that is part of Jaguar Land Rover, an automobile manufacturer based in Whitley, Coventry',14),
+	(28, 'Buick Encore','The Encore is a subcompact SUV that seats five. Its powered by a standard 138-horsepower, turbocharged 1.4-liter four-cylinder engine paired with a six-speed automatic transmission. ', 8),
 	(29, 'Volvo','is a Swedish car brand based in Gothenburg, Sweden, a subsidiary of the Chinese car company Geely.',15),
 	(30, 'Infinity','Currently, all INFINITI sedans available in the US are produced in Japan, Nissan home country. These models include the INFINITI Q50, Q60, and Q70 lines. The most popular INFINITI sedan is the Q50, whose performance and interior luxury put it in direct competition with more expensive European sport sedans.',16),
 	(31, 'Acura' , 'Acura is the luxury vehicle division of Japanese automaker Honda. The brand was launched in the United States and Canada on 27 March 1986, marketing luxury, performance, and high-performance automobiles. ... Acura is the first Japanese automotive luxury brand.',13),
-	(32, 'HYUNDAI', 'Hyundai Motor Co. (HMC), established in 1967, is the auto sales leader in the Korean domestic market and exports vehicles to 190 countries worldwide. Hyundai Motor Co. operates the worlds largest integrated automobile manufacturing facility in Ulsan, located on Koreas southeast coast',17)
-	(33, 'Serie A', 'All generations of the A have offered either front-wheel-drive or Torsen-based four-wheel-drive, marketed by Audi as their quattro system.',19)
+	(32, 'HYUNDAI', 'Hyundai Motor Co. (HMC), established in 1967, is the auto sales leader in the Korean domestic market and exports vehicles to 190 countries worldwide. Hyundai Motor Co. operates the worlds largest integrated automobile manufacturing facility in Ulsan, located on Koreas southeast coast',17),
+	(33, 'Serie A', 'All generations of the A have offered either front-wheel-drive or Torsen-based four-wheel-drive, marketed by Audi as their quattro system.',19),
+	(34, 'chrysler', 'Chrysler (/ˈkraɪslər/; officially Stellantis North America) is one of the "Big Three" automobile manufacturers in the United States, headquartered in Auburn Hills, Michigan. It is the American subsidiary of Dutch-domiciled automotive company Stellantis.',12),
+	(35, 'mitsubishi', 'Mitsubishi Corporation (MC) is a global integrated business enterprise that develops and operates businesses together with its offices and subsidiaries in approximately 90 countries and regions worldwide, as well as a global network of around 1,700 group companies.',20),
+	(36, 'nissan', 'Nissan was the leading Japanese brand in China, Russia and Mexico. In 2014, Nissan was the largest car manufacturer in North America. As of April 2018, Nissan was the worlds largest electric vehicle (EV) manufacturer, with global sales of more than 320,000 all-electric vehicles.',21)
 
 ;
 
@@ -209,23 +214,26 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (big_id_PK, var_name, tex_d
 	(110, 'F-150', 'Yes, the Ford F-150 is an excellent full-size pickup truck. It has a diverse lineup of potent powertrains, including V6, V8, and diesel engine options, as well as a brand-new hybrid. The F-150 has poised handling and a smooth ride, and none of its classmates can tow or haul as much.', 19, 9),
 	(111, '1500', 'The Ram 1500 can tow up to 12,750 pounds and carry a payload of up to 2320 pounds. Its maximum towing capacity exceeds all but the Ford F-150, which currently exceeds 13,000 pounds', 24, 9),
 	(112, 'Civic', 'the 2020 Honda Civic offers a wide array of engine and powertrain combinations, all driving the front wheels.The base engine is a 2.0-liter I-4 making 158 hp and 138 lb-ft, found in the LX and Sport versions of the Civic Coupe and Sedan.',25,3),
-	(113, 'Lexus Nx 300H'.' The NX 300h is powered by a 2.5-liter 16-valve Atkinson cycle gasoline engine. The combined maximum power resulting from the gasoline engine and the electric motor is 197 hp and the maximum torque is 210 Nm at 4,400 rpm.',26,4 ),
-	(114, 'Jaguar E-Pace','The Jaguar F-PACE is a premium compact SUV, segment D, manufactured by Jaguar since 2016, (more on Jaguar F-PACE 2016). It is the first SUV of the British manufacturer.'27,4),
+	(113, 'Lexus Nx 300H',' The NX 300h is powered by a 2.5-liter 16-valve Atkinson cycle gasoline engine. The combined maximum power resulting from the gasoline engine and the electric motor is 197 hp and the maximum torque is 210 Nm at 4,400 rpm.',26,4 ),
+	(114, 'Jaguar E-Pace','The Jaguar F-PACE is a premium compact SUV, segment D, manufactured by Jaguar since 2016, (more on Jaguar F-PACE 2016). It is the first SUV of the British manufacturer.',27,4),
 	(115, 'buick encore','The 2020 Buick Encore is the smallest in Buicks SUV lineup and does a respectable job of emulating the pseudo-luxury feel of its bigger siblings.',28,4),
 	(116, 'Volvo s60','The Volvo S60 is a mid-size Swedish saloon designed to compete directly in the German-dominated premium saloon segment.',29,1),
-	(117,'INFINITI QX60','As Infiniti best-selling model, there is no question that the QX60 is very important to the brand. But sales of the three-row midsize SUV peaked in 2018, at 47,370 units, and the newer competitors have come a long way in terms of mechanical technology and interior execution.'30,1),
+	(117,'INFINITI QX60','As Infiniti best-selling model, there is no question that the QX60 is very important to the brand. But sales of the three-row midsize SUV peaked in 2018, at 47,370 units, and the newer competitors have come a long way in terms of mechanical technology and interior execution.',30,1),
 	(118, 'Acura Md','The Acura MDX is a three-row mid-size luxury crossover SUV produced by the Japanese automaker Honda under its Acura luxury nameplate since 2000. The alphanumeric moniker stands for "Multi-Dimensional luxury". It has ranked as the second-best selling mid-size luxury SUV after the Lexus RX.',31,3),
 	(119, 'HYUNDAI SONATA', 'It comes with a 191-horsepower 2.5-liter four-cylinder engine, an eight-speed automatic transmission, and front-wheel drive. Standard features include cloth upholstery, an 8-inch touch screen, a six-speaker stereo, HD Radio, Android Auto, Apple CarPlay, a USB port, and Bluetooth.', 32,1),
 	(120, 'Super Duty', 'Super Duty® never stops moving forward. That’s why Ford Super Duty features the available 7.3L OHV gas V8 and the available Power Stroke® V8 Turbo Diesel, and offers the latest technology with an available new 12-inch screen featuring the all-new SYNC® 4', 19,12),
 	(121, 'Acadia', 'The GMC Acadia is a crossover SUV manufactured by General Motors for GMC marque. The first-generation GMC Acadia shared the GM Lambda platform with the Saturn Outlook, the Chevrolet Traverse, and the Buick Enclave. The Acadia went on sale in 2006 as a 2007 model in the United States, Canada and Mexico.', 21,13),
 	(122, 'Lincoln', 'The Lincoln MKZ, is a four-door, five-passenger mid-size luxury sedan manufactured by Ford and marketed as the Zephyr (MY 2006) and as the MKZ (MY 2007–2020) by Ford Lincoln brand – across two generations in both gasoline and hybrid gas/electric models', 19,1),
-	(123, 'Lexus Nx 200t'.' The Lexus NX 200t is powered by a 2.0-liter turbocharged four-cylinder engine that produces 235 horsepower and 258 pound-feet of torque. A six-speed automatic transmission and front-wheel drive are standard, and all-wheel drive is an option',26,7 ),
+	(123, 'Lexus Nx 200t',' The Lexus NX 200t is powered by a 2.0-liter turbocharged four-cylinder engine that produces 235 horsepower and 258 pound-feet of torque. A six-speed automatic transmission and front-wheel drive are standard, and all-wheel drive is an option',26,7 ),
 	(124, 'Express', 'The model line is sold in three major versions, including a passenger van, cargo van, and a cutaway van chassis; the latter vehicle is a chassis cab variant developed for commercial-grade applications, including ambulances, buses, and small trucks', 16, 8),
 	(125, 'QX60', 'Highs Elegant cabin design, smart storage solutions, smooth-shifting nine-speed automatic. Lows Stiff ride on optional 20-inch wheels, V-6 sounds unrefined at high revs, no wireless Android Auto', 30, 5),
 	(126, 'A6', 'The A6 has also been used as the basis for the company Allroad models since 1999', 36, 1),
 	(127, 'IM', 'The iM is powered by a 1.8-liter I-4 also found in the Toyota Corolla Eco, rated here at 137 hp and 126 lb-ft of torque', 22, 5),
-	(128, 'Camry', 'The Toyota Camry continues to be the best-selling passenger car in the U.S. One reason for the Camry’s appeal could be its great reliability. iSeeCars.com found that the Camry is among the top ten longest-lasting passenger cars', 22, 1)
-
+	(128, 'Camry', 'The Toyota Camry continues to be the best-selling passenger car in the U.S. One reason for the Camry’s appeal could be its great reliability. iSeeCars.com found that the Camry is among the top ten longest-lasting passenger cars', 22, 1),
+	(129, '128i', 'The BMW 128i Coupe and Convertible are powered by a 3.0-liter inline-6 that generates 230 horsepower and 200 foot-pounds of torque. Theyre available with 6-speed manual or 6-speed Steptronic automatic.', 4, 2),
+	(130, '300', 'The Chrysler 300 is a full-sized luxury car manufactured and marketed by Stellantis North America (and its predecessor companies) as a four-door sedan and station wagon in its first generation (model years 2005–2010) and solely as a four-door sedan in its second and current generation (model years 2011–present).', 34, 1),
+	(131, 'Outlander Sport', 'The BE trim (MSRP: $25,195) adds trim-specific styling elements, including black front and rear bumpers with red accents, red side body graphics, a large spoiler, an alloy fuel door, wheel accents, a tailgate trim protector, and a Black Edition badge.', 35, 7),
+	(132, 'Sentra', 'The Nissan Sentra is a good car thats overshadowed by better ones in the competitive compact car class. It offers a comfortable driving experience, a pleasing cabin design, and plenty of standard driver aids, but it suffers from ho-hum acceleration, a small trunk, and some finicky infotainment features', 36, 1)
 ;
 
 
@@ -344,7 +352,17 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
     (94, 44400.00,'Hidraulic ',3500.0, 5 ,6 , ' 3.5L V6 24V GDI SOHC ', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 118, 2020, 'luxury crossover SUV[', '5J8YD4H39LL041518', 3,1 , '', 9),
     (95, 29540.00,'Hidraulic ',3600.0, 2 ,6 , ' 3.6L V6 24V MPFI DOHC', 1, 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)', 83, 2019, 'Sport', '1C4GJXAGXKW566358', 3,1 , '', 5),
     (96, 27970.00,'Hidraulic ',3600.0, 4 ,6 , ' 3.6L V6 24V MPFI DOHC',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2012, 'JK', '1C4BJWDG5CL258372', 3,1 , '', 13),
-    (97, 23070.00 ,'Hidraulic ',2500.0, 4 , 4, ' 2.5L I4 16V MPFI DOHC ', 1, '', 128, 2017, 'ASV50L\/GSV50L\/AVV50L', '4T1BF1FK4HU421581',2 ,1 , '', 10)
+    (97, 23070.00 ,'Hidraulic ',2500.0, 4 , 4, ' 2.5L I4 16V MPFI DOHC ', 1, '', 128, 2017, 'ASV50L\/GSV50L\/AVV50L', '4T1BF1FK4HU421581',2 ,1 , '', 10),
+	(98, 42095.00 ,'Hidraulic ',5700.0, 4 , 8, '', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)', 111, 2017, 'DS (Single Rear Wheels)', '1C6RR6VT3HS551162',1 ,1 , '', 1),
+	(99, 37445 ,'Hidraulic ',3600.0, 4 , 6, '', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2017, 'JK', '1C4BJWFG7HL558919',3 ,1 , '', 1),
+	(100, 27895 ,'Hidraulic ',3600.0, 4 , 6, '', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2017, 'JK', '1C4BJWDG7HL689576',3 ,1 , '', 2),
+	(101, 27895 ,'Hidraulic ',3600.0, 4 , 6, '', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2017, 'JK', '1C4BJWDG8HL671975',3 ,1 , '', 3),
+	(102, 27895 ,'Hidraulic ',3600.0, 4 , 6, '', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)', 83, 2017, 'JK', '1C4BJWDG6HL650381',3 ,1 , '', 4),
+	(103, 46990 ,'Hidraulic ',2997.1940056, 2 , 6, '', 1, '', 129, 2012, '1-Series', 'WBAUP9C53CVL91190',2 ,1 , '', 5),
+	(104, 30445 ,'Hidraulic ',3600.0, 4 , 6, '', 1, '', 130, 2018, 'LX', '2C3CCAEG6JH123125',2 ,1 , '', 3),
+	(105, 20995 ,'Hidraulic ',2000, 5 , 4, 'MIVEC', 1, 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)', 131, 2020, 'Medium', 'JA4AP3AU9LU013694',3 ,1 , '', 7),
+	(106, 19410 ,'Hidraulic ',1800.0, 4 , 4, '', 1, '', 132, 2013, '', '3N1AB7AP2DL658501',2 ,1 , '', 5),
+	(107, 35200.00 ,'Hidraulic',3600.0, 4 , 6, 'LGX - Direct Injection, Variable Valve Timing, ALUM, GEN 2', 1, '', 121, 2018, 'SLE 2 FWD', '1GKKNLLS5JZ181591',3 ,1 , '', 2)
 ;
 
 /*
