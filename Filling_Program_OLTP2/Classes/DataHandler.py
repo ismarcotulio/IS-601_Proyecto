@@ -24,7 +24,18 @@ class DataHandler:
     def loadAccounts(self):
         f = open("Collections/carmd_accounts.json")
         return json.load(f)
-    
+
+    def getLastVerifiedPost(self):
+        f = open("Collections/lastVerified.json")
+        j = json.load(f)
+        return int(j["last_post_verified"])
+
+    def updateLastVerifiedPost(self, last):
+        dict = {}
+        dict.setdefault("last_post_verified", "{}".format(last))
+        f = open("Collections/lastVerified.json", 'w')
+        f.write(json.dumps(dict))
+        
     def getVehicleInfo(self, vin):
         api = "https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/{}?format=json".format(vin)
         response = requests.get(api)
@@ -51,9 +62,9 @@ class DataHandler:
         else:
             return False
 
-    def getLastValidPost(self):
+    def getLastValidPost(self, lastPostNumber):
         state = 1
-        count = 0
+        count = lastPostNumber
         posts = self.loadVINs()['posts']
         post = None
 
@@ -64,7 +75,7 @@ class DataHandler:
                     post = posts[count]
                     state = 0
             count = count + 1
-        return (post, dataList[1], dataList[2]) 
+        return (post, dataList[1], dataList[2], count) 
                     
 
     def getLastValidAccount(self):
@@ -107,3 +118,5 @@ class DataHandler:
         vehicleDict.setdefault("maintenances",my_vehicle.maintenance(50000)['data'])      
         return vehicleDict
         
+
+    

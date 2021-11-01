@@ -17,12 +17,18 @@ def main():
     dataExtractor = DataExtractor()
     dataHandler = DataHandler(mongo, carMD, dataExtractor)
     
-    limit = 3
-    count = 0   
+    limit = 1
+    count = 0
+    lastVerifiedPost = dataHandler.getLastVerifiedPost()
+    postDataList = None      
 
     
     while count < limit:
-        postDataList = dataHandler.getLastValidPost()
+        if postDataList != None:
+            lastPostNumber = postDataList[3]
+        else:
+            lastPostNumber = lastVerifiedPost
+        postDataList = dataHandler.getLastValidPost(lastPostNumber)
         tables = postDataList[2]
 
         vehicleData = dataHandler.buildVehicleData(
@@ -31,10 +37,13 @@ def main():
             dataHandler.getLastValidAccount(),
             dataExtractor.getJsonFromTable(tables[3])
         )
-
         mongo.insertToCollection(vehicleData)
-
         count = count + 1
+        dataHandler.updateLastVerifiedPost(postDataList[3])
+
+    print("Se han insertado {} vehiculos en la base de datos de MongoDB exitosamente.".format(count))
+    
+     
 
 
 
