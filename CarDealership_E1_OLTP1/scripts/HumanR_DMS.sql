@@ -1,3 +1,69 @@
+--FUNCIONS
+CREATE VIEW seeder
+AS
+    SELECT RAND(CONVERT(VARBINARY, NEWID())) seed
+GO
+
+CREATE FUNCTION [dbo].[getRandomDate]
+(
+	@lower DATE,
+	@upper DATE
+)
+RETURNS DATE
+AS
+BEGIN
+	DECLARE @random DATE
+	SELECT @random = DATEADD(day, DATEDIFF(DAY, @lower, @upper) * seed, @lower) FROM dbo.seeder
+	RETURN @random
+END
+GO
+
+CREATE VIEW vwRandom
+AS
+SELECT RAND() as Rnd
+GO 
+
+CREATE FUNCTION fnCustomPass 
+(    
+    @size AS INT, --Tamaño de la cadena aleatoria
+    @op AS VARCHAR(2) --Opción para letras(ABC..), numeros(123...) o ambos.
+)
+RETURNS VARCHAR(62)
+AS
+BEGIN    
+
+    DECLARE @chars AS VARCHAR(52),
+            @numbers AS VARCHAR(10),
+            @strChars AS VARCHAR(62),        
+            @strPass AS VARCHAR(62),
+            @index AS INT,
+            @cont AS INT
+
+    SET @strPass = ''
+    SET @strChars = ''    
+    SET @chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    SET @numbers = '0123456789'
+
+    SET @strChars = CASE @op WHEN 'C' THEN @chars --Letras
+                        WHEN 'N' THEN @numbers --Números
+                        WHEN 'CN' THEN @chars + @numbers --Ambos (Letras y Números)
+                        ELSE '------'
+                    END
+
+    SET @cont = 0
+    WHILE @cont < @size
+    BEGIN
+        SET @index = ceiling( ( SELECT rnd FROM vwRandom ) * (len(@strChars)))--Uso de la vista para el Rand() y no generar error.
+        SET @strPass = @strPass + substring(@strChars, @index, 1)
+        SET @cont = @cont + 1
+    END    
+        
+    RETURN @strPass
+
+END
+GO
+--END FUNCIONS
+
 --DBCC CHECKIDENT ('HUMAN_R.TYPE_HOURS', RESEED, 9)
 --SELECT * FROM  HUMAN_R.TYPE_HOURS
 --DELETE FROM  HUMAN_R.TYPE_HOURS WHERE tin_hourType_id_PK>9
@@ -103,6 +169,30 @@ INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_s
 	('2014/04/30',1,13,8000),
 	('2015/08/04',1,12,9000),
 	('2014/12/16',1,10,8000)
+GO
+--agregada el 31-10-2021
+--SELECT * FROM HUMAN_R.CONTRACTS
+INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES 
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,3,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,9,13500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,11,8500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,11,8500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,11,8500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,11,8500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,11,8500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,11,8500),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,13,8000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,13,8000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,13,9000),
+	(dbo.getRandomDate('1969-01-01', '1998-12-30'),1,13,8000)
 GO
 
 --USE CarDealership_E1_OLTP1
@@ -421,6 +511,7 @@ INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament
     ('A tres casas de la escuela Paraguay',1,1,1,22)
 GO
 
+--Use CarDealership_E1_OLTP1
 --SELECT * from HUMAN_R.LIST_ADDRESS
 --DBCC CHECKIDENT ('HUMAN_R.PERSON', RESEED, 110)
 --tegucigalpa 1/1 nos da hasta el 1
@@ -573,72 +664,6 @@ INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (7,'Sursal de Cordoba, Colombia',106);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (8,'Sursal de Santa Ana, El Salvador',109);
 INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (9,'Sursal de Managua, Nicaragua',110);
 GO
-
---FUNCIONS
-CREATE VIEW seeder
-AS
-    SELECT RAND(CONVERT(VARBINARY, NEWID())) seed
-GO
-
-CREATE FUNCTION [dbo].[getRandomDate]
-(
-	@lower DATE,
-	@upper DATE
-)
-RETURNS DATE
-AS
-BEGIN
-	DECLARE @random DATE
-	SELECT @random = DATEADD(day, DATEDIFF(DAY, @lower, @upper) * seed, @lower) FROM dbo.seeder
-	RETURN @random
-END
-GO
-
-CREATE VIEW vwRandom
-AS
-SELECT RAND() as Rnd
-GO 
-
-CREATE FUNCTION fnCustomPass 
-(    
-    @size AS INT, --Tamaño de la cadena aleatoria
-    @op AS VARCHAR(2) --Opción para letras(ABC..), numeros(123...) o ambos.
-)
-RETURNS VARCHAR(62)
-AS
-BEGIN    
-
-    DECLARE @chars AS VARCHAR(52),
-            @numbers AS VARCHAR(10),
-            @strChars AS VARCHAR(62),        
-            @strPass AS VARCHAR(62),
-            @index AS INT,
-            @cont AS INT
-
-    SET @strPass = ''
-    SET @strChars = ''    
-    SET @chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    SET @numbers = '0123456789'
-
-    SET @strChars = CASE @op WHEN 'C' THEN @chars --Letras
-                        WHEN 'N' THEN @numbers --Números
-                        WHEN 'CN' THEN @chars + @numbers --Ambos (Letras y Números)
-                        ELSE '------'
-                    END
-
-    SET @cont = 0
-    WHILE @cont < @size
-    BEGIN
-        SET @index = ceiling( ( SELECT rnd FROM vwRandom ) * (len(@strChars)))--Uso de la vista para el Rand() y no generar error.
-        SET @strPass = @strPass + substring(@strChars, @index, 1)
-        SET @cont = @cont + 1
-    END    
-        
-    RETURN @strPass
-
-END
-GO
---END FUNCIONS
 
 --delete from HUMAN_R.PERSON
 INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES
@@ -793,9 +818,71 @@ INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_se
 	('Jorge','Enrique','Clemente','Camacho',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',82),
 	('Maria','Esteban','Salgado','Cruz',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',82)
 GO
+--Agregada el 31/10/2021
+INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES
+	('Kennhet','Daniel','Carcamo','Osorio',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Maribel','','de la Selva','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Carlos','Arriega','Salvarada','Peña',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Nieto','Francisco','Alvarez','Pinto',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Betty','Sofia','Carvajal','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Juan','Orlando','Velazques','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Aura','Marcela','Goso','Vasquez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Groria','Patricia','Angulo','Rick',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Felipe','Entrada','Por Salida','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Eurices','Galas','de Galardo','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Dacil','Esmeralda','Rios','Valle',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Tutela','','','de la Rada',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Mira','Inez','Talo','Garza',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Julia','Lineth','Cordoba','Bustillo',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Bertha','Alfaro','de la Fuente','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Sintia','Jesús','Alvarenga','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Maria','Alva','de Jesus','Otoro',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Martha','Emili','Tebar','Cruz',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Maria','Solano','Helix','Paz',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Nelson','','Carcamo','Valladares',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Luis','Enrique','Galo','Murillo',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Aura','María','de la Cruz','Valencia',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Roberto','Carlos','Braga','Moreira',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'F',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Carlos','Augusto','Ribera','Guerra',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Carila','Serco','Fuente','Galiano',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Isabel','','Bustillo','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Rodolfo','Enrique','Cabral','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Emiliano','Zapata','Salazar','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Porfilio','','Lobo','Sosa',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Jorge','Benito','Lalo','Garza',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Sofia','Victoria','del Ramal','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Alfredo','Ulises','Caballos','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Benito','Pablo','Juares','García',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Yannick','Ferreira','Galindes','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Florentino','Peres','Rodriguez','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Kevin','','Enrique','Valencia',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Eugenio','','Gonzáles','Derbez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Sofia','Margarita','Victoria','Federica',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Daniel','Enrique','Sanchez','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Mario','José','Escoto','Pinto',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Valeria','Sofia','Alvarado','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Rodrigo','','Garcia','Davila',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Carlos','Daniel','Ponce','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Daniel','Abraham','Escoto','Murillo',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Alice','','Cardona','Alberto',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Meliza','','Cardona','Alberto',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Wilson','Helimar','Puerto','Miramar',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Ivonne','','Pineda','Boddeen',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Alexandra','Denise','Sanches','',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Carlos','Enrique','','Santos',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Edgar','Obed','Caceres','Martinez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Dario','Roberto','Calix','Alvarado',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Stefany','Mariel','Cerrato','Rivas',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Roberto','Carlos','Erazo','Martinez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Gerardo','Javier','Espinal','Martinez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('David','Javier','Flores','Irias',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Antony','Yaret','Garcia','Gomez',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1)),
+	('Rony','Josue','Gomez','Oyuela',dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'), 'M',FLOOR(( SELECT rnd FROM vwRandom ) *(110-1)+1))
+GO
 --SELECT * FROM HUMAN_R.PERSON
---DBCC CHECKIDENT ('HUMAN_R.PERSON', RESEED, 0)
+--DBCC CHECKIDENT ('HUMAN_R.PERSON', RESEED, 145)
 --DELETE FROM HUMAN_R.PERSON WHERE big_person_id_PK>145
+
 
 --DBCC CHECKIDENT ('HUMAN_R.SALARY', RESEED, 48)
 --DELETE FROM HUMAN_R.SALARY WHERE int_salary_id_PK>48
@@ -852,6 +939,29 @@ INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK)
     (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),5),
     (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
     (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4)
+GO
+--Agregados el 31/10/2021 SELECT * FROM HUMAN_R.SALARY
+INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES 
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),5),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),1),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),4),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),5),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),5),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),5),
+    (1,0,dbo.getRandomDate('2021-01-01', '2021-01-31'),5)
 GO
 
 --DELETE HUMAN_R.EMPLOYEES WHERE int_employee_id_PK>28
@@ -921,6 +1031,34 @@ BEGIN CATCH
     
 END CATCH; 
 go
+--Agregado el 31/10/2021 
+BEGIN TRY 
+INSERT INTO HUMAN_R.EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,int_contract_id_FK,big_person_id_FK) VALUES
+	(dbo.fnCustomPass(10,'CN'),1,1,49,149),
+	(dbo.fnCustomPass(10,'CN'),2,1,50,159),
+	(dbo.fnCustomPass(10,'CN'),3,1,51,169),
+	(dbo.fnCustomPass(10,'CN'),4,1,52,179),
+	(dbo.fnCustomPass(10,'CN'),5,1,53,189),
+	(dbo.fnCustomPass(10,'CN'),6,1,54,199),
+	(dbo.fnCustomPass(10,'CN'),7,1,55,202),
+	(dbo.fnCustomPass(10,'CN'),8,1,56,200),
+	(dbo.fnCustomPass(10,'CN'),9,1,57,146),
+	(dbo.fnCustomPass(10,'CN'),7,4,58,156),
+	(dbo.fnCustomPass(10,'CN'),1,5,59,166),
+	(dbo.fnCustomPass(10,'CN'),2,4,60,176),
+	(dbo.fnCustomPass(10,'CN'),3,4,61,186),
+	(dbo.fnCustomPass(10,'CN'),4,1,62,196),
+	(dbo.fnCustomPass(10,'CN'),5,1,63,147),
+	(dbo.fnCustomPass(10,'CN'),6,4,64,155),
+	(dbo.fnCustomPass(10,'CN'),7,5,65,177),
+	(dbo.fnCustomPass(10,'CN'),6,5,66,188),
+	(dbo.fnCustomPass(10,'CN'),5,5,67,197),
+	(dbo.fnCustomPass(10,'CN'),4,5,68,153)
+END TRY  
+BEGIN CATCH  
+    
+END CATCH; 
+go
 
 --delete from HUMAN_R.SALARY_EMP
 --SELECT * FROM HUMAN_R.SALARY_EMP
@@ -977,6 +1115,29 @@ INSERT INTO HUMAN_R.SALARY_EMP(bit_pay,int_salary_id_FK,int_employee_id_FK) valu
 	(1,47,47),
 	(1,48,48)
 GO
+--agragada el 31/10/2021 SELECT * FROM HUMAN_R.SALARY_EMP
+INSERT INTO HUMAN_R.SALARY_EMP(bit_pay,int_salary_id_FK,int_employee_id_FK) values
+	(1,49,49),
+	(1,50,50),
+	(1,51,51),
+	(1,52,52),
+	(1,53,53),
+	(1,54,54),
+	(1,55,55),
+	(1,56,56),
+	(1,57,57),
+	(1,58,58),
+	(1,59,59),
+	(1,60,60),
+	(1,61,61),
+	(1,62,62),
+	(1,63,63),
+	(1,64,64),
+	(1,65,65),
+	(1,66,66),
+	(1,67,67),
+	(1,68,68)
+GO
 
 --SELECT * FROM HUMAN_R.TELEPHONES
 --DBCC CHECKIDENT ('HUMAN_R.TELEPHONES', RESEED, 0)
@@ -995,12 +1156,12 @@ go
 --SELECT * FROM HUMAN_R.PAYMENT_MOVEMENT
 BEGIN TRY  
 	INSERT INTO HUMAN_R.PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(48-28)+28)),
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(48-28)+28)),
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(48-28)+28)),
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(48-28)+28)),
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(48-28)+28)),
-		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(48-28)+28))
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48)),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48)),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48)),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48)),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48)),
+		(1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-1)+1),FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48))
 END TRY  
 BEGIN CATCH  
     
@@ -1012,11 +1173,11 @@ go
 --DBCC CHECKIDENT ('HUMAN_R.EXTRA_HOURS', RESEED, 0)
 BEGIN TRY 
 INSERT INTO HUMAN_R.EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES
-	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(48-1)+1))),
-	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(48-1)+1))),
-	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(48-1)+1))),
-	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(48-1)+1))),
-	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(18-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(48-1)+1)))
+	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48))),
+	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48))),
+	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48))),
+	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48))),
+	(dbo.getRandomDate('2020-12-01', '2020-12-31'),1,1,(FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1)),(FLOOR(( SELECT rnd FROM vwRandom ) *(68-48)+48)))
 END TRY  
 BEGIN CATCH  
     
