@@ -69,7 +69,8 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[BRAND] (int_id_PK, var_name, tex_d
 	(33, 'Serie A', 'All generations of the A have offered either front-wheel-drive or Torsen-based four-wheel-drive, marketed by Audi as their quattro system.',19),
 	(34, 'chrysler', 'Chrysler (/ˈkraɪslər/; officially Stellantis North America) is one of the "Big Three" automobile manufacturers in the United States, headquartered in Auburn Hills, Michigan. It is the American subsidiary of Dutch-domiciled automotive company Stellantis.',12),
 	(35, 'mitsubishi', 'Mitsubishi Corporation (MC) is a global integrated business enterprise that develops and operates businesses together with its offices and subsidiaries in approximately 90 countries and regions worldwide, as well as a global network of around 1,700 group companies.',20),
-	(36, 'nissan', 'Nissan was the leading Japanese brand in China, Russia and Mexico. In 2014, Nissan was the largest car manufacturer in North America. As of April 2018, Nissan was the worlds largest electric vehicle (EV) manufacturer, with global sales of more than 320,000 all-electric vehicles.',21)
+	(36, 'nissan', 'Nissan was the leading Japanese brand in China, Russia and Mexico. In 2014, Nissan was the largest car manufacturer in North America. As of April 2018, Nissan was the worlds largest electric vehicle (EV) manufacturer, with global sales of more than 320,000 all-electric vehicles.',21),
+	(37,'smart', 'The Smart Fortwo is a two-seater microcar produced by the German manufacturer Smart since 1998. It exists in coupe (commercially called city-coupe) and convertible (convertible) versions. For a time there was an "extreme" version called the Crossblade, without a roof and with hollow doors',2)
 
 ;
 
@@ -233,7 +234,8 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[MODEL] (big_id_PK, var_name, tex_d
 	(129, '128i', 'The BMW 128i Coupe and Convertible are powered by a 3.0-liter inline-6 that generates 230 horsepower and 200 foot-pounds of torque. Theyre available with 6-speed manual or 6-speed Steptronic automatic.', 4, 2),
 	(130, '300', 'The Chrysler 300 is a full-sized luxury car manufactured and marketed by Stellantis North America (and its predecessor companies) as a four-door sedan and station wagon in its first generation (model years 2005–2010) and solely as a four-door sedan in its second and current generation (model years 2011–present).', 34, 1),
 	(131, 'Outlander Sport', 'The BE trim (MSRP: $25,195) adds trim-specific styling elements, including black front and rear bumpers with red accents, red side body graphics, a large spoiler, an alloy fuel door, wheel accents, a tailgate trim protector, and a Black Edition badge.', 35, 7),
-	(132, 'Sentra', 'The Nissan Sentra is a good car thats overshadowed by better ones in the competitive compact car class. It offers a comfortable driving experience, a pleasing cabin design, and plenty of standard driver aids, but it suffers from ho-hum acceleration, a small trunk, and some finicky infotainment features', 36, 1)
+	(132, 'Sentra', 'The Nissan Sentra is a good car thats overshadowed by better ones in the competitive compact car class. It offers a comfortable driving experience, a pleasing cabin design, and plenty of standard driver aids, but it suffers from ho-hum acceleration, a small trunk, and some finicky infotainment features', 36, 1),
+	(133, 'Smart Fortwo','The 2013 Smart fortwo is still a city car. A 1.0-liter, three-cylinder engine powers all trim levels, which is enough for an output of 70 horsepower and 68 lb-ft of torque, or a satisfactory experience in an urban environment. (The electric drive option is rated for slightly higher numbers.)',37,2)
 ;
 
 
@@ -362,8 +364,22 @@ INSERT INTO [CarDealership_OLTP1].[LOGISTIC].[VEHICLE] (
 	(104, 30445 ,'Hidraulic ',3600.0, 4 , 6, '', 1, '', 130, 2018, 'LX', '2C3CCAEG6JH123125',2 ,1 , '', 3),
 	(105, 20995 ,'Hidraulic ',2000, 5 , 4, 'MIVEC', 1, 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)', 131, 2020, 'Medium', 'JA4AP3AU9LU013694',3 ,1 , '', 7),
 	(106, 19410 ,'Hidraulic ',1800.0, 4 , 4, '', 1, '', 132, 2013, '', '3N1AB7AP2DL658501',2 ,1 , '', 5),
-	(107, 35200.00 ,'Hidraulic',3600.0, 4 , 6, 'LGX - Direct Injection, Variable Valve Timing, ALUM, GEN 2', 1, '', 121, 2018, 'SLE 2 FWD', '1GKKNLLS5JZ181591',3 ,1 , '', 2)
+	(107, 35200.00 ,'Hidraulic',3600.0, 4 , 6, 'LGX - Direct Injection, Variable Valve Timing, ALUM, GEN 2', 1, '', 121, 2018, 'SLE 2 FWD', '1GKKNLLS5JZ181591',3 ,1 , '', 2),
+    (108, 45876.00,'Hidraulic ',3600.0, 4 ,6 , ' 3.6L V6 24V GDI DOHC ', 1, 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',121 , 2020, 'Denali AWD', '1GKKNXLS6LZ134810',3 ,1 , '', 12),
+    (109, 34567.00,'Hidraulic ',3600.0, 4 ,6 , ' 3.6L V6 24V GDI DOHC ',1 , 'Class 2E: 6,001 - 7,000 lb (2,722 - 3,175 kg)',121 ,2020 , 'SLT1 AWD', '1GKKNULSXLZ132766', 3, 1, '',4 ),
+    (110, 38500.00,'Hidraulic ',2000.0, 4 , 4, ' 2.0L I4 16V GDI DOHC Turbo ', 1, '', 122, 2018, 'Select', '3LN6L5C91JR615484', 2, 1, '', 3),
+	(111, 31200.00,'Hidraulic ',1000.0, 2 , 3, ' 1.0L I3 12V MPFI DOHC ', 1, '',133 ,2013 , '', 'WMEEJ3BA2DK636540', 2, 1, '', 9),
+	(112, 29087.00,'Hidraulic ',2000.0, 5, 4, ' 2.0L I4 16V PDI DOHC Turbo ', 1, 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',2015 ,123 , 'AGZ10L\/AGZ15L\/AYZ10L\/AYZ15L', 'JTJBARBZ6F2000472',3 ,1 , '', 7),
+	(113, 32156.00,'Hidraulic ',1300.0, 4 , 3, ' 1.3L I3 12V MPFI DOHC Turbo ', 1, 'Class 1C: 4,001 - 5,000 lb (1,814 - 2,268 kg)',115,2020 , 'Select FWD', 'KL4MMDSL6LB104869', 3,1 , '',1 ),
+	(114, 49200.00,'Hidraulic ',2000.0, 5 ,4 , ' 2.0L I4 16V GDI DOHC Turbo ',1 , 'Class 1D: 5,001 - 6,000 lb (2,268 - 2,722 kg)',114 , 2020, '', 'SADFL2GX2L1Z91107',3 , 1, '',10 ),
+	(115, 32145.00,'Hidraulic ',2500.0, 4 ,5 , ' 2.5L I5 20V MPFI DOHC Turbo ', 1, '', 116, 2015, '', 'YV1612TBXF1304224', 2, 1, '',9 ),
+	(116, 35987.00,'Hidraulic ',2000.0,  4,4 , ' 2.0L I4 16V GDI DOHC ',1 , '',116 ,2020 , '', '7JRA22TM7LG032143', 2, 1, '',11 ),
+	(117, 43210.00,'Hidraulic ',2000.0, 4 ,4 , ' 2.0L I4 16V GDI DOHC ',1 , '', 116,2020 , '', '7JRA22TL7LG037835', 2,1 , '',13 ),
+	(118, 54400.00,'Hidraulic ',2000.0, 2 , 4, '  ',2 , '',116 , 2019, 'FWD\/eAWD (T8)', '7JRBR0FM4KG013841', 2, 1, '',14 ),
+	(119, 49370.00,'Hidraulic ',2700.0, 4 , 6, '  ', 1, '',122 ,2018 , 'Select', '1LN6L9TP1J5605689',2 , 1, '', 15)
+    
 ;
+
 
 /*
 SELECT * FROM [CarDealership_OLTP1].[LOGISTIC].[COLOR];
