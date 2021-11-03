@@ -8,6 +8,7 @@
 import json
 import requests
 import urllib
+from datetime import datetime
 
 class DataHandler:
 
@@ -96,7 +97,7 @@ class DataHandler:
 
     def buildVehicleData(self, post, vehicleInfo, account, sellsData):
         vehicleDict = {}
-        vehicleDict.setdefault("due_date","")
+        vehicleDict.setdefault("due_date","{}".format(datetime.utcnow()))
         vehicleDict.setdefault("posting_date",post['posting_date'])
         vehicleDict.setdefault("vin",vehicleInfo["VIN"])
         vehicleDict.setdefault("manufacter",vehicleInfo["Manufacturer"])

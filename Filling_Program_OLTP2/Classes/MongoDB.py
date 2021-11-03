@@ -30,6 +30,11 @@ class MongoDB:
         else:
             return False
 
-    def insertToCollection(self, dict):
-        collection = self.getCollection("vehicles")
+    def insertToCollection(self, dict, name):
+        collection = self.getCollection(name)
         x = collection.insert_one(dict)
+
+    def getLastItemFromCollection(self, collectionName):
+        collection = self.getCollection(collectionName)
+        last = collection.find().limit(1).sort([('$natural',-1)])
+        return last
