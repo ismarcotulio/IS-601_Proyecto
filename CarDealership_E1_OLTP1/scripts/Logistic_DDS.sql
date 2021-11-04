@@ -15,7 +15,7 @@ CREATE SCHEMA HUMAN_R;
 
  IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'COLOR')
 	CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[COLOR] (
-		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL UNIQUE,
 	 );
 	 
@@ -29,7 +29,7 @@ CREATE SCHEMA HUMAN_R;
 
 IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'MANUFACTURER')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER](
-		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 int_id_PK INT PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL,
 		 var_commonName VARCHAR(50) DEFAULT '',
 		 var_postalCode VARCHAR(50) DEFAULT '',
@@ -39,7 +39,7 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 
 IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'BRAND')
 	CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[BRAND](
-		 big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 big_id_PK BIGINT PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL UNIQUE,
 		 tex_description TEXT DEFAULT '',
 		 int_manufacturer_FK INT NOT NULL, FOREIGN KEY (int_manufacturer_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[MANUFACTURER](int_id_PK),
@@ -48,14 +48,21 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 
 IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'BODY_CLASS')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS](
-		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 tin_id_PK TINYINT PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL,
 		 tex_description TEXT DEFAULT ''
  );
 
  IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'VEHICLE_TYPE')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[VEHICLE_TYPE](
-		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 tin_id_PK TINYINT PRIMARY KEY NOT NULL,
+		 var_name VARCHAR(50) NOT NULL,
+		 tex_description TEXT DEFAULT ''
+ );
+
+ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'TRANSACTION_STATE')
+	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[TRANSACTION_STATE](
+		 tin_id_PK TINYINT PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL,
 		 tex_description TEXT DEFAULT ''
  );
@@ -70,17 +77,20 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 
 IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'MODEL')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[MODEL](
-		 int_id_PK INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		 big_id_PK BIGINT PRIMARY KEY NOT NULL,
 		 var_name VARCHAR(50) NOT NULL,
 		 tex_description TEXT DEFAULT '',
-		 big_brand_FK BIGINT NOT NULL, FOREIGN KEY (big_brand_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[BRAND](big_id_PK),
-		 int_body_class_FK INT NOT NULL, FOREIGN KEY (int_body_class_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS](int_id_PK)
+		 big_brand_FK BIGINT NOT NULL, 
+		 tin_body_class_FK TINYINT NOT NULL, 
+		 FOREIGN KEY (tin_body_class_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[BODY_CLASS](tin_id_PK),
+		 FOREIGN KEY (big_brand_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[BRAND](big_id_PK)
  );
 
 
  IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealership_OLTP1].sys.schemas s ON (t.schema_id = s.schema_id) where s.name = 'LOGISTIC' and t.name = 'VEHICLE')
 	 CREATE TABLE [CarDealership_OLTP1].[LOGISTIC].[VEHICLE](
-		  big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+		  big_id_PK BIGINT PRIMARY KEY NOT NULL,
+		  dec_base_price DECIMAL(10,2) NOT NULL DEFAULT 0,
 		  var_vin VARCHAR(45) NOT NULL UNIQUE,
 		  var_engine VARCHAR(100) DEFAULT '',
 		  var_brake_system VARCHAR(50) DEFAULT '',
@@ -89,16 +99,17 @@ IF NOT EXISTS (SELECT * FROM [CarDealership_OLTP1].sys.tables t JOIN [CarDealers
 		  var_gvwr VARCHAR(100) DEFAULT 0,
 		  bit_use_state BIT DEFAULT 1,
 		  tex_description TEXT DEFAULT '',
-		  var_series VARCHAR(50) DEFAULT '',
 		  int_year INT DEFAULT 2021,
 		  tin_doors TINYINT DEFAULT 4,
-		  int_color_FK INT NOT NULL,
-		  int_model_FK INT NOT NULL,
+		  tin_color_FK TINYINT NOT NULL,
+		  big_model_FK BIGINT NOT NULL,
 		  tin_fuel_type_FK TINYINT NOT NULL,
-		  int_vehicle_type_FK INT NOT NULL, 
-		  FOREIGN KEY (int_vehicle_type_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[VEHICLE_TYPE](int_id_PK),
-		  FOREIGN KEY (int_color_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[COLOR](int_id_PK),
-		  FOREIGN KEY (int_model_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[MODEL](int_id_PK),
+		  tin_vehicle_type_FK TINYINT NOT NULL,
+		  tin_transaction_state_FK TINYINT NOT NULL, 
+		  FOREIGN KEY (tin_transaction_state_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[TRANSACTION_STATE](tin_id_PK),
+		  FOREIGN KEY (tin_vehicle_type_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[VEHICLE_TYPE](tin_id_PK),
+		  FOREIGN KEY (tin_color_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[COLOR](tin_id_PK),
+		  FOREIGN KEY (big_model_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[MODEL](big_id_PK),
 		  FOREIGN KEY (tin_fuel_type_FK) REFERENCES [CarDealership_OLTP1].[LOGISTIC].[FUEL_TYPE](tin_id_PK)
 	  );
 
