@@ -22,7 +22,21 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[PRINTING](
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_METHODS](
   tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
   var_name VARCHAR(60),
-); 
+);
+
+CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_ISV](
+  tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
+  var_name VARCHAR(60),
+  tin_percent TINYINT,
+);
+
+CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[ISV](
+  tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
+  mon_amount MONEY,
+  tin_percent TINYINT,
+  tin_type_of_isv_FK TINYINT NOT NULL, 
+	FOREIGN KEY (tin_type_of_isv_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_ISV](tin_id_PK),
+);
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[RANK](
   big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
@@ -50,11 +64,11 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE](
   tin_discount TINYINT,
   mon_reduction MONEY,
   big_final_range BIGINT,
-  mon_ISV_15 MONEY NOT NULL,
-  mon_ISV_18 MONEY NOT NULL,
   mon_total_to_pay MONEY NOT NULL,
-  int_employees_FK INT NOT NULL, 
-	FOREIGN KEY (int_employees_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[EMPLOYEES](int_employee_id_PK),
+  tin_isv_FK TINYINT NOT NULL,
+  int_employees_FK INT NOT NULL,
+  	FOREIGN KEY (tin_isv_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[ISV](tin_id_PK),
+ 	FOREIGN KEY (int_employees_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[EMPLOYEES](int_employee_id_PK),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE_DETAIL](
