@@ -136,9 +136,40 @@ CREATE TABLE HUMAN_R.SALARY_EMP(
 	PRIMARY KEY(int_salary_id_FK,int_employee_id_FK),
 );
 
+CREATE TABLE HUMAN_R.TELEPHONES_TYPE(
+	tin_telephonType_id_PK TINYINT PRIMARY KEY,
+	var_name VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE HUMAN_R.TELEPHONES(
 	big_telephon_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
 	var_number VARCHAR(12) NOT NULL,
-	big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK),
+	tin_telephonType_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.TELEPHONES_TYPE(tin_telephonType_id_PK),
 	int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
 );
+
+CREATE TABLE HUMAN_R.COMPANY(
+	int_company_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
+	var_name VARCHAR(150) NOT NULL,
+	var_RTN VARCHAR(14) NOT NULL,
+	big_id_address_FK BIGINT NOT NULL REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK)
+);
+
+CREATE TABLE HUMAN_R.TELEPHONES_CP(
+	bit_active BIT NOT NULL,
+	big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
+	big_telephon_id_FK BIGINT REFERENCES HUMAN_R.TELEPHONES(big_telephon_id_PK),
+	int_company_id_FK INTEGER REFERENCES HUMAN_R.COMPANY(int_company_id_PK),
+	PRIMARY KEY (big_telephon_id_FK,big_person_id_FK),
+	CHECK((int_company_id_FK=NULL AND big_person_id_FK>0 )OR (int_company_id_FK>0 AND big_person_id_FK=NULL ) )
+);
+
+CREATE TABLE HUMAN_R.CLIENT(
+	big_client_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
+	var_code VARCHAR(17),
+	int_company_id_FK INTEGER REFERENCES HUMAN_R.COMPANY(int_company_id_PK),
+	big_person_id_FK BIGINT REFERENCES HUMAN_R.PERSON(big_person_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
+	CHECK((int_company_id_FK=NULL AND big_person_id_FK>0 )OR (int_company_id_FK>0 AND big_person_id_FK=NULL ) )
+)
+
+
