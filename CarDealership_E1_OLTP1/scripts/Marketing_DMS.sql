@@ -104,3 +104,31 @@ INSERT INTO MARKETING_SOCIAL_NETWORKS(tin_id_PK, var_name, tex_description)
     VALUES (4, 'Vertulio Madina', 'Publicidad en Twitter');
 INSERT INTO MARKETING_SOCIAL_NETWORKS(tin_id_PK, var_name, tex_description) 
     VALUES (5, 'Jose Medina', 'Publicidad en Tik Tok');
+
+SELECT*FROM [MARKETING.PROMOTION];
+
+SET IDENTITY_INSERT [MARKETING.PROMOTION]  ON;
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (1,'30% descuento socio','A');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (2,'20% en repuestos importados','B');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (3, '3% de financiamiento','C');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (4, '10% de descuento en compra en feria ','D');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (5, '5% de compra en ferias virtuales','F');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (6, 'financiamiento disponible para nuevos clientes','G');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (7, 'financiamiento disponible para nuevos clientes','H');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (8, '5% desdcuento en promociones de carpa','I');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (9, '10% de descuento enm promociones de navidad','J');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (10,'3% de descuento en anuncios comerciales','K');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (11, '12% de descuento en blackfriday','L');
+INSERT INTO [MARKETING.PROMOTION] (tin_area_id_PK,tex_description,tex_type) 
+    VALUES (12, '6% de descuento por comienzo de año','M');
