@@ -1,20 +1,20 @@
 //VARIABLES
-@API = http://localhost:4024/HUMAN_R.PERSON
+@API = http://localhost:4027/HUMAN_R.PERSON
 
 GET {{API}}
 
 ###
 POST {{API}}
-Content-Type: application/json
+//Content-Type: application/json
 
-{
-    "var_firstName": "Jorge",
-    "var_secondName": "Aguileras",
-    "var_firstSurname": "Bustillo",
-    "var_secondSurname": "Alvarado",
-    "var_DNI": "0801200102454",
-    "dat_dateOfBirth": "1996/12/12",
-    "big_address_id_FK": 40,
-    "var_RTN_Personal": "76876540987876",
-    "cha_garder": "M"
-}
+# {
+#     "var_firstName": "Jorge",
+#     "var_secondName": "Aguileras",
+#     "var_firstSurname": "Bustillo",
+#     "var_secondSurname": "Alvarado",
+#     "var_DNI": "0801200102454",
+#     "dat_dateOfBirth": "1996/12/12",
+#     "big_address_id_FK": 40,
+#     "var_RTN_Personal": "76876540987876",
+#     "cha_garder": "M"
+# }
