@@ -19,6 +19,13 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[PRINTING](
   tin_authorization_number TINYINT,
 );
 
+CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[EMISSION_POINT](
+  int_id_PK INT IDENTITY(1,1) PRIMARY KEY,
+  var_modality VARCHAR(20),
+  int_number INTEGER,
+  CHECK(var_modality='Caja Registradora' OR var_modality='SFC')
+);
+
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_METHODS](
   tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
   var_name VARCHAR(60),
@@ -40,19 +47,20 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[ISV](
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[RANK](
   big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
-  big_starting_range BIGINT,
-  big_final_range BIGINT,
-  bit_active BIT,
+  big_starting_range BIGINT NOT NULL,
+  big_final_range BIGINT NOT NULL,
+  big_current BIGINT NOT NULL,
   tin_document_type_FK TINYINT NOT NULL, 
 	FOREIGN KEY (tin_document_type_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](tin_id_PK),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[INVOICE_NUMBER](
   big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
-  var_emission_point VARCHAR(60),
   int_correlative_number INT,
+  int_emission_point_FK INT,
   int_printing_FK INT NOT NULL,
-  tin_document_type_FK TINYINT NOT NULL, 
+  tin_document_type_FK TINYINT NOT NULL,
+  FOREIGN KEY (int_emission_point_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[EMISSION_POINT](int_id_PK),
 	FOREIGN KEY (int_printing_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[PRINTING](int_id_PK),
   FOREIGN KEY (tin_document_type_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](tin_id_PK),
 ); 
