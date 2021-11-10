@@ -15,7 +15,7 @@ class CreateModelTable extends Migration
     {
         Schema::create('MODEL', function (Blueprint $table) {
             $table->bigIncrements('big_id_PK');
-            $table->string('var_name', 50)->unique();
+            $table->string('var_name', 50);
             $table->text('tex_description')->default("");
             $table->bigInteger('big_brand_FK');
             $table->foreign('big_brand_FK')

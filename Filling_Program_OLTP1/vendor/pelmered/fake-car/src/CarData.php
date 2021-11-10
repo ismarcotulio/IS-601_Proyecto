@@ -32,6 +32,10 @@ class CarData
     {
         return static::$vehicleGearBox;
     }
+    public static function getVehicleBodyClass() : array
+    {
+        return static::$vehicleBodyClass;
+    }
 
     // phpcs:disable
     protected static $brandsWithModels = array(
@@ -587,6 +591,13 @@ class CarData
     protected static $vehicleGearBox = [
         'manual'    => 70,
         'automatic' => 30,
+    ];
+
+    protected static $vehicleBodyClass = [
+        'Sedan', 'Coupe', 'Sport Car', 'Station Wagon',
+        'Hatchback', 'Convertible', 'SUV', 'Minivan',
+        'Pickup', 'Supermini car', 'Electric', 'Super Duty',
+        'Acadia'
     ];
 
     // phpcs:enable
