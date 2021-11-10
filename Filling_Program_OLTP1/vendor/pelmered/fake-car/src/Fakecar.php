@@ -42,10 +42,31 @@ class Fakecar extends \Faker\Provider\Base
         return (string) static::randomElement(array_keys(CarData::getBrandsWithModels()));
     }
 
+    public static function vehicleBodyClass($id) : string
+    {
+        return (string) CarData::getVehicleBodyClass()[$id];
+    }
+
     public static function vehicleBrandUnique($id) : string
     {
         return (string) array_keys(CarData::getBrandsWithModels())[$id];
     }
+
+    public static function vehicleModelUnique($brand) : string
+    {
+        $brandsWithModels = CarData::getBrandsWithModels();
+        $model = (string) static::randomElement($brandsWithModels[$brand ?: static::vehicleBrand()]);
+
+        $modelDB = \App\Models\vehicle_model::where('var_name','=', $model)->first();
+
+        while($modelDB !== null && $model !== null){
+            $modelDB = \App\Models\vehicle_model::where('var_name','=', $model)->first();
+            $model = (string) static::randomElement($brandsWithModels[$brand ?: static::vehicleBrand()]);
+        }
+
+        return $model;
+    }
+
     /**
      * Get random vehicle model
      *
