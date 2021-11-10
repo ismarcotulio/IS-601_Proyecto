@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $transaction_stateQuantity = 6;
         $bodyClassQuantity = 13;
         $modelQuantity = 2000;
+        $vehicle_typeQuantity = 3;
 
          \App\Models\color::factory($colorQuantity)->create();
          \App\Models\manufacturer::factory($manufacturerQuantity)->create();
@@ -31,5 +32,6 @@ class DatabaseSeeder extends Seeder
          \App\Models\transaction_state::factory($transaction_stateQuantity)->create();
          \App\Models\body_class::factory($bodyClassQuantity)->create();
          \App\Models\vehicle_model::factory($modelQuantity)->create();
+         \App\Models\vehicle_type::factory($vehicle_typeQuantity)->create();
     }
 }
