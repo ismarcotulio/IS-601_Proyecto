@@ -1,4 +1,4 @@
-import { request } from 'express';
+
 import {getConnection, sql} from '../database/connection'
 const faker = require('faker/locale/es')
 //import {generate} from '../Fakers/fakerPerson'

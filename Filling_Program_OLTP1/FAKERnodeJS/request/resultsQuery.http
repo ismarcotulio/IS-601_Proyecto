@@ -1,10 +1,36 @@
 //VARIABLES
-@API = http://localhost:4027/HUMAN_R.PERSON
+@RRHHPerson = http://localhost:4029/HUMAN_R.PERSON
+@RRHHContract = http://localhost:4029/HUMAN_R.CONTRACTS
+@RRHHEmployee = http://localhost:4029/HUMAN_R.EMPLOYEES
+@RRHHCompany = http://localhost:4029/HUMAN_R.COMPANY
 
-GET {{API}}
+GET {{RRHHPerson}}
+###
+GET {{RRHHContract}}
+###
+GET {{RRHHEmployee}}
+###
+GET {{RRHHCompany}}
+
 
 ###
-POST {{API}}
+POST {{RRHHPerson}}
+###
+POST {{RRHHContract}}
+###
+post {{RRHHEmployee}}
+###
+POST {{RRHHCompany}}
+
+
+
+
+
+
+
+
+
+
 //Content-Type: application/json
 
 # {
