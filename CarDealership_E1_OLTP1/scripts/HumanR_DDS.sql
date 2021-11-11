@@ -30,6 +30,7 @@ CREATE TABLE HUMAN_R.COUNTRY(
   int_country_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
   var_name VARCHAR(60) NOT NULL,
   var_code VARCHAR(6) NOT NULL,
+  unique(var_code),unique(var_name)
 );
 
 CREATE TABLE HUMAN_R.DEPARTAMENT(

@@ -1,8 +1,14 @@
 //VARIABLES
-@RRHHPerson = http://localhost:4029/HUMAN_R.PERSON
-@RRHHContract = http://localhost:4029/HUMAN_R.CONTRACTS
-@RRHHEmployee = http://localhost:4029/HUMAN_R.EMPLOYEES
-@RRHHCompany = http://localhost:4029/HUMAN_R.COMPANY
+@RRHHtablesFuncionProcedures = http://localhost:4028/HUMAN_R.tablesFuncionProcedures
+@RRHHDataFill = http://localhost:4028/HUMAN_R.INITIAL_DATA
+@RRHHPerson = http://localhost:4028/HUMAN_R.PERSON
+@RRHHContract = http://localhost:4028/HUMAN_R.CONTRACTS
+@RRHHEmployee = http://localhost:4028/HUMAN_R.EMPLOYEES
+@RRHHCompany = http://localhost:4028/HUMAN_R.COMPANY
+@RRHHCountry = http://localhost:4028/HUMAN_R.COUNTRY
+@RRHHDepartament = http://localhost:4028/HUMAN_R.DEPARTAMENT
+@RRHHCities = http://localhost:4028/HUMAN_R.CITIES
+
 
 GET {{RRHHPerson}}
 ###
@@ -11,18 +17,32 @@ GET {{RRHHContract}}
 GET {{RRHHEmployee}}
 ###
 GET {{RRHHCompany}}
+###
+GET {{RRHHCountry}}
+###
+GET {{RRHHDepartament}}
+###
+GET {{RRHHCities}}
 
 
+###
+POST {{RRHHtablesFuncionProcedures}}
+###
+POST {{RRHHDataFill}}
+###
+POST {{RRHHCompany}}
+###
+POST {{RRHHCountry}}
+###
+POST {{RRHHDepartament}}
+###
+POST {{RRHHCities}}
 ###
 POST {{RRHHPerson}}
 ###
 POST {{RRHHContract}}
 ###
 post {{RRHHEmployee}}
-###
-POST {{RRHHCompany}}
-
-
 
 
 

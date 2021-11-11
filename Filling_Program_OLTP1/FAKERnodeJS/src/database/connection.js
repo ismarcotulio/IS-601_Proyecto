@@ -5,7 +5,7 @@ const dbsetting = {
     user: 'LUISERNESTO',
     password: '12345',
     server: 'localhost',
-    database: 'CarDealership_OLTP1',
+    database: 'CarDealership_E1_OLTP1',
     options: {
         encrypt: true,
         trustServerCertificate: true,

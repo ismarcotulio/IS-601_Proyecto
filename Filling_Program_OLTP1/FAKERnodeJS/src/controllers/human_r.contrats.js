@@ -24,7 +24,7 @@ export const newContracts = async (req, res) => {
     }
     
     pool.close;
-    res.json("Succeses") 
+    res.json("Succeses: Contracts data") 
 };
 
 

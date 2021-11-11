@@ -23,7 +23,7 @@ export const newCompany = async (req, res) => {
     }
     
     pool.close;
-    res.json("Succeses") 
+    res.json("Succeses: Companies data") 
 };
 
 

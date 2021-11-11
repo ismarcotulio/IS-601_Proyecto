@@ -36,7 +36,7 @@ export const newEmployee = async (req, res) => {
     }
         
     pool.close;
-    res.json("Succeses") 
+    res.json("Succeses: Employees data") 
 };
 
 

@@ -21,7 +21,7 @@ export const newPerson = async (req, res) => {
     
     const pool = await getConnection();
     let con = 1;
-    while(con <= 10){
+    while(con <= 7000){
         let gen = fakerPerson();
         await pool.request()
         .query("INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES ('"
@@ -36,7 +36,7 @@ export const newPerson = async (req, res) => {
     }
     
     pool.close;
-    res.json("Succeses") 
+    res.json("Succeses: Person Data") 
 };
 
 
