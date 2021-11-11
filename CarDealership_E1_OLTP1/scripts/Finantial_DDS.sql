@@ -15,8 +15,8 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[PRINTING](
   int_id_PK INT IDENTITY(1,1) PRIMARY KEY,
-  var_code VARCHAR(10),
-  tin_authorization_number TINYINT,
+  var_code VARCHAR(14),
+  var_authorization_number VARCHAR(16),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[EMISSION_POINT](
