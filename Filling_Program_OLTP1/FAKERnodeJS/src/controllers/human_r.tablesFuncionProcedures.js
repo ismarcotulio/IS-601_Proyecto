@@ -7,9 +7,9 @@ export const tableFuncionProceduresFill = async (req, res) => {
     await pool.request()
     .query("CREATE SCHEMA HUMAN_R");
     await pool.request()
-    .query("CREATE TABLE HUMAN_R.AREA(tin_area_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY, var_name VARCHAR(60) NOT NULL)");
+    .query("CREATE TABLE HUMAN_R.AREA(tin_area_id_PK TINYINT PRIMARY KEY, var_name VARCHAR(60) NOT NULL, UNIQUE(var_name))");
     await pool.request()
-    .query("CREATE TABLE HUMAN_R.POSITION(tin_position_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,var_name VARCHAR(60) NOT NULL)");
+    .query("CREATE TABLE HUMAN_R.POSITION(tin_position_id_PK TINYINT PRIMARY KEY,var_name VARCHAR(60) NOT NULL, unique(var_name))");
     await pool.request()
     .query("CREATE TABLE HUMAN_R.TYPE_HOURS(tin_hourType_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,flo_porcent float NOT NULL,var_name VARCHAR(60) NOT NULL,CHECK (flo_porcent > 0))");
     await pool.request()
@@ -21,7 +21,7 @@ export const tableFuncionProceduresFill = async (req, res) => {
     await pool.request()
     .query("CREATE TABLE HUMAN_R.CITIES( big_city_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY, var_name VARCHAR(60) NOT NULL, big_departament_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.DEPARTAMENT(big_departament_id_PK), CONSTRAINT [cities_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_PK] ASC) )");
     await pool.request()
-    .query("CREATE TABLE HUMAN_R.SUBURN( big_suburn_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY, var_name VARCHAR(60) NOT NULL, big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK), CONSTRAINT [SUBURN_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_FK] ASC) )");
+    .query("CREATE TABLE HUMAN_R.SUBURN( big_suburn_id_PK BIGINT PRIMARY KEY, var_name VARCHAR(60) NOT NULL, big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK), CONSTRAINT [SUBURN_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_FK] ASC) )");
     await pool.request()
     .query("CREATE TABLE HUMAN_R.LIST_ADDRESS( big_address_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY, tex_reference TEXT NOT NULL, int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK), big_departament_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.DEPARTAMENT(big_departament_id_PK), big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK), big_suburn_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.SUBURN(big_suburn_id_PK))");
     await pool.request()

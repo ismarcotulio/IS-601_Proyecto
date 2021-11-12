@@ -28,9 +28,9 @@ export const dataFill = async (req, res) => {
     +" ('San Pedro Sula',3), ('Choluteca',4), ('Santa Clara',5), ('Pococi',6), ('Valencia',7),('Santa Ana',8),"
     +" ('El Crucero',9)")
     await pool.request()
-    .query("INSERT INTO HUMAN_R.SUBURN(var_name,big_city_id_FK) VALUES ('Colonia Kennedy',1), ('Barrio Torondon"
-    +"',2), ('Colonia Satelite',3), ('Colonia Vanecia',4), ('Reparto Virginia',5), ('Los Lagos',6), ('Ensanche',7),"
-    +" ('Socorro',8), ('Las Conchitas',9)")
+    .query("INSERT INTO HUMAN_R.SUBURN VALUES (1,'Colonia Kennedy',1), (2,'Barrio Torondon"
+    +"',2), (3,'Colonia Satelite',3), (4,'Colonia Vanecia',4), (5,'Reparto Virginia',5), (6,'Los Lagos',6), (7,'Ensanche',7),"
+    +" (8,'Socorro',8), (9,'Las Conchitas',9)")
     await pool.request()
     .query("INSERT INTO HUMAN_R.LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK"
     +",big_suburn_id_FK) VALUES ('Boulevard CentroAmerica, Contigo a Equipos Industriales',1,1,1,1),"

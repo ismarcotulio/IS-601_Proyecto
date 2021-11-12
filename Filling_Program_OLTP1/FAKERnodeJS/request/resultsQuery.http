@@ -8,6 +8,9 @@
 @RRHHCountry = http://localhost:4028/HUMAN_R.COUNTRY
 @RRHHDepartament = http://localhost:4028/HUMAN_R.DEPARTAMENT
 @RRHHCities = http://localhost:4028/HUMAN_R.CITIES
+@RRHHPosition = http://localhost:4028/HUMAN_R.POSITION
+@RRHHSuburn = http://localhost:4028/HUMAN_R.SUBURN
+@RRHHArea = http://localhost:4028/HUMAN_R.AREA
 
 
 GET {{RRHHPerson}}
@@ -23,6 +26,12 @@ GET {{RRHHCountry}}
 GET {{RRHHDepartament}}
 ###
 GET {{RRHHCities}}
+###
+GET {{RRHHPosition}}
+###
+GET {{RRHHSuburn}}
+###
+GET {{RRHHArea}}
 
 
 ###
@@ -30,7 +39,7 @@ POST {{RRHHtablesFuncionProcedures}}
 ###
 POST {{RRHHDataFill}}
 ###
-POST {{RRHHCompany}}
+POST {{RRHHPosition}}
 ###
 POST {{RRHHCountry}}
 ###
@@ -38,11 +47,19 @@ POST {{RRHHDepartament}}
 ###
 POST {{RRHHCities}}
 ###
+POST {{RRHHSuburn}}
+###
+POST {{RRHHArea}}
+###
+POST {{RRHHCompany}}
+###
 POST {{RRHHPerson}}
 ###
 POST {{RRHHContract}}
 ###
 post {{RRHHEmployee}}
+
+
 
 
 

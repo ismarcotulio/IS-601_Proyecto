@@ -8,9 +8,18 @@ import {tableFuncionProceduresFill} from '../controllers/human_r.tablesFuncionPr
 import {newCountry, getConuntry} from '../controllers/human_r.country'
 import {newDepartament, getDepartament} from '../controllers/human_r.departament'
 import {newCities, getCities} from '../controllers/human_r.cities'
+import {newPosition, getPosition} from '../controllers/human_r.position'
+import {newSuburn, getSuburn} from '../controllers/human_r.suburn'
+import {newArea, getArea} from '../controllers/human_r.area'
 
 const router= Router()
 
+router.get('/HUMAN_R.AREA',getArea)
+router.post('/HUMAN_R.AREA',newArea)
+router.get('/HUMAN_R.SUBURN',getSuburn)
+router.post('/HUMAN_R.SUBURN',newSuburn)
+router.get('/HUMAN_R.POSITION',getPosition)
+router.post('/HUMAN_R.POSITION',newPosition)
 router.post('/HUMAN_R.tablesFuncionProcedures',tableFuncionProceduresFill)
 router.post('/HUMAN_R.INITIAL_DATA',dataFill)
 router.get('/HUMAN_R.PERSON',getPerson)
