@@ -16,14 +16,13 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[PRINTING](
   int_id_PK INT IDENTITY(1,1) PRIMARY KEY,
   var_code VARCHAR(14),
-  var_authorization_number VARCHAR(16),
+  var_authorization_number VARCHAR(16)
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[EMISSION_POINT](
   int_id_PK INT IDENTITY(1,1) PRIMARY KEY,
-  var_modality VARCHAR(20),
+  var_modality VARCHAR(20) NOT NULL CHECK(var_modality IN('Caja Registradora','SFC')),
   int_number INTEGER,
-  CHECK(var_modality='Caja Registradora' OR var_modality='SFC')
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_METHODS](
@@ -50,6 +49,7 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[RANK](
   big_starting_range BIGINT NOT NULL,
   big_final_range BIGINT NOT NULL,
   big_current BIGINT NOT NULL,
+  bit_active BIT,
   tin_document_type_FK TINYINT NOT NULL, 
 	FOREIGN KEY (tin_document_type_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](tin_id_PK),
 );

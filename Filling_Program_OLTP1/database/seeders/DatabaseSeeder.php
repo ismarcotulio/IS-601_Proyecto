@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $vehicle_typeQuantity = 3;
         $document_typeQuantity = 10;
         $printingQuantity = 20;
+        $emission_pointQuantity = 200;
 
          \App\Models\color::factory($colorQuantity)->create();
          \App\Models\manufacturer::factory($manufacturerQuantity)->create();
@@ -37,5 +38,6 @@ class DatabaseSeeder extends Seeder
          \App\Models\vehicle_type::factory($vehicle_typeQuantity)->create();
          \App\Models\document_type::factory($document_typeQuantity)->create();
          \App\Models\printing::factory($printingQuantity)->create();
+         \App\Models\emission_point::factory($emission_pointQuantity)->create();
     }
 }
