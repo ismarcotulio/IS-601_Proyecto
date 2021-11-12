@@ -27,19 +27,18 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[EMISSION_POINT](
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_METHODS](
   tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
-  var_name VARCHAR(60),
+  var_name VARCHAR(30),
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_ISV](
   tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
-  var_name VARCHAR(60),
+  var_name VARCHAR(40),
   tin_percent TINYINT,
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[ISV](
   tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
   mon_amount MONEY,
-  tin_percent TINYINT,
   tin_type_of_isv_FK TINYINT NOT NULL, 
 	FOREIGN KEY (tin_type_of_isv_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_ISV](tin_id_PK),
 );
