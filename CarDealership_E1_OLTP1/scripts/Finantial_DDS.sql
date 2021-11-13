@@ -37,8 +37,8 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_ISV](
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[ISV](
-  tin_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
-  mon_amount MONEY,
+  int_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
+  dec_amount MONEY,
   tin_type_of_isv_FK TINYINT NOT NULL, 
 	FOREIGN KEY (tin_type_of_isv_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[TYPE_OF_ISV](tin_id_PK),
 );
@@ -72,9 +72,9 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[SALE](
   mon_reduction MONEY,
   big_final_range BIGINT,
   mon_total_to_pay MONEY NOT NULL,
-  tin_isv_FK TINYINT NOT NULL,
+  int_isv_FK TINYINT NOT NULL,
   int_employees_FK INT NOT NULL,
-  	FOREIGN KEY (tin_isv_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[ISV](tin_id_PK),
+  FOREIGN KEY (int_isv_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[ISV](int_id_PK),
  	FOREIGN KEY (int_employees_FK) REFERENCES [CarDealership_OLTP1].[HUMAN_R].[EMPLOYEES](int_employee_id_PK),
 );
 

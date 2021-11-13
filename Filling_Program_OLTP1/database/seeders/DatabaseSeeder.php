@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $emission_pointQuantity = 200;
         $type_of_methodsQuantity = 5;
         $type_of_isvQuantity = 2;
+        $isvQuantity = 100;
 
 
          \App\Models\color::factory($colorQuantity)->create();
@@ -49,5 +50,6 @@ class DatabaseSeeder extends Seeder
          \App\Models\emission_point::factory($emission_pointQuantity)->create();
          \App\Models\type_of_methods::factory($type_of_methodsQuantity)->create();
          \App\Models\type_of_isv::factory($type_of_isvQuantity)->create();
+         \App\Models\isv::factory($isvQuantity)->create();
     }
 }
