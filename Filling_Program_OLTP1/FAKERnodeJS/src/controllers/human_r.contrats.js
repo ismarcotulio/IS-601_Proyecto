@@ -13,10 +13,10 @@ export const getContracts = async (req, res) => {
 export const newContracts = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
-    while(con <= 2){
+    while(con <= 5000){
         let gen = fakerContract();
         await pool.request()
-        .query("INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES (dbo.getRandomDate('2009-01-01', '2019-12-30'),1,"
+        .query("INSERT INTO HUMAN_R.CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES (dbo.getRandomDate('2000-01-01', '2021-12-30'),1,"
         +gen.tin_position_id_FK+","
         +gen.mon_salary+")");
         console.log(gen)

@@ -1,16 +1,20 @@
 //VARIABLES
-@RRHHtablesFuncionProcedures = http://localhost:4028/HUMAN_R.tablesFuncionProcedures
-@RRHHDataFill = http://localhost:4028/HUMAN_R.INITIAL_DATA
-@RRHHPerson = http://localhost:4028/HUMAN_R.PERSON
-@RRHHContract = http://localhost:4028/HUMAN_R.CONTRACTS
-@RRHHEmployee = http://localhost:4028/HUMAN_R.EMPLOYEES
-@RRHHCompany = http://localhost:4028/HUMAN_R.COMPANY
-@RRHHCountry = http://localhost:4028/HUMAN_R.COUNTRY
-@RRHHDepartament = http://localhost:4028/HUMAN_R.DEPARTAMENT
-@RRHHCities = http://localhost:4028/HUMAN_R.CITIES
-@RRHHPosition = http://localhost:4028/HUMAN_R.POSITION
-@RRHHSuburn = http://localhost:4028/HUMAN_R.SUBURN
-@RRHHArea = http://localhost:4028/HUMAN_R.AREA
+@RRHHtablesFuncionProcedures = http://localhost:4029/HUMAN_R.tablesFuncionProcedures
+@RRHHDataFill = http://localhost:4029/HUMAN_R.INITIAL_DATA
+@RRHHPerson = http://localhost:4029/HUMAN_R.PERSON
+@RRHHContract = http://localhost:4029/HUMAN_R.CONTRACTS
+@RRHHEmployee = http://localhost:4029/HUMAN_R.EMPLOYEES
+@RRHHCompany = http://localhost:4029/HUMAN_R.COMPANY
+@RRHHCountry = http://localhost:4029/HUMAN_R.COUNTRY
+@RRHHDepartament = http://localhost:4029/HUMAN_R.DEPARTAMENT
+@RRHHCities = http://localhost:4029/HUMAN_R.CITIES
+@RRHHPosition = http://localhost:4029/HUMAN_R.POSITION
+@RRHHSuburn = http://localhost:4029/HUMAN_R.SUBURN
+@RRHHArea = http://localhost:4029/HUMAN_R.AREA
+@RRHHAddress = http://localhost:4029/HUMAN_R.ADDRESS_LIST
+@RRHHTelephone = http://localhost:4029/HUMAN_R.TELEPHONES
+@RRHHTelephoneP = http://localhost:4029/HUMAN_R.TELEPHONES_PERSON
+@RRHHClient= http://localhost:4029/HUMAN_R.CLIENT
 
 
 GET {{RRHHPerson}}
@@ -32,6 +36,14 @@ GET {{RRHHPosition}}
 GET {{RRHHSuburn}}
 ###
 GET {{RRHHArea}}
+###
+GET {{RRHHAddress}}
+###
+GET {{RRHHTelephone}}
+###
+GET {{RRHHTelephoneP}}
+###
+GET {{RRHHClient}}
 
 
 ###
@@ -49,19 +61,23 @@ POST {{RRHHCities}}
 ###
 POST {{RRHHSuburn}}
 ###
-POST {{RRHHArea}}
+POST {{RRHHAddress}}
 ###
-POST {{RRHHCompany}}
+POST {{RRHHArea}}
 ###
 POST {{RRHHPerson}}
 ###
 POST {{RRHHContract}}
 ###
 post {{RRHHEmployee}}
-
-
-
-
+###
+POST {{RRHHTelephone}}
+###
+POST {{RRHHTelephoneP}}
+###
+POST {{RRHHClient}}
+###
+//POST {{RRHHCompany}}
 
 
 

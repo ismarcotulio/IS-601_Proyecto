@@ -109,6 +109,48 @@ AS
 	
 GO
 
+
+CREATE PROCEDURE HUMAN_R.CreateSalaryEmployees 
+AS 
+	DECLARE @dateEmployee DATE, @employee INT,@dateYear DATE, @ACUM INT,@ACUMM INT;
+	SET NOCOUNT OFF;
+	SET @ACUM = 1;
+	SET @employee = 1;
+	SET @ACUMM = (SELECT COUNT(*) FROM HUMAN_R.CONTRACTS);
+	WHILE(@ACUMM>=@employee)
+	BEGIN
+		SET @dateEmployee = (SELECT dat_hiringDate FROM HUMAN_R.CONTRACTS WHERE int_contract_id_PK=@employee);
+		SET @dateYear = DATEADD(DAY,30,@dateEmployee);
+		WHILE(@dateYear<='2021-12-31')
+		BEGIN
+			INSERT INTO HUMAN_R.SALARY(mon_netSalary,mon_hourSalary,dat_date,tin_area_id_FK) VALUES (1,0,@dateYear,(SELECT tin_area_id_FK FROM HUMAN_R.EMPLOYEES WHERE int_employee_id_PK=@employee));
+			INSERT INTO HUMAN_R.SALARY_EMP(bit_pay,int_salary_id_FK,int_employee_id_FK) VALUES (1,@ACUM,@employee);
+			SET @dateYear = DATEADD(DAY,30,@dateYear);
+			SET @ACUM = @ACUM+1;
+		END
+		print @dateEmployee;
+		SET @employee = @employee+1;
+	END
+GO
+
+CREATE PROCEDURE HUMAN_R.ModifyAddress
+AS
+	DECLARE @ADDREES BIGINT,@SUBURN INT, @CITIES INT, @DEPARTAMENT INT, @COUNTRY INT,@CONT BIGINT;
+	SET @ADDREES =10;
+	SET @CONT = (SELECT COUNT(*) FROM HUMAN_R.LIST_ADDRESS);
+	WHILE(@ADDREES<=@CONT)
+	BEGIN
+		SET @SUBURN = (SELECT big_suburn_id_FK FROM HUMAN_R.LIST_ADDRESS WHERE big_address_id_PK=@ADDREES);
+		SET @CITIES = (SELECT big_city_id_FK FROM HUMAN_R.SUBURN WHERE big_suburn_id_PK=@SUBURN);
+		SET @DEPARTAMENT = (SELECT big_departament_id_FK FROM HUMAN_R.CITIES WHERE big_city_id_PK=@CITIES);
+		SET @COUNTRY = (SELECT int_country_id_FK FROM HUMAN_R.DEPARTAMENT WHERE big_departament_id_PK=@DEPARTAMENT);
+		UPDATE HUMAN_R.LIST_ADDRESS SET int_country_id_FK=@COUNTRY,big_departament_id_FK=@DEPARTAMENT,big_city_id_FK=@CITIES WHERE big_address_id_PK=@ADDREES;
+		SET @ADDREES = @ADDREES + 1;
+	END
+GO
+
+
+
 EXEC HUMAN_R.SalaryCalculate
 GO
 
@@ -116,6 +158,12 @@ EXEC HUMAN_R.SalaryCalculateWithMounthYears 1,2021
 GO
 
 EXEC HUMAN_R.SalaryCalculateWithOnly 5
+GO
+
+EXEC HUMAN_R.CreateSalaryEmployees
+GO
+
+EXEC HUMAN_R.ModifyAddress
 GO
 
 SELECT * FROM HUMAN_R.SALARY

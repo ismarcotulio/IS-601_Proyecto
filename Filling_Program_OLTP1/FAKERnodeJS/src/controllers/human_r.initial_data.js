@@ -38,7 +38,7 @@ export const dataFill = async (req, res) => {
     +"('En frente de la Iglesia Catolica San Juan Pablo II',1,4,4,4),('A tres casas del Hospital Venecia 103',2,"
     +"5,5,5),('A la par de pizzeria Victoria, calle 249',3,6,6,6),('Entre el parque José María Cordoba, al par "
     +"de la tienda de Isa',4,7,7,7),('Iglesia la Palabra que Cambia',5,8,8,8),('Frente al Empalame el Crusero"
-    +"',6,8,8,8)")
+    +"',6,9,9,9)")
     await pool.request()
     .query("INSERT INTO HUMAN_R.BRANCH_OFFICES VALUES (1,'Sucursal de Tegucigalpa',1), (2,'Sucursal de Comayagua'"
     +",2), (3,'Sucursal de Cortes',3), (4,'Sucursal de Choluteca',4), (5,'Sucursal de Villa Clara, Cuba',5), "

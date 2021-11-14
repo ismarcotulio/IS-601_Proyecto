@@ -2,13 +2,15 @@ CREATE SCHEMA HUMAN_R;
 GO
 
 CREATE TABLE HUMAN_R.AREA(
-  tin_area_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
-  var_name VARCHAR(60) NOT NULL
+  tin_area_id_PK TINYINT PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  UNIQUE(var_name)
 ); 
 
 CREATE TABLE HUMAN_R.POSITION(
-  tin_position_id_PK TINYINT IDENTITY(1,1) PRIMARY KEY,
-  var_name VARCHAR(60) NOT NULL
+  tin_position_id_PK TINYINT  PRIMARY KEY,
+  var_name VARCHAR(60) NOT NULL,
+  UNIQUE(var_name)
 );
 
 CREATE TABLE HUMAN_R.TYPE_HOURS(
@@ -27,7 +29,7 @@ CREATE TABLE HUMAN_R.MOVEMENT(
 );
 
 CREATE TABLE HUMAN_R.COUNTRY(
-  int_country_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
+  int_country_id_PK INTEGER PRIMARY KEY,
   var_name VARCHAR(60) NOT NULL,
   var_code VARCHAR(6) NOT NULL,
   unique(var_code),unique(var_name)
@@ -48,7 +50,7 @@ CREATE TABLE HUMAN_R.CITIES(
 );
 
 CREATE TABLE HUMAN_R.SUBURN(
-  big_suburn_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
+  big_suburn_id_PK BIGINT PRIMARY KEY,
   var_name VARCHAR(60) NOT NULL,
   big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
   CONSTRAINT [SUBURN_Unique] UNIQUE NONCLUSTERED ([var_name] ASC, [big_city_id_FK] ASC)
@@ -60,7 +62,7 @@ CREATE TABLE HUMAN_R.LIST_ADDRESS(
   int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
   big_departament_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.DEPARTAMENT(big_departament_id_PK),
   big_city_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CITIES(big_city_id_PK),
-  big_suburn_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.SUBURN(big_suburn_id_PK),
+  big_suburn_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.SUBURN(big_suburn_id_PK)
 );
 
 CREATE TABLE HUMAN_R.PERSON(
@@ -70,7 +72,6 @@ CREATE TABLE HUMAN_R.PERSON(
   var_firstSurname VARCHAR(60) NOT NULL,
   var_secondSurname VARCHAR(60) NOT NULL,
   var_DNI VARCHAR(13) NOT NULL,
-  var_RTN_Personal VARCHAR(14) NOT NULL,
   dat_dateOfBirth DATE,
   big_address_id_FK BIGINT REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK),
   cha_gender CHAR NOT NULL,
@@ -78,12 +79,32 @@ CREATE TABLE HUMAN_R.PERSON(
 );
 go
 
+CREATE TABLE HUMAN_R.CLIENT(
+	big_client_id_PK BIGINT PRIMARY KEY,
+	var_code VARCHAR(20),
+	var_RTN_Personal VARCHAR(14) NOT NULL,
+	UNIQUE (var_code)
+);
+
+CREATE TABLE HUMAN_R.CLIENT_COMPANY(
+	int_company_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
+	var_name VARCHAR(150) NOT NULL,
+	big_id_address_FK BIGINT NOT NULL REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK),
+	big_client_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CLIENT(big_client_id_PK)
+);
+
+CREATE TABLE HUMAN_R.CLIENT_PERSON(
+	big_clientPerson_id_PK BIGINT PRIMARY KEY,
+	big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK),
+	big_client_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.CLIENT(big_client_id_PK)
+);
+
 CREATE TABLE HUMAN_R.CONTRACTS(
   int_contract_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
   dat_hiringDate DATE NOT NULL,
   bit_active BIT NOT NULL,
   mon_salary MONEY NOT NULL,
-  tin_position_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.POSITION(tin_position_id_PK),
+  tin_position_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.POSITION(tin_position_id_PK)
 );
 
 CREATE TABLE HUMAN_R.SALARY(
@@ -143,34 +164,25 @@ CREATE TABLE HUMAN_R.TELEPHONES_TYPE(
 );
 
 CREATE TABLE HUMAN_R.TELEPHONES(
-	big_telephon_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
+	big_telephon_id_PK BIGINT PRIMARY KEY,
 	var_number VARCHAR(12) NOT NULL,
 	tin_telephonType_id_FK TINYINT NOT NULL REFERENCES HUMAN_R.TELEPHONES_TYPE(tin_telephonType_id_PK),
 	int_country_id_FK INTEGER NOT NULL REFERENCES HUMAN_R.COUNTRY(int_country_id_PK),
+	UNIQUE (var_number,int_country_id_FK)
 );
 
-CREATE TABLE HUMAN_R.COMPANY(
-	int_company_id_PK INTEGER IDENTITY(1,1) PRIMARY KEY,
-	var_name VARCHAR(150) NOT NULL,
-	var_RTN VARCHAR(14) NOT NULL,
-	big_id_address_FK BIGINT NOT NULL REFERENCES HUMAN_R.LIST_ADDRESS(big_address_id_PK)
-);
-
-CREATE TABLE HUMAN_R.TELEPHONES_CP(
+CREATE TABLE HUMAN_R.TELEPHONES_PERSON(
 	bit_active BIT NOT NULL,
 	big_person_id_FK BIGINT NOT NULL REFERENCES HUMAN_R.PERSON(big_person_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
 	big_telephon_id_FK BIGINT REFERENCES HUMAN_R.TELEPHONES(big_telephon_id_PK),
-	int_company_id_FK INTEGER REFERENCES HUMAN_R.COMPANY(int_company_id_PK),
-	PRIMARY KEY (big_telephon_id_FK,big_person_id_FK),
-	CHECK((int_company_id_FK=NULL AND big_person_id_FK>0 )OR (int_company_id_FK>0 AND big_person_id_FK=NULL ) )
+	PRIMARY KEY (big_telephon_id_FK,big_person_id_FK)
 );
 
-CREATE TABLE HUMAN_R.CLIENT(
-	big_client_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
-	var_code VARCHAR(17),
-	int_company_id_FK INTEGER REFERENCES HUMAN_R.COMPANY(int_company_id_PK),
-	big_person_id_FK BIGINT REFERENCES HUMAN_R.PERSON(big_person_id_PK) ON DELETE CASCADE ON UPDATE CASCADE,
-	CHECK((int_company_id_FK=NULL AND big_person_id_FK>0 )OR (int_company_id_FK>0 AND big_person_id_FK=NULL ) )
-)
+CREATE TABLE HUMAN_R.TELEPHONES_COMPANY(
+	bit_active BIT NOT NULL,
+	big_telephon_id_FK BIGINT REFERENCES HUMAN_R.TELEPHONES(big_telephon_id_PK),
+	int_company_id_FK INTEGER REFERENCES HUMAN_R.CLIENT_COMPANY(int_company_id_PK),
+	PRIMARY KEY (big_telephon_id_FK,int_company_id_FK)
+);
 
 

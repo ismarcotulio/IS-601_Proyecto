@@ -11,9 +11,26 @@ import {newCities, getCities} from '../controllers/human_r.cities'
 import {newPosition, getPosition} from '../controllers/human_r.position'
 import {newSuburn, getSuburn} from '../controllers/human_r.suburn'
 import {newArea, getArea} from '../controllers/human_r.area'
+import {newAdress, getAdress} from '../controllers/human_r.address_list'
+import {newTelephones, getTelephones} from '../controllers/human_r.telephones'
+import {newT_person, getT_person} from '../controllers/human_r.telephone_person'
+import {newT_Company, getT_Company} from '../controllers/human_r.telephone_company'
+import {newClient, getClient} from '../controllers/human_r.client'
 
 const router= Router()
 
+router.get('/HUMAN_R.CLIENT',getClient)
+router.post('/HUMAN_R.CLIENT',newClient)
+router.get('/HUMAN_R.TELEPHONES_COMPANY',getT_Company)
+router.post('/HUMAN_R.TELEPHONES_COMPANY',newT_Company)
+router.get('/HUMAN_R.TELEPHONES_PERSON',getT_person)
+router.post('/HUMAN_R.TELEPHONES_PERSON',newT_person)
+router.get('/HUMAN_R.TELEPHONES_PERSON',getT_person)
+router.post('/HUMAN_R.TELEPHONES_PERSON',newT_person)
+router.get('/HUMAN_R.TELEPHONES',getTelephones)
+router.post('/HUMAN_R.TELEPHONES',newTelephones)
+router.get('/HUMAN_R.ADDRESS_LIST',getAdress)
+router.post('/HUMAN_R.ADDRESS_LIST',newAdress)
 router.get('/HUMAN_R.AREA',getArea)
 router.post('/HUMAN_R.AREA',newArea)
 router.get('/HUMAN_R.SUBURN',getSuburn)

@@ -21,14 +21,14 @@ export const newPerson = async (req, res) => {
     
     const pool = await getConnection();
     let con = 1;
-    while(con <= 7000){
+    while(con <= 60000){
         let gen = fakerPerson();
         await pool.request()
-        .query("INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,var_RTN_Personal,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES ('"
+        .query("INSERT INTO HUMAN_R.PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES ('"
         +gen.var_firstName+"','"
         +gen.var_secondName+"','"
         +gen.var_firstSurname+"','"
-        +gen.var_secondSurname+"', dbo.fnCustomPass(13,'N'),dbo.fnCustomPass(14,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'"
+        +gen.var_secondSurname+"', dbo.fnCustomPass(13,'N'), dbo.getRandomDate('1969-01-01', '1998-12-30'),'"
         +gen.cha_garder+"',"
         +gen.big_address_id_FK+")");
         console.log(gen)
@@ -51,7 +51,7 @@ function fakerPerson(){
     const n4 = faker.name.lastName()
     const addre = faker.datatype.number({
         'min': 1,
-        'max': 101
+        'max': 70000
     });
     let sex = faker.datatype.number({
         'min': 1,
