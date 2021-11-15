@@ -5,7 +5,7 @@ const faker = require('faker/locale/es')
 
 export const getSuburn = async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM HUMAN_R.SUBURN")
+    const result = await pool.request().query("SELECT * FROM SUBURN")
     //console.log(result)
     res.json(result.recordset)
 };
@@ -21,16 +21,15 @@ export const newSuburn = async (req, res) => {
         }else{
             try {
                 let gen = fakerSuburn();
-                console.log(gen);
                 await pool.request()
-                .query("INSERT INTO HUMAN_R.SUBURN VALUES ("
+                .query("INSERT INTO SUBURN VALUES ("
                 +idsuburn+",'"
                 +gen.var_name+"',"
                 +big_city_id_FK+")");
                 con++;
                 idsuburn++;
             } catch (error) {
-                console.log(error)
+                //console.log(error)
             }
             
            
@@ -39,7 +38,7 @@ export const newSuburn = async (req, res) => {
     }
     
     pool.close;
-    res.json("Succeses: Suburn data") 
+    res()
 };
 
 

@@ -149,7 +149,28 @@ AS
 	END
 GO
 
-
+CREATE PROCEDURE MOVEMENT_PAY
+AS
+	DECLARE @salary int, @Hours bit, @dateS DATE,@cant int;
+	SET @salary = 1;
+	SET @cant = (SELECT COUNT(*) FROM SALARY)
+	WHILE (@salary<=@cant)
+	BEGIN
+		SET @dateS = (SELECT dat_date FROM SALARY WHERE int_salary_id_PK=@salary)
+		INSERT INTO PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES (1,FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),@salary);
+		INSERT INTO PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES (1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-5)+5),@salary);
+		INSERT INTO PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES (1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-10)+10),@salary);
+		IF (FLOOR(( SELECT rnd FROM vwRandom ) *(10-1)+1)<=5)
+		BEGIN
+			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
+			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
+			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
+		END
+		ELSE IF (FLOOR(( SELECT rnd FROM vwRandom ) *(10-1)+1)<=5)
+			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
+		SET @salary= @salary + 1;
+	END
+GO
 
 EXEC HUMAN_R.SalaryCalculate
 GO
@@ -160,10 +181,13 @@ GO
 EXEC HUMAN_R.SalaryCalculateWithOnly 5
 GO
 
-EXEC HUMAN_R.CreateSalaryEmployees
+EXEC CreateSalaryEmployees
 GO
 
 EXEC HUMAN_R.ModifyAddress
+GO
+
+EXEC MOVEMENT_PAY
 GO
 
 SELECT * FROM HUMAN_R.SALARY

@@ -5,7 +5,7 @@ const faker = require('faker/locale/es')
 
 export const getCities = async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM HUMAN_R.CITIES")
+    const result = await pool.request().query("SELECT * FROM CITIES")
     //console.log(result)
     res.json(result.recordset)
 };
@@ -19,9 +19,8 @@ export const newCities = async (req, res) => {
             con=1; big_departament_id_FK++;
         }else{
             let gen = fakerCities();
-            console.log(gen);
             await pool.request()
-            .query("INSERT INTO HUMAN_R.CITIES(var_name,big_departament_id_FK) VALUES ('"
+            .query("INSERT INTO CITIES(var_name,big_departament_id_FK) VALUES ('"
             +gen.var_name+"',"
             +big_departament_id_FK+")");
             con++;
@@ -29,7 +28,7 @@ export const newCities = async (req, res) => {
     }
     
     pool.close;
-    res.json("Succeses: Cities data") 
+    res()  
 };
 
 

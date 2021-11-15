@@ -4,24 +4,24 @@ const faker = require('faker/locale/es')
 
 export const getTelephones = async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM HUMAN_R.TELEPHONES")
+    const result = await pool.request().query("SELECT * FROM TELEPHONES")
     //console.log(result)
     res.json(result.recordset)
 };
 
 export const newTelephones = async (req, res) => {
+    console.log("Generating TELEPHONES");
     const pool = await getConnection();
     let big_telephon_id_PK = 1;
-    while(big_telephon_id_PK <= 80000){
+    while(big_telephon_id_PK <= 50000){
         try {
             let gen = fakerTelephones();
             await pool.request()
-            .query("INSERT INTO HUMAN_R.TELEPHONES(big_telephon_id_PK,var_number,tin_telephonType_id_FK,int_country_id_FK) VALUES ("
+            .query("INSERT INTO TELEPHONES(big_telephon_id_PK,var_number,tin_telephonType_id_FK,int_country_id_FK) VALUES ("
             +big_telephon_id_PK+",'"
             +gen.var_number+"',"
             +gen.tin_telephonType_id_FK+","
             +gen.int_country_id_FK +")");
-            console.log(gen)
             big_telephon_id_PK++;
         } catch (error) {
             console.log(error)
@@ -30,7 +30,7 @@ export const newTelephones = async (req, res) => {
     }
     
     pool.close;
-    res.json("Succeses: Telephones data") 
+    res() 
 };
 
 

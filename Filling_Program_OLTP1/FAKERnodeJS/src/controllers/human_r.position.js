@@ -4,30 +4,30 @@ const faker = require('faker/locale/es')
 
 export const getPosition = async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM HUMAN_R.POSITION")
+    const result = await pool.request().query("SELECT * FROM POSITION")
     //console.log(result)
     res.json(result.recordset)
 };
 
 export const newPosition = async (req, res) => {
+    console.log("Generating POSITION");
     const pool = await getConnection();
     let con = 1;
     while(con <= 70){
         try {
             let gen = fakerPosition();
-            console.log(gen);
             await pool.request()
-            .query("INSERT INTO HUMAN_R.POSITION(tin_position_id_PK,var_name) VALUES ("
+            .query("INSERT INTO POSITION(tin_position_id_PK,var_name) VALUES ("
             +con+",'" 
             +gen.var_name+"')");
             con++;
         } catch (error) {
-            console.log(error)
+            //console.log(error)
         }      
     }
     
     pool.close;
-    res.json("Succeses: Position data") 
+    res() 
 };
 
 

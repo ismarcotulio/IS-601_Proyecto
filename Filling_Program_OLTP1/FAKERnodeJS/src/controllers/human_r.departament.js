@@ -5,7 +5,7 @@ const faker = require('faker/locale/es')
 
 export const getDepartament = async (req, res) => {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM HUMAN_R.DEPARTAMENT")
+    const result = await pool.request().query("SELECT * FROM DEPARTAMENT")
     //console.log(result)
     res.json(result.recordset)
 };
@@ -20,16 +20,15 @@ export const newDepartament = async (req, res) => {
         }else{
             let gen = fakerDepartament();
             await pool.request()
-            .query("INSERT INTO HUMAN_R.DEPARTAMENT(var_name,int_country_id_FK) VALUES ('"
+            .query("INSERT INTO DEPARTAMENT(var_name,int_country_id_FK) VALUES ('"
             +gen.var_name+"',"
             +int_country_id+")");
-            console.log(gen);
             con++;
         }
     }
     
     pool.close;
-    res.json("Succeses: departament data") 
+    res()  
 };
 
 
