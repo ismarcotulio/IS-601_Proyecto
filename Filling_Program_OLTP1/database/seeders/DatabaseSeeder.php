@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $bodyClassQuantity = 13;
         $modelQuantity = 2000;
         $vehicle_typeQuantity = 3;
-        $vehicleQuantity = 500;
+        $vehicleQuantity = 5000;
 
         //FINANTIAL
         $document_typeQuantity = 10;
@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
         $emission_pointQuantity = 200;
         $type_of_methodsQuantity = 5;
         $type_of_isvQuantity = 2;
-        $isvQuantity = 100;
+        $isvQuantity = 1000;
         $rankQuantity = 4;
-        $invoice_numberQuantity = 100;
+        $invoice_numberQuantity = 1000;
 
 
          \App\Models\color::factory($colorQuantity)->create();
