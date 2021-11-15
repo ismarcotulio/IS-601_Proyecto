@@ -44,10 +44,10 @@ CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[ISV](
 );
 
 CREATE TABLE [CarDealership_OLTP1].[FINANTIAL].[RANK](
-  big_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
-  big_starting_range BIGINT NOT NULL,
-  big_final_range BIGINT NOT NULL,
-  big_current BIGINT NOT NULL,
+  int_id_PK BIGINT IDENTITY(1,1) PRIMARY KEY,
+  int_starting_range BIGINT NOT NULL,
+  int_final_range BIGINT NOT NULL,
+  int_current BIGINT NOT NULL,
   bit_active BIT,
   tin_document_type_FK TINYINT NOT NULL, 
 	FOREIGN KEY (tin_document_type_FK) REFERENCES [CarDealership_OLTP1].[FINANTIAL].[DOCUMENT_TYPE](tin_id_PK),

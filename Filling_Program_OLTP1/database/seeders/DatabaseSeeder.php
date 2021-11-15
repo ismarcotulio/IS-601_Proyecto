@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         $type_of_methodsQuantity = 5;
         $type_of_isvQuantity = 2;
         $isvQuantity = 100;
+        $rankQuantity = 4;
 
 
          \App\Models\color::factory($colorQuantity)->create();
@@ -51,5 +52,6 @@ class DatabaseSeeder extends Seeder
          \App\Models\type_of_methods::factory($type_of_methodsQuantity)->create();
          \App\Models\type_of_isv::factory($type_of_isvQuantity)->create();
          \App\Models\isv::factory($isvQuantity)->create();
+         \App\Models\rank::factory($rankQuantity)->create();
     }
 }
