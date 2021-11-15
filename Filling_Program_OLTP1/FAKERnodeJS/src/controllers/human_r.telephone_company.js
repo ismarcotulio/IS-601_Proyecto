@@ -10,7 +10,6 @@ export const getT_Company = async (req, res) => {
 };
 
 export const newT_Company = async (req, res) => {
-    console.log("Generating TELEPHONES_COMPANY");
     const pool = await getConnection();
     let con = 37001;
     while(con <= 47000){

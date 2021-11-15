@@ -26,26 +26,27 @@ import {dataFinalFill} from './controllers/human_r.final_data'
 
 
 function refresh(){
-    tableFuncionProceduresFill('',()=>{
-        dataFill('', ()=>{
-            newPosition('', ()=>{
-                newCountry('', ()=>{
-                    newDepartament('', ()=>{
-                        newCities('', ()=>{
-                            newSuburn('', ()=>{
-                                newAdress('', ()=>{
-                                    newArea('', ()=>{
-                                        newPerson('', ()=>{
-                                            newContracts('', ()=>{
-                                                newEmployee('', ()=>{
-                                                    newTelephones('', ()=>{
-                                                        newT_person('', ()=>{
-                                                            newClient('', ()=>{
-                                                                newCompany('', ()=>{
-                                                                    newT_Company('', ()=>{
-                                                                        newClientPerson('', ()=>{
-                                                                            dataFinalFill('', ()=>{
-                    
+        tableFuncionProceduresFill('',()=>{
+            dataFill('', ()=>{
+                newPosition('', ()=>{
+                    newCountry('', ()=>{
+                        newDepartament('', ()=>{
+                            newCities('', ()=>{
+                                newSuburn('', ()=>{
+                                    newAdress('', ()=>{
+                                        newArea('', ()=>{
+                                            newPerson('', ()=>{
+                                                newContracts('', ()=>{
+                                                    newEmployee('', ()=>{
+                                                        newTelephones('', ()=>{
+                                                            newT_person('', ()=>{
+                                                                newClient('', ()=>{
+                                                                    newCompany('', ()=>{
+                                                                        newT_Company('', ()=>{
+                                                                            newClientPerson('', ()=>{
+                                                                                dataFinalFill('', ()=>{
+                        
+                                                                                })
                                                                             })
                                                                         })
                                                                     })
@@ -64,7 +65,6 @@ function refresh(){
                 })
             })
         })
-    })
 }
 
 refresh()

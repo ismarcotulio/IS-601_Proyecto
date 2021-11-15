@@ -4,6 +4,14 @@ export const tableFuncionProceduresFill = async (req, res) => {
     console.log("Generating Tables, Funcions, Views end Procedures");
     const pool = await getConnection();
 
+    await pool.request()
+    .query("DROP DATABASE CarDealership_OLTP1")
+    await pool.request()
+    .query("CREATE DATABASE CarDealership_OLTP1")
+    await pool.request()
+    .query("USE CarDealership_OLTP1")
+
+    
     //Tables
     await pool.request()
     .query("CREATE TABLE dbo.AREA(tin_area_id_PK TINYINT PRIMARY KEY, var_name VARCHAR(60) NOT NULL, UNIQUE(var_name))");
