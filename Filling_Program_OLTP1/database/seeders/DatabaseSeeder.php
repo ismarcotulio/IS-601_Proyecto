@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $bodyClassQuantity = 13;
         $modelQuantity = 2000;
         $vehicle_typeQuantity = 3;
-        $vehicleQuantity = 5000;
+        $vehicleQuantity = 500;
 
         //FINANTIAL
         $document_typeQuantity = 10;
@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         $type_of_isvQuantity = 2;
         $isvQuantity = 100;
         $rankQuantity = 4;
+        $invoice_numberQuantity = 100;
 
 
          \App\Models\color::factory($colorQuantity)->create();
@@ -53,5 +54,6 @@ class DatabaseSeeder extends Seeder
          \App\Models\type_of_isv::factory($type_of_isvQuantity)->create();
          \App\Models\isv::factory($isvQuantity)->create();
          \App\Models\rank::factory($rankQuantity)->create();
+         \App\Models\invoice_number::factory($invoice_numberQuantity)->create();
     }
 }
