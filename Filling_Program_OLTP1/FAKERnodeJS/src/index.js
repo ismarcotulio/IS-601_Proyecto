@@ -23,6 +23,7 @@ import {newCompany, getCompany} from './controllers/human_r.company'
 import {newT_Company, getT_Company} from './controllers/human_r.telephone_company'
 import {newClientPerson} from './controllers/human_r.client_person'
 import {dataFinalFill} from './controllers/human_r.final_data'
+import {newRegistration} from './controllers/human_r.registration'
 
 
 function refresh(){
@@ -38,21 +39,23 @@ function refresh(){
                                             newPerson('', ()=>{
                                                 newContracts('', ()=>{
                                                     newEmployee('', ()=>{
-                                                        newTelephones('', ()=>{
-                                                            newT_person('', ()=>{
-                                                                newClient('', ()=>{
-                                                                    newCompany('', ()=>{
-                                                                        newT_Company('', ()=>{
-                                                                            newClientPerson('', ()=>{
-                                                                                dataFinalFill('', ()=>{
-                        
+                                                        newRegistration('', ()=>{
+                                                            newTelephones('', ()=>{
+                                                                newT_person('', ()=>{
+                                                                    newClient('', ()=>{
+                                                                        newCompany('', ()=>{
+                                                                            newT_Company('', ()=>{
+                                                                                newClientPerson('', ()=>{
+                                                                                    dataFinalFill('', ()=>{
+                            
+                                                                                    })
                                                                                 })
-                                                                            })
+                                                                             })
                                                                         })
-                                                                    })
-                                                                })
+                                                                   })
+                                                               })
                                                             })
-                                                        })
+                                                        })    
                                                     })
                                                 })
                                             })
@@ -65,6 +68,7 @@ function refresh(){
                 })
             })
         })
+        
 }
 
 refresh()

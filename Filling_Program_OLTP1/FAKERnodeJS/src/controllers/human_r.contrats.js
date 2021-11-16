@@ -17,7 +17,7 @@ export const newContracts = async (req, res) => {
     while(con <= 7000){
         let gen = fakerContract();
         await pool.request()
-        .query("INSERT INTO CONTRACTS(dat_hiringDate,bit_active,tin_position_id_FK,mon_salary) VALUES (dbo.getRandomDate('2000-01-01', '2021-12-30'),1,"
+        .query("INSERT INTO CONTRACTS(bit_active,tin_position_id_FK,mon_salary) VALUES (1,"
         +gen.tin_position_id_FK+","
         +gen.mon_salary+")");
         con++;

@@ -6,6 +6,8 @@ export const dataFinalFill = async (req, res) => {
     //Procedures
 
     await pool.request()
+    .query("EXEC DATEREGIS");
+    await pool.request()
     .query("EXEC CreateSalaryEmployees");
     await pool.request()
     .query("EXEC ModifyAddress");

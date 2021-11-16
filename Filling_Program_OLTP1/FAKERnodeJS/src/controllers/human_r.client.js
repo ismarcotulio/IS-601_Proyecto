@@ -13,6 +13,8 @@ export const newClient = async (req, res) => {
     console.log("Generating CLIENT");
     const pool = await getConnection();
     let con = 1;
+    await pool.request()
+    .query("USE CarDealership_OLTP1");
     while(con <= 40000){
         await pool.request()
         .query("INSERT INTO CLIENT(big_client_id_PK,var_code,var_RTN_Personal) VALUES ("

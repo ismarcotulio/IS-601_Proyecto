@@ -15,19 +15,16 @@ export const newEmployee = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     let person = 1;
-    let contra = 1;
     while(con <= 7000){
         let gen = fakerEmployee();
         try {
             await pool.request()
-            .query("INSERT INTO EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,int_contract_id_FK,big_person_id_FK) VALUES (dbo.fnCustomPass(10,'CN'),"
+            .query("INSERT INTO EMPLOYEES(var_code,tin_branch_id_FK,tin_area_id_FK,big_person_id_FK) VALUES (dbo.fnCustomPass(10,'CN'),"
             +gen.tin_branch_id_FK+","
             +gen.tin_area_id_FK+","
-            +contra+","
             +person+")");
             con++;
             person++;
-            contra++;
         } catch (error) {
             //console.log(error)
             //break;

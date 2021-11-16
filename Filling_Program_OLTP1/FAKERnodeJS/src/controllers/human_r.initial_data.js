@@ -46,7 +46,9 @@ export const dataFill = async (req, res) => {
     +"(6,'Sucursal de Limon, Costa Rica',6), (7,'Sucursal de Cordoba, Colombia',7), (8,'Sucursal de Santa Ana, "
     +"El Salvador',8), (9,'Sucursal de Managua, Nicaragua',9)")
     await pool.request()
-    .query("INSERT INTO TELEPHONES_TYPE VALUES (1,'Empresarial'),(2,'Personal')")
+    .query("INSERT INTO TELEPHONES_TYPE VALUES (1,'Empresarial'),(2,'Personal')");
+    await pool.request()
+    .query("INSERT INTO TYPE_REGISTRATION VALUES (1,'Contratado','Mejorar mano laboral'),(2,'Despido','Incumplimiento'),(3,'Renuncia','Insatisfecho')")
 
     pool.close;
     res() 
