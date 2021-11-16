@@ -47,6 +47,6 @@ CREATE TRIGGER tg_inInventory
 
     public function down()
     {
-        DB::unprepared('DROP TRIGGER `tg_inInventory`');
+        DB::unprepared('DROP TRIGGER tg_inInventory;');
     }
 }

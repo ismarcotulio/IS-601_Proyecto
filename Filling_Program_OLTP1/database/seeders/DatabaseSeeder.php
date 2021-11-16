@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
         $type_movementQuantity = 2;
         $transaction_stateQuantity = 6;
         $bodyClassQuantity = 13;
-        $modelQuantity = 2000;
+        $modelQuantity = 200;
         $vehicle_typeQuantity = 3;
-        $vehicleQuantity = 5000;
+        $vehicleQuantity = 500;
 
         //FINANTIAL
         $document_typeQuantity = 10;
@@ -31,9 +31,10 @@ class DatabaseSeeder extends Seeder
         $emission_pointQuantity = 200;
         $type_of_methodsQuantity = 5;
         $type_of_isvQuantity = 2;
-        $isvQuantity = 1000;
+        $isvQuantity = 200;
         $rankQuantity = 4;
         $invoice_numberQuantity = 1000;
+        $service_transactionQuantity = 20;
 
 
          \App\Models\color::factory($colorQuantity)->create();
@@ -54,6 +55,8 @@ class DatabaseSeeder extends Seeder
          \App\Models\type_of_isv::factory($type_of_isvQuantity)->create();
          \App\Models\isv::factory($isvQuantity)->create();
          \App\Models\rank::factory($rankQuantity)->create();
-         \App\Models\invoice_number::factory($invoice_numberQuantity)->create();
+         \App\Models\service_transaction::factory($service_transactionQuantity)->create();
+         //\App\Models\invoice_number::factory($invoice_numberQuantity)->create();
+
     }
 }
