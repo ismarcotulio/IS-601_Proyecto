@@ -2,17 +2,18 @@
 import sql from 'mssql'
 
 const dbsetting = {
-    user: 'LUISERNESTO',
-    password: '12345',
-    server: 'localhost',
-    database: 'master',
+    user: 'SA',
+    password: 'DB2_Grupo1',
+    server: 'db',
+    database: 'CarDealership_OLTP1',
     options: {
         encrypt: true,
         trustServerCertificate: true,
         cryptoCredentialsDetails: {
             minVersion: 'TLSv1'
         }
-    }
+    },
+	port : 1433
 };
 
 export async function getConnection(){
@@ -24,7 +25,7 @@ export async function getConnection(){
     } catch (error) {
         console.error(error)
     }
-    
+
 }
 
 export {sql};
