@@ -2,9 +2,9 @@
 import sql from 'mssql'
 
 const dbsetting = {
-    user: "LUISERNESTO",
-    password: "12345",
-    server: "localhost",
+    user: "SA",
+    password: "BD2_Grupo1",
+    server: "db",
     database: "CarDealership_OLTP1",
     options: {
         encrypt: true,
