@@ -15,7 +15,7 @@ export const newEmployee = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     let person = 1;
-    while(con <= 7000){
+    while(con <= 70){
         let gen = fakerEmployee();
         try {
             await pool.request()

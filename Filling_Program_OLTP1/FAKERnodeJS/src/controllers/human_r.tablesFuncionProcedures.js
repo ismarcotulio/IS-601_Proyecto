@@ -4,8 +4,12 @@ export const tableFuncionProceduresFill = async (req, res) => {
     console.log("Generating Tables, Funcions, Views end Procedures");
     const pool = await getConnection();
 
-    await pool.request()
-    .query("DROP DATABASE CarDealership_OLTP1")
+    try {
+        await pool.request()
+        .query("DROP DATABASE CarDealership_OLTP1")
+    } catch (error) {
+        
+    }
     await pool.request()
     .query("CREATE DATABASE CarDealership_OLTP1")
     await pool.request()

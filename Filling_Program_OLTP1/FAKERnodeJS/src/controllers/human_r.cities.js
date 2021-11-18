@@ -14,8 +14,8 @@ export const newCities = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     let big_departament_id_FK = 1
-    while(big_departament_id_FK <= 1569){
-        if(con==11){
+    while(big_departament_id_FK <= 139){
+        if(con==6){
             con=1; big_departament_id_FK++;
         }else{
             let gen = fakerCities();
