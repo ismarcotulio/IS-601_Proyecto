@@ -14,7 +14,7 @@ export const newContracts = async (req, res) => {
     console.log("Generating CONTRACTS");
     const pool = await getConnection();
     let con = 1;
-    while(con <= 70){
+    while(con <= 15){
         let gen = fakerContract();
         await pool.request()
         .query("INSERT INTO CONTRACTS(bit_active,tin_position_id_FK,mon_salary) VALUES (1,"
@@ -35,7 +35,7 @@ export const newContracts = async (req, res) => {
 function fakerContract(){
     let position = faker.datatype.number({
         'min': 1,
-        'max': 30
+        'max': 15
     });
     const salary = faker.datatype.number({
         'min': 8500,

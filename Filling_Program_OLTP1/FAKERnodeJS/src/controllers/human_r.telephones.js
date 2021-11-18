@@ -13,7 +13,7 @@ export const newTelephones = async (req, res) => {
     console.log("Generating TELEPHONES");
     const pool = await getConnection();
     let big_telephon_id_PK = 1;
-    while(big_telephon_id_PK <= 500){
+    while(big_telephon_id_PK <= 45){
         try {
             let gen = fakerTelephones();
             await pool.request()

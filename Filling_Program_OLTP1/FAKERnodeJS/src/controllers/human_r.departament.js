@@ -15,7 +15,7 @@ export const newDepartament = async (req, res) => {
     let con = 1;
     let int_country_id = 1
     while(int_country_id <= 26){
-        if(con==6){
+        if(con==2){
             con=1; int_country_id++;
         }else{
             let gen = fakerDepartament();

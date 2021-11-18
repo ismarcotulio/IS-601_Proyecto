@@ -12,7 +12,7 @@ export const getT_person = async (req, res) => {
 export const newT_person = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
-    while(con <= 370){
+    while(con <= 35){
         await pool.request()
         .query("INSERT INTO TELEPHONES_PERSON(bit_active,big_person_id_FK,big_telephon_id_FK) VALUES (1,"
         +con+"," 

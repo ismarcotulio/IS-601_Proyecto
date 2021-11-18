@@ -13,7 +13,7 @@ export const newPosition = async (req, res) => {
     console.log("Generating POSITION");
     const pool = await getConnection();
     let con = 1;
-    while(con <= 30){
+    while(con <= 15){
         try {
             let gen = fakerPosition();
             await pool.request()

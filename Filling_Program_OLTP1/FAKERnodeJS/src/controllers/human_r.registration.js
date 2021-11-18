@@ -15,7 +15,7 @@ export const newRegistration = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     
-    while(con <= 70){
+    while(con <= 15){
         let gen = fakerRegistration();
         try {
             await pool.request()
