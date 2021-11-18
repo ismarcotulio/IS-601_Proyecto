@@ -4,7 +4,7 @@ import sql from 'mssql'
 const dbsetting = {
     user: "SA",
     password: "BD2_Grupo1",
-    server: "bd",
+    server: "db",
     database: "CarDealership_OLTP1",
     options: {
         encrypt: true,
