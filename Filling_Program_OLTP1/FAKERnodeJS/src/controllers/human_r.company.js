@@ -14,7 +14,7 @@ export const newCompany = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     let big_client_id_FK = 1;
-    while(con <= 10000){
+    while(con <= 10){
         let gen = fakerCompany();
         await pool.request()
         .query("INSERT INTO CLIENT_COMPANY(var_name,big_client_id_FK,big_id_address_FK) VALUES ('"
@@ -37,7 +37,7 @@ function fakerCompany(){
     const n1 = faker.company.companyName()
     const addre = faker.datatype.number({
         'min': 10,
-        'max': 70000
+        'max': 70
     });
 
         const arrjs = {

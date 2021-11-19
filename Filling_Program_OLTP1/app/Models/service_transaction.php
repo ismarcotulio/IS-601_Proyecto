@@ -33,4 +33,11 @@ class service_transaction extends Model
             $this->hasMany(service_detail::class, 'big_service_transaction_FK', 'big_id_PK')->create($callback($this));
 
     }
+
+    public function invoice($quantity, $callback)
+    {
+
+            $this->hasMany(invoice::class, 'big_service_transaction_FK', 'big_id_PK')->create($callback($this));
+
+    }
 }

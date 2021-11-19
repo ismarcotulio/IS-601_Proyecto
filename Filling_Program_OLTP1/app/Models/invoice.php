@@ -16,7 +16,8 @@ class invoice extends Model
     protected $fillable = [
         'big_id_PK',
         'var_CAI',
-        'dat_deadlineDate',
+        'dat_deadline',
+        'tim_deadline',
         'tin_branch_FK',
         'big_service_transaction_FK',
         'big_invoice_number_FK',
@@ -24,4 +25,11 @@ class invoice extends Model
     ];
 
     public $timestamps = false;
+
+    public function payment($quantity, $s, $callback)
+    {
+
+            $this->hasMany(payment::class, 'big_invoice_FK', 'big_id_PK')->create($callback($this, $s, $quantity));
+
+    }
 }

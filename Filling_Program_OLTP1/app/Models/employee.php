@@ -16,7 +16,7 @@ class employee extends Model
     protected $fillable = [
         'int_employee_id_PK',
         'var_code',
-        'int_branch_id_FK',
+        'tin_branch_id_FK',
         'int_person_id_FK',
         'int_contract_id_FK',
         'tin_area_id_FK'

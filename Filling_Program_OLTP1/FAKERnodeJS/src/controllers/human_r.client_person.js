@@ -12,9 +12,9 @@ export const getClientPerson = async (req, res) => {
 export const newClientPerson = async (req, res) => {
     console.log("Generating CLIENT_PERSON");
     const pool = await getConnection();
-    let con = 7001;
-    let big_client_id_FK = 10001
-    while(con <= 37000){
+    let con = 16;
+    let big_client_id_FK = 11
+    while(con <= 35){
         await pool.request()
         .query("INSERT INTO CLIENT_PERSON(big_person_id_FK,big_client_id_FK) VALUES ("
         +con+","

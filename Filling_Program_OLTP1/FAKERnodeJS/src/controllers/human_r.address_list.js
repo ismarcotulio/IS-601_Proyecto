@@ -14,7 +14,7 @@ export const newAdress = async (req, res) => {
     const pool = await getConnection();
     const conn=1
     let con = 1;
-    while(con <= 69993){
+    while(con <= 70){
         let gen = fakerAdress();
         await pool.request()
         .query("INSERT INTO LIST_ADDRESS(tex_reference,int_country_id_FK,big_departament_id_FK,big_city_id_FK,big_suburn_id_FK) VALUES ('"
@@ -41,7 +41,7 @@ function fakerAdress(){
     tex_reference = refe+ " " + tex_reference ;
     const big_suburn_id_FK = faker.datatype.number({
         'min': 1,
-        'max': 31407
+        'max': 35
     });
 
         const arrjs = {

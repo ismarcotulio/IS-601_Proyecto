@@ -15,7 +15,7 @@ export const newCountry = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     let int_country_id = 7
-    while(con <= 150){
+    while(con <= 20){
         let gen = fakerCountry();
         try {
             await pool.request()
