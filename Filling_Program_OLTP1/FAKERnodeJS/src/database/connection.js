@@ -13,7 +13,6 @@ const dbsetting = {
             minVersion: 'TLSv1'
         },
     port:1433
-
     }
 };
 
