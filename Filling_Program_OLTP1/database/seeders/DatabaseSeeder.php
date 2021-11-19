@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $vehicleQuantity = 500;
 
         //FINANTIAL
-        $document_typeQuantity = 10;
+        $document_typeQuantity = 1;
         $printingQuantity = 20;
         $emission_pointQuantity = 200;
         $type_of_methodsQuantity = 5;

@@ -16,7 +16,7 @@ class document_typeFactory extends Factory
         return [
             'int_number' => $this->faker->unique()->numberBetween($min = 1, $max = 12),
             'var_code' => $this->faker->bothify('??###'),
-            'var_name' => $this->faker->unique()->randomElement($array = array ('Factura','Recibo por Honorarios Profesionales','Comprobante de Retencion','Nota de Credito','Nota de Debito','Guia de Remision','Ticket','Factura PreValorada','Boleta de Compra','Constancia de Donacion')),
+            'var_name' => $this->faker->unique()->randomElement($array = array ('Factura')),
         ];
     }
 }

@@ -16,8 +16,8 @@ class CreateInvoice extends Migration
         Schema::create('INVOICE', function (Blueprint $table) {
             $table->bigIncrements('big_id_PK');
             $table->string('var_CAI', 45)->unique();
-            $table->date('dat_deadlineDate');
-            $table->time('tim_deadlineTime', $precision = 0);
+            $table->date('dat_deadline');
+            $table->time('tim_deadline', $precision = 0);
 
             $table->tinyInteger('tin_branch_FK');
             $table->foreign('tin_branch_FK')

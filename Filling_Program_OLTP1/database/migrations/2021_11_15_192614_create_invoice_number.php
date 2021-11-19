@@ -15,7 +15,7 @@ class CreateInvoiceNumber extends Migration
     {
         Schema::create('INVOICE_NUMBER', function (Blueprint $table) {
             $table->bigIncrements('big_id_PK');
-            $table->integer('correlative_number');
+            $table->integer('int_correlative_number');
             $table->integer('int_emission_point_FK');
             $table->foreign('int_emission_point_FK')
                         ->references('int_id_PK')
