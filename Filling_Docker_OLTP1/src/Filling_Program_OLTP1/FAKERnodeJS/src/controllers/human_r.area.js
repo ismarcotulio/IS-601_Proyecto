@@ -13,7 +13,7 @@ export const newArea = async (req, res) => {
     console.log("Generating AREA");
     const pool = await getConnection();
     let con = 1;
-    while(con <= 15){
+    while(con <= 25){
         try {
             let gen = fakerArea();
             await pool.request()

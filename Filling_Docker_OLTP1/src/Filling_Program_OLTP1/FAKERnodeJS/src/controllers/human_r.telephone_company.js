@@ -11,11 +11,11 @@ export const getT_Company = async (req, res) => {
 
 export const newT_Company = async (req, res) => {
     const pool = await getConnection();
-    let con = 36;
-    while(con <= 45){
+    let con = 37001;
+    while(con <= 47000){
         await pool.request()
         .query("INSERT INTO TELEPHONES_COMPANY(bit_active,int_company_id_FK,big_telephon_id_FK) VALUES (1,"
-        +(con-35)+"," 
+        +(con-37000)+"," 
         +con+")");
         con++;   
     }

@@ -21,7 +21,7 @@ export const newPerson = async (req, res) => {
     console.log("Generating PERSON");
     const pool = await getConnection();
     let con = 1;
-    while(con <= 35){
+    while(con <= 37000){
         let gen = fakerPerson();
         await pool.request()
         .query("INSERT INTO PERSON(var_firstName,var_secondName,var_firstSurname, var_secondSurname,var_DNI,dat_dateOfBirth,cha_gender,big_address_id_FK) VALUES ('"
@@ -50,7 +50,7 @@ function fakerPerson(){
     const n4 = faker.name.lastName()
     const addre = faker.datatype.number({
         'min': 10,
-        'max': 70
+        'max': 70000
     });
     let sex = faker.datatype.number({
         'min': 1,

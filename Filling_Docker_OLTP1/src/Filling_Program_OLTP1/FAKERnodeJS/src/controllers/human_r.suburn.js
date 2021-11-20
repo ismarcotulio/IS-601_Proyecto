@@ -15,8 +15,8 @@ export const newSuburn = async (req, res) => {
     let con = 1;
     let big_city_id_FK = 1
     let idsuburn = 10;
-    while(big_city_id_FK <= 35){
-        if(con==2){
+    while(big_city_id_FK <= 15699){
+        if(con==3){
             con=1; big_city_id_FK++;
         }else{
             try {
@@ -29,7 +29,7 @@ export const newSuburn = async (req, res) => {
                 con++;
                 idsuburn++;
             } catch (error) {
-                console.log(error)
+                //console.log(error)
             }
             
            

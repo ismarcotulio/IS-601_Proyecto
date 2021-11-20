@@ -15,7 +15,7 @@ export const newEmployee = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     let person = 1;
-    while(con <= 15){
+    while(con <= 7000){
         let gen = fakerEmployee();
         try {
             await pool.request()
@@ -48,7 +48,7 @@ function fakerEmployee(){
     });
     const area = faker.datatype.number({
         'min': 1,
-        'max': 15
+        'max': 25
     });
 
         const arrjs = {

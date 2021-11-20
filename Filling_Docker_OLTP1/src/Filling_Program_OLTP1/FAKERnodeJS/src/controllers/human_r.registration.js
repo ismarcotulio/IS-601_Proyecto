@@ -15,9 +15,10 @@ export const newRegistration = async (req, res) => {
     const pool = await getConnection();
     let con = 1;
     
-    while(con <= 15){
+    while(con <= 7000){
         let gen = fakerRegistration();
         try {
+            console.log(gen);
             await pool.request()
             .query("INSERT INTO REGISTRATION_HIRES(int_contract_id_FK, dat_hiringDate, int_employee_id_FK, tin_typeRegistration_id_FK) VALUES ("
             +con+",dbo.getRandomDate('2000-01-01', '2021-12-30'),"
