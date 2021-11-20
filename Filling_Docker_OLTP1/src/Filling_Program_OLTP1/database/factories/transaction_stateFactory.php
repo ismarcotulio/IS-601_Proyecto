@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class transaction_stateFactory extends Factory
 {
+    public $id = -1;
     /**
      * Define the model's default state.
      *
@@ -13,12 +14,11 @@ class transaction_stateFactory extends Factory
      */
     public function definition()
     {
+        $this->id = $this->id + 1;
+        $array = array ('In Inventory','sold','rented');
         return [
-            'var_name' => $this->faker->unique()->randomElement($array = array (
-                'In Inventory','Returned','For shipment','In inspection','sold','In rent'
-
-                )),
-                'tex_description' => $this->faker->sentence($nbWords = 8, $variableNbWords = true)
+            'var_name' => $array[$this->id],
+            'tex_description' => $this->faker->sentence($nbWords = 8, $variableNbWords = true)
 
         ];
     }

@@ -29,7 +29,7 @@ CREATE TRIGGER tg_inInventory
 		FROM INSERTED
 
 		SET @dueDate = CONCAT(@year,'-01-01');
-		SET @dueTime = (SELECT SYSDATETIME());
+		SET @dueTime = (SELECT CONVERT (time, SYSDATETIME()));
 		SET @type_movement = 1;
 		SET @branch = (SELECT FLOOR(RAND()*((SELECT COUNT('tin_id_branch_PK') FROM [CarDealership_OLTP1].[dbo].[BRANCH_OFFICES])-1+1))+1);
 
@@ -37,6 +37,13 @@ CREATE TRIGGER tg_inInventory
 		FROM INSERTED
 
 
+
+			INSERT INTO [CarDealership_OLTP1].[dbo].[VEHICLE_MOVEMENT] (dat_dueDate, tim_dueTime, tin_type_movement_FK, tin_branch_FK, big_vehicle_FK) VALUES
+				(@dueDate, @dueTime, @type_movement, @branch, @vehicleId)
+			;
+
+			SET @dueDate = CONCAT(@year,'-01-02');
+			SET @type_movement = 2;
 
 			INSERT INTO [CarDealership_OLTP1].[dbo].[VEHICLE_MOVEMENT] (dat_dueDate, tim_dueTime, tin_type_movement_FK, tin_branch_FK, big_vehicle_FK) VALUES
 				(@dueDate, @dueTime, @type_movement, @branch, @vehicleId)

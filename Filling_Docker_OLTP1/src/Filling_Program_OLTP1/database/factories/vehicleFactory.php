@@ -17,7 +17,7 @@ class vehicleFactory extends Factory
         $model = \App\Models\vehicle_model::all()->random()->big_id_PK;
         $fuel_type = \App\Models\fuel_type::all()->random()->tin_id_PK;
         $vehicle_type = \App\Models\vehicle_type::all()->random()->tin_id_PK;
-        $transaction_state = 4;
+        $transaction_state = 1;
 
         $faker = (new \Faker\Factory())::create();
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));

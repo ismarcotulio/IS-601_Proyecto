@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class type_movementFactory extends Factory
 {
+    public $id = -1;
     /**
      * Define the model's default state.
      *
@@ -13,11 +14,11 @@ class type_movementFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'var_name' => $this->faker->unique()->randomElement($array = array (
-                'Transfer','Arrival'
+        $this->id = $this->id + 1;
 
-                )),
+        $array = array ('arrive', 'in inventory', 'sold', 'delivered', 'rented');
+        return [
+            'var_name' => $array[$this->id],
                 'tex_description' => $this->faker->text($maxNbChars = 200)
         ];
     }

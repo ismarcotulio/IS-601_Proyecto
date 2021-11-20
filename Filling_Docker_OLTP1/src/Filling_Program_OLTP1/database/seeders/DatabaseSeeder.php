@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
         $manufacturerQuantity = 20;
         $brandQuantity = 174;
         $fuel_typeQuantity = 3;
-        $type_movementQuantity = 2;
-        $transaction_stateQuantity = 6;
+        $type_movementQuantity = 5;
+        $transaction_stateQuantity = 3;
         $bodyClassQuantity = 13;
         $modelQuantity = 200;
         $vehicle_typeQuantity = 3;
-        $vehicleQuantity = 500;
+        $vehicleQuantity = 700000;
 
         //FINANTIAL
         $document_typeQuantity = 1;
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         $isvQuantity = 200;
         $rankQuantity = 4;
         $invoice_numberQuantity = 1000;
-        $service_transactionQuantity = 20;
+        $service_transactionQuantity = 200000;
 
 
          \App\Models\color::factory($colorQuantity)->create();

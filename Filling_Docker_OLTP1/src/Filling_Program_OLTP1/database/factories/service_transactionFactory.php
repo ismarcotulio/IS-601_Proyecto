@@ -7,6 +7,7 @@ use App\Models\service_detail;
 use App\Models\service_transaction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 class service_transactionFactory extends Factory
 {
@@ -49,6 +50,18 @@ class service_transactionFactory extends Factory
             $count = 0;
             $count2 = 0;
 
+            if ($service_transaction->big_id_PK % 2 == 0) {
+                $date_limit = Carbon::createFromFormat('Y-m-d', $service_transaction->dat_date_of_issue)->addDays(
+                    $this->faker->numberBetween(30,360)
+                );
+                DB::table('RENT')->insert(
+                    [
+                        'dat_limit_rent' => $date_limit,
+                        'tim_limit_rent' => $service_transaction->tim_time_of_issue,
+                        'big_service_transaction_FK' => $service_transaction->big_id_PK
+                    ]
+                );
+            }
 
             $service_transaction
             ->invoice(null, function(service_transaction $service_transaction){
@@ -117,7 +130,14 @@ class service_transactionFactory extends Factory
 
                                 $price = $this->faker->randomFloat($nbMaxDecimals = NULL, $min = 20000, $max = 90000);
                                 $exempt = $this->faker->randomFloat($nbMaxDecimals = NULL, $min = 200, $max = 2000);
-                                $vehicle = \App\Models\vehicle::where('tin_transaction_state_FK', 4)->orderBy('int_year')->first();
+                                $vehicle = \App\Models\vehicle::where('tin_transaction_state_FK', 1)->orderBy('int_year')->first();
+                                
+                                $verify_detail = \App\Models\service_detail::where('big_vehicle_FK', $vehicle->big_id_PK)->first();
+
+                                while($verify_detail != null){
+                                    $vehicle = \App\Models\vehicle::find($vehicle->big_id_PK+1);
+                                    $verify_detail = \App\Models\service_detail::where('big_vehicle_FK', $vehicle->big_id_PK)->first();
+                                }
 
                                 $dateIssue = sprintf("%d-0%d-01", ($vehicle->int_year+1), $this->faker->numberBetween(1,9));
                                 $subTotal = $service_transaction->mon_subtotal + $price;
@@ -129,6 +149,12 @@ class service_transactionFactory extends Factory
                                     'mon_total_to_pay' => $totalPay
                                 ]);
 
+                                DB::table('RENT')->where('big_service_transaction_FK', $service_transaction->big_id_PK)->update([
+                                    'dat_limit_rent' => Carbon::createFromFormat('Y-m-d', $dateIssue)->addDays(
+                                        $this->faker->numberBetween(30,360)
+                                    ) 
+                                ]);
+
                                 return [
                                     'mon_price' => $price,
                                     'mon_exempt_value' => $exempt,
@@ -136,6 +162,78 @@ class service_transactionFactory extends Factory
                                     'big_vehicle_FK' => $vehicle->big_id_PK,
                                 ];
                             });
+                            $latest_service_detail = DB::table('SERVICE_DETAIL')->orderBy('big_id_PK', 'desc')->first();
+                            $branch_id = DB::table('VEHICLE_MOVEMENT')->where('big_vehicle_FK', $latest_service_detail->big_vehicle_FK)->orderBy('big_id_PK', 'desc')->first()->tin_branch_FK;
+                            if ($service_transaction->big_id_PK % 2 == 0) {
+                                $rent =  DB::table('RENT')->where('big_service_transaction_FK', $service_transaction->big_id_PK)->orderBy('big_id_PK', 'desc')->first();
+                                
+                                DB::table('VEHICLE_MOVEMENT')->insert(
+                                    [
+                                        'dat_dueDate' => $service_transaction->dat_date_of_issue,
+                                        'tim_dueTime' => $service_transaction->tim_time_of_issue,
+                                        'tin_type_movement_FK' => 5,
+                                        'tin_branch_FK' => $branch_id,
+                                        'big_vehicle_FK' => $latest_service_detail->big_vehicle_FK
+                                    ]
+                                );
+                                
+                                DB::table('VEHICLE_MOVEMENT')->insert(
+                                    [
+                                        'dat_dueDate' => Carbon::createFromFormat('Y-m-d', $service_transaction->dat_date_of_issue)->addDays(1),
+                                        'tim_dueTime' => $service_transaction->tim_time_of_issue,
+                                        'tin_type_movement_FK' => 4,
+                                        'tin_branch_FK' => $branch_id,
+                                        'big_vehicle_FK' => $latest_service_detail->big_vehicle_FK
+                                    ]
+                                );
+
+                                DB::table('VEHICLE_MOVEMENT')->insert(
+                                    [
+                                        'dat_dueDate' => $rent->dat_limit_rent,
+                                        'tim_dueTime' => $rent->tim_limit_rent,
+                                        'tin_type_movement_FK' => 1,
+                                        'tin_branch_FK' => $branch_id,
+                                        'big_vehicle_FK' => $latest_service_detail->big_vehicle_FK
+                                    ]
+                                );
+
+                                DB::table('VEHICLE_MOVEMENT')->insert(
+                                    [
+                                        'dat_dueDate' => Carbon::createFromFormat('Y-m-d', $rent->dat_limit_rent)->addDays(1),
+                                        'tim_dueTime' => $rent->tim_limit_rent,
+                                        'tin_type_movement_FK' => 2,
+                                        'tin_branch_FK' => $branch_id,
+                                        'big_vehicle_FK' => $latest_service_detail->big_vehicle_FK
+                                    ]
+                                );
+                            }else{
+                                DB::table('VEHICLE_MOVEMENT')->insert(
+                                    [
+                                        'dat_dueDate' => $service_transaction->dat_date_of_issue,
+                                        'tim_dueTime' => $service_transaction->tim_time_of_issue,
+                                        'tin_type_movement_FK' => 3,
+                                        'tin_branch_FK' => $branch_id,
+                                        'big_vehicle_FK' => $latest_service_detail->big_vehicle_FK
+                                    ]
+                                );
+
+                                DB::table('VEHICLE_MOVEMENT')->insert(
+                                    [
+                                        'dat_dueDate' => Carbon::createFromFormat('Y-m-d', $service_transaction->dat_date_of_issue)->addDays(1),
+                                        'tim_dueTime' => $service_transaction->tim_time_of_issue,
+                                        'tin_type_movement_FK' => 4,
+                                        'tin_branch_FK' => $branch_id,
+                                        'big_vehicle_FK' => $latest_service_detail->big_vehicle_FK
+                                    ]
+                                );
+
+                                DB::table('VEHICLE')->where('big_id_PK',$latest_service_detail->big_vehicle_FK)->update(
+                                    [
+                                        'tin_transaction_state_FK' => 2
+                                    ]
+                                );
+                            }
+                            
                             $count++;
             }
             $invoice = invoice::where('big_service_transaction_FK', $service_transaction->big_id_PK)
