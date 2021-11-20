@@ -35,10 +35,5 @@ RUN apt-get update \
     && apt-get install mssql-tools -y \
     && apt-get install nodejs -y \
     && apt-get install npm -y
-    
-RUN apt-get install git -y \
-    && cd /home \
-    && mkdir resources \
-    && cd resources \
-    && git clone https://github.com/martulioruiz/IS-601_Proyecto.git
+   
 
