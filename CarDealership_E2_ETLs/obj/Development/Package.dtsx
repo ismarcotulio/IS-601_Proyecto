@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{1348E5EA-D0E6-4FB9-8F58-27D1F4A0105A}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{E13B9BEA-2B06-4666-BFA3-5453DCE269AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -64,8 +64,8 @@ WHERE [Id_PK] = ?</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
-                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -612,8 +612,8 @@ WHERE [Id_PK] = ?</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1480,8 +1480,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
-                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1699,8 +1699,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1969,8 +1969,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Comando de OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
-                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -2706,8 +2706,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -3874,8 +3874,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
-                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -4153,8 +4153,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -4497,8 +4497,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Comando de OLE DB 1.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
-                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -5499,8 +5499,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -5581,13 +5581,6 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
                       externalMetadataColumnId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[dat_of_birth]"
                       lineageId="Package\DIM_EMPLOYEE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_dateOfBirth]" />
                     <inputColumn
-                      refId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[int_employee_id_PK]"
-                      cachedDataType="i4"
-                      cachedName="int_employee_id_PK"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_PK]"
-                      lineageId="Package\DIM_EMPLOYEE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_employee_id_PK]" />
-                    <inputColumn
                       refId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tex_reference]"
                       cachedDataType="nText"
                       cachedName="tex_reference"
@@ -5612,6 +5605,13 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
                       cachedName="dat_hiringDate"
                       externalMetadataColumnId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[date_hire]"
                       lineageId="Package\DIM_EMPLOYEE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_hiringDate]" />
+                    <inputColumn
+                      refId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[int_employee_id_PK]"
+                      cachedDataType="i4"
+                      cachedName="int_employee_id_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_EMPLOYEE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_PK]"
+                      lineageId="Package\DIM_EMPLOYEE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_employee_id_PK]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7016,8 +7016,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7418,8 +7418,8 @@ WHERE REG.tin_typeRegistration_id_FK = 1</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Origen de ADO NET 2.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
-                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7843,8 +7843,8 @@ WHERE [salary_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Comando de OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
-                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -8308,8 +8308,8 @@ WHERE [salary_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -8321,18 +8321,17 @@ WHERE [salary_id] = ?</property>
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[int_salary_id_PK]"
-                      cachedDataType="i4"
-                      cachedName="int_salary_id_PK"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[salary_id]"
-                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_salary_id_PK]" />
-                    <inputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[int_employee_id_FK]"
                       cachedDataType="i4"
                       cachedName="int_employee_id_FK"
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[employee_FK]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_employee_id_FK]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_branch_id_FK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_branch_id_FK"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[branch_office_FK]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_branch_id_FK]" />
                     <inputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[mon_hourSalary]"
                       cachedDataType="cy"
@@ -8340,23 +8339,24 @@ WHERE [salary_id] = ?</property>
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[salary_per_hour]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_hourSalary]" />
                     <inputColumn
-                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[mon_netSalary]"
-                      cachedDataType="cy"
-                      cachedName="mon_netSalary"
-                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[net_salary]"
-                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_netSalary]" />
-                    <inputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_area_id_FK]"
                       cachedDataType="ui1"
                       cachedName="tin_area_id_FK"
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[area]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_area_id_FK]" />
                     <inputColumn
-                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_branch_id_FK]"
-                      cachedDataType="ui1"
-                      cachedName="tin_branch_id_FK"
-                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[branch_office_FK]"
-                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_branch_id_FK]" />
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[mon_netSalary]"
+                      cachedDataType="cy"
+                      cachedName="mon_netSalary"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[net_salary]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_netSalary]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[int_salary_id_PK]"
+                      cachedDataType="i4"
+                      cachedName="int_salary_id_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[salary_id]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_salary_id_PK]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9041,8 +9041,8 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
-                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -9233,8 +9233,8 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
-                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -9553,7 +9553,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
         <NodeLayout
           Size="174,42"
           Id="Package\DIM_BRANCH_OFFICE\Origen de ADO NET"
-          TopLeft="106,32" />
+          TopLeft="105,32" />
         <NodeLayout
           Size="183,42"
           Id="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1"
@@ -9593,14 +9593,12 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DIM_BRANCH_OFFICE.Paths[Salida de origen de ADO NET]"
-          TopLeft="191.75,74">
+          TopLeft="191.25,74">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9617,9 +9615,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9653,9 +9649,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9689,9 +9683,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9713,9 +9705,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9885,9 +9875,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9909,9 +9897,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9945,9 +9931,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9981,9 +9965,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10005,9 +9987,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10141,7 +10121,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
         <NodeLayout
           Size="188,42"
           Id="Package\DIM_EMPLOYEE\Comando de OLE DB 1"
-          TopLeft="397,439" />
+          TopLeft="397,440" />
         <NodeLayout
           Size="119,42"
           Id="Package\DIM_EMPLOYEE\Ordenar"
@@ -10165,9 +10145,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10189,9 +10167,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10225,9 +10201,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10261,9 +10235,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10285,9 +10257,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10296,33 +10266,33 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="145,107"
+              EndConnector="145,108"
               Start="0,0"
-              End="145,99.5">
+              End="145,100.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.359477124183" />
+                    End="0,39.7647058823529" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,39.359477124183"
-                    Point2="0,43.359477124183"
-                    Point3="4,43.359477124183" />
+                    Point1="0,39.7647058823529"
+                    Point2="0,43.7647058823529"
+                    Point3="4,43.7647058823529" />
                   <mssgle:LineSegment
-                    End="141,43.359477124183" />
+                    End="141,43.7647058823529" />
                   <mssgle:CubicBezierSegment
-                    Point1="141,43.359477124183"
-                    Point2="145,43.359477124183"
-                    Point3="145,47.359477124183" />
+                    Point1="141,43.7647058823529"
+                    Point2="145,43.7647058823529"
+                    Point3="145,47.7647058823529" />
                   <mssgle:LineSegment
-                    End="145,99.5" />
+                    End="145,100.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="46.35404296875,48.359477124183,52.2919140625,11.609375"
+              BoundingBox="46.35404296875,48.7647058823529,52.2919140625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -10395,47 +10365,37 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="174,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET"
-          TopLeft="108,26" />
+          Size="119,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar"
+          TopLeft="135,118" />
         <NodeLayout
-          Size="183,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1"
-          TopLeft="402,25" />
+          Size="192,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla"
+          TopLeft="232,204" />
         <NodeLayout
           Size="173,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional"
           TopLeft="234,310" />
         <NodeLayout
-          Size="119,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar"
-          TopLeft="135,118" />
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET]"
-          TopLeft="194.75,68">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50"
-              Start="0,0"
-              End="0,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="178,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET"
+          TopLeft="68,405" />
         <NodeLayout
-          Size="192,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla"
-          TopLeft="232,204" />
+          Size="174,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET"
+          TopLeft="108,26" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1"
+          TopLeft="428,106" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Comando de OLE DB"
+          TopLeft="381,409" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1"
+          TopLeft="402,25" />
         <EdgeLayout
           Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de ordenación]"
           TopLeft="194.5,160">
@@ -10470,10 +10430,100 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="128,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1"
-          TopLeft="428,106" />
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de combinación de mezcla]"
+          TopLeft="324.25,246">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataUpdate]"
+          TopLeft="348,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122.5,57"
+              Start="0,0"
+              End="122.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1134020618557" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1134020618557"
+                    Point2="0,23.1134020618557"
+                    Point3="4,23.1134020618557" />
+                  <mssgle:LineSegment
+                    End="118.5,23.1134020618557" />
+                  <mssgle:CubicBezierSegment
+                    Point1="118.5,23.1134020618557"
+                    Point2="122.5,23.1134020618557"
+                    Point3="122.5,27.1134020618557" />
+                  <mssgle:LineSegment
+                    End="122.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="35.10404296875,28.1134020618557,52.2919140625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataNew]"
+          TopLeft="320.5,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-163.5,53"
+              Start="0,0"
+              End="-163.5,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-159.5,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-159.5,26.5"
+                    Point2="-163.5,26.5"
+                    Point3="-163.5,30.5" />
+                  <mssgle:LineSegment
+                    End="-163.5,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-101.89365234375,31.5,40.2873046875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET1]"
           TopLeft="492.75,67">
@@ -10488,6 +10538,28 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET]"
+          TopLeft="194.75,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10530,111 +10602,17 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de combinación de mezcla]"
-          TopLeft="324.25,246">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET"
-          TopLeft="68,405" />
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataNew]"
-          TopLeft="320.5,352">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-163.5,53"
-              Start="0,0"
-              End="-163.5,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="-4,26.5" />
-                  <mssgle:LineSegment
-                    End="-159.5,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-159.5,26.5"
-                    Point2="-163.5,26.5"
-                    Point3="-163.5,30.5" />
-                  <mssgle:LineSegment
-                    End="-163.5,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-101.89365234375,31.5,40.2873046875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Comando de OLE DB"
-          TopLeft="381,409" />
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataUpdate]"
-          TopLeft="348,352">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="122.5,57"
-              Start="0,0"
-              End="122.5,49.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.1134020618557" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.1134020618557"
-                    Point2="0,23.1134020618557"
-                    Point3="4,23.1134020618557" />
-                  <mssgle:LineSegment
-                    End="118.5,23.1134020618557" />
-                  <mssgle:CubicBezierSegment
-                    Point1="118.5,23.1134020618557"
-                    Point2="122.5,23.1134020618557"
-                    Point3="122.5,27.1134020618557" />
-                  <mssgle:LineSegment
-                    End="122.5,49.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="35.10404296875,28.1134020618557,52.2919140625,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET">
     <Properties>
@@ -10645,14 +10623,6 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
