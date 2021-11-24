@@ -8,6 +8,8 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
+        <ServerName>.</ServerName>
+        <PathOnServer>/SSISDB/CarDealership_job/CarDealership_E2_ETLs</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
