@@ -64,8 +64,8 @@ WHERE [Id_PK] = ?</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP11]"
+                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -612,8 +612,8 @@ WHERE [Id_PK] = ?</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1480,8 +1480,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLTP1]"
+                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1699,8 +1699,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1969,8 +1969,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Comando de OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP11]"
+                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -2706,8 +2706,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -3874,8 +3874,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLTP1]"
+                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -4153,8 +4153,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_CLIENT\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -4497,8 +4497,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Comando de OLE DB 1.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP11]"
+                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -5499,8 +5499,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7016,8 +7016,8 @@ AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7418,8 +7418,8 @@ WHERE REG.tin_typeRegistration_id_FK = 1</property>
               <connections>
                 <connection
                   refId="Package\DIM_EMPLOYEE\Origen de ADO NET 2.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLTP1]"
+                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -7843,8 +7843,8 @@ WHERE [salary_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Comando de OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP11]"
+                  connectionManagerID="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
+                  connectionManagerRefId="{45D694AC-D463-4273-865E-AB751ECFFA9D}:invalid"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -8308,8 +8308,8 @@ WHERE [salary_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -9041,8 +9041,8 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLTP1]"
+                  connectionManagerID="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
+                  connectionManagerRefId="{1687F919-C608-40D1-B3D6-63597E87ED6D}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -9233,8 +9233,8 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
               <connections>
                 <connection
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Connections[IDbConnection]"
-                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.CarDealership_OLAP1]"
+                  connectionManagerID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
+                  connectionManagerRefId="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>

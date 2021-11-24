@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="LocalHost.CarDealership_OLAP11"
-  DTS:DTSID="{45D694AC-D463-4273-865E-AB751ECFFA9D}"
+  DTS:ObjectName="OLEDB_OLAP"
+  DTS:DTSID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager

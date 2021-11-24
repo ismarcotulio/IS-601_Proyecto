@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="LocalHost.CarDealership_OLAP1"
-  DTS:DTSID="{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}"
+  DTS:ObjectName="EDODB_OLAP"
+  DTS:DTSID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}"
   DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Data Source=.;Initial Catalog=CarDealership_OLAP1;Integrated Security=True;Application Name=SSIS-CarDealership_E2_ETLs-{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}LocalHost.CarDealership_OLAP1;" />
+      DTS:ConnectionString="Data Source=.;Initial Catalog=CarDealership_OLAP1;Integrated Security=True;Application Name=SSIS-Package1-{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}LocalHost.CarDealership_OLAP11;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

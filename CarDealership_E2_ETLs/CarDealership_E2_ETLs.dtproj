@@ -26,20 +26,21 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BIKT6AF</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAR3iUwiY29Ua/1mPgVt6XoAAAAAACAAAAAAAQZgAAAAEAACAAAAAL5uVxnRj6ZJxLLVXin/C4DpeslgKYQGUFZ7G28ETGuQAAAAAOgAAAAAIAACAAAACiQK0L9x+QOQUgwrSTaGk/Pvfxo/mU6etHKWi40TV3sJAAAACl96WLiZCekIifSAZIlIcqhNbOnvV7C/CZTP+Q7QfErQaZPTCz7NDo60ls0RcmiRfWx6LsYrisZUc0e+RAMzXDxVGqS8WW0yr3ZN8wN0PyjFVd/sUkvcoBiGFp0qlxyFKTi8olpkG/8Zp2QGAwCvlVve/a9ongS+POmTUL+EaPN+SOjMKDux5vvB0J5j8HMWxAAAAACM8PLBjPjnlLO6uMF96G9+VMyHQuaxG0evD/uMwVVWEfWVCDWaKzbmaQcyVRmF43VHloRvE5xDqwB60GA44QuA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAR5GHciP+bEq7gOqzTB778wAAAAACAAAAAAAQZgAAAAEAACAAAAAuUQyE0GmP8o21Dsp0Il8NT7G6mR/SnVSGEGo14tTkoQAAAAAOgAAAAAIAACAAAABxSs2krucEZ3w9t7vL8aj1Ssu5bB8Jlq0ZpO0GILI7QZAAAABQdaIzhUWzOXGilVCHF8aZyblOX9cJVDHNE2L2EWPW/0d2zxsF7AWg0XbJTKBXYpZHB3yNWqfYuahlorhToNbHLwQ8NCooJhRWGJC57qb4nVuNFBJazlCBJufeNfjEK1oFN1O0K77xP/UoSwA4GO9YlFWhTQEWBN8j14q25OTl9Dm/Aey6h8YhYtU5f5ubKDVAAAAAr3L9rSANeXpKR2nLzlpWMDoORXQ62UNMfgCn86NKtGTgRlbE3vmS1wmEBSbqu144eKKwGvwbWruTGg4BeO8bFg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Package.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Vehicle.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
-          <SSIS:ConnectionManager SSIS:Name="LocalHost.CarDealership_OLTP1.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="LocalHost.CarDealership_OLAP1.conmgr" />
-          <SSIS:ConnectionManager SSIS:Name="LocalHost.CarDealership_OLAP11.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="EDODB_OLTP1.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="EDODB_OLAP.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="OLEDB_OLAP.conmgr" />
         </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -54,7 +55,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -65,11 +66,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=CarDealership_OLTP1;Integrated Security=True;Application Name=SSIS-CarDealership_E2_ETLs-{1687F919-C608-40D1-B3D6-63597E87ED6D}LocalHost.CarDealership_OLTP1;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=CarDealership_OLTP1;Integrated Security=True;Application Name=SSIS-Package1-{4191A863-45A1-47C0-B9E3-722454C572BF}LocalHost.CarDealership_OLTP1;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -84,7 +85,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -99,7 +100,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.Password">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -113,7 +114,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -128,7 +129,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -143,7 +144,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLTP1.UserName">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLTP1.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -157,7 +158,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -172,7 +173,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -183,11 +184,11 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=CarDealership_OLAP1;Integrated Security=True;Application Name=SSIS-CarDealership_E2_ETLs-{65B5AE0B-732F-41E2-ACA4-46A85990EBD1}LocalHost.CarDealership_OLAP1;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=.;Initial Catalog=CarDealership_OLAP1;Integrated Security=True;Application Name=SSIS-Package1-{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}LocalHost.CarDealership_OLAP11;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -202,7 +203,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -217,7 +218,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.Password">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -231,7 +232,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -246,7 +247,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -261,7 +262,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP1.UserName">
+            <SSIS:Parameter SSIS:Name="CM.EDODB_OLAP.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -275,7 +276,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.ConnectByProxy">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.ConnectByProxy">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -290,7 +291,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.ConnectionString">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.ConnectionString">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -305,7 +306,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.ConnectRetryCount">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.ConnectRetryCount">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -320,7 +321,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.ConnectRetryInterval">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.ConnectRetryInterval">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -335,7 +336,7 @@
                 <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.ConnectUsingManagedIdentity">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.ConnectUsingManagedIdentity">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -350,7 +351,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.InitialCatalog">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.InitialCatalog">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -365,7 +366,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.Password">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.Password">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -379,7 +380,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.RetainSameConnection">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.RetainSameConnection">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -394,7 +395,7 @@
                 <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.ServerName">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.ServerName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -409,7 +410,7 @@
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
-            <SSIS:Parameter SSIS:Name="CM.LocalHost.CarDealership_OLAP11.UserName">
+            <SSIS:Parameter SSIS:Name="CM.OLEDB_OLAP.UserName">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">
                 </SSIS:Property>
@@ -435,6 +436,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{1348E5EA-D0E6-4FB9-8F58-27D1F4A0105A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Vehicle.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{75625343-EF0E-4AF0-915B-0FFBA3244CDA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">13</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AC81176C-BF52-4AA9-93F5-E74D4334ABB5}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
