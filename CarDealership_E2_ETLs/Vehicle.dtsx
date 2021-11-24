@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{AC81176C-BF52-4AA9-93F5-E74D4334ABB5}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{B6F248C2-8B66-45A5-8948-3D9E4506C527}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3664,10 +3664,6 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
           Id="Package\DIM_MOVEMENT_TYPE\Origen OLAP"
           TopLeft="426,57" />
         <NodeLayout
-          Size="146,42"
-          Id="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP"
-          TopLeft="433,141" />
-        <NodeLayout
           Size="139,42"
           Id="Package\DIM_MOVEMENT_TYPE\Origen OLTP"
           TopLeft="58,53" />
@@ -3677,12 +3673,16 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
           TopLeft="88,359" />
         <NodeLayout
           Size="146,42"
-          Id="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP"
-          TopLeft="77,136" />
+          Id="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP"
+          TopLeft="433,141" />
         <NodeLayout
           Size="171,42"
           Id="Package\DIM_MOVEMENT_TYPE\División condicional"
           TopLeft="243,268" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP"
+          TopLeft="77,136" />
         <NodeLayout
           Size="177,42"
           Id="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB"
@@ -3988,9 +3988,7 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4012,9 +4010,7 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4084,9 +4080,7 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4108,9 +4102,7 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4132,9 +4124,7 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

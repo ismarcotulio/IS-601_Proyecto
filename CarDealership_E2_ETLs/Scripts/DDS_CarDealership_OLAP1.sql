@@ -32,3 +32,54 @@ GO
 		[id_PK] [tinyint] IDENTITY(1,1) NOT NULL,
 		[name] [nvarchar](50) NOT NULL
 	);
+
+	CREATE TABLE [CarDealership_OLAP1].[dbo].[DIM_BRANCH_OFFICE](
+		[Id_PK] [tinyint] PRIMARY KEY,
+		[name] [nvarchar](50) NULL,
+		[country] [nvarchar](60) NULL,
+		[departament] [nvarchar](60) NULL,
+		[city] [nvarchar](60) NULL,
+		[suburn] [nvarchar](60) NULL,
+		[reference] [nvarchar](max) NULL
+	);
+
+	CREATE TABLE [CarDealership_OLAP1].[dbo].[DIM_CLIENT](
+		[Id_PK] [bigint] IDENTITY(1,1) PRIMARY KEY,
+		[country] [nvarchar](60) NULL,
+		[departament] [nvarchar](60) NULL,
+		[city] [nvarchar](60) NULL,
+		[suburn] [nvarchar](60) NULL,
+		[reference] [nvarchar](max) NULL,
+		[name] [nvarchar](max) NULL,
+		[type_of_client] [nvarchar](7) NULL,
+		[code] [nvarchar](20) NULL,
+		[rtn] [nvarchar](14) NULL,
+		[oltp_id] [bigint] NULL
+	);
+
+	CREATE TABLE [CarDealership_OLAP1].[dbo].[DIM_EMPLOYEE](
+		[Id_PK] [int] PRIMARY KEY,
+		[name] [nvarchar](243) NULL,
+		[dni] [nvarchar](13) NULL,
+		[dat_of_birth] [date] NULL,
+		[gender] [nvarchar](25) NULL,
+		[country] [nvarchar](60) NULL,
+		[departament] [nvarchar](60) NULL,
+		[city] [nvarchar](60) NULL,
+		[suburn] [nvarchar](60) NULL,
+		[reference] [nvarchar](max) NULL,
+		[code] [nvarchar](10) NULL,
+		[area] [nvarchar](60) NULL,
+		[salary_in_contract] [money] NULL,
+		[position] [nvarchar](60) NULL,
+		[date_hire] [date] NULL
+	);
+
+	CREATE TABLE [CarDealership_OLAP1].[dbo].[FACT_PAY_EMPLOYEE_SALARY](
+		[employee_FK] [int] NULL REFERENCES [CarDealership_OLAP1].[dbo].[DIM_EMPLOYEE] ([Id_PK]),
+		[branch_office_FK] [tinyint] NULL REFERENCES [CarDealership_OLAP1].[dbo].[DIM_BRANCH_OFFICE] ([Id_PK]),
+		[salary_per_hour] [money] NOT NULL,
+		[area] [int] NOT NULL,
+		[net_salary] [money] NOT NULL,
+		[salary_id] [int] PRIMARY KEY
+	);
