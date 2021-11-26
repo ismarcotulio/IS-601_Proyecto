@@ -79,7 +79,11 @@ GO
 		[employee_FK] [int] NULL REFERENCES [CarDealership_OLAP1].[dbo].[DIM_EMPLOYEE] ([Id_PK]),
 		[branch_office_FK] [tinyint] NULL REFERENCES [CarDealership_OLAP1].[dbo].[DIM_BRANCH_OFFICE] ([Id_PK]),
 		[salary_per_hour] [money] NOT NULL,
+		[date_FK] [datetime] NOT NULL,
 		[area] [int] NOT NULL,
 		[net_salary] [money] NOT NULL,
 		[salary_id] [int] PRIMARY KEY
 	);
+
+	--USE CarDealership_OLAP1
+	--ALTER TABLE dbo.[FACT_PAY_EMPLOYEE_SALARY] ADD FOREIGN KEY ([date_FK]) REFERENCES dbo.DIM_DATE(PK_Fecha)

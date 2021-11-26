@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>CarDealership_E2_ETLs</Name>
-    <LastWriteTime>2021-11-24T21:03:35.6323578Z</LastWriteTime>
+    <LastWriteTime>2021-11-26T19:32:30.3523672Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2021-11-24T21:58:07.9255222Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T19:59:40.9096298Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Vehicle.dtsx</Name>
-      <LastWriteTime>2021-11-24T22:00:04.2061731Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T19:32:30.3643679Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

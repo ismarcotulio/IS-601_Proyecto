@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{E13B9BEA-2B06-4666-BFA3-5453DCE269AE}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{FB380F42-6E8A-4D1A-82D0-29F45FD6EB16}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -8060,6 +8060,11 @@ WHERE [salary_id] = ?</property>
                       cachedDataType="ui1"
                       cachedName="tin_branch_id_FK"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar.Outputs[Salida de ordenación].Columns[tin_branch_id_FK]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[dat_date]"
+                      cachedDataType="dbDate"
+                      cachedName="dat_date"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar.Outputs[Salida de ordenación].Columns[dat_date]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8099,6 +8104,11 @@ WHERE [salary_id] = ?</property>
                       cachedDataType="cy"
                       cachedName="net_salary"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1.Outputs[Salida de ordenación].Columns[net_salary]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[date_FK]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_FK"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1.Outputs[Salida de ordenación].Columns[date_FK]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8266,6 +8276,32 @@ WHERE [salary_id] = ?</property>
                           name="InputColumnID">#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[salary_id]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_date]"
+                      dataType="dbDate"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_date]"
+                      name="dat_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[dat_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_date_FK]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_date_FK]"
+                      name="H_date_FK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[date_FK]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -8327,23 +8363,11 @@ WHERE [salary_id] = ?</property>
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[employee_FK]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_employee_id_FK]" />
                     <inputColumn
-                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_branch_id_FK]"
-                      cachedDataType="ui1"
-                      cachedName="tin_branch_id_FK"
-                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[branch_office_FK]"
-                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_branch_id_FK]" />
-                    <inputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[mon_hourSalary]"
                       cachedDataType="cy"
                       cachedName="mon_hourSalary"
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[salary_per_hour]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_hourSalary]" />
-                    <inputColumn
-                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_area_id_FK]"
-                      cachedDataType="ui1"
-                      cachedName="tin_area_id_FK"
-                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[area]"
-                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_area_id_FK]" />
                     <inputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[mon_netSalary]"
                       cachedDataType="cy"
@@ -8351,12 +8375,30 @@ WHERE [salary_id] = ?</property>
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[net_salary]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_netSalary]" />
                     <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_area_id_FK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_area_id_FK"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[area]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_area_id_FK]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_branch_id_FK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_branch_id_FK"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[branch_office_FK]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_branch_id_FK]" />
+                    <inputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[int_salary_id_PK]"
                       cachedDataType="i4"
                       cachedName="int_salary_id_PK"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[salary_id]"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[int_salary_id_PK]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[dat_date]"
+                      cachedDataType="dbDate"
+                      cachedName="dat_date"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[date_FK]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8374,6 +8416,10 @@ WHERE [salary_id] = ?</property>
                       name="salary_per_hour"
                       precision="19"
                       scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[date_FK]"
+                      dataType="dbTimeStamp"
+                      name="date_FK" />
                     <externalMetadataColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[area]"
                       dataType="i4"
@@ -8474,6 +8520,16 @@ WHERE [salary_id] = ?</property>
                       cachedDataType="cy"
                       cachedName="H_net_salary"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_net_salary]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional.Inputs[Entrada de división condicional].Columns[dat_date]"
+                      cachedDataType="dbDate"
+                      cachedName="dat_date"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_date]" />
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional.Inputs[Entrada de división condicional].Columns[H_date_FK]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="H_date_FK"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_date_FK]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8521,13 +8577,13 @@ WHERE [salary_id] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">(#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_branch_id_FK]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_branch_office_FK]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_area_id_FK]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_area]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_netSalary]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_net_salary]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_hourSalary]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_salary_per_hour]})</property>
+                      name="Expression">(#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[dat_date]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_date_FK]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_branch_id_FK]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_branch_office_FK]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_area_id_FK]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_area]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_netSalary]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_net_salary]}) || (#{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[mon_hourSalary]} != #{Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[H_salary_per_hour]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
                       expressionType="Notify"
-                      name="FriendlyExpression">(tin_branch_id_FK != H_branch_office_FK) || (tin_area_id_FK != H_area) || (mon_netSalary != H_net_salary) || (mon_hourSalary != H_salary_per_hour)</property>
+                      name="FriendlyExpression">(dat_date != H_date_FK) || (tin_branch_id_FK != H_branch_office_FK) || (tin_area_id_FK != H_area) || (mon_netSalary != H_net_salary) || (mon_hourSalary != H_salary_per_hour)</property>
                     <property
                       dataType="System.Int32"
                       description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
@@ -8692,6 +8748,22 @@ WHERE [salary_id] = ?</property>
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar.Inputs[Entrada de ordenación].Columns[dat_date]"
+                      cachedDataType="dbDate"
+                      cachedName="dat_date"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[dat_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8779,6 +8851,19 @@ WHERE [salary_id] = ?</property>
                           dataType="System.Int32"
                           description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
                           name="SortColumnId">#{Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tin_branch_id_FK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar.Outputs[Salida de ordenación].Columns[dat_date]"
+                      dataType="dbDate"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar.Outputs[Salida de ordenación].Columns[dat_date]"
+                      name="dat_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[dat_date]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -8905,6 +8990,22 @@ WHERE [salary_id] = ?</property>
                           name="NewSortKeyPosition">1</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1.Inputs[Entrada de ordenación].Columns[date_FK]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date_FK"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[date_FK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -8994,6 +9095,19 @@ WHERE [salary_id] = ?</property>
                           name="SortColumnId">#{Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[salary_id]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1.Outputs[Salida de ordenación].Columns[date_FK]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1.Outputs[Salida de ordenación].Columns[date_FK]"
+                      name="date_FK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[date_FK]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -9013,7 +9127,7 @@ WHERE [salary_id] = ?</property>
                   description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT SA.int_salary_id_PK,  EM.int_employee_id_FK, SA.mon_hourSalary, SA.mon_netSalary, SA.tin_area_id_FK,YE.tin_branch_id_FK FROM dbo.SALARY_EMP EM, dbo.SALARY SA, dbo.EMPLOYEES YE 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT SA.dat_date, SA.int_salary_id_PK,  EM.int_employee_id_FK, SA.mon_hourSalary, SA.mon_netSalary, SA.tin_area_id_FK,YE.tin_branch_id_FK FROM dbo.SALARY_EMP EM, dbo.SALARY SA, dbo.EMPLOYEES YE 
 WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.int_employee_id_PK</property>
                 <property
                   dataType="System.Int32"
@@ -9051,6 +9165,15 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                   refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
                   name="Salida de origen de ADO NET">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[dat_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[dat_date]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[dat_date]"
+                      name="dat_date"
+                      truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[int_salary_id_PK]"
                       dataType="i4"
@@ -9109,6 +9232,10 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[dat_date]"
+                      dataType="dbDate"
+                      name="dat_date" />
+                    <externalMetadataColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[int_salary_id_PK]"
                       dataType="i4"
                       name="int_salary_id_PK" />
@@ -9139,6 +9266,11 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                   isErrorOut="true"
                   name="Salida de error de origen de ADO NET">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[dat_date]"
+                      dataType="dbDate"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[dat_date]"
+                      name="dat_date" />
                     <outputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[int_salary_id_PK]"
                       dataType="i4"
@@ -9206,6 +9338,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
       ,[area]
       ,[net_salary]
       ,[salary_id]
+      ,[date_FK]
   FROM [dbo].[FACT_PAY_EMPLOYEE_SALARY]</property>
                 <property
                   dataType="System.Int32"
@@ -9297,6 +9430,15 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[salary_id]"
                       name="salary_id"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[date_FK]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[date_FK]"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[date_FK]"
+                      name="date_FK"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -9324,6 +9466,10 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[salary_id]"
                       dataType="i4"
                       name="salary_id" />
+                    <externalMetadataColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[date_FK]"
+                      dataType="dbTimeStamp"
+                      name="date_FK" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -9361,6 +9507,11 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
                       dataType="i4"
                       lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[salary_id]"
                       name="salary_id" />
+                    <outputColumn
+                      refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[date_FK]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[date_FK]"
+                      name="date_FK" />
                     <outputColumn
                       refId="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                       dataType="i4"
@@ -9593,7 +9744,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9615,7 +9768,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9649,7 +9804,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9683,7 +9840,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9705,7 +9864,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9875,7 +10036,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9897,7 +10060,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9931,7 +10096,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9965,7 +10132,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9987,7 +10156,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10145,7 +10316,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10167,7 +10340,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10201,7 +10376,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10235,7 +10412,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10257,7 +10436,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10377,10 +10558,6 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional"
           TopLeft="234,310" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET"
-          TopLeft="68,405" />
-        <NodeLayout
           Size="174,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET"
           TopLeft="108,26" />
@@ -10489,42 +10666,6 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataNew]"
-          TopLeft="320.5,352">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-163.5,53"
-              Start="0,0"
-              End="-163.5,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="-4,26.5" />
-                  <mssgle:LineSegment
-                    End="-159.5,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-159.5,26.5"
-                    Point2="-163.5,26.5"
-                    Point3="-163.5,30.5" />
-                  <mssgle:LineSegment
-                    End="-163.5,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-101.89365234375,31.5,40.2873046875,9.7490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET1]"
           TopLeft="492.75,67">
           <EdgeLayout.Curve>
@@ -10602,17 +10743,49 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="178,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET"
+          TopLeft="98,420" />
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataNew]"
+          TopLeft="293,352">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-106,68"
+              Start="0,0"
+              End="-106,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.573883161512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.573883161512"
+                    Point2="0,27.573883161512"
+                    Point3="-4,27.573883161512" />
+                  <mssgle:LineSegment
+                    End="-102,27.573883161512" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-102,27.573883161512"
+                    Point2="-106,27.573883161512"
+                    Point3="-106,31.573883161512" />
+                  <mssgle:LineSegment
+                    End="-106,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.14365234375,32.573883161512,40.2873046875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET">
     <Properties>
@@ -10623,6 +10796,14 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

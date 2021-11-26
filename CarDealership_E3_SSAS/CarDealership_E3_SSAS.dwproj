@@ -6,10 +6,34 @@
     <Name>CarDealership_E3_SSAS.database</Name>
     <FullPath>CarDealership_E3_SSAS.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Car_Dealership_OLAP1_RRHH.cube</Name>
+      <FullPath>Car_Dealership_OLAP1_RRHH.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Car_Dealership_OLAP1_RRHH.partitions</Name>
+          <FullPath>Car_Dealership_OLAP1_RRHH.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
     <ProjectItem>
       <Name>DIM_DATE.dim</Name>
       <FullPath>DIM_DATE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM BRANCH OFFICE.dim</Name>
+      <FullPath>DIM BRANCH OFFICE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM EMPLOYEE.dim</Name>
+      <FullPath>DIM EMPLOYEE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM DATE.dim</Name>
+      <FullPath>DIM DATE.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -22,6 +46,10 @@
     <ProjectItem>
       <Name>CarDealership_E3_SSAS.dsv</Name>
       <FullPath>CarDealership_E3_SSAS.dsv</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Car_Dealership_OLAP1_RRHH.dsv</Name>
+      <FullPath>Car_Dealership_OLAP1_RRHH.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Configurations>
