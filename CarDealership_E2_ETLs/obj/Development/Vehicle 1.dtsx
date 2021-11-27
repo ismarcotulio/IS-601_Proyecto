@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{CC07FFC4-59CF-4A71-A53C-5F721DA85221}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{E932F534-B6A7-4840-8925-667A8AD973B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3801,7 +3801,7 @@ CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="43.5149283854167,25.2780996523754,56.2226953125,11.609375"
+              BoundingBox="61.8053190104167,25.2780996523754,56.2226953125,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

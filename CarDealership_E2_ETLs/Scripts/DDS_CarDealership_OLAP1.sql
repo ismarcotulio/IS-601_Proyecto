@@ -85,5 +85,17 @@ GO
 		[salary_id] [int] PRIMARY KEY
 	);
 
+	CREATE TABLE [CarDealership_OLAP1].[dbo].[DIM_SERVICE_TRANSACTION](
+		[id_PK] [bigint] PRIMARY KEY,
+		[start_date] [date] NULL,
+		[end_date] [date] NULL,
+		[subtotal] [numeric](10, 4) NULL,
+		[discount] [tinyint] NULL,
+		[reduction] [numeric](10, 4) NULL,
+		[total] [numeric](10, 4) NULL,
+		[total_isv] [numeric](10, 2) NULL,
+		[limit_property] [date] NULL,
+	);
+
 	--USE CarDealership_OLAP1
 	--ALTER TABLE dbo.[FACT_PAY_EMPLOYEE_SALARY] ADD FOREIGN KEY ([date_FK]) REFERENCES dbo.DIM_DATE(PK_Fecha)
