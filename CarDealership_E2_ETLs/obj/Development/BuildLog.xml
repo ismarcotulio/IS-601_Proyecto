@@ -2,18 +2,35 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>CarDealership_E2_ETLs</Name>
+<<<<<<< Updated upstream
     <LastWriteTime>2021-11-26T19:32:30.3523672Z</LastWriteTime>
+=======
+    <LastWriteTime>2021-11-26T23:47:31.9780898Z</LastWriteTime>
+>>>>>>> Stashed changes
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2021-11-26T19:59:40.9096298Z</LastWriteTime>
+=======
+      <LastWriteTime>2021-11-24T23:02:35.0233485Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Vehicle.dtsx</Name>
+<<<<<<< Updated upstream
       <LastWriteTime>2021-11-26T19:32:30.3643679Z</LastWriteTime>
+=======
+      <LastWriteTime>2021-11-27T02:43:05.762555Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Vehicle 1.dtsx</Name>
+      <LastWriteTime>2021-11-26T21:40:23.3306324Z</LastWriteTime>
+>>>>>>> Stashed changes
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

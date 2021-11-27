@@ -52,5 +52,28 @@
   ADD tex_description VARCHAR(100)
      ;
 
+
+SELECT
+CAST(NULL AS DATE) AS start_date,
+CAST(NULL AS DATE) AS end_date,
+CAST(NULL AS VARCHAR(100)) AS gvwr,
+CAST(1 AS TINYINT) AS use_state,
+CAST(NULL AS VARCHAR(50)) AS color, 
+posting_date AS craiglist_post_date,
+CAST(4 AS TINYINT) AS transaction_state,
+vin,
+manufacter AS manufacturer,
+brand, model,
+year AS model_year,
+fuel_type,
+vehicle_type,
+body_class,
+base_price AS price,
+engine,
+brake_system,
+number_cylinders,
+displacement_cc,
+doors
+FROM vehicles ;
   
 

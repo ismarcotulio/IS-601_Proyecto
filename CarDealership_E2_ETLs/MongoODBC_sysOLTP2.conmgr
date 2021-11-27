@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MongoODBC_sysOLTP2"
+  DTS:DTSID="{6C51D22C-32AE-4855-97E7-469A97D0162B}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Dsn=MongoODBC_sysOLTP2;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
