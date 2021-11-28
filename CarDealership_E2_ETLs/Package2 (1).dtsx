@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-VT21E45"
   DTS:CreatorName="DESKTOP-VT21E45\erick"
-  DTS:DTSID="{3C991542-6E97-4A8A-9BA1-7EA152583EBA}"
+  DTS:DTSID="{95591A01-D225-40E6-90C9-704BAAA9EE4E}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="18442"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
   DTS:VersionBuild="12"
-  DTS:VersionGUID="{6723AA77-7E58-40FB-BB8E-B5622CF30046}">
+  DTS:VersionGUID="{8ED22A0C-4949-4BEE-8436-8A79BC91A5D0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -21,7 +21,7 @@
       DTS:refId="Package\DIM_INVOICE"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{D0FDAA73-15A0-4B7C-94FE-039A42E57884}"
+      DTS:DTSID="{FFC79D91-F937-4ACA-BA00-F88C125ADF38}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="DIM_INVOICE"
@@ -314,8 +314,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_INVOICE\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  connectionManagerRefId="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -1119,8 +1119,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_INVOICE\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:invalid"
+                  connectionManagerRefId="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2331,8 +2331,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_INVOICE\Origen OLAP1.Connections[IDbConnection]"
-                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  connectionManagerRefId="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -2686,8 +2686,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_INVOICE\Origen OLTP1.Connections[IDbConnection]"
-                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:invalid"
+                  connectionManagerRefId="{4191A863-45A1-47C0-B9E3-722454C572BF}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -3017,7 +3017,7 @@
       DTS:refId="Package\DIM_SERVICE_TRANSACTION"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{CA63A444-0D0C-4F8F-A2D5-57DD6DAB66E3}"
+      DTS:DTSID="{C63F028B-956D-45D8-8512-A9E89C0A2A84}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="DIM_SERVICE_TRANSACTION"
@@ -3263,8 +3263,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  connectionManagerRefId="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -3886,8 +3886,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:invalid"
+                  connectionManagerRefId="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4768,8 +4768,8 @@
               <connections>
                 <connection
                   refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Connections[IDbConnection]"
-                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  connectionManagerRefId="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
@@ -5047,8 +5047,8 @@ JOIN [CarDealership_OLTP1].[dbo].[RENT] ON [CarDealership_OLTP1].[dbo].[RENT].[b
               <connections>
                 <connection
                   refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Connections[IDbConnection]"
-                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:invalid"
+                  connectionManagerRefId="{4191A863-45A1-47C0-B9E3-722454C572BF}:invalid"
                   description="Administrador de conexiones administrado"
                   name="IDbConnection" />
               </connections>
