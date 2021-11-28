@@ -1,0 +1,2198 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/28/2021 10:08:15 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LUIS-PC"
+  DTS:CreatorName="Luis-PC\Luis"
+  DTS:DTSID="{F7F0A820-90A4-4261-8278-C94D0B218E72}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="18442"
+  DTS:ObjectName="dim_branch_office"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{2BE188F5-A272-4DA0-ADE2-B22F0E57E148}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_BRANCH_OFFICE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{392e39ae-6c81-4d0c-83c5-168f68dd7c30}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_BRANCH_OFFICE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE dbo.[DIM_BRANCH_OFFICE] SET [name] = ?
+,[country] = ?
+,[departament] = ?
+,[city] = ?
+,[suburn] = ?
+ ,[reference] = ?
+WHERE [Id_PK] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[tin_id_branch_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_branch_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_branch_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[branch_office_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="branch_office_name"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[branch_office_name]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[departament]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[suburn]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[tex_reference]"
+                      cachedDataType="nText"
+                      cachedName="tex_reference"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_reference]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="60"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      dataType="nText"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">193</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                      dataType="ui1"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tin_id_branch_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_branch_PK"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[tin_id_branch_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[branch_office_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="branch_office_name"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[branch_office_name]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[departament]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[suburn]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tex_reference]"
+                      cachedDataType="nText"
+                      cachedName="tex_reference"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[tex_reference]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="Id_PK"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[Id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="name"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[name]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[departament]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[suburn]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[reference]"
+                      cachedDataType="nText"
+                      cachedName="reference"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[reference]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_branch_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_branch_PK]"
+                      name="tin_id_branch_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tin_id_branch_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[branch_office_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[branch_office_name]"
+                      name="branch_office_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[branch_office_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[departament]"
+                      name="departament">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[departament]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[city]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[suburn]"
+                      name="suburn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[suburn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_reference]"
+                      dataType="nText"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_reference]"
+                      name="tex_reference">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tex_reference]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_Id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_Id_PK]"
+                      name="D_Id_PK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[Id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_name]"
+                      name="D_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_country]"
+                      name="D_country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_departament]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_departament]"
+                      name="D_departament">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[departament]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_city]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_city]"
+                      name="D_city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_suburn]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_suburn]"
+                      name="D_suburn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[suburn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_reference]"
+                      dataType="nText"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_reference]"
+                      name="D_reference">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[reference]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_BRANCH_OFFICE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[country]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[departament]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[departament]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[city]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[suburn]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[suburn]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tin_id_branch_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_branch_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_PK]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_branch_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[branch_office_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="branch_office_name"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[name]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[branch_office_name]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tex_reference]"
+                      cachedDataType="nText"
+                      cachedName="tex_reference"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[reference]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_reference]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Id_PK]"
+                      dataType="ui1"
+                      name="Id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="50"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="60"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      name="departament" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="60"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      name="suburn" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[reference]"
+                      dataType="wstr"
+                      length="2147483647"
+                      name="reference" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[branch_office_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="branch_office_name"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[branch_office_name]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[country]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[departament]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[city]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[suburn]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[tex_reference]"
+                      cachedDataType="nText"
+                      cachedName="tex_reference"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_reference]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_Id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="D_Id_PK"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_Id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="D_name"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_name]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="D_country"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_country]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="D_departament"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_departament]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="D_city"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_city]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="D_suburn"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_suburn]" />
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional].Columns[D_reference]"
+                      cachedDataType="nText"
+                      cachedName="D_reference"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_reference]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[dataNew]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="dataNew"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_Id_PK]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(D_Id_PK)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[dataUpdate]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="dataUpdate"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">(#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_reference]} != #{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_reference]}) || (#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[suburn]} != #{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_suburn]}) || (#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[city]} != #{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_city]}) || (#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[departament]} != #{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_departament]}) || (#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[country]} != #{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_country]}) || (#{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[branch_office_name]} != #{Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_name]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(tex_reference != D_reference) || (suburn != D_suburn) || (city != D_city) || (departament != D_departament) || (country != D_country) || (branch_office_name != D_name)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[tin_id_branch_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_branch_PK"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tin_id_branch_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[branch_office_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="branch_office_name"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[branch_office_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[departament]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[suburn]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación].Columns[tex_reference]"
+                      cachedDataType="nText"
+                      cachedName="tex_reference"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tex_reference]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[tin_id_branch_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[tin_id_branch_PK]"
+                      name="tin_id_branch_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tin_id_branch_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[branch_office_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[branch_office_name]"
+                      name="branch_office_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[branch_office_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[departament]"
+                      name="departament">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[departament]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[city]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[suburn]"
+                      name="suburn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[suburn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[tex_reference]"
+                      dataType="nText"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación].Columns[tex_reference]"
+                      name="tex_reference">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tex_reference]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Ordenar 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[Id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="Id_PK"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Id_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="name"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="country"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[departament]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="departament"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[departament]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="city"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[suburn]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="suburn"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[suburn]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación].Columns[reference]"
+                      cachedDataType="nText"
+                      cachedName="reference"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[reference]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[Id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[Id_PK]"
+                      name="Id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[name]"
+                      name="name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[departament]"
+                      name="departament">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[departament]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[city]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[suburn]"
+                      name="suburn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[suburn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[reference]"
+                      dataType="nText"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación].Columns[reference]"
+                      name="reference">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[reference]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT BRA.tin_id_branch_PK, BRA.var_name AS branch_office_name, CO.var_name AS country, DE.var_name AS departament, CI.var_name AS city, SU.var_name AS suburn, AD.tex_reference 
+FROM dbo.BRANCH_OFFICES BRA 
+INNER JOIN dbo.LIST_ADDRESS AD ON
+BRA.big_id_address_FK = AD.big_address_id_PK
+INNER JOIN dbo.COUNTRY CO ON
+AD.int_country_id_FK = CO.int_country_id_PK
+INNER JOIN dbo.DEPARTAMENT DE ON
+AD.big_departament_id_FK = DE.big_departament_id_PK
+INNER JOIN dbo.CITIES CI ON
+AD.big_city_id_FK = CI.big_city_id_PK
+INNER JOIN dbo.SUBURN SU ON
+AD.big_suburn_id_FK = SU.big_suburn_id_PK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tin_id_branch_PK]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[tin_id_branch_PK]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tin_id_branch_PK]"
+                      name="tin_id_branch_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[branch_office_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[branch_office_name]"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[branch_office_name]"
+                      name="branch_office_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[country]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[departament]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[departament]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[departament]"
+                      name="departament"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[city]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[suburn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[suburn]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[suburn]"
+                      name="suburn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tex_reference]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[tex_reference]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[tex_reference]"
+                      name="tex_reference"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[tin_id_branch_PK]"
+                      dataType="ui1"
+                      name="tin_id_branch_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[branch_office_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="branch_office_name" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="60"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      name="departament" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="60"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      name="suburn" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[tex_reference]"
+                      dataType="nText"
+                      name="tex_reference" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[tin_id_branch_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[tin_id_branch_PK]"
+                      name="tin_id_branch_PK" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[branch_office_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[branch_office_name]"
+                      name="branch_office_name" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[departament]"
+                      name="departament" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[city]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[suburn]"
+                      name="suburn" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[tex_reference]"
+                      dataType="nText"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[tex_reference]"
+                      name="tex_reference" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen de ADO NET 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_BRANCH_OFFICE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Id_PK]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_PK]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[Id_PK]"
+                      name="Id_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[name]"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[country]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[departament]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[departament]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[departament]"
+                      name="departament"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[city]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[suburn]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[suburn]"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[suburn]"
+                      name="suburn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[reference]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[reference]"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].Columns[reference]"
+                      name="reference"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[Id_PK]"
+                      dataType="ui1"
+                      name="Id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="50"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="60"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      name="departament" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="60"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      name="suburn" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET].ExternalColumns[reference]"
+                      dataType="nText"
+                      name="reference" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[Id_PK]"
+                      name="Id_PK" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[country]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[departament]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[departament]"
+                      name="departament" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[city]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[suburn]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[suburn]"
+                      name="suburn" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[reference]"
+                      dataType="nText"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[reference]"
+                      name="reference" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[dataNew]"
+              endId="Package\DIM_BRANCH_OFFICE\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              name="dataNew"
+              startId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[dataNew]" />
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[dataUpdate]"
+              endId="Package\DIM_BRANCH_OFFICE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="dataUpdate"
+              startId="Package\DIM_BRANCH_OFFICE\División condicional.Outputs[dataUpdate]" />
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[Salida de combinación de mezcla]"
+              endId="Package\DIM_BRANCH_OFFICE\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[Salida de ordenación]"
+              endId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM_BRANCH_OFFICE\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[Salida de ordenación1]"
+              endId="Package\DIM_BRANCH_OFFICE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[Salida de origen de ADO NET]"
+              endId="Package\DIM_BRANCH_OFFICE\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\DIM_BRANCH_OFFICE.Paths[Salida de origen de ADO NET1]"
+              endId="Package\DIM_BRANCH_OFFICE\Ordenar 1.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\DIM_BRANCH_OFFICE"
+          TopLeft="248,59" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_BRANCH_OFFICE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\DIM_BRANCH_OFFICE\Combinación de mezcla"
+          TopLeft="230,219" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\DIM_BRANCH_OFFICE\Destino de ADO NET"
+          TopLeft="86,400" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\DIM_BRANCH_OFFICE\Origen de ADO NET"
+          TopLeft="105,32" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\DIM_BRANCH_OFFICE\Origen de ADO NET 1"
+          TopLeft="394,28" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\DIM_BRANCH_OFFICE\Ordenar 1"
+          TopLeft="414,119" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DIM_BRANCH_OFFICE\División condicional"
+          TopLeft="236,306" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DIM_BRANCH_OFFICE\Comando de OLE DB"
+          TopLeft="398,398" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\DIM_BRANCH_OFFICE\Ordenar"
+          TopLeft="131,129" />
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[Salida de origen de ADO NET1]"
+          TopLeft="481.75,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[Salida de origen de ADO NET]"
+          TopLeft="191.25,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[Salida de ordenación1]"
+          TopLeft="478,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-121.333333333333,58"
+              Start="0,0"
+              End="-121.333333333333,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5123966942149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5123966942149"
+                    Point2="0,34.5123966942149"
+                    Point3="-4,34.5123966942149" />
+                  <mssgle:LineSegment
+                    End="-117.333333333333,34.5123966942149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-117.333333333333,34.5123966942149"
+                    Point2="-121.333333333333,34.5123966942149"
+                    Point3="-121.333333333333,38.5123966942149" />
+                  <mssgle:LineSegment
+                    End="-121.333333333333,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[Salida de ordenación]"
+          TopLeft="190.5,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="104.833333333333,48"
+              Start="0,0"
+              End="104.833333333333,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5619834710744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5619834710744"
+                    Point2="0,28.5619834710744"
+                    Point3="4,28.5619834710744" />
+                  <mssgle:LineSegment
+                    End="100.833333333333,28.5619834710744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100.833333333333,28.5619834710744"
+                    Point2="104.833333333333,28.5619834710744"
+                    Point3="104.833333333333,32.5619834710744" />
+                  <mssgle:LineSegment
+                    End="104.833333333333,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[Salida de combinación de mezcla]"
+          TopLeft="324.25,261">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[dataUpdate]"
+          TopLeft="350,348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.5,50"
+              Start="0,0"
+              End="137.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2749140893471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2749140893471"
+                    Point2="0,20.2749140893471"
+                    Point3="4,20.2749140893471" />
+                  <mssgle:LineSegment
+                    End="133.5,20.2749140893471" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.5,20.2749140893471"
+                    Point2="137.5,20.2749140893471"
+                    Point3="137.5,24.2749140893471" />
+                  <mssgle:LineSegment
+                    End="137.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="42.60404296875,25.2749140893471,52.2919140625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_BRANCH_OFFICE.Paths[dataNew]"
+          TopLeft="322.5,348">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-147.5,52"
+              Start="0,0"
+              End="-147.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-143.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-143.5,26"
+                    Point2="-147.5,26"
+                    Point3="-147.5,30" />
+                  <mssgle:LineSegment
+                    End="-147.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-93.89365234375,31,40.2873046875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
