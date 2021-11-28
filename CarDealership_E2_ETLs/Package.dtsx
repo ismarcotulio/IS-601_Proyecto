@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{FB380F42-6E8A-4D1A-82D0-29F45FD6EB16}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{9E38C001-90D9-46B0-8828-6E66E78855A9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -10316,9 +10316,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10340,9 +10338,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10376,9 +10372,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10412,9 +10406,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10436,9 +10428,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10546,33 +10536,121 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="119,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar"
-          TopLeft="135,118" />
-        <NodeLayout
           Size="192,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\Combinación de mezcla"
           TopLeft="232,204" />
         <NodeLayout
-          Size="173,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional"
-          TopLeft="234,310" />
+          Size="178,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET"
+          TopLeft="98,420" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar"
+          TopLeft="135,118" />
         <NodeLayout
           Size="174,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET"
           TopLeft="108,26" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1"
-          TopLeft="428,106" />
+          Size="183,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1"
+          TopLeft="402,25" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional"
+          TopLeft="234,310" />
         <NodeLayout
           Size="179,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\Comando de OLE DB"
           TopLeft="381,409" />
         <NodeLayout
-          Size="183,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1"
-          TopLeft="402,25" />
+          Size="128,42"
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1"
+          TopLeft="428,106" />
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET1]"
+          TopLeft="492.75,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET]"
+          TopLeft="194.75,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de ordenación1]"
+          TopLeft="492,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-133.333333333333,56"
+              Start="0,0"
+              End="-133.333333333333,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.3223140495868" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.3223140495868"
+                    Point2="0,33.3223140495868"
+                    Point3="-4,33.3223140495868" />
+                  <mssgle:LineSegment
+                    End="-129.333333333333,33.3223140495868" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-129.333333333333,33.3223140495868"
+                    Point2="-133.333333333333,33.3223140495868"
+                    Point3="-133.333333333333,37.3223140495868" />
+                  <mssgle:LineSegment
+                    End="-133.333333333333,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de ordenación]"
           TopLeft="194.5,160">
@@ -10604,7 +10682,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10626,7 +10706,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10665,88 +10747,6 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET1]"
-          TopLeft="492.75,67">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39"
-              Start="0,0"
-              End="0,31.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de origen de ADO NET]"
-          TopLeft="194.75,68">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50"
-              Start="0,0"
-              End="0,42.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[Salida de ordenación1]"
-          TopLeft="492,148">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-133.333333333333,56"
-              Start="0,0"
-              End="-133.333333333333,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.3223140495868" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.3223140495868"
-                    Point2="0,33.3223140495868"
-                    Point3="-4,33.3223140495868" />
-                  <mssgle:LineSegment
-                    End="-129.333333333333,33.3223140495868" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-129.333333333333,33.3223140495868"
-                    Point2="-133.333333333333,33.3223140495868"
-                    Point3="-133.333333333333,37.3223140495868" />
-                  <mssgle:LineSegment
-                    End="-133.333333333333,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="178,42"
-          Id="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET"
-          TopLeft="98,420" />
         <EdgeLayout
           Id="Package\FACT_PAY_EMPLOYEE_SALARY.Paths[dataNew]"
           TopLeft="293,352">
@@ -10787,6 +10787,14 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET">
     <Properties>
       <Property>
@@ -10796,14 +10804,6 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Origen de ADO NET 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\FACT_PAY_EMPLOYEE_SALARY\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

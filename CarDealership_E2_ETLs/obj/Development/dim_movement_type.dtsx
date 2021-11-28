@@ -1,0 +1,1370 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/24/2021 12:47:58 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FGNRHRP"
+  DTS:CreatorName="DESKTOP-FGNRHRP\Dayri"
+  DTS:DTSID="{97C0D796-B47D-4F72-80C8-FDC0C09D1E43}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="dim_movement_type"
+  DTS:PackageType="5"
+  DTS:VersionBuild="83"
+  DTS:VersionGUID="{EDFA991A-C02E-4A53-B8E3-59B8E1D06C10}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_MOVEMENT_TYPE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{E924CD87-7413-4E41-AB83-99858B0F65EF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_MOVEMENT_TYPE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="Comando de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Ejecuta una instrucción SQL para cada fila de un flujo de datos. Por ejemplo, se usa para llamar al procedimiento almacenado de configuración de nuevo empleado para cada fila de la tabla de nuevos empleados. Nota: la ejecución de una instrucción SQL para cada fila de un flujo de datos de gran tamaño puede tardar mucho tiempo."
+              name="Comando de OLE DB"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">Update dbo.[DIM_TYPE_MOVEMENT] set [name] = ? 
+where [id_PK] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+                  errorOrTruncationOperation="Ejecución de comando"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de comando de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[var_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="var_name"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[var_name]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[tin_id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_PK]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      dataType="ui1"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Outputs[Salida de comando de OLE DB]"
+                  exclusionGroup="1"
+                  name="Salida de comando de OLE DB"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de comando de OLE DB"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Outputs[Salida de error de comando de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tin_id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_PK"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[tin_id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[var_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="var_name"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[var_name]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tex_description]"
+                      cachedDataType="nText"
+                      cachedName="tex_description"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[tex_description]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="id_PK"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación].Columns[id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="name"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación].Columns[name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_PK]"
+                      name="tin_id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tin_id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[var_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[var_name]"
+                      name="var_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[var_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_description]"
+                      dataType="nText"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tex_description]"
+                      name="tex_description">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[tex_description]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_PK]"
+                      name="id_PK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[name]"
+                      name="name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino OLAP"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_TYPE_MOVEMENT"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET].Columns[tin_id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_PK]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[tin_id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET].Columns[var_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="var_name"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET].ExternalColumns[name]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[var_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_PK]"
+                      dataType="ui1"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="50"
+                      name="name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional].Columns[var_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="var_name"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[var_name]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional].Columns[id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="id_PK"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="name"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Data new]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Data new"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_PK]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(id_PK)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Data Update]"
+                  description="Salida 2 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Data Update"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">(#{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[var_name]} != #{Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[name]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(var_name != name)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar OLAP"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Inputs[Entrada de ordenación].Columns[id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="id_PK"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Inputs[Entrada de ordenación].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="name"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación].Columns[id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación].Columns[id_PK]"
+                      name="id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación].Columns[name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación].Columns[name]"
+                      name="name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar OLTP"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Inputs[Entrada de ordenación].Columns[tin_id_PK]"
+                      cachedDataType="ui1"
+                      cachedName="tin_id_PK"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tin_id_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Inputs[Entrada de ordenación].Columns[var_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="var_name"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[var_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Inputs[Entrada de ordenación].Columns[tex_description]"
+                      cachedDataType="nText"
+                      cachedName="tex_description"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tex_description]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[tin_id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[tin_id_PK]"
+                      name="tin_id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tin_id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[var_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[var_name]"
+                      name="var_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[var_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[tex_description]"
+                      dataType="nText"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación].Columns[tex_description]"
+                      name="tex_description">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tex_description]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen OLAP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_TYPE_MOVEMENT"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[name]"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      dataType="ui1"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="50"
+                      name="name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen OLTP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">USE [CarDealership_OLAP]
+GO
+
+/****** Object:  Table [dbo].[TYPE_MOVEMENT]    Script Date: 24/11/2021 4:48:06 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[DIM_TYPE_MOVEMENT](
+	[id_PK] [tinyint] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NOT NULL
+	);</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."TYPE_MOVEMENT"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Connections[IDbConnection]"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLTP1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tin_id_PK]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].ExternalColumns[tin_id_PK]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tin_id_PK]"
+                      name="tin_id_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[var_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].ExternalColumns[var_name]"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[var_name]"
+                      name="var_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tex_description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].ExternalColumns[tex_description]"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].Columns[tex_description]"
+                      name="tex_description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].ExternalColumns[tin_id_PK]"
+                      dataType="ui1"
+                      name="tin_id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].ExternalColumns[var_name]"
+                      dataType="wstr"
+                      length="50"
+                      name="var_name" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET].ExternalColumns[tex_description]"
+                      dataType="nText"
+                      name="tex_description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[tin_id_PK]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[tin_id_PK]"
+                      name="tin_id_PK" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[var_name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[var_name]"
+                      name="var_name" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[tex_description]"
+                      dataType="nText"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[tex_description]"
+                      name="tex_description" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Data new]"
+              endId="Package\DIM_MOVEMENT_TYPE\Destino OLAP.Inputs[Entrada de destino de ADO NET]"
+              name="Data new"
+              startId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Data new]" />
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Data Update]"
+              endId="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
+              name="Data Update"
+              startId="Package\DIM_MOVEMENT_TYPE\División condicional.Outputs[Data Update]" />
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Salida de combinación de mezcla]"
+              endId="Package\DIM_MOVEMENT_TYPE\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Salida de ordenación]"
+              endId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Salida de ordenación1]"
+              endId="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Salida de origen de ADO NET]"
+              endId="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM_MOVEMENT_TYPE\Origen OLTP.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\DIM_MOVEMENT_TYPE.Paths[Salida de origen de ADO NET1]"
+              endId="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM_MOVEMENT_TYPE\Origen OLAP.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM_MOVEMENT_TYPE"
+          TopLeft="350,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_MOVEMENT_TYPE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Origen OLAP"
+          TopLeft="426,57" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Origen OLTP"
+          TopLeft="58,53" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Destino OLAP"
+          TopLeft="88,359" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Ordenar OLAP"
+          TopLeft="433,141" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DIM_MOVEMENT_TYPE\División condicional"
+          TopLeft="243,268" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Ordenar OLTP"
+          TopLeft="77,136" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Comando de OLE DB"
+          TopLeft="447,360" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM_MOVEMENT_TYPE\Combinación de mezcla"
+          TopLeft="235,193" />
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Salida de ordenación1]"
+          TopLeft="223,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.6666666666667,36"
+              Start="0,0"
+              End="76.6666666666667,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="72.6666666666667,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.6666666666667,0"
+                    Point2="76.6666666666667,0"
+                    Point3="76.6666666666667,4" />
+                  <mssgle:LineSegment
+                    End="76.6666666666667,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Salida de ordenación]"
+          TopLeft="433,162">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-103,31"
+              Start="0,0"
+              End="-103,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-99,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-99,0"
+                    Point2="-103,0"
+                    Point3="-103,4" />
+                  <mssgle:LineSegment
+                    End="-103,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Salida de combinación de mezcla]"
+          TopLeft="329.25,235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Data Update]"
+          TopLeft="355.666666666667,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.833333333333,50"
+              Start="0,0"
+              End="179.833333333333,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2780996523754" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2780996523754"
+                    Point2="0,20.2780996523754"
+                    Point3="4,20.2780996523754" />
+                  <mssgle:LineSegment
+                    End="175.833333333333,20.2780996523754" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.833333333333,20.2780996523754"
+                    Point2="179.833333333333,20.2780996523754"
+                    Point3="179.833333333333,24.2780996523754" />
+                  <mssgle:LineSegment
+                    End="179.833333333333,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="43.5149283854167,25.2780996523754,56.2226953125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Data new]"
+          TopLeft="301.333333333333,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-141.833333333333,49"
+              Start="0,0"
+              End="-141.833333333333,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8725376593279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8725376593279"
+                    Point2="0,19.8725376593279"
+                    Point3="-4,19.8725376593279" />
+                  <mssgle:LineSegment
+                    End="-137.833333333333,19.8725376593279" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-137.833333333333,19.8725376593279"
+                    Point2="-141.833333333333,19.8725376593279"
+                    Point3="-141.833333333333,23.8725376593279" />
+                  <mssgle:LineSegment
+                    End="-141.833333333333,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-92.4807096354167,24.8725376593279,43.1280859375,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Salida de origen de ADO NET1]"
+          TopLeft="495.5,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,42"
+              Start="0,0"
+              End="10.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="6.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,21"
+                    Point2="10.5,21"
+                    Point3="10.5,25" />
+                  <mssgle:LineSegment
+                    End="10.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_MOVEMENT_TYPE.Paths[Salida de origen de ADO NET]"
+          TopLeft="127.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5,41"
+              Start="0,0"
+              End="22.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="18.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.5,20.5"
+                    Point2="22.5,20.5"
+                    Point3="22.5,24.5" />
+                  <mssgle:LineSegment
+                    End="22.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_MOVEMENT_TYPE\Origen OLAP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_MOVEMENT_TYPE\Origen OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_MOVEMENT_TYPE\Destino OLAP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

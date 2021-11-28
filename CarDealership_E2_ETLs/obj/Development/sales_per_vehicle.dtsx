@@ -1,0 +1,2017 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/27/2021 1:31:27 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BIKT6AF"
+  DTS:CreatorName="DESKTOP-BIKT6AF\usuario"
+  DTS:DTSID="{BC5D8EDC-CD19-44FD-A390-49720C422946}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="81"
+  DTS:VersionGUID="{76566716-A4D0-403F-954A-9B8F997CB3EA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{D91B7D64-7D42-4767-93F3-E87FE49CB025}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM\Combinación de mezcla"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Combinación de mezcla;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina dos flujos de datos ordenados en uno solo mediante la combinación FULL, LEFT o INNER. Se recomienda esta transformación cuando se pueden ordenar los flujos de datos en sus orígenes."
+              name="Combinación de mezcla"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de combinación que se debe realizar."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número de columnas de la clave de ordenación."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores NULL se tratan como valores iguales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indica la cantidad máxima solicitada de búferes por entrada antes del bloqueo."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada izquierda de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[seller]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="seller"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[seller]" />
+                    <inputColumn
+                      refId="Package\DIM\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[sell_location]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="sell_location"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[sell_location]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+                  hasSideEffects="true"
+                  name="Entrada derecha de combinación de mezcla">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[seller]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="seller"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[seller]" />
+                    <inputColumn
+                      refId="Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[sell_location]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="sell_location"
+                      lineageId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[sell_location]" />
+                    <inputColumn
+                      refId="Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      lineageId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[id_PK]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla]"
+                  isSorted="true"
+                  name="Salida de combinación de mezcla">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[seller]"
+                      name="seller"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[seller]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[sell_location]"
+                      name="sell_location"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla].Columns[sell_location]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[id_PK]"
+                      name="id_PK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_seller]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_seller]"
+                      name="D_seller">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[seller]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_sell_location]"
+                      name="D_sell_location">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="La columna de entrada asociada a esta columna de salida"
+                          name="InputColumnID">#{Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla].Columns[sell_location]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[sells]"
+                      cachedDataType="wstr"
+                      cachedLength="2000"
+                      cachedName="sells"
+                      lineageId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].Columns[sells]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\DIM\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de sells]"
+                      codePage="1252"
+                      dataType="text"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DIM\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de sells]"
+                      name="Copia de sells"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].Columns[sells]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\DIM\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Destino DIM_SELLER"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino DIM_SELLER"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[DIM_SELLER]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM\Destino DIM_SELLER.Connections[OleDbConnection]"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[OLEDB_OLAP]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].Columns[seller]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="seller"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].ExternalColumns[seller]"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[seller]" />
+                    <inputColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].Columns[sell_location]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="sell_location"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].ExternalColumns[sell_location]"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[sell_location]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_PK]"
+                      dataType="i8"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].ExternalColumns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      name="seller" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB].ExternalColumns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      name="sell_location" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\Destino DIM_SELLER.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Destino DIM_SELLER.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM\Destino DIM_SELLER.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Destino DIM_SELLER.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\División condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="División condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Enruta filas de datos a diferentes salidas según el contenido de los datos. Se usan condiciones (expresiones de SSIS) para especificar las filas que se van a enrutar. Por ejemplo, se usa para separar los registros que deben limpiarse de los registros listos para ser cargados o para enrutar solamente un subconjunto de registros."
+              name="División condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM\División condicional.Inputs[Entrada de división condicional]"
+                  description="Entrada en la transformación División condicional"
+                  name="Entrada de división condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\División condicional.Inputs[Entrada de división condicional].Columns[D_seller]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="D_seller"
+                      lineageId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_seller]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\División condicional.Outputs[insertNew]"
+                  description="Salida 1 de la transformación División condicional"
+                  errorOrTruncationOperation="Cálculo"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="insertNew"
+                  synchronousInputId="Package\DIM\División condicional.Inputs[Entrada de división condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
+                      name="Expression">[ISNULL](#{Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla].Columns[D_seller]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(D_seller)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM\División condicional.Outputs[Salida predeterminada de división condicional]"
+                  description="Salida predeterminada de la transformación División condicional"
+                  exclusionGroup="1"
+                  name="Salida predeterminada de división condicional"
+                  synchronousInputId="Package\DIM\División condicional.Inputs[Entrada de división condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM\División condicional.Outputs[Salida de error de división condicional]"
+                  description="Salida de error de la transformación División condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de división condicional"
+                  synchronousInputId="Package\DIM\División condicional.Inputs[Entrada de división condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM\División condicional.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\JSON Parser Transform"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="JSON Parser Transform; ZappySys LLC (c) All Rights Reserved; SSIS PowerPack; http://www.zappysys.com/support"
+              description="Parse incoming JSON String into columns. You can also parse and transform single JSON record into multiple rows by filtering data based on JSON Path (e.g. $.Customer.Orders[*])"
+              name="JSON Parser Transform"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="LoggingMode determines how much information is logged during Package Execution. Set Logging mode to Debugging for maximum log."
+                  expressionType="Notify"
+                  name="LoggingMode"
+                  typeConverter="ZappySys.PowerPack.Common.LoggingMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you enable this property it will prefix timestamp before Log messages."
+                  expressionType="Notify"
+                  name="PrefixTimestamp">false</property>
+                <property
+                  dataType="System.Null"
+                  expressionType="Notify"
+                  name="SelfRef"
+                  typeConverter="NOTBROWSABLE" />
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for any numeric data types"
+                  expressionType="Notify"
+                  name="TreatBlankNumberAsNull">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for bool data types"
+                  expressionType="Notify"
+                  name="TreatBlankBoolAsNull">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Treat empty string as NULL for any date/time data types"
+                  expressionType="Notify"
+                  name="TreatBlankDateAsNull">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Encoding of source file"
+                  expressionType="Notify"
+                  name="Encoding"
+                  typeConverter="ZappySys.Common.EncodingType">0</property>
+                <property
+                  dataType="System.String"
+                  description="Character set for text (e.g. windows-1250 )"
+                  expressionType="Notify"
+                  name="CharacterSet"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum JSON records to fetch. Set this value to 0 for all records"
+                  expressionType="Notify"
+                  name="MaxRows">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enables custom search / replace in the document text after its read from the file/url or direct string. This replace operation happens before its parsed. This option can be useful for custom escape sequence in source document which is causing issue in the parser. You can replace such unwanted characters fore parser starts parsing the text."
+                  expressionType="Notify"
+                  name="EnableCustomReplace">false</property>
+                <property
+                  dataType="System.String"
+                  description="String you like to search for (Only valid when EnableCustomReplace option is turned on). If you want to enable Regular Expression pattern search then add --regex or --regex-ic (for case-insensitive search)  at the end of your search string (e.g. ORDER-\d+--regex OR ORDER-\d+--regex-ic (case-insensitive search) ) "
+                  expressionType="Notify"
+                  name="SearchFor"></property>
+                <property
+                  dataType="System.String"
+                  description="String you like to replace with (Only valid when EnableCustomReplace option is turned on). If you added --regex or --regex-ic at the end of your SearchFor string then ReplaceWith can use special placeholders (i.e. $1, $2...) based on regular expression groups. For example you SearchFor=(\w+)(@\w+.com) to search for emails then to mask emails you can something like this for ReplaceWith = ****$2 (where $2 is domain part and $1 is before @)"
+                  expressionType="Notify"
+                  name="ReplaceWith"></property>
+                <property
+                  dataType="System.String"
+                  description="Sample JSON data used to parse output columns."
+                  expressionType="Notify"
+                  name="SampleData"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">[
+	{
+	"vin":"",
+	"sell_date":"",
+	"seller":"",
+	"sell_location":"",
+	"price":"",
+	"vehicle_mileage":"",
+	"vehicle_color":""
+	},
+	{
+	"sell_date":"",
+	"seller":"",
+	"sell_location":"",
+	"vehicle_mileage":"",
+	"vehicle_color":""
+	}
+]</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Include all upstream parent columns into output except the one you selected to parse. By default only parsed columns from Input document is included in the output. If you wish to include all other upstream columns in the output too then check this option."
+                  expressionType="Notify"
+                  name="OutputAllUpstreamColumns">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
+                  expressionType="Notify"
+                  name="EmptyInputProcessingMode"
+                  typeConverter="ZappySys.Common.Data.EmptyInputProcessingMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Defines how to handle empty input. By default NULL or Empty input is skipped from parsing."
+                  expressionType="Notify"
+                  name="TreatEmptyInputAs">{ }</property>
+                <property
+                  dataType="System.String"
+                  description="Enter expression here to filter data.(Example:  $.Users[*].UserName ) This will fetch User names from users records"
+                  expressionType="Notify"
+                  name="Filter"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Use this option to include parent properties (Non array) in the output along with Filtered Rows"
+                  expressionType="Notify"
+                  name="IncludeParentColumns">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="By default child and parent information is not included in the output if children not found for specified expression. For example if you want to extract all orders from all customers nodes then you can type $.Customers[*].Orders[*]. This will fetch all orders from all customers. By default customers records without orders wont be included in the output. If you want to include those customers where orders not found then check this option (Output null information for order attributes). This behavior is similar to LEFT OUTER JOIN in SQL (Left side is parent, right side is child). This option is ***resource intensive*** so only check if you really care about this behavior."
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWhenChildMissing">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Set this option to true if you want to output parent columns which are array. By default any parent column which is an array is not included in output. See also FilterForParentColumnsWithArrayType property if you set this property"
+                  expressionType="Notify"
+                  name="IncludeParentColumnsWithArrayType">false</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to extract value form parent"
+                  expressionType="Notify"
+                  name="FilterForParentColumnsWithArrayType"></property>
+                <property
+                  dataType="System.String"
+                  description="Prefix for parent column name. This option is only valid if you have set IncludeParentColumns=True"
+                  expressionType="Notify"
+                  name="ParentColumnPrefix">P_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Throw error if property name specified in filter expression is missing. By default it will ignore any missing property errors."
+                  expressionType="Notify"
+                  name="ThrowErrorIfPropertyMissing">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="This property how many nested levels should be scanned to fetch various properties. 0=Scan all child levels."
+                  expressionType="Notify"
+                  name="MaxLevelsToScan">0</property>
+                <property
+                  dataType="System.String"
+                  description="List comma separated property names from JSON document which you want to exclude from output. Specify parent property name to exclude all child nodes."
+                  expressionType="Notify"
+                  name="ExcludedProperties"></property>
+                <property
+                  dataType="System.String"
+                  description="Property level separator used in generated property name (separator for outer properties - Above selected filter node). Use this if default separator is producing duplicate property name which is conflicting with existing name."
+                  expressionType="Notify"
+                  name="LevelSeparator">_</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enables deep array flattening for selected filtered hierarchy. When you turn on this property it will flatten each property of each array item and expose as column (e.g. If you have Filter set as $.customers[*] and for each customer you have an array of Addresses then you may see output columns like Addresses.1.City, Addresses.1.State, Addresses.2.City, Addresses.2.State .... Addresses.N.City, Addresses.N.State). You can control how many array items you want to flatten by setting MaxArrayItemsToFlatten property."
+                  expressionType="Notify"
+                  name="EnableArrayFlattening">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum number of array items to flatten. inner array flattening. Adjust this property to control how many columns being generated. This option is ignored if you set EnableArrayFlattening=false"
+                  expressionType="Notify"
+                  name="MaxArrayItemsToFlatten">10</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies how custom date formatted strings are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateFormatString"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how date formatted strings, e.g. Date(1198908717056) and 2012-03-21T05:40Z, are parsed when reading JSON."
+                  expressionType="Notify"
+                  name="DateParseHandling"
+                  typeConverter="ZappySys.Common.DateParseHandling">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how decimal values are parsed when reading JSON. Change this setting to Decimal if you like to have large precision / scale."
+                  expressionType="Notify"
+                  name="FloatParseHandling"
+                  typeConverter="ZappySys.Common.FloatParseHandling">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indent JSON output so its easy to read."
+                  expressionType="Notify"
+                  name="IndentOutput">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Output as raw JSON document rather than parsing individual fields. This option is helpful if you have documents stored in a file and you want to pass them downstream as raw JSON string rather than parsing into columns."
+                  expressionType="Notify"
+                  name="OutputRawDocument">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When this property is true then Column is converted to Row. Pivoted names will appear under  Pivot_Name column and values will appear under Pivot_Value field."
+                  expressionType="Notify"
+                  name="EnablePivot">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Array Transformation you want to apply. Useful for case when you have 2-Dimensional arrays with rows/columns in separate arrays."
+                  expressionType="Notify"
+                  name="ArrayTransformationType"
+                  typeConverter="ZappySys.Json.ArrayTransformType">0</property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression to use to extract column names for array transformation."
+                  expressionType="Notify"
+                  name="ArrayTransColumnNameFilter"></property>
+                <property
+                  dataType="System.String"
+                  description="Filter expression for row values (Not applicable for simple array transformation)."
+                  expressionType="Notify"
+                  name="ArrayTransRowValueFilter"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When you have 2D array but don't have column list specified in a separate array then use this option (e.g. { arr: [[10,11],[21,22]] } ). If you selected Column less array or JSON Lines option then this property means Column Names coming from First Line of array."
+                  expressionType="Notify"
+                  name="ArrayTransEnableCustomColumns">false</property>
+                <property
+                  dataType="System.String"
+                  description="When you have 2D array but don't have column list specified in a separate array then use specify column names here. Use comma separated list (e.g col1,col2,col3 ). Column name Order must match value order."
+                  expressionType="Notify"
+                  name="ArrayTransCustomColumns"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Enable Raw Document Output Mode with unstructured data processing option for any format (i.e. XML, Html, Text, Json). Unlike other option EnableRawOutputMode, this option doesn't invoke parser to extract documents by finding row terminator. It will source string as row value in single row/ single column. You can also define RawOutputDataTemplate along with this property (e.g. Template can be {data: [$1] } ). This will wrap response inside template string before sending to parser."
+                  expressionType="Notify"
+                  name="EnableRawOutputModeSingleRow">false</property>
+                <property
+                  dataType="System.String"
+                  description="When you enable EnableRawOutputModeSingleRow you can use this property. Template must be in JSON format (e.g. { data: [$1] } ). [$1] means content extracted using first expression or no expression (i.e. raw data). If RawOutputFilterExpr contains multiple expressions (separated by || ) then you can use multiple placeholders (i.e. [$1], [$2]...[$N]). RawOutputFilterExpr can have JsonPath, XmlPath, RegEx (set RawOutputExtractMode)."
+                  expressionType="Notify"
+                  name="RawOutputDataRowTemplate"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Metadata scan mode controls how data type and length is determined. By default few records scanned to determine datatype/length. Changing ScanMode affects length/datatype accuracy."
+                  expressionType="Notify"
+                  name="MetaDataScanMode"
+                  typeConverter="ZappySys.Common.Data.MetaDataScanMode">4</property>
+                <property
+                  dataType="System.Int32"
+                  description="Length for all string column. This option is only valid for MetaDataScanMode=Custom"
+                  expressionType="Notify"
+                  name="MetaDataCustomLength">1000</property>
+                <property
+                  dataType="System.Boolean"
+                  description="When this option is true, it detects all string values as DT_STR (Ascii) rather than DT_WSTR (Unicode)"
+                  expressionType="Notify"
+                  name="MetaDataTreatStringAsAscii">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">ZappySys.JsonParserTransform</property>
+                <property
+                  dataType="System.Boolean"
+                  name="EnableBigNumberHandling">false</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM\JSON Parser Transform.Inputs[JsonParserTransformInput]"
+                  errorRowDisposition="FailComponent"
+                  name="JsonParserTransformInput"
+                  truncationRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\JSON Parser Transform.Inputs[JsonParserTransformInput].Columns[Copia de sells]"
+                      cachedCodepage="1252"
+                      cachedDataType="text"
+                      cachedName="Copia de sells"
+                      lineageId="Package\DIM\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de sells]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput]"
+                  errorOrTruncationOperation="Error"
+                  errorRowDisposition="FailComponent"
+                  name="JsonParserTransformOutput"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_date]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[sell_date]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_date]"
+                      name="sell_date" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[seller]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[seller]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[seller]"
+                      name="seller" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_location]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[sell_location]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_location]"
+                      name="sell_location" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_mileage]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[vehicle_mileage]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_mileage]"
+                      name="vehicle_mileage" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_color]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[vehicle_color]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_color]"
+                      name="vehicle_color" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[price]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[price]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vin]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[vin]"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vin]"
+                      name="vin" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[vin]"
+                      dataType="wstr"
+                      length="80"
+                      name="vin" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[sell_date]"
+                      dataType="wstr"
+                      length="80"
+                      name="sell_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      name="seller" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      name="sell_location" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[price]"
+                      dataType="wstr"
+                      length="80"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[vehicle_mileage]"
+                      dataType="wstr"
+                      length="80"
+                      name="vehicle_mileage" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].ExternalColumns[vehicle_color]"
+                      dataType="wstr"
+                      length="80"
+                      name="vehicle_color" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output]"
+                  isErrorOut="true"
+                  name="JsonParserTransform Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[sell_date]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[sell_date]"
+                      name="sell_date" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[seller]"
+                      name="seller" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[sell_location]"
+                      name="sell_location" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[vehicle_mileage]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[vehicle_mileage]"
+                      name="vehicle_mileage" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[vehicle_color]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[vehicle_color]"
+                      name="vehicle_color" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[price]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[vin]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[vin]"
+                      name="vin" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumnName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="128"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorColumnName]"
+                      name="ErrorColumnName" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="1024"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                    <outputColumn
+                      refId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorRawData]"
+                      dataType="nText"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransform Error Output].Columns[ErrorRawData]"
+                      name="ErrorRawData" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Multidifusión"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidifusión;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Distribuye cada fila de entrada a cada una de las filas de una o varias salidas. Por ejemplo, se crea una bifurcación de un flujo de datos para realizar una copia de los datos de modo que se puedan enmascarar algunos valores antes de compartirlos con los asociados externos."
+              name="Multidifusión">
+              <inputs>
+                <input
+                  refId="Package\DIM\Multidifusión.Inputs[Entrada de Multidifusión 1]"
+                  name="Entrada de Multidifusión 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\Multidifusión.Outputs[Salida de multidifusión 2]"
+                  deleteOutputOnPathDetached="true"
+                  name="Salida de multidifusión 2"
+                  synchronousInputId="Package\DIM\Multidifusión.Inputs[Entrada de Multidifusión 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM\Multidifusión.Outputs[Salida de multidifusión 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Salida de multidifusión 1"
+                  synchronousInputId="Package\DIM\Multidifusión.Inputs[Entrada de Multidifusión 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación].Columns[sell_date]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="sell_date"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación].Columns[seller]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="seller"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[seller]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación].Columns[sell_location]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="sell_location"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_location]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación].Columns[vehicle_mileage]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="vehicle_mileage"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_mileage]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación].Columns[vehicle_color]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="vehicle_color"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_color]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar.Inputs[Entrada de ordenación].Columns[price]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="price"
+                      lineageId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[price]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[sell_date]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[sell_date]"
+                      name="sell_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[seller]"
+                      name="seller"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[seller]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[sell_location]"
+                      name="sell_location">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[sell_location]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[vehicle_mileage]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[vehicle_mileage]"
+                      name="vehicle_mileage">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_mileage]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[vehicle_color]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[vehicle_color]"
+                      name="vehicle_color">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[vehicle_color]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[price]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar.Outputs[Salida de ordenación].Columns[price]"
+                      name="price">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput].Columns[price]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Ordenar 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM\Ordenar 2.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar 2.Inputs[Entrada de ordenación].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar 2.Inputs[Entrada de ordenación].Columns[seller]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="seller"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[seller]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM\Ordenar 2.Inputs[Entrada de ordenación].Columns[sell_location]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="sell_location"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[sell_location]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[id_PK]"
+                      name="id_PK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[seller]"
+                      name="seller"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[seller]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación].Columns[sell_location]"
+                      name="sell_location">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[sell_location]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Origen OLAP"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen OLAP"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_SELLER"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM\Origen OLAP.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDODB_OLAP]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[seller]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[seller]"
+                      length="80"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[seller]"
+                      name="seller"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[sell_location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[sell_location]"
+                      length="80"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].Columns[sell_location]"
+                      name="sell_location"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      dataType="i8"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      name="seller" />
+                    <externalMetadataColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET].ExternalColumns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      name="sell_location" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[seller]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[seller]"
+                      name="seller" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[sell_location]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[sell_location]"
+                      name="sell_location" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Origen OLAP.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM\Origen OLTP2"
+              componentClassID="Microsoft.SSISODBCSrc"
+              contactInfo="Origen ODBC;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen ODBC"
+              name="Origen OLTP2"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla que debe recuperarse."
+                  expressionType="Notify"
+                  name="TableName">"CarDealership_OLTP2"."vehicles"</property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT CAST(REPLACE(REPLACE(sells_history, '{},', ''), '"sell_date"', CONCAT('"vin":', '"',vin, '"', ',','"sell_date"' )) AS varchar) AS sells FROM vehicles  WHERE LEN(sells_history) &gt; 10 AND LEN(sells_history) &lt; 1500
+ORDER BY LEN(sells_history)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas recuperadas por lote."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la asignación del tamaño de los fragmentos de las columnas LOB"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina la manera en la que el componente expone las columnas CHAR. Si es False, las columnas CHAR se exponen como cadenas byte o multibyte (DT_STR); si es True, las columnas CHAR se exponen como cadenas de tipo ancho (DT_WSTR)."
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos que se debe esperar para que una instrucción SQL se ejecute antes de volver a la aplicación."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Página de códigos que se usará cuando la información de la página de códigos no esté disponible en el origen de datos."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="Método usado para recuperar datos."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Tipo de datos ODBC C para el enlace de datos numéricos."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determina la manera en la que el componente enlazará columnas de tipos de cadena byte o multibyte (es decir, SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). Las opciones son Unicode (SQL_C_WCHAR) y ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Modo usado para obtener acceso a la base de datos."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">1</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM\Origen OLTP2.Connections[ODBCConnection]"
+                  connectionManagerID="{6C51D22C-32AE-4855-97E7-469A97D0162B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MongoODBC_sysOLTP2]"
+                  description="Conexión de runtime de ODBC usada para acceder a la base de datos."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC]"
+                  errorRowDisposition="FailComponent"
+                  name="Salida de origen de ODBC"
+                  truncationRowDisposition="FailComponent">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].Columns[sells]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].ExternalColumns[sells]"
+                      length="2000"
+                      lineageId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].Columns[sells]"
+                      name="sells" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].ExternalColumns[sells]"
+                      dataType="wstr"
+                      length="2000"
+                      name="sells" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ODBC">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC].Columns[sells]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC].ExternalColumns[sells]"
+                      length="2000"
+                      lineageId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC].Columns[sells]"
+                      name="sells" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM\Origen OLTP2.Outputs[Salida de error de origen de ODBC].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM.Paths[insertNew]"
+              endId="Package\DIM\Destino DIM_SELLER.Inputs[Entrada de destino de OLE DB]"
+              name="insertNew"
+              startId="Package\DIM\División condicional.Outputs[insertNew]" />
+            <path
+              refId="Package\DIM.Paths[JsonParserTransformOutput]"
+              endId="Package\DIM\Multidifusión.Inputs[Entrada de Multidifusión 1]"
+              name="JsonParserTransformOutput"
+              startId="Package\DIM\JSON Parser Transform.Outputs[JsonParserTransformOutput]" />
+            <path
+              refId="Package\DIM.Paths[Salida de combinación de mezcla]"
+              endId="Package\DIM\División condicional.Inputs[Entrada de división condicional]"
+              name="Salida de combinación de mezcla"
+              startId="Package\DIM\Combinación de mezcla.Outputs[Salida de combinación de mezcla]" />
+            <path
+              refId="Package\DIM.Paths[Salida de conversión de datos]"
+              endId="Package\DIM\JSON Parser Transform.Inputs[JsonParserTransformInput]"
+              name="Salida de conversión de datos"
+              startId="Package\DIM\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\DIM.Paths[Salida de multidifusión 2]"
+              endId="Package\DIM\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de multidifusión 2"
+              startId="Package\DIM\Multidifusión.Outputs[Salida de multidifusión 2]" />
+            <path
+              refId="Package\DIM.Paths[Salida de ordenación]"
+              endId="Package\DIM\Combinación de mezcla.Inputs[Entrada izquierda de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM.Paths[Salida de ordenación1]"
+              endId="Package\DIM\Combinación de mezcla.Inputs[Entrada derecha de combinación de mezcla]"
+              name="Salida de ordenación"
+              startId="Package\DIM\Ordenar 2.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\DIM.Paths[Salida de origen de ADO NET]"
+              endId="Package\DIM\Ordenar 2.Inputs[Entrada de ordenación]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM\Origen OLAP.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\DIM.Paths[Salida de origen de ODBC]"
+              endId="Package\DIM\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de ODBC"
+              startId="Package\DIM\Origen OLTP2.Outputs[Salida de origen de ODBC]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="98,42"
+          Id="Package\DIM"
+          TopLeft="303,87" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DIM\Origen OLTP2"
+          TopLeft="528,23" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DIM\Conversión de datos"
+          TopLeft="512,117" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de origen de ODBC]"
+          TopLeft="599.75,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="189,42"
+          Id="Package\DIM\JSON Parser Transform"
+          TopLeft="505,229" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de conversión de datos]"
+          TopLeft="599.5,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="138,42"
+          Id="Package\DIM\Multidifusión"
+          TopLeft="534,342" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[JsonParserTransformOutput]"
+          TopLeft="601.25,271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="178,42"
+          Id="Package\DIM\Destino DIM_SELLER"
+          TopLeft="413,850" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\DIM\Ordenar"
+          TopLeft="420,490" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de multidifusión 2]"
+          TopLeft="603,384">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-124.5,106"
+              Start="0,0"
+              End="-124.5,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="-4,53" />
+                  <mssgle:LineSegment
+                    End="-120.5,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-120.5,53"
+                    Point2="-124.5,53"
+                    Point3="-124.5,57" />
+                  <mssgle:LineSegment
+                    End="-124.5,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DIM\Origen OLAP"
+          TopLeft="794,610" />
+        <NodeLayout
+          Size="126,42"
+          Id="Package\DIM\Ordenar 2"
+          TopLeft="749,490" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de origen de ADO NET]"
+          TopLeft="863.5,610">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.8333333333334,-78"
+              Start="0,0"
+              End="-31.8333333333334,-70.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-42.2131661442006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-42.2131661442006"
+                    Point2="0,-46.2131661442006"
+                    Point3="-4,-46.2131661442006" />
+                  <mssgle:LineSegment
+                    End="-27.8333333333334,-46.2131661442006" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.8333333333334,-46.2131661442006"
+                    Point2="-31.8333333333334,-46.2131661442006"
+                    Point3="-31.8333333333334,-50.2131661442006" />
+                  <mssgle:LineSegment
+                    End="-31.8333333333334,-70.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="190,42"
+          Id="Package\DIM\Combinación de mezcla"
+          TopLeft="567,609" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de ordenación]"
+          TopLeft="478.5,532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183.5,77"
+              Start="0,0"
+              End="183.5,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5"
+                    Point2="0,38.5"
+                    Point3="4,38.5" />
+                  <mssgle:LineSegment
+                    End="179.5,38.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="179.5,38.5"
+                    Point2="183.5,38.5"
+                    Point3="183.5,42.5" />
+                  <mssgle:LineSegment
+                    End="183.5,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de ordenación1]"
+          TopLeft="812,532">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119.666666666667,77"
+              Start="0,0"
+              End="-119.666666666667,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.8141962421712" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.8141962421712"
+                    Point2="0,45.8141962421712"
+                    Point3="-4,45.8141962421712" />
+                  <mssgle:LineSegment
+                    End="-115.666666666667,45.8141962421712" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-115.666666666667,45.8141962421712"
+                    Point2="-119.666666666667,45.8141962421712"
+                    Point3="-119.666666666667,49.8141962421712" />
+                  <mssgle:LineSegment
+                    End="-119.666666666667,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DIM\División condicional"
+          TopLeft="577,740" />
+        <EdgeLayout
+          Id="Package\DIM.Paths[Salida de combinación de mezcla]"
+          TopLeft="662.25,651">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM.Paths[insertNew]"
+          TopLeft="662.5,782">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-160.5,68"
+              Start="0,0"
+              End="-160.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="-4,34" />
+                  <mssgle:LineSegment
+                    End="-156.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-156.5,34"
+                    Point2="-160.5,34"
+                    Point3="-160.5,38" />
+                  <mssgle:LineSegment
+                    End="-160.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-102.80763671875,39,45.1152734375,9.451171875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM\Origen OLTP2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM\Destino DIM_SELLER">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM\Origen OLAP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -2,28 +2,33 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>CarDealership_E2_ETLs</Name>
-    <LastWriteTime>2021-11-27T13:54:59.8874862Z</LastWriteTime>
+    <LastWriteTime>2021-11-28T12:08:00.4605519Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2021-11-27T13:16:58.0580544Z</LastWriteTime>
+      <LastWriteTime>2021-11-27T18:06:26.0603111Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Vehicle.dtsx</Name>
-      <LastWriteTime>2021-11-27T13:16:58.0680264Z</LastWriteTime>
+      <Name>dim_seller.dtsx</Name>
+      <LastWriteTime>2021-11-28T12:04:57.2331152Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Vehicle 1.dtsx</Name>
-      <LastWriteTime>2021-11-27T13:54:59.8256544Z</LastWriteTime>
+      <Name>dim_vehicle.dtsx</Name>
+      <LastWriteTime>2021-11-28T12:05:01.5302454Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>Package2.dtsx</Name>
-      <LastWriteTime>2021-11-28T00:04:46.9187466Z</LastWriteTime>
+      <Name>dim_movement_type.dtsx</Name>
+      <LastWriteTime>2021-11-28T12:55:52.8076831Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>1_fact_sell_per_vehcile.dtsx</Name>
+      <LastWriteTime>2021-11-28T13:42:04.4607008Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -26,14 +26,15 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BIKT6AF</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9V95QaXkaEuiOncA0fSvTAAAAAACAAAAAAAQZgAAAAEAACAAAADv39RTs8OwV2Jdwm6YL/+D2/izyKf5mr2zyjt5VMA++AAAAAAOgAAAAAIAACAAAADD2ow7j47iBR81k+8iQQ4rVIYCAlMWKE2dAnDFTsOG75AAAAA6yOTh4gKagRNUJ7L2IucSuw/X6fVVXy2DVeo6M8Y3M1ANpB9k3tOkjQNCNurxDVxdsWV1W2PeCNxLNkuVSpFMotWzekg1l4fZFMIO/IdL3VEdIXB4bs6OBKTJT/GU+WHbwQyQkuUPRj6uXjYFloMMJeY5F0DpzKk6THfJJxfqyceQBZfz7bbCqwegP89r/XJAAAAAOKjrJW6f8uCQqof7OSMx1Lh6A4f4J9FiHFwZ7FlpyS7fgXwN2b/qCdsxu4+kfyoc2Cz7xSRqG3zPbp7dD6RD1Q==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAR5GHciP+bEq7gOqzTB778wAAAAACAAAAAAAQZgAAAAEAACAAAABLj4uw7CPDcmcqEYEg6r2lDMXTaLhGKFSTs9tMlsvMQwAAAAAOgAAAAAIAACAAAADI9wCPf1jThXQRASPYhE6uTO2KRL70vmXttC2EkVpXzJAAAAAvqr3e8BYRpc9zvk0g8j5seuusmBl7ba9silGeAMAh7eYkgu/frMGp702jGkdWjv6GbG5yaEXLIx2BVvQ5qRPwyOt5y8t8oLylGLGq1o+v0goTo1LtGd7/d21irBy0hBceQiwYveuIFkejCkPavHSQK4oXfEWunlmNp9FomUKpk+n1/cHXG+lMXIdJF7BcQghAAAAA10kBP1WyPTak6MffC+NluBMnzR0yCnuJ9bn1a6JbJ4D24MZIardhrK1EKE8MI/Hon/u6UeaDKby64iU2IMqF8g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Package.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Vehicle.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Vehicle 1.dtsx" SSIS:EntryPoint="1" />
-          <SSIS:Package SSIS:Name="Package2.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="dim_seller.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="dim_vehicle.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="dim_movement_type.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="1_fact_sell_per_vehcile.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="EDODB_OLTP1.conmgr" />
@@ -536,10 +537,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">20</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">21</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{FB380F42-6E8A-4D1A-82D0-29F45FD6EB16}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9E38C001-90D9-46B0-8828-6E66E78855A9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -547,16 +548,33 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Vehicle.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="dim_seller.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{BC5D8EDC-CD19-44FD-A390-49720C422946}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Package2</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">83</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6EB85C31-397A-41D7-839E-D3EC45343F0C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="dim_vehicle.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{75625343-EF0E-4AF0-915B-0FFBA3244CDA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">78</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">81</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8946DFB6-C500-411C-9080-B34940A7D76E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8D688017-E165-48C3-B464-E8E4F1E3C54E}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -564,16 +582,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Vehicle 1.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="dim_movement_type.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{CE8626B1-F55C-40B4-AF4F-E50FC9611EBE}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{97C0D796-B47D-4F72-80C8-FDC0C09D1E43}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">dim_movement_type</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">17</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">82</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E932F534-B6A7-4840-8925-667A8AD973B8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{303A51D0-4B18-4717-B2E0-FE86F91C6444}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -581,16 +599,16 @@
               </SSIS:Properties>
               <SSIS:Parameters />
             </SSIS:PackageMetaData>
-            <SSIS:PackageMetaData SSIS:Name="Package2.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="1_fact_sell_per_vehcile.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{3C991542-6E97-4A8A-9BA1-7EA152583EBA}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{257725F4-3CE9-4CC3-B556-9D3DF9D9597E}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Package2</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">10</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">83</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F666342C-26C4-4377-8C0F-A57DAEEBD183}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{50D83652-1FBF-4A7A-9783-705AF0B7687C}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
