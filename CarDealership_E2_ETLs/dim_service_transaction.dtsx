@@ -1,0 +1,2593 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/28/2021 2:50:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-VT21E45"
+  DTS:CreatorName="DESKTOP-VT21E45\erick"
+  DTS:DTSID="{48721BB4-B015-4A01-9287-FF4DF832114B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="18442"
+  DTS:ObjectName="Package3"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{20D53946-30BE-4998-9E1D-8F64E039B489}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DIM_SERVICE_TRANSACTION"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7209F839-5D9C-4E8F-AACA-7FCFC4577514}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DIM_SERVICE_TRANSACTION"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_id_PK]"
+                      cachedDataType="i8"
+                      cachedName="D_id_PK"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      cachedSortKeyPosition="8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      cachedSortKeyPosition="9"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="D_subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_subtotal]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_discount]"
+                      cachedDataType="ui1"
+                      cachedName="D_discount"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_discount]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_reduction]"
+                      cachedDataType="numeric"
+                      cachedName="D_reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_reduction]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_total]"
+                      cachedDataType="numeric"
+                      cachedName="D_total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="D_total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total_isv]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="D_limit_property"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_limit_property]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Data New]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Data New"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_id_PK]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(D_id_PK)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Data Update]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Data Update"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">(#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]} != #{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_subtotal]}) || (#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]} != #{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_discount]}) || (#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]} != #{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_reduction]}) || (#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]} != #{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total]}) || (#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]} != #{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total_isv]}) || (#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]} != #{Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_limit_property]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">(subtotal != D_subtotal) || (discount != D_discount) || (reduction != D_reduction) || (total != D_total) || (total_isv != D_total_isv) || (limit_property != D_limit_property)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Destino de ADO NET"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"DIM_SERVICE_TRANSACTION"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  connectionManagerRefId="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_PK]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[start_date]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[start_date]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[end_date]"
+                      cachedDataType="dbDate"
+                      cachedName="end_date"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[end_date]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[end_date]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[subtotal]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[discount]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="6"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[reduction]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="7"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      cachedSortKeyPosition="8"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_isv]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      cachedSortKeyPosition="9"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[limit_property]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_PK]"
+                      dataType="i8"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[start_date]"
+                      dataType="dbTimeStamp"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[end_date]"
+                      dataType="dbTimeStamp"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[subtotal]"
+                      dataType="numeric"
+                      name="subtotal"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[discount]"
+                      dataType="ui1"
+                      name="discount" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[reduction]"
+                      dataType="numeric"
+                      name="reduction"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_isv]"
+                      dataType="numeric"
+                      name="total_isv"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[limit_property]"
+                      dataType="dbTimeStamp"
+                      name="limit_property" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">9</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[start_date]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[end_date]"
+                      cachedDataType="dbDate"
+                      cachedName="end_date"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[end_date]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[subtotal]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[discount]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[reduction]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      cachedSortKeyPosition="8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[total_isv]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      cachedSortKeyPosition="9"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[limit_property]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[id_PK]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      cachedSortKeyPosition="2"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[start_date]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[end_date]"
+                      cachedDataType="dbDate"
+                      cachedName="end_date"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[end_date]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[subtotal]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      cachedSortKeyPosition="5"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[discount]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="6"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[reduction]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="7"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      cachedSortKeyPosition="8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[total_isv]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      cachedSortKeyPosition="9"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[limit_property]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[id_PK]"
+                      name="id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[start_date]"
+                      name="start_date"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[start_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[end_date]"
+                      name="end_date"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[end_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[subtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]"
+                      name="discount"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[discount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[reduction]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[total]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2"
+                      sortKeyPosition="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[total_isv]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]"
+                      name="limit_property"
+                      sortKeyPosition="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input].Columns[limit_property]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_id_PK]"
+                      name="D_id_PK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_start_date]"
+                      name="D_start_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[start_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_end_date]"
+                      name="D_end_date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[end_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_subtotal]"
+                      name="D_subtotal"
+                      precision="10"
+                      scale="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[subtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_discount]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_discount]"
+                      name="D_discount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[discount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_reduction]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_reduction]"
+                      name="D_reduction"
+                      precision="10"
+                      scale="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[reduction]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total]"
+                      name="D_total"
+                      precision="10"
+                      scale="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[total]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total_isv]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_total_isv]"
+                      name="D_total_isv"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[total_isv]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_limit_property]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[D_limit_property]"
+                      name="D_limit_property">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input].Columns[limit_property]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DIM_SERVICE_TRANSACTION SET subtotal = ?,discount =?, reduction=?,total=?,total_isv=?,limit_property=? WHERE id_PK = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:invalid"
+                  connectionManagerRefId="{E3E1F8D4-3213-4D3D-ACDC-8EA0449FD09A}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="6"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      cachedSortKeyPosition="7"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      cachedSortKeyPosition="8"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      cachedSortKeyPosition="9"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]" />
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[id_PK]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="10"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="ui1"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="numeric"
+                      name="Param_2"
+                      precision="10"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="numeric"
+                      name="Param_3"
+                      precision="10"
+                      scale="4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="numeric"
+                      name="Param_4"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="dbDate"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i8"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Ordenar OLAP1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[start_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[end_date]"
+                      cachedDataType="dbDate"
+                      cachedName="end_date"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[end_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[discount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[reduction]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">7</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">8</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">9</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[id_PK]"
+                      name="id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[start_date]"
+                      name="start_date"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[start_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[end_date]"
+                      name="end_date"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[end_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[discount]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[discount]"
+                      name="discount"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[discount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[reduction]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[reduction]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[total_isv]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2"
+                      sortKeyPosition="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[limit_property]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output].Columns[limit_property]"
+                      name="limit_property"
+                      sortKeyPosition="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Ordenar OLTP1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[id_PK]"
+                      cachedDataType="i8"
+                      cachedName="id_PK"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[start_date]"
+                      cachedDataType="dbDate"
+                      cachedName="start_date"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[start_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[end_date]"
+                      cachedDataType="dbDate"
+                      cachedName="end_date"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[end_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[subtotal]"
+                      cachedDataType="numeric"
+                      cachedName="subtotal"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[discount]"
+                      cachedDataType="ui1"
+                      cachedName="discount"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[discount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[reduction]"
+                      cachedDataType="numeric"
+                      cachedName="reduction"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[reduction]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">6</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[total]"
+                      cachedDataType="numeric"
+                      cachedName="total"
+                      cachedPrecision="10"
+                      cachedScale="4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">7</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[total_isv]"
+                      cachedDataType="numeric"
+                      cachedName="total_isv"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">8</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input].Columns[limit_property]"
+                      cachedDataType="dbDate"
+                      cachedName="limit_property"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">9</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[id_PK]"
+                      name="id_PK"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[start_date]"
+                      name="start_date"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[start_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[end_date]"
+                      name="end_date"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[end_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[discount]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[discount]"
+                      name="discount"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[discount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[reduction]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="6">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[reduction]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4"
+                      sortKeyPosition="7">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[total_isv]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2"
+                      sortKeyPosition="8">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[limit_property]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output].Columns[limit_property]"
+                      name="limit_property"
+                      sortKeyPosition="9">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen OLAP1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_SERVICE_TRANSACTION"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Connections[IDbConnection]"
+                  connectionManagerID="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  connectionManagerRefId="{0EF9B88E-8E9D-4C79-9511-2FAC60E3AC54}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[start_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[start_date]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[start_date]"
+                      name="start_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[end_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[end_date]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[end_date]"
+                      name="end_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[subtotal]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[discount]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[discount]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[discount]"
+                      name="discount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[reduction]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[reduction]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total_isv]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[limit_property]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]"
+                      name="limit_property"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      dataType="i8"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[start_date]"
+                      dataType="dbDate"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[end_date]"
+                      dataType="dbDate"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[subtotal]"
+                      dataType="numeric"
+                      name="subtotal"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[discount]"
+                      dataType="ui1"
+                      name="discount" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[reduction]"
+                      dataType="numeric"
+                      name="reduction"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total_isv]"
+                      dataType="numeric"
+                      name="total_isv"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET].ExternalColumns[limit_property]"
+                      dataType="dbDate"
+                      name="limit_property" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[start_date]"
+                      name="start_date" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[end_date]"
+                      name="end_date" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[discount]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[discount]"
+                      name="discount" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[reduction]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[total_isv]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[limit_property]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[limit_property]"
+                      name="limit_property" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="Origen OLTP1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        
+[CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].big_id_PK AS id_PK
+,CAST(NULL AS DATE) AS start_date
+,CAST(NULL AS DATE) AS end_date
+,[CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].mon_subtotal AS subtotal
+,[CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].tin_discount AS discount
+,[CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].mon_reduction AS reduction
+,[CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].mon_total_to_pay AS total
+,[CarDealership_OLTP1].[dbo].[ISV].dec_amount AS total_isv,
+[CarDealership_OLTP1].[dbo].[RENT].[dat_limit_rent] AS [limit_property]
+FROM            
+[CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION]
+
+JOIN [CarDealership_OLTP1].[dbo].[ISV] ON [CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].[int_isv_FK] = [CarDealership_OLTP1].[dbo].[ISV].[int_id_PK]
+
+JOIN [CarDealership_OLTP1].[dbo].[RENT] ON [CarDealership_OLTP1].[dbo].[RENT].[big_service_transaction_FK] = [CarDealership_OLTP1].[dbo].[SERVICE_TRANSACTION].[big_id_PK]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Connections[IDbConnection]"
+                  connectionManagerID="{4191A863-45A1-47C0-B9E3-722454C572BF}:invalid"
+                  connectionManagerRefId="{4191A863-45A1-47C0-B9E3-722454C572BF}:invalid"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[start_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[start_date]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[start_date]"
+                      name="start_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[end_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[end_date]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[end_date]"
+                      name="end_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[subtotal]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[discount]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[discount]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[discount]"
+                      name="discount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[reduction]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[reduction]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total_isv]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[limit_property]"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].Columns[limit_property]"
+                      name="limit_property"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[id_PK]"
+                      dataType="i8"
+                      name="id_PK" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[start_date]"
+                      dataType="dbDate"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[end_date]"
+                      dataType="dbDate"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[subtotal]"
+                      dataType="numeric"
+                      name="subtotal"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[discount]"
+                      dataType="ui1"
+                      name="discount" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[reduction]"
+                      dataType="numeric"
+                      name="reduction"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total]"
+                      dataType="numeric"
+                      name="total"
+                      precision="10"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[total_isv]"
+                      dataType="numeric"
+                      name="total_isv"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET].ExternalColumns[limit_property]"
+                      dataType="dbDate"
+                      name="limit_property" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      dataType="i8"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[id_PK]"
+                      name="id_PK" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[start_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[start_date]"
+                      name="start_date" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[end_date]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[end_date]"
+                      name="end_date" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[subtotal]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[subtotal]"
+                      name="subtotal"
+                      precision="10"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[discount]"
+                      dataType="ui1"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[discount]"
+                      name="discount" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[reduction]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[reduction]"
+                      name="reduction"
+                      precision="10"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[total]"
+                      name="total"
+                      precision="10"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[total_isv]"
+                      dataType="numeric"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[total_isv]"
+                      name="total_isv"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[limit_property]"
+                      dataType="dbDate"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[limit_property]"
+                      name="limit_property" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Data New]"
+              endId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+              name="Data New"
+              startId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Data New]" />
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Data Update]"
+              endId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Data Update"
+              startId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Outputs[Data Update]" />
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Merge Join Output]"
+              endId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Salida de origen de ADO NET]"
+              endId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Inputs[Sort Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Salida de origen de ADO NET1]"
+              endId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Inputs[Sort Input]"
+              name="Salida de origen de ADO NET"
+              startId="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Sort Output]"
+              endId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1.Outputs[Sort Output]" />
+            <path
+              refId="Package\DIM_SERVICE_TRANSACTION.Paths[Sort Output1]"
+              endId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="221,42"
+          Id="Package\DIM_SERVICE_TRANSACTION"
+          TopLeft="257,76" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DIM_SERVICE_TRANSACTION">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\OLE DB Command"
+          TopLeft="382,368" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Ordenar OLTP1"
+          TopLeft="91,115" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Origen OLAP1"
+          TopLeft="393,24" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET"
+          TopLeft="113,364" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Merge Join"
+          TopLeft="250,197" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Conditional Split"
+          TopLeft="243,268" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1"
+          TopLeft="87,29" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\DIM_SERVICE_TRANSACTION\Ordenar OLAP1"
+          TopLeft="394,111" />
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Sort Output1]"
+          TopLeft="470,153">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134.666666666667,44"
+              Start="0,0"
+              End="-134.666666666667,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.0790273556231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.0790273556231"
+                    Point2="0,26.0790273556231"
+                    Point3="-4,26.0790273556231" />
+                  <mssgle:LineSegment
+                    End="-130.666666666667,26.0790273556231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130.666666666667,26.0790273556231"
+                    Point2="-134.666666666667,26.0790273556231"
+                    Point3="-134.666666666667,30.0790273556231" />
+                  <mssgle:LineSegment
+                    End="-134.666666666667,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Sort Output]"
+          TopLeft="166.5,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.5,40"
+              Start="0,0"
+              End="148.5,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="144.5,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.5,20"
+                    Point2="148.5,20"
+                    Point3="148.5,24" />
+                  <mssgle:LineSegment
+                    End="148.5,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Salida de origen de ADO NET1]"
+          TopLeft="467.75,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Salida de origen de ADO NET]"
+          TopLeft="162.75,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Merge Join Output]"
+          TopLeft="317.75,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Data Update]"
+          TopLeft="345,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="120,58"
+              Start="0,0"
+              End="120,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5555555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5555555555556"
+                    Point2="0,23.5555555555556"
+                    Point3="4,23.5555555555556" />
+                  <mssgle:LineSegment
+                    End="116,23.5555555555556" />
+                  <mssgle:CubicBezierSegment
+                    Point1="116,23.5555555555556"
+                    Point2="120,23.5555555555556"
+                    Point3="120,27.5555555555556" />
+                  <mssgle:LineSegment
+                    End="120,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.88865234375,28.5555555555556,56.2226953125,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_SERVICE_TRANSACTION.Paths[Data New]"
+          TopLeft="296,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-95,54"
+              Start="0,0"
+              End="-95,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9310344827586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9310344827586"
+                    Point2="0,21.9310344827586"
+                    Point3="-4,21.9310344827586" />
+                  <mssgle:LineSegment
+                    End="-91,21.9310344827586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-91,21.9310344827586"
+                    Point2="-95,21.9310344827586"
+                    Point3="-95,25.9310344827586" />
+                  <mssgle:LineSegment
+                    End="-95,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-69.60904296875,26.9310344827586,44.2180859375,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_SERVICE_TRANSACTION\Origen OLTP1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
