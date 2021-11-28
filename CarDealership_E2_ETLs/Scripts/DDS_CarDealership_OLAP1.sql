@@ -97,5 +97,21 @@ GO
 		[limit_property] [date] NULL,
 	);
 
+	CREATE TABLE [CarDealership_OLAP1].[dbo].[DIM_INVOICE](
+		[id_PK] [bigint] PRIMARY KEY,
+		[CAI] [nvarchar](45) NULL,
+		[deadline] [date] NULL,
+		[correlative_number] [int] NULL,
+		[document_type] [nvarchar](60) NULL,
+		[document_type_number] [int] NULL,
+		[printing_authorization_number] [nvarchar](16) NULL,
+		[printing_code] [nvarchar](14) NULL,
+		[emission_point_number] [int] NULL,
+		[emission_point_modality] [nvarchar](255) NULL,
+		[starting_range] [int] NULL,
+		[final_range] [int] NULL,
+		[current_number] [int] NULL,
+	);
+
 	--USE CarDealership_OLAP1
 	--ALTER TABLE dbo.[FACT_PAY_EMPLOYEE_SALARY] ADD FOREIGN KEY ([date_FK]) REFERENCES dbo.DIM_DATE(PK_Fecha)
