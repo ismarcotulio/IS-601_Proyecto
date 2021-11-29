@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "CarDealership_E4_SSRS", "CarDealership_E4_SSRS.rptproj", "{68EDCC82-A9AB-4D1C-A69A-7769521169DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.Debug|Default.ActiveCfg = Debug
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.Debug|Default.Build.0 = Debug
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.Debug|Default.Deploy.0 = Debug
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.DebugLocal|Default.Build.0 = DebugLocal
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.Release|Default.ActiveCfg = Release
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.Release|Default.Build.0 = Release
+		{68EDCC82-A9AB-4D1C-A69A-7769521169DB}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {233DCD2B-A561-4A3D-8FCF-ECA66EB18FDE}
+	EndGlobalSection
+EndGlobal
