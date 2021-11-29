@@ -8,12 +8,12 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>Car_Dealership_OLAP1_RRHH.cube</Name>
-      <FullPath>Car_Dealership_OLAP1_RRHH.cube</FullPath>
+      <Name>Car_Dealership_OLAP1_RRHH_CUBO.cube</Name>
+      <FullPath>Car_Dealership_OLAP1_RRHH_CUBO.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>Car_Dealership_OLAP1_RRHH.partitions</Name>
-          <FullPath>Car_Dealership_OLAP1_RRHH.partitions</FullPath>
+          <Name>Car_Dealership_OLAP1_RRHH_CUBO.partitions</Name>
+          <FullPath>Car_Dealership_OLAP1_RRHH_CUBO.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
@@ -24,16 +24,12 @@
       <FullPath>DIM_DATE.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DIM BRANCH OFFICE.dim</Name>
-      <FullPath>DIM BRANCH OFFICE.dim</FullPath>
+      <Name>DIM_EMPLOYEE.dim</Name>
+      <FullPath>DIM_EMPLOYEE.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DIM EMPLOYEE.dim</Name>
-      <FullPath>DIM EMPLOYEE.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM DATE.dim</Name>
-      <FullPath>DIM DATE.dim</FullPath>
+      <Name>DIM_BRANCH_OFFICE.dim</Name>
+      <FullPath>DIM_BRANCH_OFFICE.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
