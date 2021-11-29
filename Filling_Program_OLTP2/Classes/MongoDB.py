@@ -6,13 +6,18 @@
 """
 
 from pymongo import MongoClient
+import sys
 
 class MongoDB:
 
     def __init__(self):
         self.CONNECTION_STRING = "mongodb+srv://grupounois601:grupounois601@cluster0.jwzk2.mongodb.net/CarDealership_OLTP2?retryWrites=true&w=majority"
+        sys.stdout.write("---------------------ESTABLECIENDO CONEXION CON MONGO---------------------\n")
+        sys.stdout.flush()
         self.mydb = self.getDB()
-        print("Se realizo la conexion correctamente")
+        sys.stdout.write("Conexion realizada exitosamente!\n")
+        sys.stdout.flush()
+
     
     
     def getDB(self):

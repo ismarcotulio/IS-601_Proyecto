@@ -13,10 +13,15 @@ from datetime import datetime
 from bson.json_util import dumps
 import time
 import re
+import sys
 
 class Core:
 
     def __init__(self):
+        sys.stdout.write("\n---------------------PROGRAMA DE LLENADO NOSQL---------------------\n")
+        sys.stdout.flush()
+        sys.stdout.write("Gracias por utilizar el programa de llenado para la OLTP en Mongo! \n"+"Por favor espere, esto puede tardar algunos minutos..."+"\n\n")
+        sys.stdout.flush()
         self.mongo = MongoDB()
         self.currentTime = datetime.utcnow()
         self.initTime = time.perf_counter()
@@ -47,13 +52,25 @@ class Core:
         dataExtractor = DataExtractor()
         dataHandler = DataHandler(self.mongo, carMD, dataExtractor)
     
-        limit = 20
+        limit = 50
         count = 0
         lastVerifiedPost = dataHandler.getLastVerifiedPost()
-        postDataList = None      
+        postDataList = None
+        sys.stdout.write("\n---------------------BUSCANDO VEHICULOS---------------------\n")
+        sys.stdout.flush()
+        sys.stdout.write("A continuacion se realizara una busqueda de "+str(limit)+" vehiculos que cummplan las siguientes condiciones: \n")
+        sys.stdout.flush()
+        sys.stdout.write("1-Su vin no debe existir en la coleccion de mongo\n")
+        sys.stdout.flush()
+        sys.stdout.write("2-Se debe verificar que el vin pertenezca a un vehiculo real\n")
+        sys.stdout.flush()
+        sys.stdout.write("2-Se debe verificar que existan reportes de la pagina https://vincheck.info/check/report-summary.php vinculados al vin\n\n")
+        sys.stdout.flush()
 
     
         while count < limit:
+            sys.stdout.write("Estado actual: "+str(count)+" vehiculos encontrados \n\n")
+            sys.stdout.flush()
             if postDataList != None:
                 lastPostNumber = postDataList[3]
             else:
@@ -64,10 +81,12 @@ class Core:
             vehicleData = dataHandler.buildVehicleData(
                 postDataList[0],
                 postDataList[1],
-                dataHandler.getLastValidAccount(),
                 dataExtractor.getJsonFromTable(tables[3]),
             )
             self.mongo.insertToCollection(vehicleData, "vehicles")
+            output_str = "Datos de vehiculo insertados en la BD! \n"+ str(vehicleData) + "\n\n"
+            sys.stdout.write(output_str)
+            sys.stdout.flush()
             count = count + 1
             dataHandler.updateLastVerifiedPost(postDataList[3])
 
@@ -78,7 +97,7 @@ class Core:
         timeData.setdefault("count", count)
         timeData.setdefault("time", "{}".format(lastTime - self.initTime))
         self.mongo.insertToCollection(timeData, "meta_insertions")
-        print("Se han insertado {} vehiculos en la base de datos de MongoDB exitosamente.".format(count))
+        print("\nSe han insertado {} vehiculos en la base de datos de MongoDB exitosamente.".format(count))
 
     
     

@@ -7,7 +7,7 @@
 
 from Classes.Core import Core
 
-def main():    
+def main(): 
     core = Core()
     core.run()
     

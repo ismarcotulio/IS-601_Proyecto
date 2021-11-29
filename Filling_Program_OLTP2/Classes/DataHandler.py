@@ -9,6 +9,7 @@ import json
 import requests
 import urllib
 from datetime import datetime
+import sys
 
 class DataHandler:
 
@@ -39,6 +40,8 @@ class DataHandler:
         
     def getVehicleInfo(self, vin):
         api = "https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/{}?format=json".format(vin)
+        print(vin)
+        print("")
         response = requests.get(api)
         return response.json()['Results'][0]
 
@@ -59,8 +62,12 @@ class DataHandler:
             if len(tables) > 0:
                 return (True, vehicleInfo, tables)
             else:
+                sys.stdout.write("Vehiculo con vin "+str(vin)+" no valido! no se encontraron reportes en https://vincheck.info/check/report-summary.php.\n")
+                sys.stdout.flush()
                 return False
         else:
+            sys.stdout.write("Vehiculo con vin "+str(vin)+" no valido! No es un vehiculo real registrado en https://vpic.nhtsa.dot.gov/api/vehicles.\n")
+            sys.stdout.flush()
             return False
 
     def getLastValidPost(self, lastPostNumber):
@@ -75,6 +82,11 @@ class DataHandler:
                 if self.mongo.verifyCarInDB(posts[count]['vin']) == False:
                     post = posts[count]
                     state = 0
+                    sys.stdout.write("Vehiculo con vin "+str(posts[count]['vin'])+" valido!\n\n")
+                    sys.stdout.flush()
+                else:
+                    sys.stdout.write("Vehiculo con vin "+str(posts[count]['vin'])+" no valido! ya existe en la BD\n")
+                    sys.stdout.flush()
             count = count + 1
         return (post, dataList[1], dataList[2], count) 
                     
@@ -117,6 +129,28 @@ class DataHandler:
         vehicleDict.setdefault("sells_history",sellsData)
         my_vehicle = account.vin(post['vin'])
         vehicleDict.setdefault("maintenances",my_vehicle.maintenance(50000)['data'])      
+        return vehicleDict
+
+    def buildVehicleData(self, post, vehicleInfo, sellsData):
+        vehicleDict = {}
+        vehicleDict.setdefault("due_date","{}".format(datetime.utcnow()))
+        vehicleDict.setdefault("posting_date",post['posting_date'])
+        vehicleDict.setdefault("vin",vehicleInfo["VIN"])
+        vehicleDict.setdefault("manufacter",vehicleInfo["Manufacturer"])
+        vehicleDict.setdefault("brand",vehicleInfo["Make"])
+        vehicleDict.setdefault("model",vehicleInfo["Model"])
+        vehicleDict.setdefault("series",vehicleInfo["Series"])
+        vehicleDict.setdefault("year",vehicleInfo["ModelYear"])
+        vehicleDict.setdefault("fuel_type",vehicleInfo["FuelTypePrimary"])
+        vehicleDict.setdefault("vehicle_type",vehicleInfo["VehicleType"])
+        vehicleDict.setdefault("body_class",vehicleInfo["BodyClass"])
+        vehicleDict.setdefault("base_price",vehicleInfo["BasePrice"])
+        vehicleDict.setdefault("engine",vehicleInfo["EngineModel"])
+        vehicleDict.setdefault("brake_system",vehicleInfo["BrakeSystemType"])
+        vehicleDict.setdefault("number_cylinders",vehicleInfo["EngineCylinders"])
+        vehicleDict.setdefault("displacement_cc",vehicleInfo["DisplacementCC"])
+        vehicleDict.setdefault("doors",vehicleInfo["Doors"])
+        vehicleDict.setdefault("sells_history",sellsData)     
         return vehicleDict
         
 
