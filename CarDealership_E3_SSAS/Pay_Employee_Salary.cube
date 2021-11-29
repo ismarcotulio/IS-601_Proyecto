@@ -1,0 +1,293 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="54dc5e65-dff2-48fc-9c3f-20393fedc93b" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Pay_Employee_Salary</ID>
+  <Name>Pay_Employee_Salary</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="c5f8628a-17c2-4686-b001-dc96361233e5">
+      <ID>DIM EMPLOYEE</ID>
+      <Name>DIM EMPLOYEE</Name>
+      <DimensionID>DIM EMPLOYEE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3b6a1301-7044-4654-ba8d-1137f3e79d0c">
+          <AttributeID>Id PK</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="1644c57b-697b-4c81-97e3-78148a3fe6bb">
+      <ID>DIM BRANCH OFFICE</ID>
+      <Name>DIM BRANCH OFFICE</Name>
+      <DimensionID>DIM BRANCH OFFICE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="68a71b86-d482-443c-8ccf-e2a2e6cd60ff">
+          <AttributeID>Id PK</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="31fc206d-2d8b-403f-97fa-8a1962facca3">
+      <ID>DIM DATE</ID>
+      <Name>DIM DATE</Name>
+      <DimensionID>DIM DATE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="af6977b8-79d2-4505-b077-114292ec99a3">
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1d645ea7-81f6-446c-982b-d3a735a2c32c">
+          <AttributeID>Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="243abe85-f695-4145-a6d1-31fd683b22ce">
+          <AttributeID>Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="61a39ec9-4ba6-4dde-8ca7-d5e4298c154e">
+          <AttributeID>Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="547cf76e-d37c-44fa-93dd-2c9fb373024b">
+          <AttributeID>Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3659b9f6-476e-49b4-9e2c-a927c3b7c1c0">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="716d938d-9205-44ec-ab6b-18e566bfeee6">
+          <AttributeID>Diez Días</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="068f144e-8c22-4d52-a684-1721e558088a">
+          <AttributeID>Semana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="aff2cd9d-5908-4cd3-940d-a1d67004b015">
+          <AttributeID>Día Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ec7196b3-b72e-4e15-a96d-f8794046c352">
+          <AttributeID>Día Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4c9f55db-b3bd-48e5-9a17-3b621cc59682">
+          <AttributeID>Día Del Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2c320e58-b766-4aca-81b9-c56b00b5fd75">
+          <AttributeID>Día Del Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0765b5fd-6c3a-448f-88c0-005dd2a56001">
+          <AttributeID>Día Del Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="44384c22-848f-4429-b6a9-ab1e29630396">
+          <AttributeID>Día De Diez Días</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="50f97c72-f04a-48e8-84b7-8ad4846b29a4">
+          <AttributeID>Día De La Semana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="46b4a4dd-ef0c-4688-b79d-e35ab176f993">
+          <AttributeID>Semana Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7f40e7c2-2087-4658-8ad3-9056470e74de">
+          <AttributeID>Diez Días Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f799e43d-e590-446c-b51a-7a07b8b94331">
+          <AttributeID>Diez Días Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b9441699-ac45-44c7-ba23-68505d4bcf10">
+          <AttributeID>Diez Días Del Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4e472977-d8e7-4066-815c-3cf69384dc4b">
+          <AttributeID>Diez Días Del Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9dbd5e58-9d75-4239-b3ab-e47ea7554246">
+          <AttributeID>Diez Días Del Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="28035914-595a-4189-bf90-fbfb66f2d52a">
+          <AttributeID>Mes Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="938d3f66-83a4-4243-b06e-7e3d3d1e78e1">
+          <AttributeID>Mes Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d3e8fd0a-5997-4715-8acc-39bcb84091c6">
+          <AttributeID>Mes Del Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="72f6975c-5c50-441d-9d7e-ceee21735d18">
+          <AttributeID>Mes Del Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5ebaa5d2-89a0-4149-b341-74c8ba1b1251">
+          <AttributeID>Trimestre Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e2c811eb-a33b-4ad4-874e-f7efc0c81720">
+          <AttributeID>Trimestre Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="9f8b8101-bf12-4d2f-8cd8-c7ed1c2b6fe7">
+          <AttributeID>Cuatrimestre Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ff58b135-da4b-4e60-bd63-d6c226c7af6f">
+          <AttributeID>Semestre Del Año</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="43215061-e269-4f7b-802b-937001922150">
+          <HierarchyID>Año -  Semestre -  Trimestre -  Mes -  Diez Días -  Fecha</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="9a3ed566-f223-44d7-b8f5-b5d79da2b98e">
+          <HierarchyID>Año -  Cuatrimestre -  Mes -  Diez Días -  Fecha</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="0040fadb-ef67-47f7-a53a-dbdf5f77badd">
+          <HierarchyID>Año -  Semana -  Fecha</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="3afe476d-1cfe-40ff-8e87-f0780c6a6621">
+      <ID>FACT PAY EMPLOYEE SALARY</ID>
+      <Name>FACT PAY EMPLOYEE SALARY</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="d28d51db-c3b1-4a05-876a-e14ad9e36fca">
+          <ID>Salary Per Hour</ID>
+          <Name>Salary Per Hour</Name>
+          <Source dwd:design-time-name="6a4b48ae-476b-4be4-8e3b-9c978957444e">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="ed63d9b3-ef15-4e3c-95a9-5c0f74e75c15">
+              <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+              <ColumnID>salary_per_hour</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="2ef14dec-ba48-4d2b-b775-f292a08d01a8">
+          <ID>Area</ID>
+          <Name>Area</Name>
+          <Source dwd:design-time-name="f4aada23-65df-4851-88eb-548caf7e74ca">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="92cb20d3-f821-4891-96dc-e5d1a717295e">
+              <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+              <ColumnID>area</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5a3747ff-ea01-45b2-9c2e-799c24d09328">
+          <ID>Net Salary</ID>
+          <Name>Net Salary</Name>
+          <Source dwd:design-time-name="040cf0ab-e097-4237-91da-e3fc24081cad">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="9e1338f4-5d4f-42a7-a87a-d0da2eb38463">
+              <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+              <ColumnID>net_salary</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="993855bc-4290-4675-8a31-f23334ac81c9">
+          <ID>Recuento FACT PAY EMPLOYEE SALARY</ID>
+          <Name>Recuento FACT PAY EMPLOYEE SALARY</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="8de9e788-e3bd-45a9-9a9e-9846b985784b">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="a0e3d834-e7ef-44f3-8a4b-427c2f1bd899">
+              <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="048e7ca3-3add-42ab-bfd2-94cd0fd5cc84">
+          <CubeDimensionID>DIM EMPLOYEE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="74833c49-73ae-4b5d-aed9-e8d235508320">
+              <AttributeID>Id PK</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2045e548-08c3-4eb2-825c-3e3cd14383c4">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9a0f7d29-8c9c-49c4-975c-f92438e7e886">
+                    <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+                    <ColumnID>employee_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4acf3a12-9278-4f0b-91e4-04206e9bf658">
+          <CubeDimensionID>DIM BRANCH OFFICE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="82079f0c-bef4-4c23-8217-1fbaec00e8c0">
+              <AttributeID>Id PK</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2b2b5fd7-4424-4b17-9c17-652067723ecc">
+                  <DataType>UnsignedTinyInt</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="607d3438-3a3d-4717-93f6-812acbd8e271">
+                    <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+                    <ColumnID>branch_office_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d554e401-7faa-4665-812d-a9623d2b98cf">
+          <CubeDimensionID>DIM DATE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="61e2295a-1095-40a7-ad06-33f4b1872a5a">
+              <AttributeID>Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="90254658-11c7-4f60-ac53-a8793328e316">
+                  <DataType>Date</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="20d669c4-5813-4eaf-88d0-f7b0b2dfed47">
+                    <TableID>dbo_FACT_PAY_EMPLOYEE_SALARY</TableID>
+                    <ColumnID>date_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="0087cef7-0fb6-4ec4-8d59-e0c2da3addcb">
+    <DataSourceViewID>CarDealership_E3_SSAS</DataSourceViewID>
+  </Source>
+</Cube>

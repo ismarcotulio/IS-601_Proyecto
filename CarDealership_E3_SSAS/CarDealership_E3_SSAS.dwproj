@@ -8,28 +8,46 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>Car_Dealership_OLAP1_RRHH_CUBO.cube</Name>
-      <FullPath>Car_Dealership_OLAP1_RRHH_CUBO.cube</FullPath>
+      <Name>Sell_Per_vehicle.cube</Name>
+      <FullPath>Sell_Per_vehicle.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>Car_Dealership_OLAP1_RRHH_CUBO.partitions</Name>
-          <FullPath>Car_Dealership_OLAP1_RRHH_CUBO.partitions</FullPath>
+          <Name>Sell_Per_vehicle.partitions</Name>
+          <FullPath>Sell_Per_vehicle.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Pay_Employee_Salary.cube</Name>
+      <FullPath>Pay_Employee_Salary.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Pay_Employee_Salary.partitions</Name>
+          <FullPath>Pay_Employee_Salary.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>DIM_DATE.dim</Name>
-      <FullPath>DIM_DATE.dim</FullPath>
+      <Name>DIM DATE.dim</Name>
+      <FullPath>DIM DATE.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DIM_EMPLOYEE.dim</Name>
-      <FullPath>DIM_EMPLOYEE.dim</FullPath>
+      <Name>DIM SELLER.dim</Name>
+      <FullPath>DIM SELLER.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>DIM_BRANCH_OFFICE.dim</Name>
-      <FullPath>DIM_BRANCH_OFFICE.dim</FullPath>
+      <Name>DIM VEHICLE.dim</Name>
+      <FullPath>DIM VEHICLE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM EMPLOYEE.dim</Name>
+      <FullPath>DIM EMPLOYEE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM BRANCH OFFICE.dim</Name>
+      <FullPath>DIM BRANCH OFFICE.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -42,10 +60,6 @@
     <ProjectItem>
       <Name>CarDealership_E3_SSAS.dsv</Name>
       <FullPath>CarDealership_E3_SSAS.dsv</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Car_Dealership_OLAP1_RRHH.dsv</Name>
-      <FullPath>Car_Dealership_OLAP1_RRHH.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Configurations>

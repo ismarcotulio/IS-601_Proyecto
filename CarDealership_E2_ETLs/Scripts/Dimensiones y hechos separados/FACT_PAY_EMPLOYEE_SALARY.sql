@@ -8,5 +8,4 @@ CREATE TABLE [CarDealership_OLAP1].[dbo].[FACT_PAY_EMPLOYEE_SALARY](
 		[area] [int] NOT NULL,
 		[net_salary] [money] NOT NULL,
 		[salary_id] [int] PRIMARY KEY,
-		FOREIGN KEY(date_FK) REFERENCES [CarDealership_OLAP1].[dbo].[DIM_DATE](PK_Fecha),
 	);
