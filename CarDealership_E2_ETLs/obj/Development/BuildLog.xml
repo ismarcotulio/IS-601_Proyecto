@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>CarDealership_E2_ETLs</Name>
-    <LastWriteTime>2021-11-28T21:12:13.1951929Z</LastWriteTime>
+    <LastWriteTime>2021-11-30T11:33:57.9272109Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -43,17 +43,27 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>2_fact_pay_employee_salary.dtsx</Name>
-      <LastWriteTime>2021-11-28T21:08:45.6181204Z</LastWriteTime>
+      <LastWriteTime>2021-11-30T10:18:20.4007843Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_invoice.dtsx</Name>
-      <LastWriteTime>2021-11-28T21:11:20.3661239Z</LastWriteTime>
+      <LastWriteTime>2021-11-30T10:43:55.6686903Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_service_transaction.dtsx</Name>
       <LastWriteTime>2021-11-28T21:11:50.2208929Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>3_fact_pay_per_invoice.dtsx</Name>
+      <LastWriteTime>2021-11-30T11:33:57.8913346Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Package3.dtsx</Name>
+      <LastWriteTime>2021-11-30T11:31:31.401716Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

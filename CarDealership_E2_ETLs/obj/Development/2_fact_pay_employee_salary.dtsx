@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="2_fact_pay_employee_salary"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{40EF1EAF-2D90-4A5A-B660-5B5536CF960E}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{AEE43232-8C04-4DC0-93AB-D365A64F153A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -7208,9 +7208,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7232,9 +7230,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7268,9 +7264,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7304,9 +7298,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7328,9 +7320,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7732,9 +7722,9 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\División condicional"
           TopLeft="234,310" />
         <NodeLayout
-          Size="179,42"
+          Size="177,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\Comando de OLE DB"
-          TopLeft="381,409" />
+          TopLeft="381,421" />
         <NodeLayout
           Size="128,42"
           Id="Package\FACT_PAY_EMPLOYEE_SALARY\Ordenar 1"
@@ -7758,9 +7748,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7782,9 +7770,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7818,9 +7804,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7854,9 +7838,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7878,9 +7860,7 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7889,33 +7869,33 @@ WHERE EM.int_salary_id_FK = SA.int_salary_id_PK  AND EM.int_employee_id_FK = YE.
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="122.5,57"
+              EndConnector="121.5,69"
               Start="0,0"
-              End="122.5,49.5">
+              End="121.5,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.1134020618557" />
+                    End="0,23.979381443299" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.1134020618557"
-                    Point2="0,23.1134020618557"
-                    Point3="4,23.1134020618557" />
+                    Point1="0,23.979381443299"
+                    Point2="0,27.979381443299"
+                    Point3="4,27.979381443299" />
                   <mssgle:LineSegment
-                    End="118.5,23.1134020618557" />
+                    End="117.5,27.979381443299" />
                   <mssgle:CubicBezierSegment
-                    Point1="118.5,23.1134020618557"
-                    Point2="122.5,23.1134020618557"
-                    Point3="122.5,27.1134020618557" />
+                    Point1="117.5,27.979381443299"
+                    Point2="121.5,27.979381443299"
+                    Point3="121.5,31.979381443299" />
                   <mssgle:LineSegment
-                    End="122.5,49.5" />
+                    End="121.5,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="35.10404296875,28.1134020618557,52.2919140625,11.609375"
+              BoundingBox="34.60404296875,32.979381443299,52.2919140625,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
