@@ -22,6 +22,7 @@ export const newCompany = async (req, res) => {
         +big_client_id_FK+","
         +gen.big_id_address_FK+")");
         con++;
+        big_client_id_FK++;
     }
     
     pool.close;

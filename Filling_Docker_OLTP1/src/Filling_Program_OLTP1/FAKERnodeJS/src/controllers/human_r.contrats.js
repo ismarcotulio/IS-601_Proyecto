@@ -35,7 +35,7 @@ export const newContracts = async (req, res) => {
 function fakerContract(){
     let position = faker.datatype.number({
         'min': 1,
-        'max': 70
+        'max': 15
     });
     const salary = faker.datatype.number({
         'min': 8500,
