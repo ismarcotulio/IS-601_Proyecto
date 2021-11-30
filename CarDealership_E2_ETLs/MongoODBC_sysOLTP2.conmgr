@@ -5,6 +5,6 @@
   DTS:CreationName="ODBC">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="Dsn=MongoODBC_sysOLTP2;" />
+      DTS:ConnectionString="Dsn=CData MongoDB Source;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

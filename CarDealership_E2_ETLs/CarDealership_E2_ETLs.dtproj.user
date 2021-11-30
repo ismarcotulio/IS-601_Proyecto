@@ -9,7 +9,7 @@
         <WinAuthUserName />
         <WinAuthDomain />
         <ServerName>.</ServerName>
-        <PathOnServer>/SSISDB/DataMartPayment/CarDealership_E2_ETLs</PathOnServer>
+        <PathOnServer>/SSISDB/CarDealership_job/CarDealership_E2_ETLs</PathOnServer>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

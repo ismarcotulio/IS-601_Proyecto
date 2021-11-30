@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-BIKT6AF</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9V95QaXkaEuiOncA0fSvTAAAAAACAAAAAAAQZgAAAAEAACAAAAB9+E8tf6v0Z229+ZNqTScspNtd2kwsEmUXFfvsMnHXEAAAAAAOgAAAAAIAACAAAACZntckB6ACoSMKF+DGbYQqlVaLW3jn+4a8T2RTFkMU8ZAAAADKw6gX/97NjrzfVB8I+2jV3igQxaGVyUBwDWUYR1ZSDXwgpgePmPFG/ZMbLGzYvyNupf3UBjY6C8/LgBA/7oL/3L7xd1i1qDxB2HEXbR9JMfj17YU6qo4S0zJp3ktuRYvVoioMclOIFvFgChk579L/gh1RZINXFIpFX9GxlfBuwgzippievUCIeF+qn82UN+pAAAAAzA5r3og+a6Dn8GO6Xr1e8XR3QbUnAkMidSkMj3t7PhHB1IqE5Pr6D5xLbnlBQ9IFwnlMrV90R9bUjeEDGngBvA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAR3iUwiY29Ua/1mPgVt6XoAAAAAACAAAAAAAQZgAAAAEAACAAAADdKVjviAPFCep1/07GrEetD/P8SaZAmNBwjYWzlm2EOwAAAAAOgAAAAAIAACAAAAD2LeSjiVPc5Kws2EYr13Fn4y9lTA6wML748jmUImkSO5AAAAC3wRUUBFeimOJlQA+MnCJjexblLsghQIVJfxgJ+IKltIP2tE6J+/NgyCVlPf3YkoyxX00FmvEmuGldn/RFEut1sgfLxrzL1DSyxu39NLmFyFJ33baeYIeaua+WWpc7+IYWWbpsBjyIJ9ywPLEXGN8kkipLuvM/sXYvhDamEjWs1yRbV7JQ6w6lSqt0SUmhOURAAAAAexQ5x7fXd6l379E3T+s5ykXn22FLT6HDPg08wNBFxbQgVDPjCCgIF2MIyxXgjzod7O36BiB2tgBl6noDuj44jg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -461,7 +461,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Dsn=MongoODBC_sysOLTP2;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Dsn=CData MongoDB Source;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
