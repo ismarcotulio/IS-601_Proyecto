@@ -1,3 +1,45 @@
+DECLARE @Acumuladora MONEY,@salaryE INT, @prueba int
+	SET @salaryE = 33945
+	SET @prueba = (SELECT COUNT(*) FROM SALARY);
+	WHILE @salaryE <= @prueba
+	BEGIN
+		SET @Acumuladora = (SELECT mon_salary FROM SALARY_EMP SE 
+			INNER JOIN EMPLOYEES E ON
+			E.int_employee_id_PK=SE.int_employee_id_FK
+			INNER JOIN REGISTRATION_HIRES C ON
+			C.int_employee_id_FK=E.int_employee_id_PK
+			INNER JOIN CONTRACTS CO ON
+			C.int_contract_id_FK=CO.int_contract_id_PK
+			WHERE SE.int_salary_id_FK=@salaryE AND C.tin_typeRegistration_id_FK=1)
+		UPDATE SALARY SET mon_hourSalary = @Acumuladora/160 WHERE SALARY.int_salary_id_PK=@salaryE
+		SET @salaryE = @salaryE + 1;
+	END
+
+go
+
+DECLARE @Acumuladora MONEY,@salaryE INT, @prueba int
+	SET @salaryE = 104385
+	SET @prueba = (SELECT COUNT(*) FROM SALARY)
+	WHILE @salaryE<=@prueba
+	BEGIN
+		SET @Acumuladora = (SELECT mon_salary FROM CONTRACTS CO WHERE CO.int_contract_id_PK =(SELECT int_employee_id_FK FROM SALARY_EMP SE WHERE SE.int_salary_id_FK=@salaryE))
+		SET @Acumuladora = @Acumuladora + ISNULL((SELECT SUM(EX.tin_amount*SA.mon_hourSalary*(TY.flo_porcent/100)) 
+			FROM EXTRA_HOURS EX,SALARY SA,TYPE_HOURS TY 
+			WHERE EX.bit_payFactor=1 AND SA.int_salary_id_PK=@salaryE AND EX.int_salary_id_FK=@salaryE
+			AND EX.tin_hourType_id_FK=TY.tin_hourType_id_PK AND EX.int_salary_id_FK=SA.int_salary_id_PK),0)
+		SET @Acumuladora = @Acumuladora + ISNULL((SELECT SUM(MO.int_factor*MO.mon_amount) 
+		FROM SALARY SA,PAYMENT_MOVEMENT PM,MOVEMENT MO
+		WHERE PM.int_salary_id_PK_FK=SA.int_salary_id_PK AND PM.int_movement_id_PK_FK = MO.int_movement_id_PK
+		AND PM.bit_motionFactor=1 AND SA.int_salary_id_PK=@salaryE AND PM.int_salary_id_PK_FK=@salaryE),0)
+		UPDATE SALARY SET mon_netSalary = @Acumuladora WHERE SALARY.int_salary_id_PK=@salaryE;
+		SET @salaryE = @salaryE + 1;
+	END
+
+go
+
+
+
+
 CREATE PROCEDURE SalaryCalculate 
 AS  
 	DECLARE @Acumuladora MONEY,@salaryE INT
@@ -141,24 +183,23 @@ AS
 	END
 GO
 
-CREATE PROCEDURE MOVEMENT_PAY
+CREATE PROCEDURE MOVEMENT_PAY_PRUEBA
 AS
-	DECLARE @salary int, @Hours bit, @dateS DATE,@cant int;
-	SET @salary = 1;
+	DECLARE @salary int, @Hours bit, @dateS DATE,@cant int,@prueba int;
+	SET @salary = 298022;
 	SET @cant = (SELECT COUNT(*) FROM SALARY)
 	WHILE (@salary<=@cant)
 	BEGIN
 		SET @dateS = (SELECT dat_date FROM SALARY WHERE int_salary_id_PK=@salary)
 		INSERT INTO PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES (1,FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),@salary);
 		INSERT INTO PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES (1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-5)+5),@salary);
-		INSERT INTO PAYMENT_MOVEMENT(bit_motionFactor,int_movement_id_PK_FK,int_salary_id_PK_FK) VALUES (1,FLOOR(( SELECT rnd FROM vwRandom ) *(13-10)+10),@salary);
-		IF (FLOOR(( SELECT rnd FROM vwRandom ) *(10-1)+1)<=5)
+		SET @prueba = FLOOR(( SELECT rnd FROM vwRandom ) *(10-1)+1);
+		IF (@prueba<=5)
 		BEGIN
 			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
 			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
-			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
 		END
-		ELSE IF (FLOOR(( SELECT rnd FROM vwRandom ) *(10-1)+1)<=5)
+		ELSE IF (@prueba<=8)
 			INSERT INTO EXTRA_HOURS(dat_date,tin_amount,bit_payFactor,tin_hourType_id_FK,int_salary_id_FK) VALUES (DATEADD(DAY,(-1*FLOOR(( SELECT rnd FROM vwRandom ) *(30-1)+1)),@dateS),FLOOR(( SELECT rnd FROM vwRandom ) *(4-1)+1),1,FLOOR(( SELECT rnd FROM vwRandom ) *(9-1)+1),@salary);
 		SET @salary= @salary + 1;
 	END

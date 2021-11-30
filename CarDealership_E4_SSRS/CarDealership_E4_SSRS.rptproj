@@ -12,7 +12,7 @@
     <TargetDatasetFolder>Conjuntos de datos</TargetDatasetFolder>
     <TargetDatasourceFolder>Orígenes de datos</TargetDatasourceFolder>
     <TargetReportPartFolder>Elementos de informe</TargetReportPartFolder>
-    <TargetServerURL>http://localhost/reportserver</TargetServerURL>
+    <TargetServerURL>http://localhost/ReportServer1</TargetServerURL>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'DebugLocal' ">
     <FullPath>DebugLocal</FullPath>
@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Report Include="Total_de_ventas_por_fabricante_de_cada_año_segun_vendedores.rdl" />
+    <Report Include="Total_pago_de_salarios_por_sucursal_de_cada_mes.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
