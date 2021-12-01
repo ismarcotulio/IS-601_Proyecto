@@ -27,6 +27,16 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Pay_Per_Invoice.cube</Name>
+      <FullPath>Pay_Per_Invoice.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Pay_Per_Invoice.partitions</Name>
+          <FullPath>Pay_Per_Invoice.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
@@ -48,6 +58,22 @@
     <ProjectItem>
       <Name>DIM BRANCH OFFICE.dim</Name>
       <FullPath>DIM BRANCH OFFICE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM INVOICE.dim</Name>
+      <FullPath>DIM INVOICE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM CLIENT.dim</Name>
+      <FullPath>DIM CLIENT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM SERVICE TRANSACTION.dim</Name>
+      <FullPath>DIM SERVICE TRANSACTION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>FACT PAY PER INVOICE.dim</Name>
+      <FullPath>FACT PAY PER INVOICE.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

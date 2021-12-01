@@ -8,7 +8,7 @@
     <TransactionalDeployment>false</TransactionalDeployment>
     <PartitionDeployment>DeployPartitions</PartitionDeployment>
     <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
-    <ProcessingOption>Default</ProcessingOption>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
     <OutputScript></OutputScript>
     <ImpactAnalysisFile></ImpactAnalysisFile>
     <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
@@ -19,71 +19,106 @@
     <ObjectSnapshots>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
-        <TimeStamp>yxyCzbB3028vSk7Srq12NsibuBs=28/11/2021 23:36:1728/11/2021 19:47:08</TimeStamp>
+        <TimeStamp>Xi8aT5A/Dpe6kDDvlnUaRiC3kjI=30/11/2021 17:50:0430/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>Car Dealership OLAP1</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>j4o+yDhDAUSJKsBTd467F06mI+o=28/11/2021 23:34:4528/11/2021 17:57:52</TimeStamp>
+        <TimeStamp>QTVE9v3s+ibGQ96zdxsIOBfJABE=30/11/2021 18:27:5130/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>CarDealership_E3_SSAS</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>0qLHfpZZHYPx3ZdE2t+9zU9rnPo=28/11/2021 23:34:4528/11/2021 19:51:17</TimeStamp>
+        <TimeStamp>FzCxGksRJjOYAuZOA2waDdFB9Uw=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>DIM DATE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>ixdDaq8yWogarGdiJoiHwNHkyh4=28/11/2021 23:47:3828/11/2021 19:54:18</TimeStamp>
+        <TimeStamp>Q1oU/yHJ/wvQft6ujWqR9txKDFw=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>DIM SELLER</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>O8iv3Paga/uWly+cq7a706JDHDE=28/11/2021 23:47:0328/11/2021 19:54:18</TimeStamp>
+        <TimeStamp>7kjjUIh3Fk/ZI3XoE0hXdp9oS18=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>DIM VEHICLE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>DU7AyuwCBK6Ww3Qhvpf4EZIN434=28/11/2021 23:34:4528/11/2021 19:54:40</TimeStamp>
+        <TimeStamp>HPMn5JbtKbUURQUh4GOzHj1Qj7c=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>DIM EMPLOYEE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Aok8x8mqixfCAEDbydb44oZQk7A=28/11/2021 23:34:4528/11/2021 19:54:40</TimeStamp>
+        <TimeStamp>PuOyOxdbMnDya6xIF+Y5+vk11PQ=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>DIM BRANCH OFFICE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YzXGhJ/uTCoEHplzGqH9jSxwoKo=30/11/2021 18:28:5830/11/2021 17:09:37</TimeStamp>
+        <ID>
+          <String>DIM INVOICE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jIiMgVMY2lu96ikcCxQws1R55Ew=30/11/2021 18:28:5830/11/2021 17:09:37</TimeStamp>
+        <ID>
+          <String>DIM CLIENT</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZBEha+ft2zM0fcbITMDcj1nJqjw=30/11/2021 18:28:5830/11/2021 17:09:37</TimeStamp>
+        <ID>
+          <String>DIM SERVICE TRANSACTION</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>YIHV7YQBqE1uz8iYsBA8at9cTmI=30/11/2021 18:28:5830/11/2021 17:09:37</TimeStamp>
+        <ID>
+          <String>FACT PAY PER INVOICE</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>IfqK2/R3+EuPemjLRfCYK9IDv6I=28/11/2021 23:47:3828/11/2021 19:54:18kj46r1gurVwPWfaycyM/ePI/gfM=28/11/2021 23:34:4528/11/2021 19:54:18</TimeStamp>
+        <TimeStamp>rcfsi1YVvxw0vq98QIcWxJeeG4E=30/11/2021 18:28:5830/11/2021 16:45:28EzGqaO1wRs5rSA1YUJWKoZ+1hCU=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>Sell_Per_vehicle</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>YN7iTtmhPV0kpMDhtP75wWJ/GAk=28/11/2021 23:34:4528/11/2021 19:54:402n3xChEKDEDRoBdetQVr5tPIa2A=28/11/2021 23:34:4528/11/2021 19:54:40</TimeStamp>
+        <TimeStamp>0hc38EvYAfzusXVCWkGLUgLjOHU=30/11/2021 18:28:5830/11/2021 16:45:28EFP/dvChd/6X86HTLz4tNl5ULsw=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
         <ID>
           <String>Pay_Employee_Salary</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>uZh2nrKyLEE+nKFCoCUQ8MhEHNU=30/11/2021 18:28:5830/11/2021 17:09:37mka/JJFvlAC1OqcoRfdBR8qb6/g=30/11/2021 18:28:5830/11/2021 17:09:37</TimeStamp>
+        <ID>
+          <String>Pay_Per_Invoice</String>
         </ID>
       </ObjectSnapshot>
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>m9RHMIYXbTEadC/C73vTmRZ0hJ8=28/11/2021 23:34:4528/11/2021 19:47:08</TimeStamp>
+      <TimeStamp>RVww/AjxbxfqrNONrIb+ofA5sRE=30/11/2021 18:27:5130/11/2021 16:45:28</TimeStamp>
       <ID>
         <String>CarDealership_E3_SSAS</String>
       </ID>
@@ -92,5 +127,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-11-29T07:48:44.986667Z</LastDeployed>
+  <LastDeployed>2021-12-01T00:29:08.536667Z</LastDeployed>
 </DeploymentSnapshot>
