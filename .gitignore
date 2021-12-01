@@ -6,3 +6,18 @@ CarDealership_E2_ETLs/.vs/CarDealership_E2_ETLs/v16/.suo
 CarDealership_E2_ETLs/bin/Development/CarDealership_E2_ETLs.ispac
 
 CarDealership_E2_ETLs/CarDealership_E2_ETLs.dtproj
+*.ispac
+CarDealership_E2_ETLs/.vs/CarDealership_E2_ETLs/v16/.suo
+CarDealership_E2_ETLs/CarDealership_E2_ETLs.dtproj
+CarDealership_E2_ETLs/obj/Development/BuildLog.xml
+CarDealership_E2_ETLs/obj/Development/CarDealership_E2_ETLs.dtproj
+CarDealership_E3_SSAS/.vs/CarDealership_E3_SSAS/v16/.suo
+CarDealership_E3_SSAS/bin/CarDealership_E3_SSAS.asdatabase
+CarDealership_E3_SSAS/Car Dealership OLAP1.ds
+CarDealership_E3_SSAS/bin/CarDealership_E3_SSAS.configsettings
+CarDealership_E3_SSAS/CarDealership_E3_SSAS.database
+CarDealership_E3_SSAS/CarDealership_E3_SSAS.dsv
+CarDealership_E3_SSAS/DIM BRANCH OFFICE.dim
+CarDealership_E3_SSAS/DIM EMPLOYEE.dim
+CarDealership_E3_SSAS/DIM SELLER.dim
+CarDealership_E3_SSAS/obj/Development/LastBuilt.xml
