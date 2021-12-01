@@ -8,32 +8,32 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>Pay_Per_Invoice.cube</Name>
-      <FullPath>Pay_Per_Invoice.cube</FullPath>
+      <Name>Sell_Per_vehicle.cube</Name>
+      <FullPath>Sell_Per_vehicle.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>Pay_Per_Invoice.partitions</Name>
-          <FullPath>Pay_Per_Invoice.partitions</FullPath>
+          <Name>Sell_Per_vehicle.partitions</Name>
+          <FullPath>Sell_Per_vehicle.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
     <ProjectItem>
-      <Name>Sell_Per_Vehicle.cube</Name>
-      <FullPath>Sell_Per_Vehicle.cube</FullPath>
+      <Name>Pay_Employee_Salary.cube</Name>
+      <FullPath>Pay_Employee_Salary.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>Sell_Per_Vehicle.partitions</Name>
-          <FullPath>Sell_Per_Vehicle.partitions</FullPath>
+          <Name>Pay_Employee_Salary.partitions</Name>
+          <FullPath>Pay_Employee_Salary.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
     <ProjectItem>
-      <Name>Pay_Employee.cube</Name>
-      <FullPath>Pay_Employee.cube</FullPath>
+      <Name>Movement_Per_Vehicle.cube</Name>
+      <FullPath>Movement_Per_Vehicle.cube</FullPath>
       <Dependencies>
         <ProjectItem>
-          <Name>Pay_Employee.partitions</Name>
-          <FullPath>Pay_Employee.partitions</FullPath>
+          <Name>Movement_Per_Vehicle.partitions</Name>
+          <FullPath>Movement_Per_Vehicle.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
@@ -60,20 +60,8 @@
       <FullPath>DIM BRANCH OFFICE.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>FACT PAY PER INVOICE.dim</Name>
-      <FullPath>FACT PAY PER INVOICE.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM SELLER.dim</Name>
-      <FullPath>DIM SELLER.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM VEHICLE.dim</Name>
-      <FullPath>DIM VEHICLE.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM EMPLOYEE.dim</Name>
-      <FullPath>DIM EMPLOYEE.dim</FullPath>
+      <Name>DIM TYPE MOVEMENT.dim</Name>
+      <FullPath>DIM TYPE MOVEMENT.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

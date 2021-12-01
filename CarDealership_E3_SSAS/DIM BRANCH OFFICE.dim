@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d6a23ea0-1ad9-4740-89f1-ee91294c0e0a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="86034959-4da8-4bb0-b5fa-85566fc2a677" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DIM BRANCH OFFICE</ID>
   <Name>DIM BRANCH OFFICE</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -42,32 +42,153 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d95ecac8-aa71-411b-b50a-c62b0a976a8e">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="1af27046-7208-49bd-9acc-410bc4de67a8">
     <DataSourceViewID>CarDealership_E3_SSAS</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="ca011567-be94-46e3-8385-aeb3555595ca">
+  <ErrorConfiguration dwd:design-time-name="bfb89568-d5a2-4f7f-9d32-3854242f9cac">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="e08580b2-277b-42ae-81cb-281b780270c1">
+    <Attribute dwd:design-time-name="6b1293db-63dc-411b-84ee-0eefff9cac28">
       <ID>Id PK</ID>
       <Name>Id PK</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7b74425c-f1ce-487f-9889-a0a3588d9dc2">
+        <KeyColumn dwd:design-time-name="7559b874-ff3e-4a4a-a713-59c1c033d0fc">
           <DataType>UnsignedTinyInt</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="26e3189a-d70c-49d2-9230-d9e4ac1dc374">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bd1f4e89-ab6f-4d58-a472-425df3f3fe41">
             <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
             <ColumnID>Id_PK</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="fd57d788-bd22-4180-b640-d801e4812c12">
+          <AttributeID>Name</AttributeID>
+          <Name>Name_</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9d2483bc-1361-46c9-b52a-dc79e4a46d03">
+          <AttributeID>Country</AttributeID>
+          <Name>Country</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7942ef2c-bea0-44ff-aeb5-a83725db45a9">
+          <AttributeID>Departament</AttributeID>
+          <Name>Departament</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="53b9c538-7c89-44f5-9328-d60b018c0a79">
+          <AttributeID>City</AttributeID>
+          <Name>City</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ea811fef-37f4-42d4-b841-787d9d91d2b6">
+          <AttributeID>Suburn</AttributeID>
+          <Name>Suburn</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f298009c-5f7f-494a-8905-47563e2f6649">
+          <AttributeID>Reference</AttributeID>
+          <Name>Reference</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
       <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3de9328e-6230-46b4-9782-e9d19b4f9c0d">
+      <ID>Name</ID>
+      <Name>Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7c25cb56-faf8-4947-8232-0159f40d247a">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ad6e5fbc-6e8b-4022-986d-7be31269fcde">
+            <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
+            <ColumnID>name</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1d0d17ef-1bcd-4d10-9377-346aabaeea54">
+      <ID>Country</ID>
+      <Name>Country</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="83dcb017-865a-460b-9649-ac30e7ebb2ee">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2318d4fe-f5bd-4fff-b7c3-4e707e523776">
+            <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
+            <ColumnID>country</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="eb049197-645c-4e4c-be5e-76ab078b5997">
+      <ID>Departament</ID>
+      <Name>Departament</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7fd01f21-9d2d-4790-9b7f-2b69ee393848">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b86b685-a1fa-4509-b3aa-90babfea3770">
+            <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
+            <ColumnID>departament</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="80b1404a-fccd-43c2-894d-705443a82188">
+      <ID>City</ID>
+      <Name>City</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e9ef9ddf-5645-4557-b7aa-6b2dff0ff8c6">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f42ad1dd-115d-4994-abc4-d4c75679eb7f">
+            <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
+            <ColumnID>city</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f90f5d5c-90e0-4f91-8a34-c200f5d46d75">
+      <ID>Suburn</ID>
+      <Name>Suburn</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="baf18c3a-280f-4073-b9de-579149a64146">
+          <DataType>WChar</DataType>
+          <DataSize>60</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f5ef1597-63df-4f7d-b6fd-30a6bad4ef73">
+            <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
+            <ColumnID>suburn</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3baecb46-0a33-4312-9869-7c41debed6bc">
+      <ID>Reference</ID>
+      <Name>Reference</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6530b9e8-dd06-41d4-aa6b-b30de7ab33d4">
+          <DataType>WChar</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="30b3714b-a5ea-47aa-bafd-92c1ec848dff">
+            <TableID>dbo_DIM_BRANCH_OFFICE</TableID>
+            <ColumnID>reference</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
