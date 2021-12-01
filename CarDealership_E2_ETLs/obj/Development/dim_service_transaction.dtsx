@@ -11,8 +11,8 @@
   DTS:LocaleID="18442"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{20D53946-30BE-4998-9E1D-8F64E039B489}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{86D2C0C0-D0CB-4D26-854A-FD01D47EB913}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -55,13 +55,11 @@
                       cachedName="subtotal"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="4"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[discount]"
                       cachedDataType="ui1"
                       cachedName="discount"
-                      cachedSortKeyPosition="5"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[reduction]"
@@ -69,7 +67,6 @@
                       cachedName="reduction"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="6"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[total]"
@@ -77,7 +74,6 @@
                       cachedName="total"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="7"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[total_isv]"
@@ -85,13 +81,11 @@
                       cachedName="total_isv"
                       cachedPrecision="10"
                       cachedScale="2"
-                      cachedSortKeyPosition="8"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[limit_property]"
                       cachedDataType="dbDate"
                       cachedName="limit_property"
-                      cachedSortKeyPosition="9"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Conditional Split.Inputs[Conditional Split Input].Columns[D_subtotal]"
@@ -290,14 +284,12 @@
                       refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[start_date]"
                       cachedDataType="dbDate"
                       cachedName="start_date"
-                      cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[start_date]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[start_date]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[end_date]"
                       cachedDataType="dbDate"
                       cachedName="end_date"
-                      cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[end_date]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[end_date]" />
                     <inputColumn
@@ -306,14 +298,12 @@
                       cachedName="subtotal"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="4"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[subtotal]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[discount]"
                       cachedDataType="ui1"
                       cachedName="discount"
-                      cachedSortKeyPosition="5"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[discount]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]" />
                     <inputColumn
@@ -322,7 +312,6 @@
                       cachedName="reduction"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="6"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[reduction]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]" />
                     <inputColumn
@@ -331,7 +320,6 @@
                       cachedName="total"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="7"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]" />
                     <inputColumn
@@ -340,14 +328,12 @@
                       cachedName="total_isv"
                       cachedPrecision="10"
                       cachedScale="2"
-                      cachedSortKeyPosition="8"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_isv]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[limit_property]"
                       cachedDataType="dbDate"
                       cachedName="limit_property"
-                      cachedSortKeyPosition="9"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[limit_property]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]" />
                   </inputColumns>
@@ -437,11 +423,11 @@
                   dataType="System.Int32"
                   description="Specifies the type of join to perform."
                   name="JoinType"
-                  typeConverter="JoinType">2</property>
+                  typeConverter="JoinType">1</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the number of columns in the ordering key."
-                  name="NumKeyColumns">9</property>
+                  name="NumKeyColumns">1</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the null values are treated as equal values."
@@ -617,8 +603,7 @@
                       refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[start_date]"
                       dataType="dbDate"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[start_date]"
-                      name="start_date"
-                      sortKeyPosition="2">
+                      name="start_date">
                       <properties>
                         <property
                           containsID="true"
@@ -631,8 +616,7 @@
                       refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[end_date]"
                       dataType="dbDate"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[end_date]"
-                      name="end_date"
-                      sortKeyPosition="3">
+                      name="end_date">
                       <properties>
                         <property
                           containsID="true"
@@ -647,8 +631,7 @@
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]"
                       name="subtotal"
                       precision="10"
-                      scale="4"
-                      sortKeyPosition="4">
+                      scale="4">
                       <properties>
                         <property
                           containsID="true"
@@ -661,8 +644,7 @@
                       refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]"
                       dataType="ui1"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]"
-                      name="discount"
-                      sortKeyPosition="5">
+                      name="discount">
                       <properties>
                         <property
                           containsID="true"
@@ -677,8 +659,7 @@
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]"
                       name="reduction"
                       precision="10"
-                      scale="4"
-                      sortKeyPosition="6">
+                      scale="4">
                       <properties>
                         <property
                           containsID="true"
@@ -693,8 +674,7 @@
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]"
                       name="total"
                       precision="10"
-                      scale="4"
-                      sortKeyPosition="7">
+                      scale="4">
                       <properties>
                         <property
                           containsID="true"
@@ -709,8 +689,7 @@
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]"
                       name="total_isv"
                       precision="10"
-                      scale="2"
-                      sortKeyPosition="8">
+                      scale="2">
                       <properties>
                         <property
                           containsID="true"
@@ -723,8 +702,7 @@
                       refId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]"
                       dataType="dbDate"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]"
-                      name="limit_property"
-                      sortKeyPosition="9">
+                      name="limit_property">
                       <properties>
                         <property
                           containsID="true"
@@ -909,14 +887,12 @@
                       cachedName="subtotal"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="4"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[subtotal]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[discount]"
                       cachedDataType="ui1"
                       cachedName="discount"
-                      cachedSortKeyPosition="5"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[discount]" />
                     <inputColumn
@@ -925,7 +901,6 @@
                       cachedName="reduction"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="6"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[reduction]" />
                     <inputColumn
@@ -934,7 +909,6 @@
                       cachedName="total"
                       cachedPrecision="10"
                       cachedScale="4"
-                      cachedSortKeyPosition="7"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total]" />
                     <inputColumn
@@ -943,14 +917,12 @@
                       cachedName="total_isv"
                       cachedPrecision="10"
                       cachedScale="2"
-                      cachedSortKeyPosition="8"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[total_isv]" />
                     <inputColumn
                       refId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].Columns[limit_property]"
                       cachedDataType="dbDate"
                       cachedName="limit_property"
-                      cachedSortKeyPosition="9"
                       externalMetadataColumnId="Package\DIM_SERVICE_TRANSACTION\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\DIM_SERVICE_TRANSACTION\Merge Join.Outputs[Merge Join Output].Columns[limit_property]" />
                     <inputColumn

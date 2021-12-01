@@ -2,68 +2,68 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>CarDealership_E2_ETLs</Name>
-    <LastWriteTime>2021-12-01T05:33:16.3171377Z</LastWriteTime>
+    <LastWriteTime>2021-12-01T20:40:48.2336128Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>dim_seller.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.5132465Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.4071447Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_vehicle.dtsx</Name>
-      <LastWriteTime>2021-12-01T05:21:38.9858269Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.4111629Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_movement_type.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.511248Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.4051508Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>1_fact_sell_per_vehcile.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.4492857Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.3427385Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_employee.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.5062504Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.4001639Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_client.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.5042518Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.3981697Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_branch_office.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.5022529Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.3961781Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>2_fact_pay_employee_salary.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.453283Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T17:44:39.3473018Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_invoice.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.5092485Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T21:45:39.2792642Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>dim_service_transaction.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.5142455Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T21:45:39.2573216Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>3_fact_pay_per_invoice.dtsx</Name>
-      <LastWriteTime>2021-11-30T22:09:04.4672768Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T21:51:25.8854361Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>4_fact_movement_per_vehicle (1) (1).dtsx</Name>
-      <LastWriteTime>2021-12-01T05:36:32.5198316Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T20:40:48.2306199Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
