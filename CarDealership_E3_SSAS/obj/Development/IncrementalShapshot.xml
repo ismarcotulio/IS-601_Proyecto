@@ -26,42 +26,42 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.DataSourceView</Type>
-        <TimeStamp>QTVE9v3s+ibGQ96zdxsIOBfJABE=30/11/2021 18:27:5130/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>XMzK8VXEDhqOzrWaQ4Xl/qo5N6I=29/11/2021 13:33:0128/11/2021 17:57:52</TimeStamp>
         <ID>
           <String>CarDealership_E3_SSAS</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>FzCxGksRJjOYAuZOA2waDdFB9Uw=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>D+sfps2g7MWhYHvJkqfa+32cOjI=29/11/2021 13:33:1628/11/2021 19:51:17</TimeStamp>
         <ID>
           <String>DIM DATE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>Q1oU/yHJ/wvQft6ujWqR9txKDFw=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>InQv8p8vEUV3f3Uq93oxj0UAGrM=29/11/2021 13:33:1628/11/2021 19:54:18</TimeStamp>
         <ID>
           <String>DIM SELLER</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>7kjjUIh3Fk/ZI3XoE0hXdp9oS18=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>Ta7MHh109k8BGc79qNr0bPQEG8s=29/11/2021 13:33:1628/11/2021 19:54:18</TimeStamp>
         <ID>
           <String>DIM VEHICLE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>HPMn5JbtKbUURQUh4GOzHj1Qj7c=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>K2HF4/+DzcaU95eR0kySzN0VqlM=29/11/2021 13:33:1628/11/2021 19:54:40</TimeStamp>
         <ID>
           <String>DIM EMPLOYEE</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>PuOyOxdbMnDya6xIF+Y5+vk11PQ=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>V0JANLDtXp03RggT1Fi8ZWzcbNw=29/11/2021 13:33:1628/11/2021 19:54:40</TimeStamp>
         <ID>
           <String>DIM BRANCH OFFICE</String>
         </ID>
@@ -96,16 +96,16 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>rcfsi1YVvxw0vq98QIcWxJeeG4E=30/11/2021 18:28:5830/11/2021 16:45:28EzGqaO1wRs5rSA1YUJWKoZ+1hCU=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>K9fLXPFmUy/pW+HcsiZfjOz8m18=29/11/2021 13:36:3428/11/2021 19:54:40QEz4dte78YeNhEHVvDmPp1XwNM8=29/11/2021 13:36:3428/11/2021 19:54:40</TimeStamp>
         <ID>
-          <String>Sell_Per_vehicle</String>
+          <String>Pay_Employee_Salary</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>0hc38EvYAfzusXVCWkGLUgLjOHU=30/11/2021 18:28:5830/11/2021 16:45:28EFP/dvChd/6X86HTLz4tNl5ULsw=30/11/2021 18:28:5830/11/2021 16:45:28</TimeStamp>
+        <TimeStamp>GGvEJ4ocVfvF31hUmqcsi0idqJQ=29/11/2021 13:36:2529/11/2021 13:36:25Hp+5kVFGs0kFNYQV2+AC3unPNHY=29/11/2021 13:36:2529/11/2021 13:36:25</TimeStamp>
         <ID>
-          <String>Pay_Employee_Salary</String>
+          <String>sell_per_vehicle</String>
         </ID>
       </ObjectSnapshot>
       <ObjectSnapshot>
@@ -118,7 +118,7 @@
     </ObjectSnapshots>
     <DatabaseSnapshot>
       <Type>Microsoft.AnalysisServices.Database</Type>
-      <TimeStamp>RVww/AjxbxfqrNONrIb+ofA5sRE=30/11/2021 18:27:5130/11/2021 16:45:28</TimeStamp>
+      <TimeStamp>P+NppH/xKyMMGz0LYJBPDQ6mFJg=29/11/2021 13:33:0128/11/2021 19:47:08</TimeStamp>
       <ID>
         <String>CarDealership_E3_SSAS</String>
       </ID>
@@ -127,5 +127,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-12-01T00:29:08.536667Z</LastDeployed>
+  <LastDeployed>2021-11-29T19:51:57.393333Z</LastDeployed>
 </DeploymentSnapshot>

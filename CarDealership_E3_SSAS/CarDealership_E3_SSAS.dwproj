@@ -8,22 +8,22 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>Sell_Per_vehicle.cube</Name>
-      <FullPath>Sell_Per_vehicle.cube</FullPath>
-      <Dependencies>
-        <ProjectItem>
-          <Name>Sell_Per_vehicle.partitions</Name>
-          <FullPath>Sell_Per_vehicle.partitions</FullPath>
-        </ProjectItem>
-      </Dependencies>
-    </ProjectItem>
-    <ProjectItem>
       <Name>Pay_Employee_Salary.cube</Name>
       <FullPath>Pay_Employee_Salary.cube</FullPath>
       <Dependencies>
         <ProjectItem>
           <Name>Pay_Employee_Salary.partitions</Name>
           <FullPath>Pay_Employee_Salary.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>sell_per_vehicle.cube</Name>
+      <FullPath>sell_per_vehicle.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>sell_per_vehicle.partitions</Name>
+          <FullPath>sell_per_vehicle.partitions</FullPath>
         </ProjectItem>
       </Dependencies>
     </ProjectItem>

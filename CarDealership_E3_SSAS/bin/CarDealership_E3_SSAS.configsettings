@@ -42,19 +42,6 @@
     </Dimensions>
     <Cubes>
       <Cube>
-        <ID>Sell_Per_vehicle</ID>
-        <MeasureGroups>
-          <MeasureGroup>
-            <ID>FACT SELL PER VEHICLE</ID>
-            <Partitions>
-              <Partition>
-                <ID>FACT SELL PER VEHICLE</ID>
-              </Partition>
-            </Partitions>
-          </MeasureGroup>
-        </MeasureGroups>
-      </Cube>
-      <Cube>
         <ID>Pay_Employee_Salary</ID>
         <MeasureGroups>
           <MeasureGroup>
@@ -62,6 +49,19 @@
             <Partitions>
               <Partition>
                 <ID>FACT PAY EMPLOYEE SALARY</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>sell_per_vehicle</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>FACT SELL PER VEHICLE</ID>
+            <Partitions>
+              <Partition>
+                <ID>FACT SELL PER VEHICLE</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>

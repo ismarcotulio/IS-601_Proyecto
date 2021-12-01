@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>CarDealership_E2_ETLs</Name>
-    <LastWriteTime>2021-11-30T13:25:45.5827299Z</LastWriteTime>
+    <LastWriteTime>2021-12-01T03:05:56.3410511Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>1_fact_sell_per_vehcile.dtsx</Name>
-      <LastWriteTime>2021-11-30T13:25:45.5203298Z</LastWriteTime>
+      <LastWriteTime>2021-12-01T03:31:07.0223855Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>

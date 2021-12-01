@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="1332f110-c8df-40ea-b6b2-ba83780c1f8e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="9d22a5d9-7631-4009-b103-62917f324dca" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>DIM SELLER</ID>
   <Name>DIM SELLER</Name>
   <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
@@ -68,37 +68,37 @@
   </Annotations>
   <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="89885fe0-5fc6-46d2-983a-3c92cc0d961e">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="95bcb1fe-9925-46da-8103-d777fdb00f05">
     <DataSourceViewID>CarDealership_E3_SSAS</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="b79bc034-66cc-407c-a3cf-ba55f1096948">
+  <ErrorConfiguration dwd:design-time-name="a42f2ac6-50ae-4357-a22e-90c3f7592b2e">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="5b60f43d-b125-4f0e-be71-4fa108c4ccc3">
+    <Attribute dwd:design-time-name="d508bd29-7c5e-4706-ac61-a826b7cf5945">
       <ID>Id PK</ID>
       <Name>Id PK</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="dd7a7d7e-b83c-4191-be4c-b07f1d92d281">
+        <KeyColumn dwd:design-time-name="a7776bd5-9115-4aeb-b190-ab9dd7d2416f">
           <DataType>BigInt</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="db0addce-a0be-4c2e-8b05-698a6ca30e39">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9f6f3ca5-ecd6-491b-b5fd-40ffc7e495a7">
             <TableID>dbo_DIM_SELLER</TableID>
             <ColumnID>id_PK</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="3a3a7f89-8fc5-469c-86e6-4d54727ef07f">
+        <AttributeRelationship dwd:design-time-name="7cb3f3fc-db1b-4bfd-8598-0ee283f72ce8">
           <AttributeID>Seller</AttributeID>
           <Name>Seller</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="cd45c37f-71b6-47b7-8e70-11e237dfde01">
+        <AttributeRelationship dwd:design-time-name="4251651e-ec80-4316-b9e4-3120c49bcf95">
           <AttributeID>Sell Location</AttributeID>
           <Name>Sell Location</Name>
         </AttributeRelationship>
@@ -107,14 +107,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="05b4e6e5-8bcf-46f6-8614-733b7ecd6646">
+    <Attribute dwd:design-time-name="5e582313-04d0-49b8-ac53-85d076a69e04">
       <ID>Seller</ID>
       <Name>Seller</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="6ac5c4b1-5d2c-447a-80e2-2d638516be0e">
+        <KeyColumn dwd:design-time-name="1bf14fc6-8ce5-4695-a8aa-f2549a2ee71a">
           <DataType>WChar</DataType>
           <DataSize>80</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5f6ca994-077c-4441-9314-7160fb5df223">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bdb544e0-19f8-47a4-a818-f9134e9449c7">
             <TableID>dbo_DIM_SELLER</TableID>
             <ColumnID>seller</ColumnID>
           </Source>
@@ -123,14 +123,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="389abf0c-b3f4-4204-92fd-aa872644cafb">
+    <Attribute dwd:design-time-name="571b4898-9ba8-4da2-9313-acb89ed384f6">
       <ID>Sell Location</ID>
       <Name>Sell Location</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="0e942c93-6879-4804-b6d2-b22f39b3918c">
+        <KeyColumn dwd:design-time-name="6ab372b6-e7a3-409e-b924-e2ca2c72ae8e">
           <DataType>WChar</DataType>
           <DataSize>80</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e6344570-1084-4440-891d-2a6365b76aa7">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f02e702c-a11f-4552-9fc2-0e94388ff634">
             <TableID>dbo_DIM_SELLER</TableID>
             <ColumnID>sell_location</ColumnID>
           </Source>
