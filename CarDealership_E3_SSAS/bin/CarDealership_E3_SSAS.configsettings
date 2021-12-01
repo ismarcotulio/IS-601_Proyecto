@@ -6,7 +6,7 @@
         <ConnectionString>Provider=SQLNCLI11.1;Data Source=.;Integrated Security=SSPI;Initial Catalog=CarDealership_OLAP1</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateAccount</ImpersonationMode>
-          <Account xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Marco Ruiz</Account>
+          <Account xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">DESKTOP-FGNRHRP\Dayriela</Account>
           <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">PasswordRemoved</ImpersonationInfoSecurity>
         </ImpersonationInfo>
       </DataSource>
@@ -26,6 +26,9 @@
       </Dimension>
       <Dimension>
         <ID>DIM BRANCH OFFICE</ID>
+      </Dimension>
+      <Dimension>
+        <ID>DIM TYPE MOVEMENT</ID>
       </Dimension>
     </Dimensions>
     <Cubes>
@@ -50,6 +53,19 @@
             <Partitions>
               <Partition>
                 <ID>FACT PAY EMPLOYEE SALARY</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>Movement_Per_Vehicle</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>FACT MOVEMENT PER VEHICLE</ID>
+            <Partitions>
+              <Partition>
+                <ID>FACT MOVEMENT PER VEHICLE</ID>
               </Partition>
             </Partitions>
           </MeasureGroup>

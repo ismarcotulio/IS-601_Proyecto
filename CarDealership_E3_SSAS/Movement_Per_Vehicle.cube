@@ -1,0 +1,370 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3cd8b58f-5d85-4490-92aa-ac17082eecc5" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Movement_Per_Vehicle</ID>
+  <Name>Movement_Per_Vehicle</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="2ba64e70-26d6-4a38-8eb4-056643796602">
+      <ID>Dim Vehicle</ID>
+      <Name>Dim Vehicle</Name>
+      <DimensionID>DIM VEHICLE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="541c306c-6001-4b2a-9fb3-07845f3d44db">
+          <AttributeID>Vin</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1594a657-62f9-4a82-9c59-b846adb304bb">
+          <AttributeID>Craiglist Post Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bee8d27c-de65-4619-b71d-4371ca397785">
+          <AttributeID>Price</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ba9a3e14-b91c-4dce-9d43-53924db3ffc7">
+          <AttributeID>Engine</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6eae099d-d438-45e8-9174-e2e26801b0be">
+          <AttributeID>Brake System</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8516b5d6-148f-4dd9-a888-4e18eba79acc">
+          <AttributeID>Number Cylinders</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e959fd0a-cf7a-4195-b28a-1a6009703411">
+          <AttributeID>Displacement Cc</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f990f521-3823-4da3-aa91-46fbe3518e3b">
+          <AttributeID>Gvwr</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2e238545-7323-459d-a412-7a116c086145">
+          <AttributeID>Use State</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="17d2dc7d-eec8-481e-a165-2294c78acdb6">
+          <AttributeID>Model Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="17621e84-dba0-4098-8ec7-bb5a4b012876">
+          <AttributeID>Doors</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8a39207c-19cb-425f-bb89-99a3f41cf552">
+          <AttributeID>Color</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ff73337c-40c2-40c6-a8fb-ad355817a96a">
+          <AttributeID>Model</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="83bb7985-c0fe-410d-a8c2-b9086a821f88">
+          <AttributeID>Fuel Type</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2a69d7b1-bf0b-4afa-892d-43e2c11bf03e">
+          <AttributeID>Vehicle Type</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="296b4783-628f-43ae-a70e-7b825123129d">
+          <AttributeID>Transaction State</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="19dbfb6d-1b66-4fa5-aa95-9a015d1e0aab">
+          <AttributeID>Brand</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="93b84381-4607-4fdd-9619-1d9b52449cb1">
+          <AttributeID>Manufacturer</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0dc908c7-2099-4982-b479-fe2ff71a13b4">
+          <AttributeID>Body Class</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="a6236402-d273-4c12-aa0e-3ad9d63656c8">
+      <ID>Dim Type Movement</ID>
+      <Name>Dim Type Movement</Name>
+      <DimensionID>DIM TYPE MOVEMENT</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="167e92bd-4ed2-42c7-b71d-5e86b6f1a42d">
+          <AttributeID>Id PK</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c72a2fbd-2c46-4df1-92a3-638f308b2f31">
+      <ID>Dim Date</ID>
+      <Name>Dim Date</Name>
+      <DimensionID>DIM DATE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5b0ea1af-4bcb-4758-a615-64441844da25">
+          <AttributeID>Fecha</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="34c80165-2bb9-4470-a599-1d52e8954abe">
+          <AttributeID>Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="03019f62-55c3-42a5-abf9-7174b1b84b57">
+          <AttributeID>Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2dc3b4ff-2a70-4cc4-986f-d8ae4bb94e72">
+          <AttributeID>Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8c34e29e-52a0-4de7-8ddb-da2ca2897dbd">
+          <AttributeID>Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="707d1131-d76f-4a23-a081-9da11c9bb6fe">
+          <AttributeID>Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="467cdcd1-96aa-4f86-98c0-c7c88b9ddaa2">
+          <AttributeID>Diez Días</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="97b25c70-10da-48a3-8698-12aa3b65ed50">
+          <AttributeID>Semana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4bcb8895-7c63-40bd-8ae6-156c6c05eacf">
+          <AttributeID>Día Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5b94bc29-a0c1-4385-be5f-8a42abc24100">
+          <AttributeID>Día Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1fbb6d87-ffb3-4c83-80dd-b55955cfced0">
+          <AttributeID>Día Del Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8ff21b4a-1859-4f04-8c22-1ec16a634e7c">
+          <AttributeID>Día Del Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e7bc22e3-5cb6-4d2e-b505-a2684a17b492">
+          <AttributeID>Día Del Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="72bacc5d-98b5-4684-9806-ad184342fbbe">
+          <AttributeID>Día De Diez Días</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="498afd8c-e6d6-4215-b8f0-042978020a71">
+          <AttributeID>Día De La Semana</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b01b40ab-58c5-4fb0-8a4b-60f5ab995553">
+          <AttributeID>Semana Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1ecf8980-9797-40ce-b84c-00ac5994a4a1">
+          <AttributeID>Diez Días Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="db7de301-cb43-43b7-9d42-b1b9d1bc7b9f">
+          <AttributeID>Diez Días Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="93edc3a1-6c98-4365-9f45-3442b26bb7c9">
+          <AttributeID>Diez Días Del Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0673e239-86ff-4ec4-833a-1b11b6545e6b">
+          <AttributeID>Diez Días Del Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="55257fb0-6508-4686-8455-49e0297bb9aa">
+          <AttributeID>Diez Días Del Mes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="44d3804b-64fe-425d-adc4-08518145a34a">
+          <AttributeID>Mes Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e57a2624-237a-477d-887c-33143216a10d">
+          <AttributeID>Mes Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fddcef73-c11d-4cd7-92cd-04934c489479">
+          <AttributeID>Mes Del Cuatrimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="142da64f-673d-4849-bbee-6a29d7d54a9e">
+          <AttributeID>Mes Del Trimestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b9ece411-6ac8-473a-a4aa-ae5258b123c0">
+          <AttributeID>Trimestre Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3e3c3ed0-55fe-4bac-96ee-2b29c84a08b3">
+          <AttributeID>Trimestre Del Semestre</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2cc0daa0-7e9a-4906-ad4f-91f749879ed3">
+          <AttributeID>Cuatrimestre Del Año</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="48ff5d74-1d27-4574-8aab-895167253b0d">
+          <AttributeID>Semestre Del Año</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="315f2a9b-c5a3-433d-8377-181498903ca0">
+          <HierarchyID>Año -  Semestre -  Trimestre -  Mes -  Diez Días -  Fecha</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="80bec512-e79d-4d97-bd26-f44ee38f0d73">
+          <HierarchyID>Año -  Cuatrimestre -  Mes -  Diez Días -  Fecha</HierarchyID>
+        </Hierarchy>
+        <Hierarchy dwd:design-time-name="2a9c379e-9e12-4516-a4f9-8b45b7f7c6ba">
+          <HierarchyID>Año -  Semana -  Fecha</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="2f66a671-82b0-4a07-98a5-f86e01043ee5">
+      <ID>DIM BRANCH OFFICE</ID>
+      <Name>DIM BRANCH OFFICE</Name>
+      <DimensionID>DIM BRANCH OFFICE</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8b013c56-499b-47e1-a96c-60d040779fd5">
+          <AttributeID>Id PK</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d87d2326-93bf-4aa0-8580-8bcd34293cce">
+          <AttributeID>Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b132efe6-a779-4a2c-8d9b-b480c21c3d8c">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="36d33d68-00e0-4278-bae9-f0048b1bfdea">
+          <AttributeID>Departament</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e62b1419-3097-49db-86da-728562d821e1">
+          <AttributeID>City</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="aebb1790-1c17-47d8-b763-e2d4e4f4da80">
+          <AttributeID>Suburn</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="70e668f5-1cf4-4399-bc1d-9da6539c05e0">
+          <AttributeID>Reference</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="b05d3a2f-6696-488d-ba3b-9d57f796a0f5">
+      <ID>FACT MOVEMENT PER VEHICLE</ID>
+      <Name>FACT MOVEMENT PER VEHICLE</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="1f2d2b6a-25dc-471d-a285-ad7a0865fd8c">
+          <ID>Big Id PK</ID>
+          <Name>Big Id PK</Name>
+          <Source dwd:design-time-name="fff6d72e-4d6d-4004-8c92-5b0b74f28e25">
+            <DataType>BigInt</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="77a58dbe-529e-4e9d-8949-6e8085b72ff3">
+              <TableID>dbo_FACT_MOVEMENT_PER_VEHICLE</TableID>
+              <ColumnID>big_id_PK</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="5b09869f-9823-4dcd-b4ef-3d80040b5f28">
+          <ID>Recuento FACT MOVEMENT PER VEHICLE</ID>
+          <Name>Recuento FACT MOVEMENT PER VEHICLE</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="d0b9c760-ffc6-4fd3-9c3c-d45e0cee4780">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="71861a4e-7bce-4a1b-b290-28ab2eb53c11">
+              <TableID>dbo_FACT_MOVEMENT_PER_VEHICLE</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c970597a-58c7-4787-af41-f3ed1b02f281">
+          <CubeDimensionID>Dim Vehicle</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4570cf3c-314f-4790-a729-e09f13143f91">
+              <AttributeID>Vin</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="a5352f57-1c49-460f-822b-aa67b0c7c767">
+                  <DataType>WChar</DataType>
+                  <DataSize>45</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3d82b4d3-45ac-4931-9ecc-0e8cdcc37f5d">
+                    <TableID>dbo_FACT_MOVEMENT_PER_VEHICLE</TableID>
+                    <ColumnID>dim_vehicle_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a6857618-150e-4cf7-9775-a461da745c4a">
+          <CubeDimensionID>Dim Type Movement</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="0e220a12-04d9-4f90-a974-9a32c2b1f4bd">
+              <AttributeID>Id PK</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="37f1a3b1-0e0c-48dc-b6c4-1c4503bae448">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="3998da00-0ada-486c-a1d7-bf992e94b5dc">
+                    <TableID>dbo_FACT_MOVEMENT_PER_VEHICLE</TableID>
+                    <ColumnID>dim_type_movement_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="12bc2973-5693-47cf-8981-7e410b7fcd2e">
+          <CubeDimensionID>DIM BRANCH OFFICE</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="1bc67ba0-1b26-4cb9-b663-2fb48e386a07">
+              <AttributeID>Id PK</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8363085d-7dd7-4944-b234-6c75351edbb5">
+                  <DataType>UnsignedTinyInt</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fc2c14e5-7430-48d6-a534-4b8b64b6e17e">
+                    <TableID>dbo_FACT_MOVEMENT_PER_VEHICLE</TableID>
+                    <ColumnID>dim_branch_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="86fd26b6-89fe-4a85-823b-15931af8db8a">
+          <CubeDimensionID>Dim Date</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="192d082e-0072-4d07-9c65-2abf6be698c2">
+              <AttributeID>Fecha</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3e4a5cdc-0c9c-4ff7-a534-27a668103f27">
+                  <DataType>Date</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0266d87c-f50c-4e52-8346-d3c7015bff9f">
+                    <TableID>dbo_FACT_MOVEMENT_PER_VEHICLE</TableID>
+                    <ColumnID>dim_date_FK</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="0d10a954-1585-4264-ba69-fe72752e6d63">
+    <DataSourceViewID>CarDealership_E3_SSAS</DataSourceViewID>
+  </Source>
+</Cube>
