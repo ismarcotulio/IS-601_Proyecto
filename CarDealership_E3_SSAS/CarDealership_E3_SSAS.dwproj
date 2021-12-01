@@ -8,26 +8,6 @@
   </Database>
   <Cubes>
     <ProjectItem>
-      <Name>Pay_Employee_Salary.cube</Name>
-      <FullPath>Pay_Employee_Salary.cube</FullPath>
-      <Dependencies>
-        <ProjectItem>
-          <Name>Pay_Employee_Salary.partitions</Name>
-          <FullPath>Pay_Employee_Salary.partitions</FullPath>
-        </ProjectItem>
-      </Dependencies>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>sell_per_vehicle.cube</Name>
-      <FullPath>sell_per_vehicle.cube</FullPath>
-      <Dependencies>
-        <ProjectItem>
-          <Name>sell_per_vehicle.partitions</Name>
-          <FullPath>sell_per_vehicle.partitions</FullPath>
-        </ProjectItem>
-      </Dependencies>
-    </ProjectItem>
-    <ProjectItem>
       <Name>Pay_Per_Invoice.cube</Name>
       <FullPath>Pay_Per_Invoice.cube</FullPath>
       <Dependencies>
@@ -37,11 +17,51 @@
         </ProjectItem>
       </Dependencies>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Sell_Per_Vehicle.cube</Name>
+      <FullPath>Sell_Per_Vehicle.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Sell_Per_Vehicle.partitions</Name>
+          <FullPath>Sell_Per_Vehicle.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Pay_Employee.cube</Name>
+      <FullPath>Pay_Employee.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Pay_Employee.partitions</Name>
+          <FullPath>Pay_Employee.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
   </Cubes>
   <Dimensions>
     <ProjectItem>
       <Name>DIM DATE.dim</Name>
       <FullPath>DIM DATE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM CLIENT.dim</Name>
+      <FullPath>DIM CLIENT.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM INVOICE.dim</Name>
+      <FullPath>DIM INVOICE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM SERVICE TRANSACTION.dim</Name>
+      <FullPath>DIM SERVICE TRANSACTION.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DIM BRANCH OFFICE.dim</Name>
+      <FullPath>DIM BRANCH OFFICE.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>FACT PAY PER INVOICE.dim</Name>
+      <FullPath>FACT PAY PER INVOICE.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>DIM SELLER.dim</Name>
@@ -54,26 +74,6 @@
     <ProjectItem>
       <Name>DIM EMPLOYEE.dim</Name>
       <FullPath>DIM EMPLOYEE.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM BRANCH OFFICE.dim</Name>
-      <FullPath>DIM BRANCH OFFICE.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM INVOICE.dim</Name>
-      <FullPath>DIM INVOICE.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM CLIENT.dim</Name>
-      <FullPath>DIM CLIENT.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DIM SERVICE TRANSACTION.dim</Name>
-      <FullPath>DIM SERVICE TRANSACTION.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>FACT PAY PER INVOICE.dim</Name>
-      <FullPath>FACT PAY PER INVOICE.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>

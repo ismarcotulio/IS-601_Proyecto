@@ -1,7 +1,7 @@
 USE [CarDealership_OLAP1]
 GO
 
-/****** Object:  Table [dbo].[DIM_INVOICE]    Script Date: 28/11/2021 15:16:33 ******/
+/****** Object:  Table [dbo].[DIM_INVOICE]    Script Date: 1/12/2021 10:55:38 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,14 +14,8 @@ CREATE TABLE [dbo].[DIM_INVOICE](
 	[deadline] [date] NULL,
 	[correlative_number] [int] NULL,
 	[document_type] [nvarchar](60) NULL,
-	[document_type_number] [int] NULL,
 	[printing_authorization_number] [nvarchar](16) NULL,
-	[printing_code] [nvarchar](14) NULL,
 	[emission_point_number] [int] NULL,
-	[emission_point_modality] [nvarchar](255) NULL,
-	[starting_range] [int] NULL,
-	[final_range] [int] NULL,
-	[current_number] [int] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[id_PK] ASC

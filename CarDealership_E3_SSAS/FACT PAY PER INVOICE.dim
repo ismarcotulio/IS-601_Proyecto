@@ -1,8 +1,8 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f98be021-2598-497c-bd13-2889502b85da" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d369be09-d394-4e38-8551-2d4f98e93034" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>FACT PAY PER INVOICE</ID>
   <Name>FACT PAY PER INVOICE</Name>
-  <CreatedTimestamp>0001-01-01T06:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T06:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -40,108 +40,64 @@
       <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T06:00:00Z</LastProcessed>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="5d28d2c4-aa4f-4c5a-8710-a9ad14dd5e9c">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="0e8912f3-fcf6-4114-881b-1a8d9be24bd4">
     <DataSourceViewID>CarDealership_E3_SSAS</DataSourceViewID>
   </Source>
-  <ErrorConfiguration dwd:design-time-name="df4ea5cd-6471-40ac-be3c-825c38a0ecb9">
+  <ErrorConfiguration dwd:design-time-name="f397ac53-0829-4172-9d50-4c4dd9d1904a">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="1dd9a127-78a3-4823-ab60-3633d5b4045f">
-      <ID>Branch Office FK</ID>
-      <Name>Branch Office FK</Name>
+    <Attribute dwd:design-time-name="e52381e0-2643-46b2-a5d1-d96b8937335b">
+      <ID>Payment Id</ID>
+      <Name>Payment Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="edd7b012-c89f-4513-8b6b-27d7534bc848">
-          <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="6112e0c9-49bb-42e5-997a-f64bb9332d91">
-            <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-            <ColumnID>branch_office_FK</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="a40fce24-9f26-4b29-97b6-478c387b5aad">
+        <KeyColumn dwd:design-time-name="83482ffc-514e-4765-89ae-876f25a91be6">
           <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1eab90ad-7703-499c-b3ed-0a45a765571a">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a0954128-c1bd-4d57-9b97-a4cfa004e761">
             <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-            <ColumnID>service_transaction_FK</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="20627187-a3bb-4785-b7d2-062a825e9ea7">
-          <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="35746a92-495d-412b-a57c-b0b9a1b84b84">
-            <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-            <ColumnID>client_FK</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="887b53ce-c47d-4f92-bb6c-6e7a0018adcf">
-          <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="c66c9d0e-647c-44c3-9c20-f3a938257e5e">
-            <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-            <ColumnID>invoice_FK</ColumnID>
+            <ColumnID>payment_id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="c52d88ce-046e-469e-83cb-7616725da53f">
-        <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="e83a3359-4844-4c8c-a381-b7e6d2a0a494">
-          <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-          <ColumnID>branch_office_FK</ColumnID>
-        </Source>
-      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="ba51d766-38f9-487e-bb5b-fe6421262585">
-          <AttributeID>Invoice FK</AttributeID>
-          <Name>Invoice FK</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="5741be4d-ba02-4f7c-8382-c6fcde479943">
+        <AttributeRelationship dwd:design-time-name="2f617bec-0150-4e53-8bbc-717e5408b0fb">
           <AttributeID>Client FK</AttributeID>
           <Name>Client FK</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="310b064d-4a33-49f6-9285-a6808bdfcee2">
-          <AttributeID>FACT PAY PER INVOICE - Branch Office FK</AttributeID>
-          <Name>FACT PAY PER INVOICE - Branch Office FK</Name>
+        <AttributeRelationship dwd:design-time-name="c0eced6e-0b86-48e1-a0d2-03599f00c0f4">
+          <AttributeID>Invoice FK</AttributeID>
+          <Name>Invoice FK</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="90a2ddab-3f5c-44e7-bf30-76905a0081f3">
+        <AttributeRelationship dwd:design-time-name="062923cf-054b-4457-8543-a5d602c56a99">
           <AttributeID>Service Transaction FK</AttributeID>
           <Name>Service Transaction FK</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="78bc8280-8597-4829-b45f-d2b216bc372a">
+        <AttributeRelationship dwd:design-time-name="d46f2cb5-71b9-470a-a780-9038a86aa596">
+          <AttributeID>Branch Office FK</AttributeID>
+          <Name>Branch Office FK</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c6384be7-dc3f-4825-933d-21ad30dadfad">
           <AttributeID>Date FK</AttributeID>
           <Name>Date FK</Name>
         </AttributeRelationship>
       </AttributeRelationships>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
-    <Attribute dwd:design-time-name="137a2a38-58ac-4353-a35a-eddb5094214c">
-      <ID>Invoice FK</ID>
-      <Name>Invoice FK</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="349e2e41-5b23-4669-889e-8aca33de7fe5">
-          <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="f5b3c525-a7ef-44b8-95c1-285c80619750">
-            <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-            <ColumnID>invoice_FK</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
       <OrderBy>Key</OrderBy>
-      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="4c84e0ba-79ed-47b1-aa56-8891e4df3d2a">
+    <Attribute dwd:design-time-name="e6e4250a-9152-4b16-96e7-2a09e475baee">
       <ID>Client FK</ID>
       <Name>Client FK</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="0562c514-a145-4fa1-98fa-dc52346dd038">
+        <KeyColumn dwd:design-time-name="504a235c-0d3e-4893-a154-a8c6cd0381c2">
           <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="78a5622a-9133-47ab-a671-7161d318c33f">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dd24f706-9ed3-4536-9a79-675968a2127b">
             <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
             <ColumnID>client_FK</ColumnID>
           </Source>
@@ -152,15 +108,15 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="83e6f11c-96c3-45e4-9fdb-053870c4fdbe">
-      <ID>FACT PAY PER INVOICE - Branch Office FK</ID>
-      <Name>FACT PAY PER INVOICE - Branch Office FK</Name>
+    <Attribute dwd:design-time-name="9dec6ac8-fa0a-41cb-96f1-f3225ef0c03e">
+      <ID>Invoice FK</ID>
+      <Name>Invoice FK</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="8728ecdb-ffd1-4bb9-91ea-03aa4fd84082">
-          <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5a0fcb92-63a6-4d16-a132-727ba9f24552">
+        <KeyColumn dwd:design-time-name="ebb431aa-473a-4120-bc58-e4776e68a2e8">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f152ad6b-8090-429f-ae78-cc8547a8d6ce">
             <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
-            <ColumnID>branch_office_FK</ColumnID>
+            <ColumnID>invoice_FK</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
@@ -169,13 +125,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="3dd44849-fe8c-4822-a438-06979f7a0905">
+    <Attribute dwd:design-time-name="7043597a-2865-45e2-a12e-a36488fade85">
       <ID>Service Transaction FK</ID>
       <Name>Service Transaction FK</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="50b5ea1e-316e-4b1b-8ac3-062c0565817b">
+        <KeyColumn dwd:design-time-name="a123799b-3259-43b0-9e46-1bf401da76a7">
           <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="6cee424d-7ede-4ccd-8f37-84cb8bc65e95">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c63a2896-91e8-4d49-af81-819e06b12d6a">
             <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
             <ColumnID>service_transaction_FK</ColumnID>
           </Source>
@@ -186,13 +142,30 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="6b4fbd14-4e45-4062-aba1-4f8b8b126fd5">
+    <Attribute dwd:design-time-name="e98e843a-505b-40ac-af33-46a5efa72bb4">
+      <ID>Branch Office FK</ID>
+      <Name>Branch Office FK</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="94f412ca-1f22-4523-9f85-45aa10010cc3">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="291d49fc-62ef-4da6-afc1-f1208b2d8efb">
+            <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
+            <ColumnID>branch_office_FK</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9eb1ebae-be11-475c-bd6c-16e65bdea775">
       <ID>Date FK</ID>
       <Name>Date FK</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="13ecd28d-fcb1-4840-9f8e-ee67f57e246e">
+        <KeyColumn dwd:design-time-name="ff2ad3d2-64c4-48b8-8411-c362ec3c0e77">
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0a601e98-59e7-4350-ac2f-325e3171ad17">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="557eff9a-51cf-43bb-8f96-4ea7da6d22d2">
             <TableID>dbo_FACT_PAY_PER_INVOICE</TableID>
             <ColumnID>date_FK</ColumnID>
           </Source>
